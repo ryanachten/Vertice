@@ -1,0 +1,213 @@
+<MetaPipeCollections>
+  <MetaPipeCollection name="Photogrammetry Test">
+    <CollectionInfo>
+      <CollectionCreator>Ryan Achten</CollectionCreator>
+      <CollectionDate>29/11/2015</CollectionDate>
+      <CollectionDescription>A museum is distinguished by a collection of often unique objects that forms the core of its activities for exhibitions, education, research, etc.</CollectionDescription>
+    </CollectionInfo>
+    <MetaPipeObject name="Evans Bay Wharf">
+      <ObjTransformInfo>
+        <ObjPosition>
+          <ObjPosX>40.01599</ObjPosX>
+          <ObjPosY>-11.58916</ObjPosY>
+          <ObjPosZ>184.2516</ObjPosZ>
+        </ObjPosition>
+        <ObjRotation>
+          <ObjRotateX>2.871543E-07</ObjRotateX>
+          <ObjRotateY>-7.172732E-06</ObjRotateY>
+          <ObjRotateZ>2.647873E-07</ObjRotateZ>
+        </ObjRotation>
+        <ObjScale>
+          <ObjScaleX>1</ObjScaleX>
+          <ObjScaleY>1</ObjScaleY>
+          <ObjScaleZ>1</ObjScaleZ>
+        </ObjScale>
+      </ObjTransformInfo>
+    </MetaPipeObject>
+    <MetaPipeObject name="Cog Wheel Evans Bay">
+      <ObjTransformInfo>
+        <ObjPosition>
+          <ObjPosX>-61.25173</ObjPosX>
+          <ObjPosY>-12.86976</ObjPosY>
+          <ObjPosZ>39.5129</ObjPosZ>
+        </ObjPosition>
+        <ObjRotation>
+          <ObjRotateX>-0.001511671</ObjRotateX>
+          <ObjRotateY>0.04385883</ObjRotateY>
+          <ObjRotateZ>0.01296486</ObjRotateZ>
+        </ObjRotation>
+        <ObjScale>
+          <ObjScaleX>1</ObjScaleX>
+          <ObjScaleY>1</ObjScaleY>
+          <ObjScaleZ>1</ObjScaleZ>
+        </ObjScale>
+      </ObjTransformInfo>
+    </MetaPipeObject>
+    <MetaPipeObject name="Evans Boat House">
+      <ObjTransformInfo>
+        <ObjPosition>
+          <ObjPosX>-65.33916</ObjPosX>
+          <ObjPosY>-8.744591</ObjPosY>
+          <ObjPosZ>126.5536</ObjPosZ>
+        </ObjPosition>
+        <ObjRotation>
+          <ObjRotateX>-0.005366722</ObjRotateX>
+          <ObjRotateY>0.7899417</ObjRotateY>
+          <ObjRotateZ>0.006911641</ObjRotateZ>
+        </ObjRotation>
+        <ObjScale>
+          <ObjScaleX>1</ObjScaleX>
+          <ObjScaleY>1</ObjScaleY>
+          <ObjScaleZ>1</ObjScaleZ>
+        </ObjScale>
+      </ObjTransformInfo>
+    </MetaPipeObject>
+    <MetaPipeObject name="Cricket Monument">
+      <ObjTransformInfo>
+        <ObjPosition>
+          <ObjPosX>61.16817</ObjPosX>
+          <ObjPosY>-8.586862</ObjPosY>
+          <ObjPosZ>44.03521</ObjPosZ>
+        </ObjPosition>
+        <ObjRotation>
+          <ObjRotateX>0.002390777</ObjRotateX>
+          <ObjRotateY>0.9999844</ObjRotateY>
+          <ObjRotateZ>-0.003106454</ObjRotateZ>
+        </ObjRotation>
+        <ObjScale>
+          <ObjScaleX>1</ObjScaleX>
+          <ObjScaleY>1</ObjScaleY>
+          <ObjScaleZ>1</ObjScaleZ>
+        </ObjScale>
+      </ObjTransformInfo>
+    </MetaPipeObject>
+    <MetaPipeObject name="Doll Head">
+      <ObjTransformInfo>
+        <ObjPosition>
+          <ObjPosX>1.921084</ObjPosX>
+          <ObjPosY>-13.04464</ObjPosY>
+          <ObjPosZ>158.9712</ObjPosZ>
+        </ObjPosition>
+        <ObjRotation>
+          <ObjRotateX>0.02416938</ObjRotateX>
+          <ObjRotateY>-0.002134346</ObjRotateY>
+          <ObjRotateZ>3.243667E-06</ObjRotateZ>
+        </ObjRotation>
+        <ObjScale>
+          <ObjScaleX>1</ObjScaleX>
+          <ObjScaleY>1</ObjScaleY>
+          <ObjScaleZ>1</ObjScaleZ>
+        </ObjScale>
+      </ObjTransformInfo>
+    </MetaPipeObject>
+    <MetaPipeObject name="Buddha Head">
+      <ObjTransformInfo>
+        <ObjPosition>
+          <ObjPosX>0</ObjPosX>
+          <ObjPosY>-10365.35</ObjPosY>
+          <ObjPosZ>80.99997</ObjPosZ>
+        </ObjPosition>
+        <ObjRotation>
+          <ObjRotateX>0</ObjRotateX>
+          <ObjRotateY>0</ObjRotateY>
+          <ObjRotateZ>0</ObjRotateZ>
+        </ObjRotation>
+        <ObjScale>
+          <ObjScaleX>1</ObjScaleX>
+          <ObjScaleY>1</ObjScaleY>
+          <ObjScaleZ>1</ObjScaleZ>
+        </ObjScale>
+      </ObjTransformInfo>
+    </MetaPipeObject>
+  </MetaPipeCollection>
+  <MetaPipeCollection name="Buddha Test">
+    <CollectionInfo>
+      <CollectionCreator />
+      <CollectionDate>04/12/2015</CollectionDate>
+      <CollectionDescription>Buddha Test Collection</CollectionDescription>
+    </CollectionInfo>
+    <MetaPipeObject name="Buddha Head">
+      <ObjTransformInfo>
+        <ObjPosition>
+          <ObjPosX>-6.484484</ObjPosX>
+          <ObjPosY>-5.999774</ObjPosY>
+          <ObjPosZ>-14.18381</ObjPosZ>
+        </ObjPosition>
+        <ObjRotation>
+          <ObjRotateX>9.91741E-08</ObjRotateX>
+          <ObjRotateY>1.509512E-05</ObjRotateY>
+          <ObjRotateZ>4.446687E-08</ObjRotateZ>
+        </ObjRotation>
+        <ObjScale>
+          <ObjScaleX>1</ObjScaleX>
+          <ObjScaleY>1</ObjScaleY>
+          <ObjScaleZ>1</ObjScaleZ>
+        </ObjScale>
+      </ObjTransformInfo>
+    </MetaPipeObject>
+  </MetaPipeCollection>
+  <MetaPipeCollection name="Doogies">
+    <CollectionInfo>
+      <CollectionCreator>Doobsta</CollectionCreator>
+      <CollectionDate>17/02/2016</CollectionDate>
+      <CollectionDescription>Doooog colllect</CollectionDescription>
+    </CollectionInfo>
+    <MetaPipeObject name="Doogsta">
+      <ObjTransformInfo>
+        <ObjPosition>
+          <ObjPosX>20</ObjPosX>
+          <ObjPosY>-5.025391</ObjPosY>
+          <ObjPosZ>10</ObjPosZ>
+        </ObjPosition>
+        <ObjRotation>
+          <ObjRotateX>3.898974E-09</ObjRotateX>
+          <ObjRotateY>6.549833E-06</ObjRotateY>
+          <ObjRotateZ>2.738294E-09</ObjRotateZ>
+        </ObjRotation>
+        <ObjScale>
+          <ObjScaleX>1</ObjScaleX>
+          <ObjScaleY>1</ObjScaleY>
+          <ObjScaleZ>1</ObjScaleZ>
+        </ObjScale>
+      </ObjTransformInfo>
+    </MetaPipeObject>
+    <MetaPipeObject name="Doogsta">
+      <ObjTransformInfo>
+        <ObjPosition>
+          <ObjPosX />
+          <ObjPosY />
+          <ObjPosZ />
+        </ObjPosition>
+        <ObjRotation>
+          <ObjRotateX />
+          <ObjRotateY />
+          <ObjRotateZ />
+        </ObjRotation>
+        <ObjScale>
+          <ObjScaleX />
+          <ObjScaleY />
+          <ObjScaleZ />
+        </ObjScale>
+      </ObjTransformInfo>
+    </MetaPipeObject>
+    <MetaPipeObject name="Doogsta">
+      <ObjTransformInfo>
+        <ObjPosition>
+          <ObjPosX />
+          <ObjPosY />
+          <ObjPosZ />
+        </ObjPosition>
+        <ObjRotation>
+          <ObjRotateX />
+          <ObjRotateY />
+          <ObjRotateZ />
+        </ObjRotation>
+        <ObjScale>
+          <ObjScaleX />
+          <ObjScaleY />
+          <ObjScaleZ />
+        </ObjScale>
+      </ObjTransformInfo>
+    </MetaPipeObject>
+  </MetaPipeCollection>
+</MetaPipeCollections>

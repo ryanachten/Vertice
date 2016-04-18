@@ -1,0 +1,428 @@
+<MetaPipeObjects>
+  <MetaPipeObject name="monkey">
+    <FileName>monkey.obj</FileName>
+    <MeshLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/monkey.obj</MeshLocation>
+    <TexLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline/Assets/Materials/uv_check_512px.jpg</TexLocation>
+    <ContribName>Ryan Achten</ContribName>
+    <ContribDate>08/09/2015</ContribDate>
+    <Description>Default monkey head sourced from Blender. Used for trial purposes due to it's low polygon count</Description>
+    <ModelInfo>
+      <ModelCreator>Ryan Achten</ModelCreator>
+      <ModelCreateDate>30/50/2205</ModelCreateDate>
+      <ModelCreateType>Design</ModelCreateType>
+      <DesignInfo>
+        <DesignCreation>
+          <DesignCreationField>Animation</DesignCreationField>
+        </DesignCreation>
+      </DesignInfo>
+    </ModelInfo>
+    <ContextualInfo>
+      <ContextMedia>
+        <MediaName>uv_check_512px</MediaName>
+        <MediaType>Image</MediaType>
+        <MediaLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline/Assets/Materials/uv_check_512px.jpg</MediaLocation>
+      </ContextMedia>
+      <ContextMedia>
+        <MediaName>uv_check_1024px</MediaName>
+        <MediaType>Image</MediaType>
+        <MediaLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline/Assets/Materials/uv_check_1024px.jpg</MediaLocation>
+      </ContextMedia>
+      <ContextMedia>
+        <MediaName>WorldACoke</MediaName>
+        <MediaType>Video</MediaType>
+        <MediaLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline/Assets/Materials/WorldACoke.ogg</MediaLocation>
+      </ContextMedia>
+    </ContextualInfo>
+  </MetaPipeObject>
+  <MetaPipeObject name="Buddha Head">
+    <FileName>PhotogramBuddha09.obj</FileName>
+    <MeshLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_Buddha/PhotogramBuddha09/PhotogramBuddha09.obj</MeshLocation>
+    <TexLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_Buddha/PhotogramBuddha05/PhotogramBuddha.jpg</TexLocation>
+    <ContribName>Ryan Achten</ContribName>
+    <ContribDate>01/10/2015</ContribDate>
+    <Description>4 faced Buddha head; can't remember the actual details about this. Brought back from China in 2013. Phra Phrom (Thai: พระพรหม; from Sanskrit: Para Brahma) is the Thai representation of the deva Brahma,[1] honoured in Thai Hindu traditions. Phra Phrom is also worshipped in Chinese folk religion as the Four-Faced God (Chinese: 四面神; pinyin: Sìmiànshén) or Four-Faced Awakened One (Chinese: 四面佛; pinyin: Sìmiànfó).Worshipers of the god usually offer incense, candles, jasmine flowers or jasmine garlands and young coconut milk (with water in them) in their worship, usually placing these offerings before all four heads of Phra Phrom, each head representing a different aspect of the deity; it is believed each side of Phra Phrom offers different blessings. Another common way of worship is to place wooden elephant statues on the altar to honor him. Phra Phrom is also known to admire Thai classical music, which is played near larger scale outdoor altars, accompanied by dancers. For a small fee, the dancers include worshiper's name into the songs they sing while dancing. </Description>
+    <ModelInfo>
+      <ModelCreator>
+      </ModelCreator>
+      <ModelCreateDate>05/06/2015</ModelCreateDate>
+      <ModelCreateType>Photogrammetric</ModelCreateType>
+      <PhotogramInfo>
+        <PhotogramLocation>
+          <PhotogramLocationName>Home Scan</PhotogramLocationName>
+        </PhotogramLocation>
+      </PhotogramInfo>
+    </ModelInfo>
+    <ContextualInfo>
+      <ContextMedia>
+        <MediaName>uv_check_512px</MediaName>
+        <MediaType>Image</MediaType>
+        <MediaLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline/Assets/Materials/uv_check_512px.jpg</MediaLocation>
+      </ContextMedia>
+      <ContextMedia>
+        <MediaName>WorldACoke</MediaName>
+        <MediaType>Video</MediaType>
+        <MediaLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline/Assets/Materials/WorldACoke.ogg</MediaLocation>
+      </ContextMedia>
+      <ContextMedia>
+        <MediaName>ambiali_5</MediaName>
+        <MediaType>Audio</MediaType>
+        <MediaLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline/Assets/ContextTestAssets/ambiali_5.ogg</MediaLocation>
+      </ContextMedia>
+    </ContextualInfo>
+  </MetaPipeObject>
+  <MetaPipeObject name="DeerMan01">
+    <FileName>TestObj_DoprahDeer02_C4D.obj</FileName>
+    <MeshLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_DoprahDeer/DoprahDeer02/TestObj_DoprahDeer02_C4D.obj</MeshLocation>
+    <TexLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_DoprahDeer/DoprahDeer05/TestObj_DoprahDeer_tex.jpg</TexLocation>
+    <ContribName>Ryan Achten</ContribName>
+    <ContribDate>03/10/2015</ContribDate>
+    <Description>3D model created for the artwork of New Zealand band, Dorpah, and their second release 'Wasting'</Description>
+    <ModelInfo>
+      <ModelCreator>Ryan Achten</ModelCreator>
+      <ModelCreateDate>22/12/2014</ModelCreateDate>
+      <ModelCreateType>Design</ModelCreateType>
+      <DesignInfo>
+        <DesignCreation>
+          <DesignCreationField>Graphic Design</DesignCreationField>
+        </DesignCreation>
+      </DesignInfo>
+    </ModelInfo>
+    <ContextualInfo>
+      <ContextMedia>
+        <MediaName>DoprahWasting_FinalCovers01_B-Side-Cover_sml</MediaName>
+        <MediaType>Image</MediaType>
+        <MediaLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_DoprahDeer/TestObj_DoprahDeer_AlbumArtwork/DoprahWasting_FinalCovers01_B-Side-Cover_sml.jpg</MediaLocation>
+      </ContextMedia>
+      <ContextMedia>
+        <MediaName>DoprahWasting_FinalCovers01_Lucid-Visions-Single_sml</MediaName>
+        <MediaType>Image</MediaType>
+        <MediaLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_DoprahDeer/TestObj_DoprahDeer_AlbumArtwork/DoprahWasting_FinalCovers01_Lucid-Visions-Single_sml.jpg</MediaLocation>
+      </ContextMedia>
+      <ContextMedia>
+        <MediaName>DoprahWasting_FinalCovers01_Lucid-Visions-Single_sml</MediaName>
+        <MediaType>Image</MediaType>
+        <MediaLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_DoprahDeer/TestObj_DoprahDeer_AlbumArtwork/DoprahWasting_FinalCovers01_Lucid-Visions-Single_sml.jpg</MediaLocation>
+      </ContextMedia>
+      <ContextMedia>
+        <MediaName>DoprahWasting_FinalCovers01_Wasting Album Cover</MediaName>
+        <MediaType>Image</MediaType>
+        <MediaLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_DoprahDeer/TestObj_DoprahDeer_AlbumArtwork/DoprahWasting_FinalCovers01_Wasting Album Cover.jpg</MediaLocation>
+      </ContextMedia>
+    </ContextualInfo>
+  </MetaPipeObject>
+  <MetaPipeObject name="Logs with graffiti">
+    <FileName>TestObj_EvanLogs06_C4D.obj</FileName>
+    <MeshLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_EvanLogs/TestObj_EvanLogs06/TestObj_EvanLogs06_C4D.obj</MeshLocation>
+    <TexLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_EvanLogs/TestObj_EvanLogs03/TestObj_EvanLogs.jpg</TexLocation>
+    <ContribName>Ryan Achten</ContribName>
+    <ContribDate>03/10/2015</ContribDate>
+    <Description>Logs with graffiti found out by Evan's Bay</Description>
+    <ModelInfo>
+      <ModelCreator>Ryan Achten</ModelCreator>
+      <ModelCreateDate>31/05/2015</ModelCreateDate>
+      <ModelCreateType>Photogrammetric</ModelCreateType>
+      <PhotogramInfo>
+        <PhotogramLocation>
+          <PhotogramLocationName>Evan's Bay</PhotogramLocationName>
+        </PhotogramLocation>
+      </PhotogramInfo>
+    </ModelInfo>
+    <ContextualInfo>
+      <ContextMedia>
+        <MediaName>uv_check_132px</MediaName>
+        <MediaType>Image</MediaType>
+        <MediaLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline/Assets/Materials/uv_check_132px.jpg</MediaLocation>
+      </ContextMedia>
+      <ContextMedia>
+        <MediaName>uv_check_512px</MediaName>
+        <MediaType>Image</MediaType>
+        <MediaLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline/Assets/Materials/uv_check_512px.jpg</MediaLocation>
+      </ContextMedia>
+    </ContextualInfo>
+  </MetaPipeObject>
+  <MetaPipeObject name="Punch (from Paul Jen">
+    <FileName>DAOTFPunch01.obj</FileName>
+    <MeshLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_DaotfPunch/DaotfPunch01/DAOTFPunch01.obj</MeshLocation>
+    <TexLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_DaotfPunch/DaotfPunch03/Punch_McorTex_merged.JPG</TexLocation>
+    <ContribName>Ryan Achten</ContribName>
+    <ContribDate>04/10/2015</ContribDate>
+    <Description>3D model of Judy based on Paul Jenden's costume concept illustrations for the project Digital Achives of the Future</Description>
+    <ModelInfo>
+      <ModelCreator>ard and Ryan Achten</ModelCreator>
+      <ModelCreateDate>26/02/2015</ModelCreateDate>
+      <ModelCreateType>Design</ModelCreateType>
+      <DesignInfo>
+        <DesignCreation>
+          <DesignCreationField>Animation</DesignCreationField>
+        </DesignCreation>
+      </DesignInfo>
+    </ModelInfo>
+    <ContextualInfo />
+  </MetaPipeObject>
+  <MetaPipeObject name="Trolley at Evans Bay">
+    <FileName>TestObj_EvanTrolley04_C4D.obj</FileName>
+    <MeshLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_EvanTrolley/TestObj_EvanTrolley04/TestObj_EvanTrolley04_C4D.obj</MeshLocation>
+    <TexLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_EvanTrolley/TestObj_EvanTrolley01/TestObj_EvanTrolley01.jpg</TexLocation>
+    <ContribName>Ryan Achten</ContribName>
+    <ContribDate>08/11/2015</ContribDate>
+    <Description>Old mining trolleys (?) on display at Evan's Bay. Need to find formal information</Description>
+    <ModelInfo>
+      <ModelCreator>Ryan Achten</ModelCreator>
+      <ModelCreateDate>07/04/2015</ModelCreateDate>
+      <ModelCreateType>Photogrammetric</ModelCreateType>
+      <PhotogramInfo>
+        <PhotogramLocation>
+          <PhotogramLocationName>Evan's Bay</PhotogramLocationName>
+        </PhotogramLocation>
+      </PhotogramInfo>
+    </ModelInfo>
+    <ContextualInfo />
+  </MetaPipeObject>
+  <MetaPipeObject name="Hinerangi">
+    <FileName>WarMemStatue07_C4D.obj</FileName>
+    <MeshLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_WarMemStatue/WarMemStatue07/WarMemStatue07_C4D.obj</MeshLocation>
+    <TexLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_WarMemStatue/WarMemStatue01/WarMemStatue.jpg</TexLocation>
+    <ContribName>Ryan Achten</ContribName>
+    <ContribDate>08/11/2015</ContribDate>
+    <Description>Photogrammetric scan of the 'Hinerangi' monument at the War Memorial in Wellington. Add more info....</Description>
+    <ModelInfo>
+      <ModelCreator>Ryan Achten</ModelCreator>
+      <ModelCreateDate>03/04/2015</ModelCreateDate>
+      <ModelCreateType>Photogrammetric</ModelCreateType>
+      <PhotogramInfo>
+        <PhotogramLocation>
+          <PhotogramLocationName>Mount Victoria</PhotogramLocationName>
+        </PhotogramLocation>
+      </PhotogramInfo>
+    </ModelInfo>
+    <ContextualInfo />
+  </MetaPipeObject>
+  <MetaPipeObject name="WarMem Lion Statue">
+    <FileName>WarMem_LionStatue05_C4D.obj</FileName>
+    <MeshLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_LionStatue/WarMem_LionStatue05/WarMem_LionStatue05_C4D.obj</MeshLocation>
+    <TexLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_LionStatue/WarMem_LionStatue01/WarMem_LionStatue.jpg</TexLocation>
+    <ContribName>Ryan Achten</ContribName>
+    <ContribDate>08/11/2015</ContribDate>
+    <Description>Lion statue monument at the Wellington War Memorial. Provide more info...</Description>
+    <ModelInfo>
+      <ModelCreator>Ryan Achten</ModelCreator>
+      <ModelCreateDate>03/04/2015</ModelCreateDate>
+      <ModelCreateType>Photogrammetric</ModelCreateType>
+      <PhotogramInfo>
+        <PhotogramLocation>
+          <PhotogramLocationName>National War Memorial</PhotogramLocationName>
+        </PhotogramLocation>
+      </PhotogramInfo>
+    </ModelInfo>
+    <ContextualInfo />
+  </MetaPipeObject>
+  <MetaPipeObject name="Evans Boat House">
+    <FileName>EvansBay_BoatHouse02_C4D.obj</FileName>
+    <MeshLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_BoatHouse/EvansBay_BoatHouse02/EvansBay_BoatHouse02_C4D.obj</MeshLocation>
+    <TexLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_BoatHouse/EvansBay_BoatHouse01/RHAThesis_Photogram02_EvansBay_BoatHouse01_obj_dense.jpg</TexLocation>
+    <ContribName>Ryan Achten</ContribName>
+    <ContribDate>08/11/2015</ContribDate>
+    <Description>Boat house scanned at Evan's Bay</Description>
+    <ModelInfo>
+      <ModelCreator>Ryan Achten</ModelCreator>
+      <ModelCreateDate>07/04/2015</ModelCreateDate>
+      <ModelCreateType>Photogrammetric</ModelCreateType>
+      <PhotogramInfo>
+        <PhotogramLocation>
+          <PhotogramLocationName>Evan's Bay</PhotogramLocationName>
+        </PhotogramLocation>
+      </PhotogramInfo>
+    </ModelInfo>
+    <ContextualInfo />
+  </MetaPipeObject>
+  <MetaPipeObject name="Cog Wheel Evans Bay">
+    <FileName>EvansBay_Cog04_C4D.obj</FileName>
+    <MeshLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_EvanCog/EvansBay_Cog04/EvansBay_Cog04_C4D.obj</MeshLocation>
+    <TexLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_EvanCog/RHAThesis_Photogram02_EvansBay_Cog01_obj_dense.jpg</TexLocation>
+    <ContribName>Ryan Achten</ContribName>
+    <ContribDate>09/11/2015</ContribDate>
+    <Description>Big cog wheel monument at Evan's Bay</Description>
+    <ModelInfo>
+      <ModelCreator>Ryan Achten</ModelCreator>
+      <ModelCreateDate>07/04/2015</ModelCreateDate>
+      <ModelCreateType>Photogrammetric</ModelCreateType>
+      <PhotogramInfo>
+        <PhotogramLocation>
+          <PhotogramLocationName>Evan's Bay</PhotogramLocationName>
+        </PhotogramLocation>
+      </PhotogramInfo>
+    </ModelInfo>
+    <ContextualInfo />
+  </MetaPipeObject>
+  <MetaPipeObject name="Evans Bay Wharf">
+    <FileName>TestObj_EvanWharf02_C4D.obj</FileName>
+    <MeshLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_EvanWharf/TestObj_EvanWharf02/TestObj_EvanWharf02_C4D.obj</MeshLocation>
+    <TexLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_EvanWharf/TestObj_EvanWharf01/RHAThesis_Photogram02_EvansBay_Wharf01_obj_dense.jpg</TexLocation>
+    <ContribName>Ryan Achten</ContribName>
+    <ContribDate>09/11/2015</ContribDate>
+    <Description>Wharf scanned at Evan's Bay</Description>
+    <ModelInfo>
+      <ModelCreator>Ryan Achten</ModelCreator>
+      <ModelCreateDate>08/04/2015</ModelCreateDate>
+      <ModelCreateType>Photogrammetric</ModelCreateType>
+      <PhotogramInfo>
+        <PhotogramLocation>
+          <PhotogramLocationName>Evan's Bay</PhotogramLocationName>
+        </PhotogramLocation>
+      </PhotogramInfo>
+    </ModelInfo>
+    <ContextualInfo />
+  </MetaPipeObject>
+  <MetaPipeObject name="Trees at Evans Bay">
+    <FileName>TestObj_EvanTree03_C4D.obj</FileName>
+    <MeshLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_EvanTree/TestObj_EvanTree03/TestObj_EvanTree03_C4D.obj</MeshLocation>
+    <TexLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_EvanTree/TestObj_EvanTree01/RHAThesis_Photogram02_EvansBay_Trees01_obj_dense.jpg</TexLocation>
+    <ContribName>Ryan Achten</ContribName>
+    <ContribDate>09/11/2015</ContribDate>
+    <Description>Photogrammetric scans created at Evan's Bay</Description>
+    <ModelInfo>
+      <ModelCreator>Ryan Achten</ModelCreator>
+      <ModelCreateDate>07/04/2015</ModelCreateDate>
+      <ModelCreateType>Photogrammetric</ModelCreateType>
+      <PhotogramInfo>
+        <PhotogramLocation>
+          <PhotogramLocationName>Evan's Bay</PhotogramLocationName>
+        </PhotogramLocation>
+      </PhotogramInfo>
+    </ModelInfo>
+    <ContextualInfo />
+  </MetaPipeObject>
+  <MetaPipeObject name="Cricket Monument">
+    <FileName>TestObj_BasinPillars03_C4D.obj</FileName>
+    <MeshLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_BasinPillars/TestObj_BasinPillars03/TestObj_BasinPillars03_C4D.obj</MeshLocation>
+    <TexLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_BasinPillars/TestObj_BasinPillars01/RHAThesis_Photogram04_Basin_Pillars_obj_dense.jpg</TexLocation>
+    <ContribName>Ryan Achten</ContribName>
+    <ContribDate>09/11/2015</ContribDate>
+    <Description>Basin cricket monument....</Description>
+    <ModelInfo>
+      <ModelCreator>No Model Creator Added Yet</ModelCreator>
+      <ModelCreateDate>05/04/2015</ModelCreateDate>
+      <ModelCreateType>Photogrammetric</ModelCreateType>
+      <PhotogramInfo>
+        <PhotogramLocation>
+          <PhotogramLocationName>Basin Reserve</PhotogramLocationName>
+        </PhotogramLocation>
+      </PhotogramInfo>
+    </ModelInfo>
+    <ContextualInfo />
+  </MetaPipeObject>
+  <MetaPipeObject name="Toilets Basin Reserve">
+    <FileName>TestObj_BasinToilets03_C4D.obj</FileName>
+    <MeshLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_BasinToilets/TestObj_BasinToilets03/TestObj_BasinToilets03_C4D.obj</MeshLocation>
+    <TexLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_BasinToilets/TestObj_BasinToilets01/RHAThesis_Photogram04_Basin_Toilet01_obj_dense.jpg</TexLocation>
+    <ContribName>Ryan Achten</ContribName>
+    <ContribDate>09/11/2015</ContribDate>
+    <Description>Photogrametric toilets at the Basin Reserve</Description>
+    <ModelInfo>
+      <ModelCreator>Ryan Achten</ModelCreator>
+      <ModelCreateDate>05/04/2015</ModelCreateDate>
+      <ModelCreateType>Photogrammetric</ModelCreateType>
+      <PhotogramInfo>
+        <PhotogramLocation>
+          <PhotogramLocationName>Basin Reserve</PhotogramLocationName>
+        </PhotogramLocation>
+      </PhotogramInfo>
+    </ModelInfo>
+    <ContextualInfo />
+  </MetaPipeObject>
+  <MetaPipeObject name="Tree Knot Mt Vic">
+    <FileName>TestObj_MtVicTreeKnot03_C4D.obj</FileName>
+    <MeshLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_MtVicTreeKnot/TestObj_MtVicTreeKnot03/TestObj_MtVicTreeKnot03_C4D.obj</MeshLocation>
+    <TexLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_MtVicTreeKnot/TestObj_MtVicTreeKnot01/RHAThesis_Photogram01_MtVic_TreeKnot01_obj_dense.jpg</TexLocation>
+    <ContribName>Ryan Achten</ContribName>
+    <ContribDate>11/11/2015</ContribDate>
+    <Description>Tree knot captured at Mt Victoria, Wellington</Description>
+    <ModelInfo>
+      <ModelCreator>Ryan Achten</ModelCreator>
+      <ModelCreateDate>06/04/2015</ModelCreateDate>
+      <ModelCreateType>Photogrammetric</ModelCreateType>
+      <PhotogramInfo>
+        <PhotogramLocation>
+          <PhotogramLocationName>Mount Victoria</PhotogramLocationName>
+        </PhotogramLocation>
+      </PhotogramInfo>
+    </ModelInfo>
+    <ContextualInfo />
+  </MetaPipeObject>
+  <MetaPipeObject name="Tree Mt Vic">
+    <FileName>TestObj_MtVicTree03_C4D.obj</FileName>
+    <MeshLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_MtVicTree/TestObj_MtVicTree03/TestObj_MtVicTree03_C4D.obj</MeshLocation>
+    <TexLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_MtVicTree/TestObj_MtVicTree01/RHAThesis_Photogram01_MtVic_Tree01_dense02.jpg</TexLocation>
+    <ContribName>Ryan Achten</ContribName>
+    <ContribDate>11/11/2015</ContribDate>
+    <Description>Tree scanned at Mt Victoria, Wellington, New Zealand</Description>
+    <ModelInfo>
+      <ModelCreator>Ryan Achten</ModelCreator>
+      <ModelCreateDate>06/04/2015</ModelCreateDate>
+      <ModelCreateType>Photogrammetric</ModelCreateType>
+      <PhotogramInfo>
+        <PhotogramLocation>
+          <PhotogramLocationName>Mount Victoria</PhotogramLocationName>
+        </PhotogramLocation>
+      </PhotogramInfo>
+    </ModelInfo>
+    <ContextualInfo />
+  </MetaPipeObject>
+  <MetaPipeObject name="Pipe Mt Vic">
+    <FileName>TestObj_MtVicPipe03_C4D.obj</FileName>
+    <MeshLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_MtVicPipe/TestObj_MtVicPipe03/TestObj_MtVicPipe03_C4D.obj</MeshLocation>
+    <TexLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_MtVicPipe/TestObj_MtVicPipe01/RHAThesis_Photogram01_MtVic_Pipe01_obj_dense.jpg</TexLocation>
+    <ContribName>Ryan Achten</ContribName>
+    <ContribDate>11/11/2015</ContribDate>
+    <Description>Stormwater pipe scanned at Mt Victoria</Description>
+    <ModelInfo>
+      <ModelCreator>Ryan Achten</ModelCreator>
+      <ModelCreateDate>06/04/2015</ModelCreateDate>
+      <ModelCreateType>Photogrammetric</ModelCreateType>
+      <PhotogramInfo>
+        <PhotogramLocation>
+          <PhotogramLocationName>Mount Victoria</PhotogramLocationName>
+        </PhotogramLocation>
+      </PhotogramInfo>
+    </ModelInfo>
+    <ContextualInfo />
+  </MetaPipeObject>
+  <MetaPipeObject name="Doll Head">
+    <FileName>TestObj_DollHead03_C4D.obj</FileName>
+    <MeshLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_DollHead/TestObj_DollHead03/TestObj_DollHead03_C4D.obj</MeshLocation>
+    <TexLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_DollHead/TestObj_DollHead01/RHAThesis_Photogram00_Home_DollHead01_obj_Full01.jpg</TexLocation>
+    <ContribName>Ryan Achten</ContribName>
+    <ContribDate>12/11/2015</ContribDate>
+    <Description>Head of a doll scanned using photogrammetry. Poor scan due to the material of the subject matter</Description>
+    <ModelInfo>
+      <ModelCreator>Ryan Achten</ModelCreator>
+      <ModelCreateDate>05/04/2015</ModelCreateDate>
+      <ModelCreateType>Photogrammetric</ModelCreateType>
+      <PhotogramInfo>
+        <PhotogramLocation>
+          <PhotogramLocationName>Home Scan</PhotogramLocationName>
+        </PhotogramLocation>
+      </PhotogramInfo>
+    </ModelInfo>
+    <ContextualInfo />
+  </MetaPipeObject>
+  <MetaPipeObject name="Random Machine">
+    <FileName>TestObj_EvanMachine05_C4D.obj</FileName>
+    <MeshLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_EvanMachine/TestObj_EvanMachine05/TestObj_EvanMachine05_C4D.obj</MeshLocation>
+    <TexLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/CRM_TestObjs/TestObj_EvanMachine/TestObj_EvanMachine03/TestObj_EvanMachine01.jpg</TexLocation>
+    <ContribName>Ryan Achten</ContribName>
+    <ContribDate>18/11/2015</ContribDate>
+    <Description>Random machine found out at Evan's Bay</Description>
+    <ModelInfo>
+      <ModelCreator>Ryan Achten</ModelCreator>
+      <ModelCreateDate>07/06/2015</ModelCreateDate>
+      <ModelCreateType>Photogrammetric</ModelCreateType>
+      <PhotogramInfo>
+        <PhotogramLocation>
+          <PhotogramLocationName>Evan's Bay</PhotogramLocationName>
+        </PhotogramLocation>
+      </PhotogramInfo>
+    </ModelInfo>
+    <ContextualInfo />
+  </MetaPipeObject>
+</MetaPipeObjects>

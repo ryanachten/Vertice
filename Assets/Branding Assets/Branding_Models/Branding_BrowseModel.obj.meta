@@ -1,0 +1,171 @@
+fileFormatVersion: 2
+guid: 579e944e4074147fbbfa1b013d4f9b71
+timeCreated: 1458438110
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Browse_Logo_1_Atom_Array_Point_1
+    100002: Browse_Logo_1_Atom_Array_Point_10
+    100004: Browse_Logo_1_Atom_Array_Point_11
+    100006: Browse_Logo_1_Atom_Array_Point_13
+    100008: Browse_Logo_1_Atom_Array_Point_15
+    100010: Browse_Logo_1_Atom_Array_Point_16
+    100012: Browse_Logo_1_Atom_Array_Point_17
+    100014: Browse_Logo_1_Atom_Array_Point_19
+    100016: Browse_Logo_1_Atom_Array_Point_21
+    100018: Browse_Logo_1_Atom_Array_Point_22
+    100020: Browse_Logo_1_Atom_Array_Point_23
+    100022: Browse_Logo_1_Atom_Array_Point_24
+    100024: Browse_Logo_1_Atom_Array_Point_25
+    100026: Browse_Logo_1_Atom_Array_Point_26
+    100028: Browse_Logo_1_Atom_Array_Point_3
+    100030: Browse_Logo_1_Atom_Array_Point_4
+    100032: Browse_Logo_1_Atom_Array_Point_5
+    100034: Browse_Logo_1_Atom_Array_Point_7
+    100036: Browse_Logo_1_Atom_Array_Point_9
+    100038: Browse_Logo_1_Connect_Null
+    100040: //RootNode
+    400000: Browse_Logo_1_Atom_Array_Point_1
+    400002: Browse_Logo_1_Atom_Array_Point_10
+    400004: Browse_Logo_1_Atom_Array_Point_11
+    400006: Browse_Logo_1_Atom_Array_Point_13
+    400008: Browse_Logo_1_Atom_Array_Point_15
+    400010: Browse_Logo_1_Atom_Array_Point_16
+    400012: Browse_Logo_1_Atom_Array_Point_17
+    400014: Browse_Logo_1_Atom_Array_Point_19
+    400016: Browse_Logo_1_Atom_Array_Point_21
+    400018: Browse_Logo_1_Atom_Array_Point_22
+    400020: Browse_Logo_1_Atom_Array_Point_23
+    400022: Browse_Logo_1_Atom_Array_Point_24
+    400024: Browse_Logo_1_Atom_Array_Point_25
+    400026: Browse_Logo_1_Atom_Array_Point_26
+    400028: Browse_Logo_1_Atom_Array_Point_3
+    400030: Browse_Logo_1_Atom_Array_Point_4
+    400032: Browse_Logo_1_Atom_Array_Point_5
+    400034: Browse_Logo_1_Atom_Array_Point_7
+    400036: Browse_Logo_1_Atom_Array_Point_9
+    400038: Browse_Logo_1_Connect_Null
+    400040: //RootNode
+    2300000: Browse_Logo_1_Atom_Array_Point_1
+    2300002: Browse_Logo_1_Atom_Array_Point_10
+    2300004: Browse_Logo_1_Atom_Array_Point_11
+    2300006: Browse_Logo_1_Atom_Array_Point_13
+    2300008: Browse_Logo_1_Atom_Array_Point_15
+    2300010: Browse_Logo_1_Atom_Array_Point_16
+    2300012: Browse_Logo_1_Atom_Array_Point_17
+    2300014: Browse_Logo_1_Atom_Array_Point_19
+    2300016: Browse_Logo_1_Atom_Array_Point_21
+    2300018: Browse_Logo_1_Atom_Array_Point_22
+    2300020: Browse_Logo_1_Atom_Array_Point_23
+    2300022: Browse_Logo_1_Atom_Array_Point_24
+    2300024: Browse_Logo_1_Atom_Array_Point_25
+    2300026: Browse_Logo_1_Atom_Array_Point_26
+    2300028: Browse_Logo_1_Atom_Array_Point_3
+    2300030: Browse_Logo_1_Atom_Array_Point_4
+    2300032: Browse_Logo_1_Atom_Array_Point_5
+    2300034: Browse_Logo_1_Atom_Array_Point_7
+    2300036: Browse_Logo_1_Atom_Array_Point_9
+    2300038: Browse_Logo_1_Connect_Null
+    3300000: Browse_Logo_1_Atom_Array_Point_1
+    3300002: Browse_Logo_1_Atom_Array_Point_10
+    3300004: Browse_Logo_1_Atom_Array_Point_11
+    3300006: Browse_Logo_1_Atom_Array_Point_13
+    3300008: Browse_Logo_1_Atom_Array_Point_15
+    3300010: Browse_Logo_1_Atom_Array_Point_16
+    3300012: Browse_Logo_1_Atom_Array_Point_17
+    3300014: Browse_Logo_1_Atom_Array_Point_19
+    3300016: Browse_Logo_1_Atom_Array_Point_21
+    3300018: Browse_Logo_1_Atom_Array_Point_22
+    3300020: Browse_Logo_1_Atom_Array_Point_23
+    3300022: Browse_Logo_1_Atom_Array_Point_24
+    3300024: Browse_Logo_1_Atom_Array_Point_25
+    3300026: Browse_Logo_1_Atom_Array_Point_26
+    3300028: Browse_Logo_1_Atom_Array_Point_3
+    3300030: Browse_Logo_1_Atom_Array_Point_4
+    3300032: Browse_Logo_1_Atom_Array_Point_5
+    3300034: Browse_Logo_1_Atom_Array_Point_7
+    3300036: Browse_Logo_1_Atom_Array_Point_9
+    3300038: Browse_Logo_1_Connect_Null
+    4300000: Browse_Logo_1_Atom_Array_Point_1
+    4300002: Browse_Logo_1_Atom_Array_Point_10
+    4300004: Browse_Logo_1_Atom_Array_Point_11
+    4300006: Browse_Logo_1_Atom_Array_Point_13
+    4300008: Browse_Logo_1_Atom_Array_Point_15
+    4300010: Browse_Logo_1_Atom_Array_Point_16
+    4300012: Browse_Logo_1_Atom_Array_Point_17
+    4300014: Browse_Logo_1_Atom_Array_Point_19
+    4300016: Browse_Logo_1_Atom_Array_Point_21
+    4300018: Browse_Logo_1_Atom_Array_Point_22
+    4300020: Browse_Logo_1_Atom_Array_Point_23
+    4300022: Browse_Logo_1_Atom_Array_Point_24
+    4300024: Browse_Logo_1_Atom_Array_Point_25
+    4300026: Browse_Logo_1_Atom_Array_Point_26
+    4300028: Browse_Logo_1_Atom_Array_Point_3
+    4300030: Browse_Logo_1_Atom_Array_Point_4
+    4300032: Browse_Logo_1_Atom_Array_Point_5
+    4300034: Browse_Logo_1_Atom_Array_Point_7
+    4300036: Browse_Logo_1_Atom_Array_Point_9
+    4300038: Browse_Logo_1_Connect_Null
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

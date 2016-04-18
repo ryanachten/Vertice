@@ -1,0 +1,178 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &118404
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 459758}
+  - 114: {fileID: 11466334}
+  - 114: {fileID: 11469912}
+  - 114: {fileID: 11471346}
+  - 114: {fileID: 11446828}
+  - 114: {fileID: 11424456}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &459758
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 118404}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 102.700012, y: 795.900024, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11424456
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 118404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1366542118, guid: 637190b257a314b9595a86e2318b4c14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxPoints: 65000
+  combineMultipleGroups: 1
+  useSubmeshesWhenCombining: 1
+  useFileNameAsObjectName: 0
+  computeTangents: 0
+  useSuppliedNormals: 0
+  overrideDiffuse: 0
+  overrideSpecular: 0
+  overrideAmbient: 0
+  suppressWarnings: 0
+  useMTLFallback: 0
+  autoCenterOnOrigin: 0
+  scaleFactor: {x: 1, y: 1, z: 1}
+  objRotation: {x: 0, y: 0, z: 0}
+  objPosition: {x: 0, y: 0, z: 0}
+--- !u!114 &11446828
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 118404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d66090cb49a410fb05b95ac981c6fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectionControl: {fileID: 11469912}
+  objInfoControl: {fileID: 11466334}
+--- !u!114 &11466334
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 118404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 134c2d46d4e024595aca68e45f5db77f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instContextMedia: {fileID: 0}
+  impContextImg: {fileID: 0}
+  impObj: {fileID: 0}
+  objName: 
+  fileName: 
+  meshLocation: 
+  texLocation: 
+  objDescript: 
+  contribUsr: 
+  contribDate: 
+  modelCreatorName: 
+  modelCreateDate: 
+  modelCreateType: 
+  photogramLocationName: 
+  designCreateField: 
+  cntxtMediaName: 
+  cntxtMediaType: 
+  cntxtMediaLocation: 
+  initialObjName: 
+  fromImport: 0
+  isImpBrowse: 0
+  isBrowseEdit: 0
+  curObjPrevPos: {x: 0, y: 0, z: 0}
+  browseActiveModels: []
+--- !u!114 &11469912
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 118404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5f2f1add4b1b49099f0bad60bbc743b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11471346
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 118404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f083a74bbcd0d4029a863f06affe5535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objInfoCont: {fileID: 11466334}
+  collectCont: {fileID: 11469912}
+  objNameFieldText: {fileID: 0}
+  objDescriptText: {fileID: 0}
+  contribUsrText: {fileID: 0}
+  modelUsrText: {fileID: 0}
+  modelCreateDateText: {fileID: 0}
+  photogramLocateNameText: {fileID: 0}
+  designCreateFieldText: {fileID: 0}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: GameController
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: collectionControl
+      value: 
+      objectReference: {fileID: 11469912}
+    - target: {fileID: 0}
+      propertyPath: objInfoControl
+      value: 
+      objectReference: {fileID: 11466334}
+    - target: {fileID: 0}
+      propertyPath: panelScript
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: collectCont
+      value: 
+      objectReference: {fileID: 11469912}
+    - target: {fileID: 0}
+      propertyPath: objInfoCont
+      value: 
+      objectReference: {fileID: 11466334}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 118404}
+  m_IsPrefabParent: 1
