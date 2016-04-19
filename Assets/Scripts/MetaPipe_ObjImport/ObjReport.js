@@ -16,6 +16,8 @@ public var triSlide : TriSliderVal; //holds objReport script
 public var modelInfoPanelScript : PanelModelInfo;
 private var modelInfoPanelActive : boolean;
 
+public var modelSizeScript : Imp_ModelSizeAdjust;
+
 
 function Awake(){
 
@@ -30,6 +32,9 @@ public function ObjReport(){ //reports vert info - called on import
 	
 	
 	if (modelInfoPanelActive == true && curObj != null){
+		
+		modelSizeScript.updateScaleVals();
+		
 		//cache all the button etc that need reports
 		//execute as part of the import chain -> assign vars to the xml vars
 		
