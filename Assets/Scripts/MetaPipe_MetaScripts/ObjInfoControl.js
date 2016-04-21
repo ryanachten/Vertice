@@ -46,6 +46,7 @@ public var modelCreatorName : String;
 public var modelCreateDate : String;
 @HideInInspector
 public var modelCreateType : String;
+public var modelScale : String; //***NEW*** used to change artifact local scale in scenes
 
 @HideInInspector
 public var photogramLocationName : String;
@@ -121,6 +122,7 @@ public class ObjectData {
 	public var modelCreatorName : String;
 	public var modelCreateDate : String;
 	public var modelCreateType : String;
+	public var modelScale : String; //***NEW***
 	
 	public var photogramLocationName : String;
 	public var designCreateField : String;
@@ -194,6 +196,7 @@ public function Load(){ //this could be used in OnEnable for autoload
 			modelCreatorName = modelInfoNode.SelectSingleNode("ModelCreator").InnerText;
 			modelCreateDate = modelInfoNode.SelectSingleNode("ModelCreateDate").InnerText;
 			modelCreateType = modelInfoNode.SelectSingleNode("ModelCreateType").InnerText;
+			modelScale = modelInfoNode.SelectSingleNode("ModelScale").InnerText; //***NEW*** 	
 			
 			//***Photogram Information Data***
 			if (modelCreateType == "Photogrammetric"){				
@@ -254,14 +257,11 @@ public function Save(){ //this could be changed to OnDisable for autosave
 	//XML Method 02
 	//object: change object data and save to xml
 	
-	var nodeName = curObjNode.SelectSingleNode("@name").Value; //**new**	
-	
-	curObjNode = root.SelectSingleNode("MetaPipeObject[@name='"+ nodeName +"']");	//**new***
-	
-	curObjNode.SelectSingleNode("@name").Value = objName;	//**new***
+	var nodeName = curObjNode.SelectSingleNode("@name").Value;
+	curObjNode = root.SelectSingleNode("MetaPipeObject[@name='"+ nodeName +"']");
+	curObjNode.SelectSingleNode("@name").Value = objName;
 	
 	curObjNode.SelectSingleNode("FileName").InnerText = fileName;
-//	curObjNode.SelectSingleNode("MeshLocation").InnerText = meshLocation; //causing issues
 	curObjNode.SelectSingleNode("TexLocation").InnerText = texLocation;
 	curObjNode.SelectSingleNode("ContribName").InnerText = contribUsr;
 	curObjNode.SelectSingleNode("Description").InnerText = objDescript;
@@ -270,6 +270,7 @@ public function Save(){ //this could be changed to OnDisable for autosave
 		modelInfoNode.SelectSingleNode("ModelCreator").InnerText = modelCreatorName;
 		modelInfoNode.SelectSingleNode("ModelCreateDate").InnerText = modelCreateDate;
 		modelInfoNode.SelectSingleNode("ModelCreateType").InnerText = modelCreateType;
+		modelInfoNode.SelectSingleNode("ModelScale").InnerText = modelScale;
 		
 		//***Photogram Information Data***
 		if (modelCreateType == "Photogrammetric"){
@@ -375,6 +376,11 @@ public function CreateNewNode(){
 			modelCreateTypeNode.InnerText = "";
 			modelInfoNode.AppendChild(modelCreateTypeNode);
 			modelCreateType = modelCreateTypeNode.InnerText;
+			
+		var modelScaleNode = doc.CreateElement("ModelScale"); //***NEW***
+			modelScaleNode.InnerText = "1";
+			modelInfoNode.AppendChild(modelScaleNode);
+			modelScale = modelScaleNode.InnerText;
 		
 	var contextualInfoNode = doc.CreateElement("ContextualInfo");
 		newObjNode.AppendChild(contextualInfoNode);	

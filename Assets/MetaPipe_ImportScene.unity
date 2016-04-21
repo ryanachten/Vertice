@@ -4721,6 +4721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1015c5d52fd40f393aac1c5e9c86fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objInfoCont: {fileID: 1474666010}
   curObj: {fileID: 0}
   widthValText: {fileID: 1699027000}
   heightValText: {fileID: 62352313}
@@ -6560,7 +6561,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 589542611}
-        m_MethodName: changeScale
+        m_MethodName: changeScaleSlider
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9979,7 +9980,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 459758, guid: ffa8813e3a77f4bbf8108dcb02916ffe, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 118404, guid: ffa8813e3a77f4bbf8108dcb02916ffe, type: 2}
       propertyPath: m_Name

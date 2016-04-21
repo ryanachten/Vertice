@@ -78,6 +78,12 @@ function MeshImport(){
 		
 		objInfoCont.fromImport = true; //used to allow auto tex import
 		objInfoCont.Load(); //load xml data for object
+		
+		var modelScale = parseFloat(objInfoCont.control.modelScale); //***NEW***
+		if (modelScale != 1)
+		{
+			model.transform.localScale = new Vector3(modelScale,modelScale,modelScale);	
+		}
 	}
 }
 

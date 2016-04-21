@@ -2,6 +2,8 @@
 
 import UI;
 
+var objInfoCont : ObjInfoControl;
+
 var curObj : GameObject;
 
 var widthValText : Text;
@@ -32,16 +34,37 @@ function updateScaleVals()
 		scaleValText.text = modelScale.x.ToString("F2");
 }
 
-function changeScale()
+function changeScaleSlider()
+{
+	var scale = scaleSlider.value;
+	changeScale(scale);
+}
+
+
+function changeScale( scale : float) //this should really be placed in objInfoAdjust or something to allow for other scenes
 {	
 	if (curObj == null)
 		curObj = GameObject.FindGameObjectWithTag("Current Model");
-
-	var scale = scaleSlider.value;
 
 	if (curObj != null && scale != 0f)
 	{
 		curObj.transform.localScale = new Vector3(scale,scale,scale);
 		updateScaleVals();
 	}
+	
+	if (objInfoCont == null)
+		objInfoCont = GameObject.FindGameObjectWithTag("GameController").GetComponent.<ObjInfoControl>();
+		
+	objInfoCont.control.modelScale = scale.ToString();
+	objInfoCont.Save();
 }
+
+
+//function saveScale()
+//{
+//	if (objInfoCont == null)
+//		objInfoCont = GameObject.FindGameObjectWithTag("GameController").GetComponent.<ObjInfoControl>();
+//		
+//	
+//}		
+//		

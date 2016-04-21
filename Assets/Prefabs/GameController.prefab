@@ -85,6 +85,7 @@ MonoBehaviour:
   instContextMedia: {fileID: 0}
   impContextImg: {fileID: 0}
   impObj: {fileID: 0}
+  objInfoAdjust: {fileID: 11471346}
   objName: 
   fileName: 
   meshLocation: 
@@ -95,6 +96,7 @@ MonoBehaviour:
   modelCreatorName: 
   modelCreateDate: 
   modelCreateType: 
+  modelScale: 
   photogramLocationName: 
   designCreateField: 
   cntxtMediaName: 
@@ -172,6 +174,10 @@ Prefab:
       propertyPath: objInfoCont
       value: 
       objectReference: {fileID: 11466334}
+    - target: {fileID: 0}
+      propertyPath: objInfoAdjust
+      value: 
+      objectReference: {fileID: 11471346}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 118404}
