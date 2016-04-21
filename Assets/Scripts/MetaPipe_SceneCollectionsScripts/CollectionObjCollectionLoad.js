@@ -41,8 +41,8 @@ function loadCollectionObjects( listNode : XmlNode)
 	var collectionObjects : XmlNodeList = listNode.SelectNodes("MetaPipeObject");
 	
 	camMoveScript.navLocked = true;
-	progressBar.SetActive(true); //**NEW**
-	progressBarScript.setMaxVal(collectionObjects.Count); //**NEW**
+	progressBar.SetActive(true);
+	progressBarScript.setMaxVal(collectionObjects.Count);
 	
 	for (objNode in collectionObjects)
 	{
@@ -50,17 +50,12 @@ function loadCollectionObjects( listNode : XmlNode)
 		
 		var curObjName = curObjNode.SelectSingleNode("@name").Value;
 	
-		progressBarScript.AddTask(curObjName); //**NEW**
+		progressBarScript.AddTask(curObjName); 
 	
 		//info contained in ObjArchive XML
-//		Debug.Log("Null ref test: " + "curObjName: " + curObjName);
-//		var monkeyNode = objInfoContRoot.SelectSingleNode("MetaPipeObject[@name='monkey']"); 
-//		Debug.Log("Null ref test: " + "monkeyNode: " + monkeyNode.SelectSingleNode("@name").Value); //should return 'monkey' if present
-		
 		var curObjInfoContNode = objInfoContRoot.SelectSingleNode("MetaPipeObject[@name='"+ curObjName +"']"); 
 			var curMeshLocation = curObjInfoContNode.SelectSingleNode("./MeshLocation").InnerText;
-			var curTexLocation = curObjInfoContNode.SelectSingleNode("./TexLocation").InnerText;
-		
+			var curTexLocation = curObjInfoContNode.SelectSingleNode("./TexLocation").InnerText;		
 
 		//import mesh
 		var importModel : GameObject[] = ObjReader.use.ConvertFile(curMeshLocation, false, standardMaterial);
@@ -144,7 +139,7 @@ function loadCollectionObjects( listNode : XmlNode)
 		
 		var curObjBoxCol = curObj.AddComponent(BoxCollider);
 		
-		var curPartLocate : GameObject = Instantiate(particleLocate, curObj.GetComponent.<BoxCollider>().bounds.center, Quaternion.identity);//***NEW***
+		var curPartLocate : GameObject = Instantiate(particleLocate, curObj.GetComponent.<BoxCollider>().bounds.center, Quaternion.identity);
 		curPartLocate.transform.parent = curObj.transform;
 		
 		
@@ -153,5 +148,5 @@ function loadCollectionObjects( listNode : XmlNode)
 		rb.isKinematic = false;
 	}
 	camMoveScript.navLocked = false;
-	progressBar.SetActive(false); //**NEW**
+	progressBar.SetActive(false);
 }

@@ -58,13 +58,3 @@ function changeScale( scale : float) //this should really be placed in objInfoAd
 	objInfoCont.control.modelScale = scale.ToString();
 	objInfoCont.Save();
 }
-
-
-//function saveScale()
-//{
-//	if (objInfoCont == null)
-//		objInfoCont = GameObject.FindGameObjectWithTag("GameController").GetComponent.<ObjInfoControl>();
-//		
-//	
-//}		
-//		

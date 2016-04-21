@@ -112,15 +112,15 @@ function importList(sortResults : List.<String>)
 	}
 	
 	camMoveScript.navLocked = true;
-	progressBar.SetActive(true); //**NEW**
-	progressBarScript.setMaxVal(impLimitRangeMax); //**NEW**
+	progressBar.SetActive(true); 
+	progressBarScript.setMaxVal(impLimitRangeMax);
 
 	var curObjName : String;
 
 	for ( var i = impLimitRangeMin; i <= impLimitRangeMax -1; i++) //-1 added to account for list index beginning at 0
 	{
 		curObjName = sortResults[i];
-		progressBarScript.AddTask( curObjName); //**NEW**
+		progressBarScript.AddTask( curObjName);
 
 		if (objImportComplete && texImportComplete)
 		{
@@ -144,7 +144,7 @@ function importList(sortResults : List.<String>)
 	sortPositionScript.sortMode(curBrowseObjects); //sends objects to be positioned
 	
 	camMoveScript.navLocked = false;
-	progressBar.SetActive(false); //**NEW**
+	progressBar.SetActive(false); 
 //	Debug.Log("****** /DEBUG importList test *******");
 }
 
@@ -158,6 +158,8 @@ function importObj(curObjNode : XmlNode)
 	
 	var meshLocation : String = curObjNode.SelectSingleNode("./MeshLocation").InnerText;
 	var objName : String = curObjNode.SelectSingleNode("@name").Value;
+	var modelScale : float = parseFloat(curObjNode.SelectSingleNode("./ModelInfo/ModelScale").InnerText); //***NEW***
+//	Debug.Log("Model Scale: " + modelScale);
 	
 	var importModels : GameObject[] = ObjReader.use.ConvertFile(meshLocation, false, standardMaterial);
 
@@ -177,6 +179,8 @@ function importObj(curObjNode : XmlNode)
 		{
 			yield;
 		}
+		
+		model.transform.localScale = new Vector3(modelScale,modelScale,modelScale); //***NEW***
 		
 		curBrowseObjects.Add(model);
 		

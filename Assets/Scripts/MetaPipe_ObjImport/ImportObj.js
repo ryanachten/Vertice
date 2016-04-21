@@ -80,10 +80,7 @@ function MeshImport(){
 		objInfoCont.Load(); //load xml data for object
 		
 		var modelScale = parseFloat(objInfoCont.control.modelScale); //***NEW***
-		if (modelScale != 1)
-		{
 			model.transform.localScale = new Vector3(modelScale,modelScale,modelScale);	
-		}
 	}
 }
 

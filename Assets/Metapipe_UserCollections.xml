@@ -152,7 +152,7 @@
       <CollectionDate>17/02/2016</CollectionDate>
       <CollectionDescription>Doooog colllect</CollectionDescription>
     </CollectionInfo>
-    <MetaPipeObject name="Doogsta">
+    <MetaPipeObject name="Doog">
       <ObjTransformInfo>
         <ObjPosition>
           <ObjPosX>20</ObjPosX>
@@ -168,44 +168,6 @@
           <ObjScaleX>1</ObjScaleX>
           <ObjScaleY>1</ObjScaleY>
           <ObjScaleZ>1</ObjScaleZ>
-        </ObjScale>
-      </ObjTransformInfo>
-    </MetaPipeObject>
-    <MetaPipeObject name="Doogsta">
-      <ObjTransformInfo>
-        <ObjPosition>
-          <ObjPosX />
-          <ObjPosY />
-          <ObjPosZ />
-        </ObjPosition>
-        <ObjRotation>
-          <ObjRotateX />
-          <ObjRotateY />
-          <ObjRotateZ />
-        </ObjRotation>
-        <ObjScale>
-          <ObjScaleX />
-          <ObjScaleY />
-          <ObjScaleZ />
-        </ObjScale>
-      </ObjTransformInfo>
-    </MetaPipeObject>
-    <MetaPipeObject name="Doogsta">
-      <ObjTransformInfo>
-        <ObjPosition>
-          <ObjPosX />
-          <ObjPosY />
-          <ObjPosZ />
-        </ObjPosition>
-        <ObjRotation>
-          <ObjRotateX />
-          <ObjRotateY />
-          <ObjRotateZ />
-        </ObjRotation>
-        <ObjScale>
-          <ObjScaleX />
-          <ObjScaleY />
-          <ObjScaleZ />
         </ObjScale>
       </ObjTransformInfo>
     </MetaPipeObject>
