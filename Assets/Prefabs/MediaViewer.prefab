@@ -715,7 +715,7 @@ MonoBehaviour:
   imageRender: {fileID: 11427440}
   vidTex: {fileID: 0}
   audSrce: {fileID: 8298132}
-  audImg: {fileID: 10900, guid: 0000000000000000f000000000000000, type: 0}
+  audImg: {fileID: 2800000, guid: a7a28d2f1d6384f7eb36ef80e64226fb, type: 3}
   imgRect: {fileID: 22451032}
   mediaButtons: {fileID: 139172}
   mediaButtonCont: {fileID: 11420436}
@@ -1262,7 +1262,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: audImg
+      value: 
+      objectReference: {fileID: 2800000, guid: a7a28d2f1d6384f7eb36ef80e64226fb, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 111278}

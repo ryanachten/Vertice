@@ -505,7 +505,7 @@
   <MetaPipeObject name="Doog">
     <FileName>monkey02.obj</FileName>
     <MeshLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/monkey02.obj</MeshLocation>
-    <TexLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline/Assets/Materials/uv_check_130px.jpg</TexLocation>
+    <TexLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline/Assets/Materials/uv_check_1024px.jpg</TexLocation>
     <ContribName>Ryan Achten</ContribName>
     <ContribDate>13/04/2016</ContribDate>
     <Description>Doooooooog test</Description>
