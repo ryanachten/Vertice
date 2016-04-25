@@ -171,5 +171,50 @@
         </ObjScale>
       </ObjTransformInfo>
     </MetaPipeObject>
+    <MetaPipeObject name="Doog test 01">
+      <ObjTransformInfo>
+        <ObjPosition>
+          <ObjPosX />
+          <ObjPosY />
+          <ObjPosZ />
+        </ObjPosition>
+        <ObjRotation>
+          <ObjRotateX />
+          <ObjRotateY />
+          <ObjRotateZ />
+        </ObjRotation>
+        <ObjScale>
+          <ObjScaleX />
+          <ObjScaleY />
+          <ObjScaleZ />
+        </ObjScale>
+      </ObjTransformInfo>
+    </MetaPipeObject>
+  </MetaPipeCollection>
+  <MetaPipeCollection name="Test Collect yoo">
+    <CollectionInfo>
+      <CollectionCreator>Ryan Achten</CollectionCreator>
+      <CollectionDate>25/04/2016</CollectionDate>
+      <CollectionDescription>Tessst collect</CollectionDescription>
+    </CollectionInfo>
+    <MetaPipeObject name="Cog Wheel Evans Bay">
+      <ObjTransformInfo>
+        <ObjPosition>
+          <ObjPosX>-63.67496</ObjPosX>
+          <ObjPosY>-32.83089</ObjPosY>
+          <ObjPosZ>351.2</ObjPosZ>
+        </ObjPosition>
+        <ObjRotation>
+          <ObjRotateX>-0.04279811</ObjRotateX>
+          <ObjRotateY>-0.003959982</ObjRotateY>
+          <ObjRotateZ>-0.03877091</ObjRotateZ>
+        </ObjRotation>
+        <ObjScale>
+          <ObjScaleX>1</ObjScaleX>
+          <ObjScaleY>1</ObjScaleY>
+          <ObjScaleZ>1</ObjScaleZ>
+        </ObjScale>
+      </ObjTransformInfo>
+    </MetaPipeObject>
   </MetaPipeCollection>
 </MetaPipeCollections>

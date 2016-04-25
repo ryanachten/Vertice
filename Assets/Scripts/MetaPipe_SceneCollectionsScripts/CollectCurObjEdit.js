@@ -41,6 +41,9 @@ function loadImportCurObj(curObj : GameObject){
 	curObj.GetComponent(Rigidbody).isKinematic = true;
 	curObj.transform.position = Vector3(0,0,0);
 	
+	var particleSystem = curObj.transform.GetChild(0); //***NEW***
+	Destroy(particleSystem.gameObject);
+	
 	Application.LoadLevel("MetaPipe_ImportScene");
 	
 	infoCont.Load();

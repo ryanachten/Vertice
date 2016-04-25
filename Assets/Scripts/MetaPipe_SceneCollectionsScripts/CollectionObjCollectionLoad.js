@@ -109,17 +109,19 @@ function loadCollectionObjects( listNode : XmlNode)
 		
 			var randPosX = Random.Range(loadPlaneMin.x, loadPlaneMax.x);
 			var randPosZ = Random.Range(loadPlaneMin.z, loadPlaneMax.z);
-			Debug.Log("Random start pos for obj: " + randPosX + randPosZ);
 			
 			curObjPos.x = randPosX;
 			curObjPos.z = randPosZ;
+			curObjPos.y = 15; //***NEW***
+			
 			curObj.transform.position = curObjPos;
+			
+			Debug.Log("Random start pos for obj: " + " /x: " + curObjPos.x + " /y: " + curObjPos.y + " /z: " + curObjPos.z);
 		
 		//if model settings exist
 		} else
 		{
 			//Debug.Log("Existing location");
-			
 			curObjPos.x = parseFloat(existPosX);
 			curObjPos.z = parseFloat(existPosZ);
 			curObj.transform.position = curObjPos;

@@ -93,7 +93,7 @@
       <ModelCreator>Ryan Achten</ModelCreator>
       <ModelCreateDate>22/12/2014</ModelCreateDate>
       <ModelCreateType>Design</ModelCreateType>
-      <ModelScale>1</ModelScale>
+      <ModelScale>0.02</ModelScale>
       <DesignInfo>
         <DesignCreation>
           <DesignCreationField>Graphic Design</DesignCreationField>
@@ -165,7 +165,7 @@
       <ModelCreator>ard and Ryan Achten</ModelCreator>
       <ModelCreateDate>26/02/2015</ModelCreateDate>
       <ModelCreateType>Design</ModelCreateType>
-      <ModelScale>1</ModelScale>
+      <ModelScale>0.03415179</ModelScale>
       <DesignInfo>
         <DesignCreation>
           <DesignCreationField>Animation</DesignCreationField>
@@ -539,5 +539,58 @@
         <MediaLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline/Assets/Materials/WorldACoke.ogg</MediaLocation>
       </ContextMedia>
     </ContextualInfo>
+  </MetaPipeObject>
+  <MetaPipeObject name="Doog test 01">
+    <FileName>monkey03.obj</FileName>
+    <MeshLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/monkey03.obj</MeshLocation>
+    <TexLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline/Assets/Materials/uv_check_512px.jpg</TexLocation>
+    <ContribName>Ryan Achten</ContribName>
+    <ContribDate>25/04/2016</ContribDate>
+    <Description>Doog test yoooo</Description>
+    <ModelInfo>
+      <ModelCreator>Ryan Achten</ModelCreator>
+      <ModelCreateDate>????</ModelCreateDate>
+      <ModelCreateType>Design</ModelCreateType>
+      <DesignInfo>
+        <DesignCreation>
+          <DesignCreationField>Animation</DesignCreationField>
+        </DesignCreation>
+      </DesignInfo>
+      <ModelScale>2</ModelScale>
+    </ModelInfo>
+    <ContextualInfo>
+      <ContextMedia>
+        <MediaName>MetaPipe_TestTexs_1000</MediaName>
+        <MediaType>Image</MediaType>
+        <MediaLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/MetaPipe_TestTexs/MetaPipe_TestTexs_1000.jpg</MediaLocation>
+      </ContextMedia>
+      <ContextMedia>
+        <MediaName>WorldACoke</MediaName>
+        <MediaType>Video</MediaType>
+        <MediaLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline/Assets/Materials/WorldACoke.ogg</MediaLocation>
+      </ContextMedia>
+      <ContextMedia>
+        <MediaName>ambiali_5</MediaName>
+        <MediaType>Audio</MediaType>
+        <MediaLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline/Assets/ContextTestAssets/ambiali_5.ogg</MediaLocation>
+      </ContextMedia>
+    </ContextualInfo>
+  </MetaPipeObject>
+  <MetaPipeObject name="monkey04">
+    <FileName>monkey04.obj</FileName>
+    <MeshLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/monkey04.obj</MeshLocation>
+    <TexLocation>
+    </TexLocation>
+    <ContribName>Add Contributor Name</ContribName>
+    <ContribDate>25/04/2016</ContribDate>
+    <Description>No Description Added Yet</Description>
+    <ModelInfo>
+      <ModelCreator>No Model Creator Added Yet</ModelCreator>
+      <ModelCreateDate>No Date Added Yet</ModelCreateDate>
+      <ModelCreateType>
+      </ModelCreateType>
+      <ModelScale>1</ModelScale>
+    </ModelInfo>
+    <ContextualInfo />
   </MetaPipeObject>
 </MetaPipeObjects>

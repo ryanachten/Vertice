@@ -13,6 +13,8 @@ var depthValText : Text;
 var scaleValText : Text;
 var scaleSlider : Slider;
 
+var scaleFieldText : Text;
+
 //externally triggered via ObjReport script 
 function updateScaleVals()
 {
@@ -38,6 +40,13 @@ function changeScaleSlider()
 {
 	var scale = scaleSlider.value;
 	changeScale(scale);
+}
+
+
+function changeScaleField()
+{
+	var scaleInput = parseFloat(scaleFieldText.text);
+	changeScale(scaleInput);
 }
 
 
