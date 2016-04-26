@@ -34,6 +34,10 @@ function Awake(){
 
 public function OpenImgAsset(){ //**REVISE** this function is pretty redundant
 	
+	//Filter Files
+	var fileExtensions : String[] = [".jpg"]; //***NEW***
+	UniFileBrowser.use.SetFileExtensions(fileExtensions); //***NEW***
+	
 	UniFileBrowser.use.OpenFileWindow(ImgAssetFile);
 }
 

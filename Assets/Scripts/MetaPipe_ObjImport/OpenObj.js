@@ -27,6 +27,10 @@ function Awake(){
 
 public function OpenModel(){ //**REVISE** this function is pretty redundant
 	
+	//Filter Files
+	var fileExtensions : String[] = [".obj"]; //***NEW***
+	UniFileBrowser.use.SetFileExtensions(fileExtensions); //***NEW***
+	
 	UniFileBrowser.use.OpenFileWindow(ModelFile);
 }
 
@@ -39,6 +43,10 @@ public function ModelFile(pathToModel : String){
 
 
 public function OpenTex(){ //**REVISE** this function is pretty redundant
+
+	//Filter Files
+	var fileExtensions : String[] = [".jpg"]; //***NEW***
+	UniFileBrowser.use.SetFileExtensions(fileExtensions); //***NEW***
 
 	//Open Dialogue
 	UniFileBrowser.use.OpenFileWindow(TexFile);

@@ -22,6 +22,9 @@ var navMode : boolean;
 
 var instContextMedia : BrowseContextMediaInstant;
 
+var mediaImgViewer : GameObject; //***NEW***
+var mediaViewerScript : MetaPipe_MediaV_Activate; 	//***NEW***
+
 var curObj : GameObject; //used for edit cur obj functionality
 
 function Start()
@@ -41,11 +44,13 @@ function Update()
 	
 	if (selectPanelActive && Input.GetMouseButtonDown(0) && !contextPanelActive)
 	{
-		//Debug.Log("Open Context Panel");
 		selectContextPanel.SetActive(true);
 		contextPanelActive = true;	
 	} else if (!selectPanelActive) 
 	{
+		if (mediaImgViewer.active) //***NEW*** prevents mediaViewer remaining active between objs
+			mediaViewerScript.deactivateMediaViewer(); //***NEW***
+		
 		selectContextPanel.SetActive(false);
 		contextPanelActive = false;	
 	}
@@ -62,46 +67,36 @@ function detectObj() {
 	if (foundHit && !checkAllTags && hit.transform.tag != tagCheck) //hit but not right object
 	{
 		foundHit = false;
-		//Debug.DrawRay(transform.position, transform.forward * raycastDist, Color.blue);
-		//Debug.Log("Ray hit not valid");
-		
+
 		if (selectPanelActive)// if panel is active
 		{
 			deactivateSelectPanel();
 			selectPanelActive = false;
-			//Debug.Log("DEACTIVE select panel");
 		}
 	}
 	else if (!foundHit) //hits nothing
 	{
 		foundHit = false;
-		//Debug.DrawRay(transform.position, transform.forward * raycastDist, Color.red);
-		//Debug.Log("Ray miss");
-		
+	
 		if (selectPanelActive)// if panel is active
 		{
 			deactivateSelectPanel();
 			selectPanelActive = false;
-			//Debug.Log("DEACTIVE select panel");
 		}
 	}
 	else if (foundHit) //if the ray hits a valid object
 	{
 		curObjName = hit.transform.name;
 		curObj = hit.transform.gameObject;	
-		//Debug.Log("RAY HIT: " + curObjName);
-		//Debug.DrawRay(transform.position, transform.forward * raycastDist, Color.green);
-		
+	
 		if (!selectPanelActive)// if panel is not active
 		{
 			activateSelectPanel();
 			selectPanelActive = true;
-			//Debug.Log("ACTIVE select panel");
-		}
-			
-	}
-	
+		}		
+	}	
 }
+
 	
 function activateSelectPanel()
 {
@@ -114,8 +109,8 @@ function activateSelectPanel()
 	selectObjText.text = curObjName;
 }
 
+
 function deactivateSelectPanel()
 {
-
 	selectObjPanel.SetActive(false); //deactivate context panel
 }

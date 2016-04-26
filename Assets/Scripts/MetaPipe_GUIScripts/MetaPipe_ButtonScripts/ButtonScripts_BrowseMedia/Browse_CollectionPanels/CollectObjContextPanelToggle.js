@@ -3,6 +3,8 @@
 
 var contextInfoXmlScript : CollectContextInfoXml;
 
+var mediaViewerScript : MetaPipe_MediaV_Activate; //***NEW***
+
 var objInfoPanel : GameObject;
 var contextMediaPanel : GameObject;
 
@@ -22,6 +24,7 @@ function activeObjInfo()
 	
 	if (contextMediaPanel.activeSelf == true)
 	{
+		mediaViewerScript.deactivateMediaViewer(); //***NEW*** prevents mediaViewer remaining active between objs
 		contextMediaPanel.SetActive(false);
 	}
 }

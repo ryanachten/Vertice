@@ -22,8 +22,12 @@ var navMode : boolean;
 
 var instContextMedia : BrowseContextMediaInstant;
 
+var mediaImgViewer : GameObject; //***NEW***
+var mediaViewerScript : MetaPipe_MediaV_Activate; 	//***NEW***
+
 var curObj : GameObject; //used for edit cur obj functionality
 var modifyObjScript :  CollectionRayModifyObj;
+
 
 function Start()
 {
@@ -49,6 +53,9 @@ function Update()
 				
 	} else if (!selectPanelActive) 
 	{
+		if (mediaImgViewer.active) //***NEW*** - prevents mediaViewer remaining active between objs
+			mediaViewerScript.deactivateMediaViewer(); //***NEW***
+	
 		selectContextPanel.SetActive(false);
 		contextPanelActive = false;	
 	}

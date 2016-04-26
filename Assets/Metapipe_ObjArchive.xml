@@ -505,7 +505,7 @@
   <MetaPipeObject name="Doog">
     <FileName>monkey02.obj</FileName>
     <MeshLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/monkey02.obj</MeshLocation>
-    <TexLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline/Assets/Materials/uv_check_1024px.jpg</TexLocation>
+    <TexLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline/Assets/Materials/uv_check_512px.jpg</TexLocation>
     <ContribName>Ryan Achten</ContribName>
     <ContribDate>13/04/2016</ContribDate>
     <Description>Doooooooog test</Description>
@@ -587,10 +587,20 @@
     <ModelInfo>
       <ModelCreator>No Model Creator Added Yet</ModelCreator>
       <ModelCreateDate>No Date Added Yet</ModelCreateDate>
-      <ModelCreateType>
-      </ModelCreateType>
+      <ModelCreateType>Photogrammetric</ModelCreateType>
+      <PhotogramInfo>
+        <PhotogramLocation>
+          <PhotogramLocationName>Meow</PhotogramLocationName>
+        </PhotogramLocation>
+      </PhotogramInfo>
       <ModelScale>1</ModelScale>
     </ModelInfo>
-    <ContextualInfo />
+    <ContextualInfo>
+      <ContextMedia>
+        <MediaName>ambiali_5</MediaName>
+        <MediaType>Audio</MediaType>
+        <MediaLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline/Assets/ContextTestAssets/ambiali_5.ogg</MediaLocation>
+      </ContextMedia>
+    </ContextualInfo>
   </MetaPipeObject>
 </MetaPipeObjects>

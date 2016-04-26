@@ -8704,6 +8704,8 @@ MonoBehaviour:
   collectCamMove: {fileID: 1023205992}
   navMode: 0
   instContextMedia: {fileID: 910413565}
+  mediaImgViewer: {fileID: 1143372232}
+  mediaViewerScript: {fileID: 1225657202}
   curObj: {fileID: 0}
   modifyObjScript: {fileID: 665326054}
 --- !u!114 &665326054
@@ -16234,6 +16236,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goYpos: 0
+--- !u!1 &1143372232 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 172280, guid: dfcd873b442204412978c28defab1799, type: 2}
+  m_PrefabInternal: {fileID: 1225657200}
 --- !u!1 &1146719378
 GameObject:
   m_ObjectHideFlags: 0
@@ -17400,6 +17406,12 @@ RectTransform:
   m_PrefabParentObject: {fileID: 22468142, guid: dfcd873b442204412978c28defab1799,
     type: 2}
   m_PrefabInternal: {fileID: 1225657200}
+--- !u!114 &1225657202 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11453396, guid: dfcd873b442204412978c28defab1799,
+    type: 2}
+  m_PrefabInternal: {fileID: 1225657200}
+  m_Script: {fileID: 11500000, guid: 39a2da325c676416d873bff1ae72d6ee, type: 3}
 --- !u!1 &1229006230
 GameObject:
   m_ObjectHideFlags: 0
@@ -24660,6 +24672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   contextInfoXmlScript: {fileID: 1980314155}
+  mediaViewerScript: {fileID: 1225657202}
   objInfoPanel: {fileID: 816713115}
   contextMediaPanel: {fileID: 910413563}
 --- !u!114 &1729050971

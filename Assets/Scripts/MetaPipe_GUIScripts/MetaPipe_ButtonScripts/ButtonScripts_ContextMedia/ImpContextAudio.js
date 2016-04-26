@@ -41,6 +41,10 @@ function FixedUpdate()
 
 public function OpenAudioAsset(){ //**REVISE** this function is pretty redundant
 	
+	//Filter Files
+	var fileExtensions : String[] = [".ogg"]; //***NEW***
+	UniFileBrowser.use.SetFileExtensions(fileExtensions); //***NEW***
+	
 	UniFileBrowser.use.OpenFileWindow(AudioAssetFile);
 }
 

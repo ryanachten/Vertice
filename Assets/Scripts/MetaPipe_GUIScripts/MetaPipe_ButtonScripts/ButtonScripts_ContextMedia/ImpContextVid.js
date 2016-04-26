@@ -41,7 +41,11 @@ function FixedUpdate()
 }
 
 
-public function OpenVidAsset(){ //**REVISE** this function is pretty redundant
+public function OpenVidAsset(){ 
+	
+	//Filter Files
+	var fileExtensions : String[] = [".ogg"]; //***NEW***
+	UniFileBrowser.use.SetFileExtensions(fileExtensions); //***NEW***
 	
 	UniFileBrowser.use.OpenFileWindow(VidAssetFile);
 }
