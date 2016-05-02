@@ -15,14 +15,14 @@ function PanelControl(){
 
 	if (panelActive == false){
 		
-		Debug.Log("This should turn the panel on");
+//		Debug.Log("This should turn the panel on");
 		modCurObjPanel.SetActive(true);
 		panelActive = true;
 	}
 	
 	else if (panelActive == true){
 		
-		Debug.Log("This should turn the panel off");
+//		Debug.Log("This should turn the panel off");
 		modCurObjPanel.SetActive(false);
 		panelActive = false;
 	}

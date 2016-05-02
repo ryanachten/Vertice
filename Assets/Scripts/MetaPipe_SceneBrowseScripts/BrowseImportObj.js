@@ -75,7 +75,7 @@ function ShowMoreObj()
 
 function importList(sortResults : List.<String>)
 {
-//	Debug.Log("****** DEBUG importList test *******");
+	Debug.Log("****** DEBUG importList test *******");
 	curBrowseObjects = new List.<GameObject>();
 
 	xmlRoot = infoCont.control.root;
@@ -125,7 +125,7 @@ function importList(sortResults : List.<String>)
 		if (objImportComplete && texImportComplete)
 		{
 			var curNode = xmlRoot.SelectSingleNode("MetaPipeObject[@name='"+ curObjName +"']");
-//			Debug.Log("IMPORT curNode: " + curObjName);
+			Debug.Log("IMPORT curNode: " + curObjName);
 						
 			importObj(curNode);
 		}
@@ -145,7 +145,7 @@ function importList(sortResults : List.<String>)
 	
 	camMoveScript.navLocked = false;
 	progressBar.SetActive(false); 
-//	Debug.Log("****** /DEBUG importList test *******");
+	Debug.Log("****** /DEBUG importList test *******");
 }
 
 

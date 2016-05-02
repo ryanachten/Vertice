@@ -540,42 +540,6 @@
       </ContextMedia>
     </ContextualInfo>
   </MetaPipeObject>
-  <MetaPipeObject name="Doog test 01">
-    <FileName>monkey03.obj</FileName>
-    <MeshLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/monkey03.obj</MeshLocation>
-    <TexLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline/Assets/Materials/uv_check_512px.jpg</TexLocation>
-    <ContribName>Ryan Achten</ContribName>
-    <ContribDate>25/04/2016</ContribDate>
-    <Description>Doog test yoooo</Description>
-    <ModelInfo>
-      <ModelCreator>Ryan Achten</ModelCreator>
-      <ModelCreateDate>????</ModelCreateDate>
-      <ModelCreateType>Design</ModelCreateType>
-      <DesignInfo>
-        <DesignCreation>
-          <DesignCreationField>Animation</DesignCreationField>
-        </DesignCreation>
-      </DesignInfo>
-      <ModelScale>2</ModelScale>
-    </ModelInfo>
-    <ContextualInfo>
-      <ContextMedia>
-        <MediaName>MetaPipe_TestTexs_1000</MediaName>
-        <MediaType>Image</MediaType>
-        <MediaLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/MetaPipe_TestTexs/MetaPipe_TestTexs_1000.jpg</MediaLocation>
-      </ContextMedia>
-      <ContextMedia>
-        <MediaName>WorldACoke</MediaName>
-        <MediaType>Video</MediaType>
-        <MediaLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline/Assets/Materials/WorldACoke.ogg</MediaLocation>
-      </ContextMedia>
-      <ContextMedia>
-        <MediaName>ambiali_5</MediaName>
-        <MediaType>Audio</MediaType>
-        <MediaLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline/Assets/ContextTestAssets/ambiali_5.ogg</MediaLocation>
-      </ContextMedia>
-    </ContextualInfo>
-  </MetaPipeObject>
   <MetaPipeObject name="monkey04">
     <FileName>monkey04.obj</FileName>
     <MeshLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/monkey04.obj</MeshLocation>
@@ -587,7 +551,7 @@
     <ModelInfo>
       <ModelCreator>No Model Creator Added Yet</ModelCreator>
       <ModelCreateDate>No Date Added Yet</ModelCreateDate>
-      <ModelCreateType>Photogrammetric</ModelCreateType>
+      <ModelCreateType>Design</ModelCreateType>
       <PhotogramInfo>
         <PhotogramLocation>
           <PhotogramLocationName>Meow</PhotogramLocationName>
@@ -600,6 +564,42 @@
         <MediaName>ambiali_5</MediaName>
         <MediaType>Audio</MediaType>
         <MediaLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline/Assets/ContextTestAssets/ambiali_5.ogg</MediaLocation>
+      </ContextMedia>
+    </ContextualInfo>
+  </MetaPipeObject>
+  <MetaPipeObject name="Phra Phrom">
+    <FileName>Buddha.obj</FileName>
+    <MeshLocation>/Users/ryanachten/Documents/UnityTests/1_VerticeUserTesting/UserTesting_Task01/Buddha.obj</MeshLocation>
+    <TexLocation>/Users/ryanachten/Documents/UnityTests/1_VerticeUserTesting/UserTesting_Task01/BuddhaTex.jpg</TexLocation>
+    <ContribName>Jason Hansen</ContribName>
+    <ContribDate>02/05/2016</ContribDate>
+    <Description>Phra Phom is the Thai representation of the deva Brahma</Description>
+    <ModelInfo>
+      <ModelCreator>Ryan Achten</ModelCreator>
+      <ModelCreateDate>05/06/2016</ModelCreateDate>
+      <ModelCreateType>Photogrammetric</ModelCreateType>
+      <PhotogramInfo>
+        <PhotogramLocation>
+          <PhotogramLocationName>Home Scan</PhotogramLocationName>
+        </PhotogramLocation>
+      </PhotogramInfo>
+      <ModelScale>1</ModelScale>
+    </ModelInfo>
+    <ContextualInfo>
+      <ContextMedia>
+        <MediaName>Brahma_PhraPhrom</MediaName>
+        <MediaType>Image</MediaType>
+        <MediaLocation>/Users/ryanachten/Documents/UnityTests/1_VerticeUserTesting/UserTesting_Task03/Brahma_PhraPhrom.jpg</MediaLocation>
+      </ContextMedia>
+      <ContextMedia>
+        <MediaName>ErawanShrine</MediaName>
+        <MediaType>Video</MediaType>
+        <MediaLocation>/Users/ryanachten/Documents/UnityTests/1_VerticeUserTesting/UserTesting_Task03/ErawanShrine.ogv</MediaLocation>
+      </ContextMedia>
+      <ContextMedia>
+        <MediaName>PhraPhrom_MantraKatha</MediaName>
+        <MediaType>Audio</MediaType>
+        <MediaLocation>/Users/ryanachten/Documents/UnityTests/1_VerticeUserTesting/UserTesting_Task03/PhraPhrom_MantraKatha.ogg</MediaLocation>
       </ContextMedia>
     </ContextualInfo>
   </MetaPipeObject>

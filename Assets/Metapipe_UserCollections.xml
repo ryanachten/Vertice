@@ -146,23 +146,24 @@
       </ObjTransformInfo>
     </MetaPipeObject>
   </MetaPipeCollection>
-  <MetaPipeCollection name="Doogies">
+  <MetaPipeCollection name="Jason">
     <CollectionInfo>
-      <CollectionCreator>Doobsta</CollectionCreator>
-      <CollectionDate>17/02/2016</CollectionDate>
-      <CollectionDescription>Doooog colllect</CollectionDescription>
+      <CollectionCreator>Jason</CollectionCreator>
+      <CollectionDate>02/05/2016</CollectionDate>
+      <CollectionDescription>collection created as part of Vertice user testing session
+</CollectionDescription>
     </CollectionInfo>
-    <MetaPipeObject name="Doog">
+    <MetaPipeObject name="Evans Boat House">
       <ObjTransformInfo>
         <ObjPosition>
-          <ObjPosX>20</ObjPosX>
-          <ObjPosY>-5.025391</ObjPosY>
-          <ObjPosZ>10</ObjPosZ>
+          <ObjPosX>109.2999</ObjPosX>
+          <ObjPosY>-10.79992</ObjPosY>
+          <ObjPosZ>-26.51632</ObjPosZ>
         </ObjPosition>
         <ObjRotation>
-          <ObjRotateX>3.898974E-09</ObjRotateX>
-          <ObjRotateY>6.549833E-06</ObjRotateY>
-          <ObjRotateZ>2.738294E-09</ObjRotateZ>
+          <ObjRotateX>-0.7264132</ObjRotateX>
+          <ObjRotateY>-0.4366371</ObjRotateY>
+          <ObjRotateZ>-0.3382069</ObjRotateZ>
         </ObjRotation>
         <ObjScale>
           <ObjScaleX>1</ObjScaleX>
@@ -171,7 +172,7 @@
         </ObjScale>
       </ObjTransformInfo>
     </MetaPipeObject>
-    <MetaPipeObject name="Doog test 01">
+    <MetaPipeObject name="Evans Boat House">
       <ObjTransformInfo>
         <ObjPosition>
           <ObjPosX />
@@ -190,24 +191,17 @@
         </ObjScale>
       </ObjTransformInfo>
     </MetaPipeObject>
-  </MetaPipeCollection>
-  <MetaPipeCollection name="Test Collect yoo">
-    <CollectionInfo>
-      <CollectionCreator>Ryan Achten</CollectionCreator>
-      <CollectionDate>25/04/2016</CollectionDate>
-      <CollectionDescription>Tessst collect</CollectionDescription>
-    </CollectionInfo>
-    <MetaPipeObject name="Cog Wheel Evans Bay">
+    <MetaPipeObject name="Evans Bay Wharf">
       <ObjTransformInfo>
         <ObjPosition>
-          <ObjPosX>-63.67496</ObjPosX>
-          <ObjPosY>-32.83089</ObjPosY>
-          <ObjPosZ>351.2</ObjPosZ>
+          <ObjPosX>-130.4253</ObjPosX>
+          <ObjPosY>-26.75026</ObjPosY>
+          <ObjPosZ>351.694</ObjPosZ>
         </ObjPosition>
         <ObjRotation>
-          <ObjRotateX>-0.04279811</ObjRotateX>
-          <ObjRotateY>-0.003959982</ObjRotateY>
-          <ObjRotateZ>-0.03877091</ObjRotateZ>
+          <ObjRotateX>0.4609537</ObjRotateX>
+          <ObjRotateY>-0.2113957</ObjRotateY>
+          <ObjRotateZ>-0.120732</ObjRotateZ>
         </ObjRotation>
         <ObjScale>
           <ObjScaleX>1</ObjScaleX>
@@ -216,5 +210,21 @@
         </ObjScale>
       </ObjTransformInfo>
     </MetaPipeObject>
+  </MetaPipeCollection>
+  <MetaPipeCollection name="Jason">
+    <CollectionInfo>
+      <CollectionCreator />
+      <CollectionDate>02/05/2016</CollectionDate>
+      <CollectionDescription>
+      </CollectionDescription>
+    </CollectionInfo>
+  </MetaPipeCollection>
+  <MetaPipeCollection name="Jason">
+    <CollectionInfo>
+      <CollectionCreator />
+      <CollectionDate>02/05/2016</CollectionDate>
+      <CollectionDescription>
+      </CollectionDescription>
+    </CollectionInfo>
   </MetaPipeCollection>
 </MetaPipeCollections>

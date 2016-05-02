@@ -116,7 +116,7 @@ function loadCollectionObjects( listNode : XmlNode)
 			
 			curObj.transform.position = curObjPos;
 			
-			Debug.Log("Random start pos for obj: " + " /x: " + curObjPos.x + " /y: " + curObjPos.y + " /z: " + curObjPos.z);
+			//Debug.Log("Random start pos for obj: " + " /x: " + curObjPos.x + " /y: " + curObjPos.y + " /z: " + curObjPos.z);
 		
 		//if model settings exist
 		} else

@@ -65,7 +65,7 @@ function instantCollectionButtons( curListNode : XmlNode )
 	
 	var buttonText = instButton.GetComponentInChildren.<Text>();
 	
-	buttonText.text = "+ to " + listName;
+	buttonText.text = listName;
 	
 	//assign list node to their script for later use
 	var addCurObjScript : BrowseAddCurObjCollection = instButton.GetComponent(BrowseAddCurObjCollection);

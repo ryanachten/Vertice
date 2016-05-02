@@ -9,6 +9,8 @@ var curObjName : String;
 @HideInInspector
 var prevObjName : String;
 
+var modifyHeight : float; //***NEW*** used to prevent model falling through terrain when modifying
+
 var objPosFieldX : Text;
 	var objPosTextX : Text;
 var objPosFieldZ : Text;
@@ -79,6 +81,7 @@ function modXPos()
 {
 	curObj = rayDetectScript.curObj;
 	curObj.transform.position.x = parseFloat(objPosFieldX.text);
+	curObj.transform.position.y = modifyHeight; //***NEW***
 	UpdateGUI();
 }
 
@@ -86,6 +89,7 @@ function modZPos()
 {
 	curObj = rayDetectScript.curObj;
 	curObj.transform.position.z = parseFloat(objPosFieldZ.text);
+	curObj.transform.position.y = modifyHeight; //***NEW***
 	UpdateGUI();
 }
 
