@@ -11,6 +11,8 @@ var collectionTitle : Text;
 var collectionCreatorText : Text;
 var collectionDescriptionText : Text;
 
+var saveCollectFeedback : FeedbackScript; //***NEW***
+
 
 function Start()
 {
@@ -35,6 +37,8 @@ function SaveColllectionInfo()
 	
 	SavePositionInfo();
 	SaveGuiInfo();
+	
+	saveCollectFeedback.Feedback();
 }
 
 function SavePositionInfo()

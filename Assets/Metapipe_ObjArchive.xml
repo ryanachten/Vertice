@@ -538,6 +538,11 @@
         <MediaType>Video</MediaType>
         <MediaLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline/Assets/Materials/WorldACoke.ogg</MediaLocation>
       </ContextMedia>
+      <ContextMedia>
+        <MediaName>MetaPipe_TestTexs_2000W</MediaName>
+        <MediaType>Image</MediaType>
+        <MediaLocation>/Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/MetaPipe_TestTexs/MetaPipe_TestTexs_2000W.jpg</MediaLocation>
+      </ContextMedia>
     </ContextualInfo>
   </MetaPipeObject>
   <MetaPipeObject name="monkey04">
@@ -552,6 +557,12 @@
       <ModelCreator>No Model Creator Added Yet</ModelCreator>
       <ModelCreateDate>No Date Added Yet</ModelCreateDate>
       <ModelCreateType>Design</ModelCreateType>
+      <DesignInfo>
+        <DesignCreation>
+          <DesignCreationField>
+          </DesignCreationField>
+        </DesignCreation>
+      </DesignInfo>
       <PhotogramInfo>
         <PhotogramLocation>
           <PhotogramLocationName>Meow</PhotogramLocationName>
@@ -567,29 +578,29 @@
       </ContextMedia>
     </ContextualInfo>
   </MetaPipeObject>
-  <MetaPipeObject name="Phra Phrom">
+  <MetaPipeObject name="Phra Phom">
     <FileName>Buddha.obj</FileName>
     <MeshLocation>/Users/ryanachten/Documents/UnityTests/1_VerticeUserTesting/UserTesting_Task01/Buddha.obj</MeshLocation>
     <TexLocation>/Users/ryanachten/Documents/UnityTests/1_VerticeUserTesting/UserTesting_Task01/BuddhaTex.jpg</TexLocation>
-    <ContribName>Jason Hansen</ContribName>
-    <ContribDate>02/05/2016</ContribDate>
-    <Description>Phra Phom is the Thai representation of the deva Brahma</Description>
+    <ContribName>Add Contributor Name</ContribName>
+    <ContribDate>04/05/2016</ContribDate>
+    <Description>Phra Phrom is the Thai representation of the deva Brhama, honoured in Thai Hindu traditions. </Description>
     <ModelInfo>
       <ModelCreator>Ryan Achten</ModelCreator>
-      <ModelCreateDate>05/06/2016</ModelCreateDate>
+      <ModelCreateDate>05/06/15</ModelCreateDate>
       <ModelCreateType>Photogrammetric</ModelCreateType>
       <PhotogramInfo>
         <PhotogramLocation>
-          <PhotogramLocationName>Home Scan</PhotogramLocationName>
+          <PhotogramLocationName>Home scan</PhotogramLocationName>
         </PhotogramLocation>
       </PhotogramInfo>
       <ModelScale>1</ModelScale>
     </ModelInfo>
     <ContextualInfo>
       <ContextMedia>
-        <MediaName>Brahma_PhraPhrom</MediaName>
-        <MediaType>Image</MediaType>
-        <MediaLocation>/Users/ryanachten/Documents/UnityTests/1_VerticeUserTesting/UserTesting_Task03/Brahma_PhraPhrom.jpg</MediaLocation>
+        <MediaName>PhraPhrom_MantraKatha</MediaName>
+        <MediaType>Audio</MediaType>
+        <MediaLocation>/Users/ryanachten/Documents/UnityTests/1_VerticeUserTesting/UserTesting_Task03/PhraPhrom_MantraKatha.ogg</MediaLocation>
       </ContextMedia>
       <ContextMedia>
         <MediaName>ErawanShrine</MediaName>
@@ -597,9 +608,9 @@
         <MediaLocation>/Users/ryanachten/Documents/UnityTests/1_VerticeUserTesting/UserTesting_Task03/ErawanShrine.ogv</MediaLocation>
       </ContextMedia>
       <ContextMedia>
-        <MediaName>PhraPhrom_MantraKatha</MediaName>
-        <MediaType>Audio</MediaType>
-        <MediaLocation>/Users/ryanachten/Documents/UnityTests/1_VerticeUserTesting/UserTesting_Task03/PhraPhrom_MantraKatha.ogg</MediaLocation>
+        <MediaName>Brahma_PhraPhrom</MediaName>
+        <MediaType>Image</MediaType>
+        <MediaLocation>/Users/ryanachten/Documents/UnityTests/1_VerticeUserTesting/UserTesting_Task03/Brahma_PhraPhrom.jpg</MediaLocation>
       </ContextMedia>
     </ContextualInfo>
   </MetaPipeObject>

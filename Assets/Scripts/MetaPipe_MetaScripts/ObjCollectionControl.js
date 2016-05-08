@@ -132,8 +132,13 @@ function addNewCollection(collectionName : String)
 			collectionDescriptNode.InnerText = "";
 			collectionInfoNode.AppendChild(collectionDescriptNode);
 								
-	var lastCollectionNode = root.SelectSingleNode("MetaPipeCollection[last()]");	
-	root.InsertAfter(newCollectionNode, lastCollectionNode);
+//	var lastCollectionNode = root.SelectSingleNode("MetaPipeCollection[last()]");	
+//	root.InsertAfter(newCollectionNode, lastCollectionNode);
+
+	var firstCollectionNode = root.FirstChild; //***NEW***
+		Debug.Log("FirstCollect name: " + firstCollectionNode.SelectSingleNode("@name").Value);
+	root.InsertBefore(newCollectionNode, firstCollectionNode);
+		
 	
 	collectionDoc.Save(Application.dataPath + "/Metapipe_UserCollections.xml");	
 	

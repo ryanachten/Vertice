@@ -19,7 +19,7 @@ public var newImgTex : Texture2D;
 
 private var assetFromFile : boolean;
 
-
+var imgFeedback : FeedbackScript; //***NEW***
 
 function Awake(){
 
@@ -36,7 +36,7 @@ public function OpenImgAsset(){ //**REVISE** this function is pretty redundant
 	
 	//Filter Files
 	var fileExtensions : String[] = [".jpg"]; //***NEW***
-	UniFileBrowser.use.SetFileExtensions(fileExtensions); //***NEW***
+	UniFileBrowser.use.SetFileExtensions(fileExtensions);
 	
 	UniFileBrowser.use.OpenFileWindow(ImgAssetFile);
 }
@@ -110,14 +110,17 @@ public function ContextImgImp(){
 //	//Resize RawImg rect
 	var layoutElement = contextImg.GetComponent.<LayoutElement>();
 	layoutElement.minHeight = texHeight;	
-	
-	//***HERE***	
+		
 	if (assetFromFile){
 		ImgNameSplit(); //only execute namesplit if from file
 		
 		//execute add create node for the context media
 		infoCont.CreateContextNode("Image");
 		infoCont.Save(); //**new** for autosave
+		
+		if (imgFeedback == null) //***NEW***
+			imgFeedback = GameObject.Find("AddImgButton").GetComponent.<FeedbackScript>(); //***NEW***
+		imgFeedback.Feedback(); //***NEW***
 	}
 }
 

@@ -10,6 +10,7 @@ var contextInfoXml : BrowseContextInfoXml;
 var listNode : XmlNode;
 var curObjName : String;
 
+var objCollectionFeedback : FeedbackScript; //***NEW***
 
 function Start()
 {
@@ -27,4 +28,8 @@ function sendObjToAdd()
 	
 	//( collectionName : XmlNode, objName : String)	
 	collectionControl.addObjToCollection(listNode, curObjName);
+	
+	if (objCollectionFeedback == null) //***NEW***
+		objCollectionFeedback = GameObject.Find("MediaAssets").GetComponent.<FeedbackScript>(); //***NEW***
+	objCollectionFeedback.Feedback(); //***NEW***
 }

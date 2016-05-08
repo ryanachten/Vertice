@@ -19,6 +19,7 @@ private var assetFromFile : boolean;
 
 public var playTime : float = 0f;
 
+var vidFeedback : FeedbackScript; //***NEW***
 
 function Awake(){
 
@@ -60,7 +61,7 @@ public function VidAssetFile(pathToTex : String){
 
 public function ContextVidImp(){
 
-	Debug.Log("Context Img Located at: " + texLocation);
+	Debug.Log("Context Vid Located at: " + texLocation);
 		
 	var wwwDirectory = "file://" + texLocation; //this will probably need to change for other OS (PC = file:/ [I think?]) - **REVISE**
 
@@ -94,7 +95,11 @@ public function ContextVidImp(){
 		
 		//execute add create node for the context media
 		infoCont.CreateContextNode("Video");
-		infoCont.Save();  //**new** for autosave
+		infoCont.Save();  //for autosave
+		
+		if (vidFeedback == null) //***NEW***
+			vidFeedback = GameObject.Find("AddVidButton").GetComponent.<FeedbackScript>(); //***NEW***
+		vidFeedback.Feedback(); //***NEW***
 	}
 }
 

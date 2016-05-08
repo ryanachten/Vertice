@@ -46,7 +46,7 @@ public var modelCreatorName : String;
 public var modelCreateDate : String;
 @HideInInspector
 public var modelCreateType : String;
-public var modelScale : String; //***NEW*** used to change artifact local scale in scenes
+public var modelScale : String; // used to change artifact local scale in scenes
 
 @HideInInspector
 public var photogramLocationName : String;
@@ -122,7 +122,7 @@ public class ObjectData {
 	public var modelCreatorName : String;
 	public var modelCreateDate : String;
 	public var modelCreateType : String;
-	public var modelScale : String; //***NEW***
+	public var modelScale : String;
 	
 	public var photogramLocationName : String;
 	public var designCreateField : String;
@@ -196,7 +196,7 @@ public function Load(){ //this could be used in OnEnable for autoload
 			modelCreatorName = modelInfoNode.SelectSingleNode("ModelCreator").InnerText;
 			modelCreateDate = modelInfoNode.SelectSingleNode("ModelCreateDate").InnerText;
 			modelCreateType = modelInfoNode.SelectSingleNode("ModelCreateType").InnerText;
-			modelScale = modelInfoNode.SelectSingleNode("ModelScale").InnerText; //***NEW*** 	
+			modelScale = modelInfoNode.SelectSingleNode("ModelScale").InnerText; 	
 			
 			//***Photogram Information Data***
 			if (modelCreateType == "Photogrammetric"){				
@@ -377,7 +377,7 @@ public function CreateNewNode(){
 			modelInfoNode.AppendChild(modelCreateTypeNode);
 			modelCreateType = modelCreateTypeNode.InnerText;
 			
-		var modelScaleNode = doc.CreateElement("ModelScale"); //***NEW***
+		var modelScaleNode = doc.CreateElement("ModelScale");
 			modelScaleNode.InnerText = "1";
 			modelInfoNode.AppendChild(modelScaleNode);
 			modelScale = modelScaleNode.InnerText;
@@ -398,16 +398,27 @@ public function CreateNewNode(){
 
 public function CreateContextNode(mediaType : String){
 
-	//called everytime and image is successfully uploaded
-	var nodeName = curObjNode.SelectSingleNode("@name").Value; //**new**	
-	Debug.Log("objName: " + objName); //**new***
-	curObjNode = root.SelectSingleNode("MetaPipeObject[@name='"+ nodeName +"']");	//**new***
-	
+	//called everytime contextual media is uploaded
+	var nodeName = curObjNode.SelectSingleNode("@name").Value;
+	Debug.Log("objName: " + objName); 
+	curObjNode = root.SelectSingleNode("MetaPipeObject[@name='"+ nodeName +"']");
 	
 	var contextInfoNode = curObjNode.SelectSingleNode("ContextualInfo");
 	
 	var contextMedia = doc.CreateElement("ContextMedia");
+	
+	var firstContextNode = contextInfoNode.FirstChild; //***NEW*** inserts at top of list
+	if (firstContextNode != null){
+		Debug.Log("First context media name: " + firstContextNode.SelectSingleNode("MediaName").InnerText); //***NEW***
+		contextInfoNode.InsertBefore(contextMedia, firstContextNode); //***NEW*** inserts at top of list
+	} 
+	else if (firstContextNode == null) //***NEW*** if no contextual media has been added and this is the first one
+	{
+		Debug.Log("firstContextNode == null");
 		contextInfoNode.AppendChild(contextMedia);
+	}
+	
+	
 	
 	var mediaNameNode = doc.CreateElement("MediaName");
 		mediaNameNode.InnerText = cntxtMediaName;
@@ -426,6 +437,7 @@ public function CreateContextNode(mediaType : String){
 	var mediaLocationNode = doc.CreateElement("MediaLocation");
 		mediaLocationNode.InnerText = cntxtMediaLocation;
 		contextMedia.AppendChild(mediaLocationNode);
+		
 				
 }
 

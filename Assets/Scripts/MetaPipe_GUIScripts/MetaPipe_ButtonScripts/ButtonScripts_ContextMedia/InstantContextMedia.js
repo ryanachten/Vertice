@@ -15,6 +15,7 @@ function instantImg(){
 
 	var instImg = Instantiate(imgMediaAsset, instantParent.position, instantParent.rotation);
 	instImg.transform.SetParent(instantParent, false);
+	instImg.transform.SetAsFirstSibling(); //***NEW***
 }
 
 function instantXmlImg(){ //instantiated via xml load
@@ -22,7 +23,7 @@ function instantXmlImg(){ //instantiated via xml load
 	var sourceImgAd = objInfoCont.control.cntxtMediaLocation;
 	
 	var instImg = Instantiate(imgMediaAsset, instantParent.position, instantParent.rotation);
-	instImg.transform.SetParent(instantParent, false);
+	instImg.transform.SetParent(instantParent, false);	
 	
 	var impContScript : ImpContextImg = instImg.GetComponentInChildren(ImpContextImg);
 	var imgNameCont : ContextImgTitle = instImg.GetComponentInChildren(ContextImgTitle);
@@ -36,6 +37,7 @@ function instantVid(){
 
 	var instVid = Instantiate(vidMediaAsset, instantParent.position, instantParent.rotation);
 	instVid.transform.SetParent(instantParent, false);
+	instVid.transform.SetAsFirstSibling(); //***NEW***	
 }
 
 function instantXmlVid(){ //instantiated via xml load
@@ -57,6 +59,7 @@ function instantAud(){
 
 	var instAud = Instantiate(audMediaAsset, instantParent.position, instantParent.rotation);
 	instAud.transform.SetParent(instantParent, false);
+	instAud.transform.SetAsFirstSibling(); //***NEW***
 }
 
 function instantXmlAud(){ //instantiated via xml load

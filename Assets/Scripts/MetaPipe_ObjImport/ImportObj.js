@@ -8,7 +8,6 @@ public var objReport : ObjReport; //holds objReport script
 public var objInfoCont : ObjInfoControl;
 public var guiReset : Imp_GUIreset;
 
-
 var standardMaterial : Material;
 var transparentMaterial : Material;
 
@@ -21,6 +20,8 @@ var meshObj : GameObject;
 var objMesh : Mesh;
 var objTex : Material;
 
+var objFeedback : FeedbackScript; //***NEW***
+var texFeedback : FeedbackScript; //***NEW***
 
 
 function Awake () {
@@ -82,6 +83,7 @@ function MeshImport(){
 		var modelScale = parseFloat(objInfoCont.control.modelScale); //***NEW***
 			model.transform.localScale = new Vector3(modelScale,modelScale,modelScale);	
 	}
+	objFeedback.Feedback(); //***NEW***
 }
 
 
@@ -121,4 +123,5 @@ function TexImport(){ //assigns tex selected in GUI to current gameobject
 		}
 	}
 	objInfoCont.Save();
+	texFeedback.Feedback(); //***NEW**
 }

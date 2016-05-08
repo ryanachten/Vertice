@@ -17,6 +17,7 @@ private var assetFromFile : boolean;
 
 public var playTime : float = 0f;
 
+var audFeedback : FeedbackScript; //***NEW***
 
 function Awake(){
 
@@ -91,6 +92,10 @@ public function ContextAudioImp(){
 		//execute add create node for the context media
 		infoCont.CreateContextNode("Audio");
 		infoCont.Save();  //**new** for autosave
+		
+		if (audFeedback == null) //***NEW***
+			audFeedback = GameObject.Find("AddAudioButton").GetComponent.<FeedbackScript>(); //***NEW***
+		audFeedback.Feedback(); //***NEW***
 	}
 }
 

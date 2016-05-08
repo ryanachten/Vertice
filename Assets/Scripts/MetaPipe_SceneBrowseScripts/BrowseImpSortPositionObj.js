@@ -191,6 +191,8 @@ function findOrigin( groupings : List.<String>, objectSortDict : Dictionary.<Gam
 		floorOriginX += floorSubdivisionSize; //removes accounted for section from the overall size
 		var subDivXOrigin = subDivLength - (floorSubdivisionSize /2);
 		groupingsXOrigin.Add(group, subDivXOrigin);
+		
+//		Debug.Log("subDivXOrigin: " + subDivXOrigin); // **HERE** - for browse group titles
 	}
 	
 	

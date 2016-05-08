@@ -5,6 +5,7 @@ var userText : Text;
 var collectionControl : ObjCollectionControl;
 var loadCollectionAssetsScript : BrowseLoadCollectionAssets;
 
+var collectionFeedback : FeedbackScript; //***NEW***
 
 function activateInputField() //input field used to define collection name
 {
@@ -27,5 +28,8 @@ function sendCollectionToAdd()
 	{
 		collectionControl.addNewCollection(collectionName);
 		loadCollectionAssetsScript.getCollectionList();
-	}	
+	}
+	inputField.SetActive(false);
+	
+	collectionFeedback.Feedback(); //***NEW***		
 }
