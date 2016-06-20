@@ -67,6 +67,11 @@ function LoadType(){
 
 function ChangeType(){
 	
+	if (objInfoCont == null)
+	{
+		objInfoCont = GameObject.FindGameObjectWithTag("GameController").GetComponent.<ObjInfoControl>();
+	}
+	
 	if(photoToggle.isOn){
 		objInfoCont.control.modelCreateType = "Photogrammetric";
 		objInfoCont.Save(); //***HERE***

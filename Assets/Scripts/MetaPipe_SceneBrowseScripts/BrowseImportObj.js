@@ -45,6 +45,8 @@ var displayResultsPanel : GameObject;
 var sortPositionScript : BrowseImpSortPositionObj;
 var curBrowseObjects : List.<GameObject>;
 
+var groupLabelParent : Transform;
+
 function Start()
 {
 	sameSearch = false;
@@ -92,6 +94,15 @@ function importList(sortResults : List.<String>)
 		for (var go : GameObject in existSearchResults)
 		{
 			Destroy(go);
+		}
+		
+		if (groupLabelParent.childCount != 0) //***NEW*** used to delete group labels from previous browse
+		{
+//			Debug.Log("Deleting group labels");
+			for (var childLabel : Transform in groupLabelParent.transform)
+			{
+				Destroy(childLabel.gameObject);
+			}
 		}
 	}
 

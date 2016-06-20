@@ -140,6 +140,80 @@ public class ObjectData {
 	public var prevCollection : XmlNode; // used for collection -> import -> collection nav
 }
 
+
+public function ChangeFolderLocation( newSplitFolderDirect : String, newFullFolderDirect : String) //***NEW*** used to change archive folder location in XML media paths
+{
+	var metaPipeObjects : XmlNodeList = root.SelectNodes("MetaPipeObject");
+	Debug.Log("***Changing XML Folder Locations***");
+	Debug.Log("Number of MetaPipe Objects: " + metaPipeObjects.Count);
+
+	var verticePath : String = "/VerticeArchive/"; //used to identify substring index
+	
+	for (var i = 0; i < metaPipeObjects.Count; i++)
+//	for (var i = 0; i < 2; i++) //Debug test
+	{	
+		Debug.Log("");
+		Debug.Log("CHANGE OBJ: " + i);
+			
+		var oldMeshLocation = metaPipeObjects[i].SelectSingleNode("MeshLocation").InnerText;
+		Debug.Log("oldMeshLocation: " + oldMeshLocation);
+		
+			var meshDirectSplitIndex = oldMeshLocation.IndexOf(verticePath);
+//			Debug.Log("meshDirectSplitIndex: " + meshDirectSplitIndex);
+			
+			var meshOldDirect = oldMeshLocation.Substring(0, meshDirectSplitIndex); //Substring(0, pathSplitIndex)
+//			Debug.Log("meshOldDirect: " + meshOldDirect);
+		
+			var newMeshDirect = oldMeshLocation.Replace(meshOldDirect, newSplitFolderDirect);
+			Debug.Log("newMeshDirect: " + newMeshDirect);
+			
+			metaPipeObjects[i].SelectSingleNode("MeshLocation").InnerText = newMeshDirect;
+			
+		var oldTexLocation = metaPipeObjects[i].SelectSingleNode("TexLocation").InnerText;
+		Debug.Log("oldTexLocation: " + oldTexLocation);	
+		
+			var texDirectSplitIndex = oldTexLocation.IndexOf(verticePath);
+//			Debug.Log("texDirectSplitIndex: " + texDirectSplitIndex);
+			
+			var texOldDirect = oldTexLocation.Substring(0, texDirectSplitIndex); //Substring(0, pathSplitIndex)
+//			Debug.Log("texOldDirect: " + texOldDirect);
+		
+			var newTexDirect = oldTexLocation.Replace(texOldDirect, newSplitFolderDirect);
+			Debug.Log("newTexDirect: " + newTexDirect);
+		
+			metaPipeObjects[i].SelectSingleNode("TexLocation").InnerText = newTexDirect;		
+		
+		var contextMediaNode = metaPipeObjects[i].SelectSingleNode("ContextualInfo");
+		var contextualMediaNodes : XmlNodeList = contextMediaNode.SelectNodes("ContextMedia");
+		Debug.Log("contextualMediaNodes: " + contextualMediaNodes.Count);
+		
+		if (contextualMediaNodes.Count != 0)
+		{
+			for (var j = 0; j < contextualMediaNodes.Count; j++)
+			{
+				var oldMediaLocation = contextualMediaNodes[j].SelectSingleNode("MediaLocation").InnerText;
+				Debug.Log("oldMediaLocation: " + oldMediaLocation);
+				
+					var mediaDirectSplitIndex = oldMediaLocation.IndexOf(verticePath);
+//					Debug.Log("mediaDirectSplitIndex: " + mediaDirectSplitIndex);
+					
+					var mediaOldDirect = oldMediaLocation.Substring(0, mediaDirectSplitIndex); //Substring(0, pathSplitIndex)
+//					Debug.Log("mediaOldDirect: " + mediaOldDirect);
+				
+					var newMediaDirect = oldMediaLocation.Replace(mediaOldDirect, newSplitFolderDirect);
+					Debug.Log("newMediaDirect: " + newMediaDirect);
+					
+					contextualMediaNodes[j].SelectSingleNode("MediaLocation").InnerText = newMediaDirect;
+			}
+		}
+		doc.Save(Application.dataPath + "/Metapipe_ObjArchive.xml");
+	}
+	
+	Debug.Log("***/Changing XML Folder Locations***");
+}
+
+
+
 public function Load(){ //this could be used in OnEnable for autoload
 	
 	if(root == null) //used in browse -> imp edit; not sure why this is needed but solves nullref
@@ -407,12 +481,12 @@ public function CreateContextNode(mediaType : String){
 	
 	var contextMedia = doc.CreateElement("ContextMedia");
 	
-	var firstContextNode = contextInfoNode.FirstChild; //***NEW*** inserts at top of list
+	var firstContextNode = contextInfoNode.FirstChild; //inserts at top of list
 	if (firstContextNode != null){
-		Debug.Log("First context media name: " + firstContextNode.SelectSingleNode("MediaName").InnerText); //***NEW***
-		contextInfoNode.InsertBefore(contextMedia, firstContextNode); //***NEW*** inserts at top of list
+		Debug.Log("First context media name: " + firstContextNode.SelectSingleNode("MediaName").InnerText);
+		contextInfoNode.InsertBefore(contextMedia, firstContextNode); //inserts at top of list
 	} 
-	else if (firstContextNode == null) //***NEW*** if no contextual media has been added and this is the first one
+	else if (firstContextNode == null) //if no contextual media has been added and this is the first one
 	{
 		Debug.Log("firstContextNode == null");
 		contextInfoNode.AppendChild(contextMedia);

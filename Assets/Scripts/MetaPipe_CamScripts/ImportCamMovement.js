@@ -47,7 +47,8 @@ function Update()
 			rb.velocity.z = Mathf.SmoothDamp(rb.velocity.z, 0, walkDeaccelerationVolZ, walkDeacceleration);
 		}
 		
-		rb.AddRelativeForce(walkAcceleration * Input.GetAxis("Horizontal"), walkAcceleration * Input.GetAxis("Vertical"), walkAcceleration * (Input.GetAxis("Mouse ScrollWheel"))* mbScroll);//new
+//		rb.AddRelativeForce(walkAcceleration * Input.GetAxis("Horizontal"), walkAcceleration * Input.GetAxis("Vertical"), walkAcceleration * (Input.GetAxis("Mouse ScrollWheel"))* mbScroll);//new
+		rb.AddRelativeForce(walkAcceleration * -Input.GetAxis("Horizontal"), walkAcceleration * -Input.GetAxis("Vertical"), walkAcceleration * -(Input.GetAxis("Mouse ScrollWheel"))* mbScroll); //fixed inverted issue
 	}
 }
 

@@ -27,7 +27,8 @@ var objSpaceGap : float = 10;
 var curPosObjects : List.<GameObject>;
 var groupingsOrigin = Dictionary.<GameObject, Vector3>();
 
-
+var groupLabelParent : Transform; //null used to house labels
+var groupLabel : GameObject; //3D label instantiated at X origin of groupings
 
 function sortMode(curBrowseObjects : List.<GameObject>) //determines what sort of sorting is requried
 {
@@ -184,7 +185,7 @@ function findOrigin( groupings : List.<String>, objectSortDict : Dictionary.<Gam
 //	Debug.Log("floorSubdivisionSize: " + floorSubdivisionSize);
 	
 	var groupingsXOrigin = new Dictionary.<String, float>();
-	
+
 	for (var group : String in groupings)
 	{	
 		var subDivLength = floorOriginX + floorSubdivisionSize;
@@ -192,7 +193,13 @@ function findOrigin( groupings : List.<String>, objectSortDict : Dictionary.<Gam
 		var subDivXOrigin = subDivLength - (floorSubdivisionSize /2);
 		groupingsXOrigin.Add(group, subDivXOrigin);
 		
-//		Debug.Log("subDivXOrigin: " + subDivXOrigin); // **HERE** - for browse group titles
+		//Instant Browse Group Labels ***NEW***
+//		Debug.Log("Grouping name: " + group + " subDivXOrigin: " + subDivXOrigin);
+		var labelInstantLocation : Vector3 = new Vector3(subDivXOrigin, -15, 0);
+		var label = GameObject.Instantiate(groupLabel, labelInstantLocation, Quaternion.identity);
+			label.transform.SetParent(groupLabelParent);
+			label.GetComponent.<CameraFacingBillboard>().browCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent.<Camera>();
+			label.GetComponent.<Browse_GroupingLabel>().updateText(group); 
 	}
 	
 	
@@ -228,7 +235,7 @@ function findOrigin( groupings : List.<String>, objectSortDict : Dictionary.<Gam
 				
 				//Use BoxCol to find placement
 				var curObjBoxCol = curBrowseObj.AddComponent(BoxCollider);
-				var curPartLocate : GameObject = Instantiate(particleLocate, curBrowseObj.GetComponent.<BoxCollider>().bounds.center, Quaternion.identity);//***NEW***
+				var curPartLocate : GameObject = Instantiate(particleLocate, curBrowseObj.GetComponent.<BoxCollider>().bounds.center, Quaternion.identity);
 				curPartLocate.transform.parent = curBrowseObj.transform;
 				//curPartLocate.transform.rotation = Quaternion.EulerAngles(-90,0,0);
 				

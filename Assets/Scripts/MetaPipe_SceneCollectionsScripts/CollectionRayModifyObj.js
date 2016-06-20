@@ -6,8 +6,11 @@
 //var loadPlane : GameObject;
 var modObj : GameObject;
 
-var modSensitivity : float = 5; //used to create right feeling btwn mouse and obj
+var speed : float = 0.1f; 
+var velocity : Vector3 = Vector3.zero;
+var smoothTime : float = 0.3f;
 
+var modSensitivity : float = 5; //used to create right feeling btwn mouse and obj
 var hoverHeight :float = 1f;
 
 @HideInInspector
@@ -47,6 +50,7 @@ var modifySelectObjPanel : GameObject;
 var modifyObjGUIscript : CollectionModifyObjInputGUI;
 var selectModPanelActive : boolean;
 var selectObjPanel : GameObject;
+var camMoveScript : CollectionCamMovement; 
 
 var guiMode : boolean; //toggled by navMode to prevent transformations whilst GUI input
 
@@ -57,7 +61,7 @@ function Start()
 }
 
 
-function Update()
+function FixedUpdate()
 {
 
 	if (modObj != null && !guiMode){
@@ -78,53 +82,67 @@ function Update()
 		{	
 			if (Input.GetKeyDown(KeyCode.E))
 			{
-				modObj.GetComponent(BoxCollider).enabled = false;
-				modObj.GetComponent(Rigidbody).isKinematic = true;
-//				
+				modObj.GetComponent(BoxCollider).enabled = false;				
 				initPos = modObj.transform.position;
 				var initRotation = modObj.transform.rotation;	
 			}
+			
+			//Non-Rigidbody approach:
+			modObj.GetComponent(Rigidbody).isKinematic = true;
+			
+			//Rigidbody approach:
+//			var movRb = modObj.GetComponent(Rigidbody);
+//			movRb.useGravity = false;
+//			movRb.freezeRotation = true; //***NEW*** 
 	
 			moveObject(modObj, initPos, initRotation);
 		}
-		else{
+		if (Input.GetKeyUp(KeyCode.E))
+		{
 			modObj.GetComponent(BoxCollider).enabled = true;
+			
+			//Non-Rigidbody approach:
 			modObj.GetComponent(Rigidbody).isKinematic = false;
+
+			//Rigidbody approach:
+//			movRb = modObj.GetComponent(Rigidbody);
+//			movRb.useGravity = true;
+//			movRb.freezeRotation = false;
 		}
-		
 		
 		
 		//Rotate
 		if ( Input.GetKey(KeyCode.R)) 
 		{
-	
 			if (Input.GetKeyDown(KeyCode.R))
 			{
 				//Debug.Log("Rotating Object");
 				setupPos = false;
+				camMoveScript.navMode = false; 
 				curPos = modObj.transform.position;
-				initRot = modObj.transform.rotation;
+				initRot = modObj.transform.rotation;	
 			} else{
 				setupPos = true;			
-			}
-			  
-			modObj.GetComponent(Rigidbody).isKinematic = true;
+			}  
 			
+			var rotRb = modObj.GetComponent.<Rigidbody>();
+			rotRb.freezeRotation = true; //***NEW***
+			rotRb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
+//			modObj.GetComponent(Rigidbody).isKinematic = true;
+
 			rotateObject(curPos, initRot, setupPos);		
-		} else 
-		{
-			modObj.GetComponent(Rigidbody).isKinematic = false;
-		}
+		} 
 		if (Input.GetKeyUp(KeyCode.R))
 		{
-			var boxCol = modObj.GetComponent(BoxCollider);
-			Destroy(boxCol); //destroys current box coll to make one for the new obj size
-			modObj.AddComponent(BoxCollider);
-		
+			rotRb = modObj.GetComponent.<Rigidbody>();
+			rotRb.constraints = RigidbodyConstraints.None;
+			rotRb.freezeRotation = false; //***NEW***
+			
+//			modObj.GetComponent(Rigidbody).isKinematic = false;
+			camMoveScript.navMode = true; 
 		}
-		
-		
-		
+				
+						
 		//Scale
 		if ( Input.GetKey(KeyCode.T))
 		{		
@@ -133,74 +151,70 @@ function Update()
 			{
 				//Debug.Log("Scaling Object");
 				setupPos = false;
+				camMoveScript.navMode = false;
 				curPos = modObj.transform.position;
 				initScale = modObj.transform.localScale;
 				initDimen = modObj.GetComponent.<Renderer>().bounds.size;
 			} else{
 				setupPos = true;			
 			}
-			modObj.GetComponent(Rigidbody).isKinematic = true;
+			var sclRb = modObj.GetComponent.<Rigidbody>();
+			sclRb.freezeRotation = true; //***NEW***
+			sclRb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
+//			modObj.GetComponent(Rigidbody).isKinematic = true;
+//			modObj.GetComponent(Rigidbody).useGravity = false; 
 			
 			scaleObject(curPos, setupPos, initScale, initDimen);	
 		}
-		else 
-		{
-			modObj.GetComponent(Rigidbody).isKinematic = false;
-		}
 		if (Input.GetKeyUp(KeyCode.T))
 		{
-			boxCol = modObj.GetComponent(BoxCollider);
-			Destroy(boxCol); //destroys current box coll to make one for the new obj size
-			modObj.AddComponent(BoxCollider);
-		
+			sclRb = modObj.GetComponent.<Rigidbody>();
+			sclRb.constraints = RigidbodyConstraints.None;
+			sclRb.freezeRotation = false; //***NEW***
+//			modObj.GetComponent(Rigidbody).isKinematic = false;
+//			modObj.GetComponent(Rigidbody).useGravity = true; 
+			camMoveScript.navMode = true;
 		}
-		
 	}
 }
 
 function moveObject(modObj : GameObject, initPos : Vector3, initRotation : Quaternion)
 {
 	//Debug.Log("Moving Object");
-	
-	
-	//**Raycast stuff for search scene objects
+
 	var hit : RaycastHit;
 	var foundHit : boolean = false;
 	
 	foundHit = Physics.Raycast(transform.position, transform.forward, hit);
 	//Debug.DrawRay(transform.position, transform.forward, Color.blue);
 	
-	if(foundHit && hit.transform.tag != "Player")
+	if(foundHit && hit.transform.tag == "Terrain") 
 	{
-		//Debug.Log("Move to Hit Point: " + hit.point);
 		modifyObjGUIscript.activateMoveDisplay(initPos, hit.point);		
 		
-		
 		var meshHalfHeight = modObj.GetComponent.<MeshRenderer>().bounds.size.y /2; //helps account for large and small objects
-//		Debug.Log("CurObj Mesh Min: " + meshHalfHeight);
 		
-		modObj.transform.position = hit.point;
+		modObj.transform.position = hit.point; //***method 01***
+		
+		//Non-Rigidbody approach:
+//		modObj.transform.position = Vector3.Lerp(initPos, hit.point, speed); //***method 02***
+		
 		modObj.transform.position.y =  modObj.transform.position.y + meshHalfHeight + hoverHeight;
+//		modObj.transform.rotation = initRotation;
 		
-		modObj.transform.rotation = initRotation;
-		//modObj.transform.rotation = Quaternion.LookRotation(hit.normal);
+		//Rigidbody approach:
+//		var movRb = modObj.GetComponent.<Rigidbody>(); //***NEW - method 04***
+//		movRb.position = Vector3.Lerp(initPos, hit.point, speed); 
+		
+//		movRb.position.y =  meshHalfHeight + hoverHeight;
+//		movRb.rotation = initRotation;
 	}
-	
 }
 
 
 function rotateObject(originalPos : Vector3, initRot : Quaternion, setupPos : boolean)
 {
-	var curObj = modObj;
-	
-	if (!setupPos)
-	{
-		var boxColsize = curObj.GetComponent(BoxCollider).bounds.size;
-		var rotatePos : Vector3 = originalPos;
-		rotatePos.y = rotatePos.y + boxColsize.y/2;
-		curObj.transform.position = rotatePos;
-		setupPos = true;
-	}
+	var curObj = modObj;	
 		
 	yRotation += Input.GetAxis("Mouse X") * modSensitivity;
 	xRotation -= Input.GetAxis("Mouse Y") * modSensitivity;
@@ -221,19 +235,10 @@ function rotateObject(originalPos : Vector3, initRot : Quaternion, setupPos : bo
 
 function scaleObject(originalPos : Vector3, setupPos : boolean, initScale : Vector3, initDimen : Vector3)
 {
-	
 	var curObj = modObj;
-	
-	if (!setupPos)
-	{
-		var boxColsize = curObj.GetComponent(BoxCollider).bounds.size;
-		var scalePos : Vector3 = originalPos;
-		scalePos.y = scalePos.y + boxColsize.y/2;
-		curObj.transform.position = scalePos;
-		setupPos = true;
-	}
 		
 	xScale -= Input.GetAxis("Mouse Y") * modSensitivity;
+	xScale = Mathf.Abs(xScale);
 	
 	currentXscale = Mathf.SmoothDamp(currentXscale, xScale, xScaleV, modSmoothDamp); // moves from curPos to intendedPos
 	
@@ -243,9 +248,7 @@ function scaleObject(originalPos : Vector3, setupPos : boolean, initScale : Vect
 		//update GUI
 		var newSize = curObj.GetComponent.<Renderer>().bounds.size;
 		modifyObjGUIscript.activateScaleDisplay(initScale, initDimen, curObj.transform.localScale, newSize);
-	}
-	
-	
+	}	
 }
 
 

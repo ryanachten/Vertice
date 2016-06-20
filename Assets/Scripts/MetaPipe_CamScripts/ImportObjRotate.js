@@ -30,9 +30,13 @@ function Update()
 function ObjRotate()
 {
 	curObj = GameObject.FindGameObjectWithTag("Current Model");
-	yRotation += Input.GetAxis("Mouse X") * lookSensitivity;
+//	yRotation += Input.GetAxis("Mouse X") * lookSensitivity;
+//	xRotation -= Input.GetAxis("Mouse Y") * lookSensitivity;
+
+	yRotation += -Input.GetAxis("Mouse X") * lookSensitivity;
 	xRotation -= Input.GetAxis("Mouse Y") * lookSensitivity;
-	
+
+			
 	//xRotation = Mathf.Clamp(xRotation, -90, 90); //used to prevent backflips but necessary for my needs
 	currentXrotation = Mathf.SmoothDamp(currentXrotation, xRotation, xRotationV, lookSmoothDamp); // moves from curPos to intendedPos
 	currentYrotation = Mathf.SmoothDamp(currentYrotation, yRotation, yRotationV, lookSmoothDamp); 

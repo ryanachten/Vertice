@@ -81,7 +81,7 @@ function modXPos()
 {
 	curObj = rayDetectScript.curObj;
 	curObj.transform.position.x = parseFloat(objPosFieldX.text);
-	curObj.transform.position.y = modifyHeight; //***NEW***
+	curObj.transform.position.y = modifyHeight; 
 	UpdateGUI();
 }
 
@@ -89,45 +89,54 @@ function modZPos()
 {
 	curObj = rayDetectScript.curObj;
 	curObj.transform.position.z = parseFloat(objPosFieldZ.text);
-	curObj.transform.position.y = modifyHeight; //***NEW***
+	curObj.transform.position.y = modifyHeight;
 	UpdateGUI();
 }
 
 function modXRotate()
 {			
 	curObj = rayDetectScript.curObj;
+
+	var rotHeight = curObj.GetComponent(BoxCollider).bounds.size.y / 2;	//***NEW***
+	curObj.transform.position.y = curObj.transform.position.y + rotHeight; //***NEW*** prevents object falling through terrain
+	
 	curObj.transform.rotation.x = parseFloat(objRotateFieldX.text);
-	Destroy(curObj.GetComponent(BoxCollider)); 
-	curObj.AddComponent(BoxCollider);
 	UpdateGUI();
 }
 
 function modYRotate()
 {
 	curObj = rayDetectScript.curObj;
+
+	var rotHeight = curObj.GetComponent(BoxCollider).bounds.size.y / 2;	//***NEW***
+	curObj.transform.position.y = curObj.transform.position.y + rotHeight; //***NEW*** prevents object falling through terrain
+	
 	curObj.transform.rotation.y = parseFloat(objRotateFieldY.text);
-	Destroy(curObj.GetComponent(BoxCollider)); 
-	curObj.AddComponent(BoxCollider);
 	UpdateGUI();
 }
 
 function modZRotate()
 {
 	curObj = rayDetectScript.curObj;
+
+	var rotHeight = curObj.GetComponent(BoxCollider).bounds.size.y / 2;	//***NEW***
+	curObj.transform.position.y = curObj.transform.position.y + rotHeight; //***NEW*** prevents object falling through terrain
+	
 	curObj.transform.rotation.z = parseFloat(objRotateFieldZ.text);
-	Destroy(curObj.GetComponent(BoxCollider)); 
-	curObj.AddComponent(BoxCollider);
 	UpdateGUI();
 }
 
 function modScale()
 {
 	curObj = rayDetectScript.curObj;
-	curObj.transform.localScale.x = parseFloat(objScaleField.text);
-	curObj.transform.localScale.y = parseFloat(objScaleField.text);
-	curObj.transform.localScale.z = parseFloat(objScaleField.text); 
-	Destroy(curObj.GetComponent(BoxCollider)); 
-	curObj.AddComponent(BoxCollider);
+	
+	var scaleFactor = parseFloat(objScaleField.text); //***NEW***
+	var objHeight = curObj.GetComponent(BoxCollider).bounds.size.y / 2; //***NEW***
+	curObj.transform.position.y = objHeight * scaleFactor; //***NEW*** prevents object falling through terrain
+	
+	curObj.transform.localScale.x = scaleFactor;
+	curObj.transform.localScale.y = scaleFactor;
+	curObj.transform.localScale.z = scaleFactor; 
 	UpdateGUI();
 }
 
@@ -136,6 +145,10 @@ function modWidth()
 	curObj = rayDetectScript.curObj;
 	var newWidth = parseFloat(objDimenWidthField.text);
 	var curWidth = curObj.GetComponent.<Renderer>().bounds.size.x;
+	
+	var scaleFactor = newWidth/curWidth; //***NEW***
+	var objHeight = curObj.GetComponent(BoxCollider).bounds.size.y / 2; //***NEW***
+	curObj.transform.position.y = objHeight * scaleFactor; //***NEW*** prevents object falling through terrain
 	
 	if (curWidth < newWidth) //if the user size is larger than current size
 	{ 
@@ -154,9 +167,6 @@ function modWidth()
 			curObj.transform.localScale.z -= dimenIncrementVal;
 		}	
 	}
-	
-	Destroy(curObj.GetComponent(BoxCollider)); 
-	curObj.AddComponent(BoxCollider);
 
 	UpdateGUI();
 }
@@ -167,6 +177,10 @@ function modHeight()
 	curObj = rayDetectScript.curObj;
 	var newHeight = parseFloat(objDimenHeightField.text);
 	var curHeight = curObj.GetComponent.<Renderer>().bounds.size.y;
+	
+	var scaleFactor = newHeight/curHeight; //***NEW***
+	var objHeight = curObj.GetComponent(BoxCollider).bounds.size.y / 2; //***NEW***
+	curObj.transform.position.y = objHeight * scaleFactor; //***NEW*** prevents object falling through terrain
 	
 	if (curHeight < newHeight) //if the user size is larger than current size
 	{ 
@@ -185,9 +199,6 @@ function modHeight()
 			curObj.transform.localScale.z -= dimenIncrementVal;
 		}	
 	}
-	
-	Destroy(curObj.GetComponent(BoxCollider)); 
-	curObj.AddComponent(BoxCollider);
 
 	UpdateGUI();
 }
@@ -198,6 +209,10 @@ function modDepth()
 	curObj = rayDetectScript.curObj;
 	var newDepth = parseFloat(objDimenDepthField.text);
 	var curDepth = curObj.GetComponent.<Renderer>().bounds.size.z;
+	
+	var scaleFactor = newDepth/curDepth; //***NEW***
+	var objHeight = curObj.GetComponent(BoxCollider).bounds.size.y / 2; //***NEW***
+	curObj.transform.position.y = objHeight * scaleFactor; //***NEW*** prevents object falling through terrain
 	
 	if (curDepth < newDepth) //if the user size is larger than current size
 	{ 
@@ -216,9 +231,6 @@ function modDepth()
 			curObj.transform.localScale.z -= dimenIncrementVal;
 		}	
 	}
-	
-	Destroy(curObj.GetComponent(BoxCollider)); 
-	curObj.AddComponent(BoxCollider);
 
 	UpdateGUI();
 }

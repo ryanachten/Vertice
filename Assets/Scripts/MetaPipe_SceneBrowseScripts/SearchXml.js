@@ -117,9 +117,13 @@ function searchObjectNameXml()
 		var curNode = mpo[i];
 
 		var cntxtnodeCheck = curNode.SelectNodes("./ContextualInfo/ContextMedia/MediaName[contains(.,'" + usrTxtInput + "')]");
+		
+//		var objNameNodeCheck = curNode.SelectNodes("./@name[contains(.,'translate(" + usrTxtInput + ",'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')')]");
+//		var objNameNodeCheck = curNode.SelectNodes("./@name[contains(lower-case(.),'" + usrTxtInput + "')]");
+
 		var objNameNodeCheck = curNode.SelectNodes("./@name[contains(.,'" + usrTxtInput + "')]");
 		
-		if (cntxtnodeCheck.Count || objNameNodeCheck.Count >= 1)
+		if (cntxtnodeCheck.Count >= 1 || objNameNodeCheck.Count >= 1) //cntxtnodeCheck.Count -> cntxtnodeCheck.Count >= 1 
 		{	
 			//***List Test***
 			curObjName = curNode.SelectSingleNode("@name").Value;

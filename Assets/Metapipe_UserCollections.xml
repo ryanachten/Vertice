@@ -1,127 +1,5 @@
 <MetaPipeCollections>
-  <MetaPipeCollection name="bunch of things">
-    <CollectionInfo>
-      <CollectionCreator />
-      <CollectionDate>04/05/2016</CollectionDate>
-      <CollectionDescription>
-      </CollectionDescription>
-    </CollectionInfo>
-    <MetaPipeObject name="Cog Wheel Evans Bay">
-      <ObjTransformInfo>
-        <ObjPosition>
-          <ObjPosX />
-          <ObjPosY />
-          <ObjPosZ />
-        </ObjPosition>
-        <ObjRotation>
-          <ObjRotateX />
-          <ObjRotateY />
-          <ObjRotateZ />
-        </ObjRotation>
-        <ObjScale>
-          <ObjScaleX />
-          <ObjScaleY />
-          <ObjScaleZ />
-        </ObjScale>
-      </ObjTransformInfo>
-    </MetaPipeObject>
-    <MetaPipeObject name="Cog Wheel Evans Bay">
-      <ObjTransformInfo>
-        <ObjPosition>
-          <ObjPosX />
-          <ObjPosY />
-          <ObjPosZ />
-        </ObjPosition>
-        <ObjRotation>
-          <ObjRotateX />
-          <ObjRotateY />
-          <ObjRotateZ />
-        </ObjRotation>
-        <ObjScale>
-          <ObjScaleX />
-          <ObjScaleY />
-          <ObjScaleZ />
-        </ObjScale>
-      </ObjTransformInfo>
-    </MetaPipeObject>
-    <MetaPipeObject name="Cog Wheel Evans Bay">
-      <ObjTransformInfo>
-        <ObjPosition>
-          <ObjPosX />
-          <ObjPosY />
-          <ObjPosZ />
-        </ObjPosition>
-        <ObjRotation>
-          <ObjRotateX />
-          <ObjRotateY />
-          <ObjRotateZ />
-        </ObjRotation>
-        <ObjScale>
-          <ObjScaleX />
-          <ObjScaleY />
-          <ObjScaleZ />
-        </ObjScale>
-      </ObjTransformInfo>
-    </MetaPipeObject>
-    <MetaPipeObject name="Cog Wheel Evans Bay">
-      <ObjTransformInfo>
-        <ObjPosition>
-          <ObjPosX />
-          <ObjPosY />
-          <ObjPosZ />
-        </ObjPosition>
-        <ObjRotation>
-          <ObjRotateX />
-          <ObjRotateY />
-          <ObjRotateZ />
-        </ObjRotation>
-        <ObjScale>
-          <ObjScaleX />
-          <ObjScaleY />
-          <ObjScaleZ />
-        </ObjScale>
-      </ObjTransformInfo>
-    </MetaPipeObject>
-    <MetaPipeObject name="Evans Bay Wharf">
-      <ObjTransformInfo>
-        <ObjPosition>
-          <ObjPosX />
-          <ObjPosY />
-          <ObjPosZ />
-        </ObjPosition>
-        <ObjRotation>
-          <ObjRotateX />
-          <ObjRotateY />
-          <ObjRotateZ />
-        </ObjRotation>
-        <ObjScale>
-          <ObjScaleX />
-          <ObjScaleY />
-          <ObjScaleZ />
-        </ObjScale>
-      </ObjTransformInfo>
-    </MetaPipeObject>
-    <MetaPipeObject name="Cricket Monument">
-      <ObjTransformInfo>
-        <ObjPosition>
-          <ObjPosX />
-          <ObjPosY />
-          <ObjPosZ />
-        </ObjPosition>
-        <ObjRotation>
-          <ObjRotateX />
-          <ObjRotateY />
-          <ObjRotateZ />
-        </ObjRotation>
-        <ObjScale>
-          <ObjScaleX />
-          <ObjScaleY />
-          <ObjScaleZ />
-        </ObjScale>
-      </ObjTransformInfo>
-    </MetaPipeObject>
-  </MetaPipeCollection>
-  <MetaPipeCollection name="Photogrammetry Test">
+  <MetaPipeCollection name="Photogrammetry Test Scans">
     <CollectionInfo>
       <CollectionCreator>Ryan Achten</CollectionCreator>
       <CollectionDate>29/11/2015</CollectionDate>
@@ -222,17 +100,45 @@
         </ObjScale>
       </ObjTransformInfo>
     </MetaPipeObject>
-    <MetaPipeObject name="Buddha Head">
+  </MetaPipeCollection>
+  <MetaPipeCollection name="War Memorial Scans">
+    <CollectionInfo>
+      <CollectionCreator>
+      </CollectionCreator>
+      <CollectionDate>29/05/2016</CollectionDate>
+      <CollectionDescription>
+      </CollectionDescription>
+    </CollectionInfo>
+    <MetaPipeObject name="WarMem Lion Statue">
       <ObjTransformInfo>
         <ObjPosition>
-          <ObjPosX>0</ObjPosX>
-          <ObjPosY>-10365.35</ObjPosY>
-          <ObjPosZ>80.99997</ObjPosZ>
+          <ObjPosX>-62.92326</ObjPosX>
+          <ObjPosY>-12.69437</ObjPosY>
+          <ObjPosZ>173.0723</ObjPosZ>
         </ObjPosition>
         <ObjRotation>
-          <ObjRotateX>0</ObjRotateX>
-          <ObjRotateY>0</ObjRotateY>
-          <ObjRotateZ>0</ObjRotateZ>
+          <ObjRotateX>-0.0255452</ObjRotateX>
+          <ObjRotateY>0.2022121</ObjRotateY>
+          <ObjRotateZ>0.01089142</ObjRotateZ>
+        </ObjRotation>
+        <ObjScale>
+          <ObjScaleX>1</ObjScaleX>
+          <ObjScaleY>1</ObjScaleY>
+          <ObjScaleZ>1</ObjScaleZ>
+        </ObjScale>
+      </ObjTransformInfo>
+    </MetaPipeObject>
+    <MetaPipeObject name="Hinerangi">
+      <ObjTransformInfo>
+        <ObjPosition>
+          <ObjPosX>-77.01621</ObjPosX>
+          <ObjPosY>-12.78019</ObjPosY>
+          <ObjPosZ>82.59956</ObjPosZ>
+        </ObjPosition>
+        <ObjRotation>
+          <ObjRotateX>0.00447807</ObjRotateX>
+          <ObjRotateY>0.03721666</ObjRotateY>
+          <ObjRotateZ>0.02007303</ObjRotateZ>
         </ObjRotation>
         <ObjScale>
           <ObjScaleX>1</ObjScaleX>
@@ -242,23 +148,297 @@
       </ObjTransformInfo>
     </MetaPipeObject>
   </MetaPipeCollection>
-  <MetaPipeCollection name="Buddha Test">
+  <MetaPipeCollection name="Basin Reserve Scans">
     <CollectionInfo>
-      <CollectionCreator>Ryan Achten</CollectionCreator>
-      <CollectionDate>04/12/2015</CollectionDate>
-      <CollectionDescription>Buddha Test Collection</CollectionDescription>
+      <CollectionCreator />
+      <CollectionDate>29/05/2016</CollectionDate>
+      <CollectionDescription>
+      </CollectionDescription>
     </CollectionInfo>
-    <MetaPipeObject name="Buddha Head">
+    <MetaPipeObject name="Cricket Monument">
       <ObjTransformInfo>
         <ObjPosition>
-          <ObjPosX>10.40244</ObjPosX>
-          <ObjPosY>-13.20111</ObjPosY>
-          <ObjPosZ>-15.44307</ObjPosZ>
+          <ObjPosX />
+          <ObjPosY />
+          <ObjPosZ />
         </ObjPosition>
         <ObjRotation>
-          <ObjRotateX>-7.587253E-08</ObjRotateX>
-          <ObjRotateY>6.941975E-06</ObjRotateY>
-          <ObjRotateZ>2.862949E-06</ObjRotateZ>
+          <ObjRotateX />
+          <ObjRotateY />
+          <ObjRotateZ />
+        </ObjRotation>
+        <ObjScale>
+          <ObjScaleX />
+          <ObjScaleY />
+          <ObjScaleZ />
+        </ObjScale>
+      </ObjTransformInfo>
+    </MetaPipeObject>
+    <MetaPipeObject name="Toilets Basin Reserve">
+      <ObjTransformInfo>
+        <ObjPosition>
+          <ObjPosX />
+          <ObjPosY />
+          <ObjPosZ />
+        </ObjPosition>
+        <ObjRotation>
+          <ObjRotateX />
+          <ObjRotateY />
+          <ObjRotateZ />
+        </ObjRotation>
+        <ObjScale>
+          <ObjScaleX />
+          <ObjScaleY />
+          <ObjScaleZ />
+        </ObjScale>
+      </ObjTransformInfo>
+    </MetaPipeObject>
+  </MetaPipeCollection>
+  <MetaPipeCollection name="Mt Victoria Scans">
+    <CollectionInfo>
+      <CollectionCreator>
+      </CollectionCreator>
+      <CollectionDate>29/05/2016</CollectionDate>
+      <CollectionDescription>
+      </CollectionDescription>
+    </CollectionInfo>
+    <MetaPipeObject name="Pipe Mt Vic">
+      <ObjTransformInfo>
+        <ObjPosition>
+          <ObjPosX>172.6049</ObjPosX>
+          <ObjPosY>-27.46213</ObjPosY>
+          <ObjPosZ>312.9754</ObjPosZ>
+        </ObjPosition>
+        <ObjRotation>
+          <ObjRotateX>0.3410974</ObjRotateX>
+          <ObjRotateY>-0.4113913</ObjRotateY>
+          <ObjRotateZ>0.8447277</ObjRotateZ>
+        </ObjRotation>
+        <ObjScale>
+          <ObjScaleX>1</ObjScaleX>
+          <ObjScaleY>1</ObjScaleY>
+          <ObjScaleZ>1</ObjScaleZ>
+        </ObjScale>
+      </ObjTransformInfo>
+    </MetaPipeObject>
+    <MetaPipeObject name="Tree Knot Mt Vic">
+      <ObjTransformInfo>
+        <ObjPosition>
+          <ObjPosX>-232.5389</ObjPosX>
+          <ObjPosY>-23.65247</ObjPosY>
+          <ObjPosZ>39.77093</ObjPosZ>
+        </ObjPosition>
+        <ObjRotation>
+          <ObjRotateX>0.08001217</ObjRotateX>
+          <ObjRotateY>-0.2095843</ObjRotateY>
+          <ObjRotateZ>0.1611416</ObjRotateZ>
+        </ObjRotation>
+        <ObjScale>
+          <ObjScaleX>1</ObjScaleX>
+          <ObjScaleY>1</ObjScaleY>
+          <ObjScaleZ>1</ObjScaleZ>
+        </ObjScale>
+      </ObjTransformInfo>
+    </MetaPipeObject>
+    <MetaPipeObject name="Tree Mt Vic">
+      <ObjTransformInfo>
+        <ObjPosition>
+          <ObjPosX>-107.4692</ObjPosX>
+          <ObjPosY>0.9972119</ObjPosY>
+          <ObjPosZ>147.8072</ObjPosZ>
+        </ObjPosition>
+        <ObjRotation>
+          <ObjRotateX>-0.007800073</ObjRotateX>
+          <ObjRotateY>-0.001837903</ObjRotateY>
+          <ObjRotateZ>-0.03607201</ObjRotateZ>
+        </ObjRotation>
+        <ObjScale>
+          <ObjScaleX>1</ObjScaleX>
+          <ObjScaleY>1</ObjScaleY>
+          <ObjScaleZ>1</ObjScaleZ>
+        </ObjScale>
+      </ObjTransformInfo>
+    </MetaPipeObject>
+  </MetaPipeCollection>
+  <MetaPipeCollection name="Evan's Bay Scans">
+    <CollectionInfo>
+      <CollectionCreator />
+      <CollectionDate>29/05/2016</CollectionDate>
+      <CollectionDescription>
+      </CollectionDescription>
+    </CollectionInfo>
+    <MetaPipeObject name="Cog Wheel Evans Bay">
+      <ObjTransformInfo>
+        <ObjPosition>
+          <ObjPosX />
+          <ObjPosY />
+          <ObjPosZ />
+        </ObjPosition>
+        <ObjRotation>
+          <ObjRotateX />
+          <ObjRotateY />
+          <ObjRotateZ />
+        </ObjRotation>
+        <ObjScale>
+          <ObjScaleX />
+          <ObjScaleY />
+          <ObjScaleZ />
+        </ObjScale>
+      </ObjTransformInfo>
+    </MetaPipeObject>
+    <MetaPipeObject name="Evans Bay Wharf">
+      <ObjTransformInfo>
+        <ObjPosition>
+          <ObjPosX />
+          <ObjPosY />
+          <ObjPosZ />
+        </ObjPosition>
+        <ObjRotation>
+          <ObjRotateX />
+          <ObjRotateY />
+          <ObjRotateZ />
+        </ObjRotation>
+        <ObjScale>
+          <ObjScaleX />
+          <ObjScaleY />
+          <ObjScaleZ />
+        </ObjScale>
+      </ObjTransformInfo>
+    </MetaPipeObject>
+    <MetaPipeObject name="Evans Boat House">
+      <ObjTransformInfo>
+        <ObjPosition>
+          <ObjPosX />
+          <ObjPosY />
+          <ObjPosZ />
+        </ObjPosition>
+        <ObjRotation>
+          <ObjRotateX />
+          <ObjRotateY />
+          <ObjRotateZ />
+        </ObjRotation>
+        <ObjScale>
+          <ObjScaleX />
+          <ObjScaleY />
+          <ObjScaleZ />
+        </ObjScale>
+      </ObjTransformInfo>
+    </MetaPipeObject>
+    <MetaPipeObject name="Logs with graffiti">
+      <ObjTransformInfo>
+        <ObjPosition>
+          <ObjPosX />
+          <ObjPosY />
+          <ObjPosZ />
+        </ObjPosition>
+        <ObjRotation>
+          <ObjRotateX />
+          <ObjRotateY />
+          <ObjRotateZ />
+        </ObjRotation>
+        <ObjScale>
+          <ObjScaleX />
+          <ObjScaleY />
+          <ObjScaleZ />
+        </ObjScale>
+      </ObjTransformInfo>
+    </MetaPipeObject>
+    <MetaPipeObject name="Random Machine">
+      <ObjTransformInfo>
+        <ObjPosition>
+          <ObjPosX />
+          <ObjPosY />
+          <ObjPosZ />
+        </ObjPosition>
+        <ObjRotation>
+          <ObjRotateX />
+          <ObjRotateY />
+          <ObjRotateZ />
+        </ObjRotation>
+        <ObjScale>
+          <ObjScaleX />
+          <ObjScaleY />
+          <ObjScaleZ />
+        </ObjScale>
+      </ObjTransformInfo>
+    </MetaPipeObject>
+    <MetaPipeObject name="Random Machine">
+      <ObjTransformInfo>
+        <ObjPosition>
+          <ObjPosX />
+          <ObjPosY />
+          <ObjPosZ />
+        </ObjPosition>
+        <ObjRotation>
+          <ObjRotateX />
+          <ObjRotateY />
+          <ObjRotateZ />
+        </ObjRotation>
+        <ObjScale>
+          <ObjScaleX />
+          <ObjScaleY />
+          <ObjScaleZ />
+        </ObjScale>
+      </ObjTransformInfo>
+    </MetaPipeObject>
+    <MetaPipeObject name="Trees at Evans Bay">
+      <ObjTransformInfo>
+        <ObjPosition>
+          <ObjPosX />
+          <ObjPosY />
+          <ObjPosZ />
+        </ObjPosition>
+        <ObjRotation>
+          <ObjRotateX />
+          <ObjRotateY />
+          <ObjRotateZ />
+        </ObjRotation>
+        <ObjScale>
+          <ObjScaleX />
+          <ObjScaleY />
+          <ObjScaleZ />
+        </ObjScale>
+      </ObjTransformInfo>
+    </MetaPipeObject>
+    <MetaPipeObject name="Trolley at Evans Bay">
+      <ObjTransformInfo>
+        <ObjPosition>
+          <ObjPosX />
+          <ObjPosY />
+          <ObjPosZ />
+        </ObjPosition>
+        <ObjRotation>
+          <ObjRotateX />
+          <ObjRotateY />
+          <ObjRotateZ />
+        </ObjRotation>
+        <ObjScale>
+          <ObjScaleX />
+          <ObjScaleY />
+          <ObjScaleZ />
+        </ObjScale>
+      </ObjTransformInfo>
+    </MetaPipeObject>
+  </MetaPipeCollection>
+  <MetaPipeCollection name="Test">
+    <CollectionInfo>
+      <CollectionCreator>
+      </CollectionCreator>
+      <CollectionDate>21/05/2016</CollectionDate>
+      <CollectionDescription>
+      </CollectionDescription>
+    </CollectionInfo>
+    <MetaPipeObject name="TestMonk">
+      <ObjTransformInfo>
+        <ObjPosition>
+          <ObjPosX>-16.93519</ObjPosX>
+          <ObjPosY>-11.86442</ObjPosY>
+          <ObjPosZ>-0.5005934</ObjPosZ>
+        </ObjPosition>
+        <ObjRotation>
+          <ObjRotateX>-0.3450647</ObjRotateX>
+          <ObjRotateY>-0.3450637</ObjRotateY>
+          <ObjRotateZ>-0.6171963</ObjRotateZ>
         </ObjRotation>
         <ObjScale>
           <ObjScaleX>1</ObjScaleX>

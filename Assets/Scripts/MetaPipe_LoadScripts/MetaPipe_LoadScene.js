@@ -81,8 +81,8 @@ function OnLevelWasLoaded(level : int)
 				Destroy(curObj);
 			}
 		}
-
 	}
+	
 	if (level == 2) // browse scene -> this is actually collection scene; what's going on?
 	{
 		if (collectionControl == null)
@@ -106,6 +106,7 @@ function OnLevelWasLoaded(level : int)
 //		{
 //			Debug.Log("Root is null for Import - Start()ing");
 			objInfoControl.Start();
+			Cursor.visible = true;
 //		}
 	
 	}

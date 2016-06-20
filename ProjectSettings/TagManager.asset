@@ -10,6 +10,7 @@ TagManager:
   - Context Media Asset
   - Navigation Panel
   - MediaViewer
+  - Terrain
   layers:
   - Default
   - TransparentFX

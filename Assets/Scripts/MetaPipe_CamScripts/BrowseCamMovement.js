@@ -2,12 +2,20 @@
 
 var walkAcceleration : float = 1000;
 var walkAccelAirRatio : float = 0.1; //1 = full control 0 = no control in air
-var walkDeacceleration : float = 0.5;
 var maxWalkSpeed : float = 20;
+
+var walkDeacceleration : float = 0.5;
+var airDeacceleration : float = 0.5; //***NEW***
 @HideInInspector
 var walkDeaccelerationVolx : float;
 @HideInInspector
 var walkDeaccelerationVolz : float;
+@HideInInspector
+var airDeaccelerationVolx : float; //***NEW***
+@HideInInspector
+var airDeaccelerationVolz : float; //***NEW***
+
+
 
 @HideInInspector
 var horizontalMovement : Vector2;
@@ -91,11 +99,17 @@ function navigationMode()
 	rb.velocity.x = horizontalMovement.x;
 	rb.velocity.z = horizontalMovement.y;
 	
-	//if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0 && grounded)
-	if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0 && grounded) //always slows to 0 as long as touching ground
+	if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0 && grounded) //deacceleration when walking
 	{
 		rb.velocity.x = Mathf.SmoothDamp(rb.velocity.x, 0, walkDeaccelerationVolx, walkDeacceleration);
 		rb.velocity.z = Mathf.SmoothDamp(rb.velocity.z, 0, walkDeaccelerationVolz, walkDeacceleration);
+	
+	}
+	
+	if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0 && !grounded) //***NEW*** deaccelerates in air 
+	{
+		rb.velocity.x = Mathf.SmoothDamp(rb.velocity.x, 0, airDeaccelerationVolx, airDeacceleration);
+		rb.velocity.z = Mathf.SmoothDamp(rb.velocity.z, 0, airDeaccelerationVolz, airDeacceleration);
 	}
 	
 	transform.rotation = Quaternion.Euler(0, cameraObj.GetComponent(BrowseCamLook).currentYrotation, 0);

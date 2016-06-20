@@ -3,8 +3,11 @@
 var loadScript : MetaPipe_LoadScene;
 
 
-function OnTriggerEnter()
+function OnTriggerEnter( otherCol : Collider)
 {
-//	Debug.Log("Load Import Scene");
-	loadScript.loadImportScene();
+	if (otherCol.tag == "Player")
+	{
+	//	Debug.Log("Load Import Scene");
+		loadScript.loadImportScene();
+	}
 }
