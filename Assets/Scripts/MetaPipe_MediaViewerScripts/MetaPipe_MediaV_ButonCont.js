@@ -1,5 +1,36 @@
 ﻿#pragma strict
 
+#if UNITY_WEBGL
+
+import UnityEngine.UI;
+
+function setMedia( mediaType : String)
+{
+	Debug.LogError("Not implemented in WebGL");
+	Debug.Break();
+}
+
+
+function playMedia()
+{
+	Debug.LogError("Not implemented in WebGL");
+	Debug.Break();
+}
+
+function pauseMedia()
+{
+	Debug.LogError("Not implemented in WebGL");
+	Debug.Break();
+}
+
+function replayMedia()
+{
+	Debug.LogError("Not implemented in WebGL");
+	Debug.Break();
+}
+
+#else
+
 import UnityEngine.UI;
 
 var mvActivateScript : MetaPipe_MediaV_Activate;
@@ -67,3 +98,4 @@ function replayMedia()
 		audSrce.Play();
 	}
 }
+#endif

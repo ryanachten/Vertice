@@ -1,5 +1,54 @@
 ﻿#pragma strict
 
+#if UNITY_WEBGL
+
+function Awake(){
+	Debug.LogError("Not implemented in WebGL");
+	Debug.Break();
+}
+
+
+function FixedUpdate()
+{	
+	Debug.LogError("Not implemented in WebGL");
+	Debug.Break();
+}
+
+
+public function OpenVidAsset(){ 
+	Debug.LogError("Not implemented in WebGL");
+	Debug.Break();
+
+}
+
+public function VidAssetFile(pathToTex : String){
+	Debug.LogError("Not implemented in WebGL");
+	Debug.Break();
+
+}
+
+
+public function ContextVidImp(){
+	Debug.LogError("Not implemented in WebGL");
+	Debug.Break();
+
+}
+
+function VidNameSplit(){
+	Debug.LogError("Not implemented in WebGL");
+	Debug.Break();
+
+}
+
+function sendActive()
+{
+	Debug.LogError("Not implemented in WebGL");
+	Debug.Break();
+}
+
+
+#else
+
 
 //script for importing assets to be associated with imported objects
 
@@ -133,3 +182,4 @@ function sendActive() //used to activate media viewer
 	Debug.Log("vidTitle: " + vidTitle);
 	mediaActiveScript.activeMediaViewer(vidTitle, contextMediaType, texLocation);
 }
+#endif

@@ -1,5 +1,39 @@
 ﻿#pragma strict
 
+#if UNITY_WEBGL
+
+function instantImg(){
+	Debug.LogError("Not implemented in WebGL");
+	Debug.Break();
+}
+
+function instantXmlImg(){
+	Debug.LogError("Not implemented in WebGL");
+	Debug.Break();
+}
+
+function instantVid(){
+	Debug.LogError("Not implemented in WebGL");
+	Debug.Break();
+}
+
+function instantXmlVid(){
+	Debug.LogError("Not implemented in WebGL");
+	Debug.Break();
+}
+
+function instantAud(){
+	Debug.LogError("Not implemented in WebGL");
+	Debug.Break();
+}
+
+function instantXmlAud(){
+	Debug.LogError("Not implemented in WebGL");
+	Debug.Break();
+}
+
+#else
+
 //hosted on Import / ArtInfoPanel / AddButtons 
 
 
@@ -76,3 +110,4 @@ function instantXmlAud(){ //instantiated via xml load
 	impContScript.ContextAudioImp();
 	audNameCont.AudName();
 }
+#endif

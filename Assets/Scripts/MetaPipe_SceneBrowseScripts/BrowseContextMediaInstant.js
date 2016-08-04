@@ -1,5 +1,31 @@
 ﻿#pragma strict
 
+#if UNITY_WEBGL
+
+function instantXmlImg(imgName : String, sourceImgAd : String){
+	Debug.LogError("Not implemented in WebGL");
+	Debug.Break();
+}
+
+
+function instantXmlVid(vidName : String, sourceVidAd : String){
+	Debug.LogError("Not implemented in WebGL");
+	Debug.Break();
+}
+
+
+function instantXmlAud(audName: String, sourceAudAd : String){
+	Debug.LogError("Not implemented in WebGL");
+	Debug.Break();
+}
+
+function clearChildren(){
+	Debug.LogError("Not implemented in WebGL");
+	Debug.Break();
+}
+
+#else
+
 var browseContextInfo = BrowseContextInfoXml;
 
 var instantParent : Transform; //parent new context media needs to be added below
@@ -60,3 +86,4 @@ function clearChildren()
 	}
 	//instantParent.DetachChildren();
 }
+#endif

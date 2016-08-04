@@ -1,5 +1,43 @@
 ﻿#pragma strict
 
+#if UNITY_WEBGL
+
+function activeMediaViewer( mediaName : String, mediaType: String, mediaLocation : String)
+{
+	Debug.LogError("Not implemented in WebGL");
+	Debug.Break();
+}
+
+
+function deactivateMediaViewer()
+{
+	Debug.LogError("Not implemented in WebGL");
+	Debug.Break();
+}
+
+
+function loadContextAudio(audioLocation : String)
+{
+	Debug.LogError("Not implemented in WebGL");
+	Debug.Break();
+}
+
+
+function loadContextVideo(texLocation : String)
+{
+	Debug.LogError("Not implemented in WebGL");
+	Debug.Break();
+}
+
+
+function loadContextImage(texLocation : String)
+{	
+	Debug.LogError("Not implemented in WebGL");
+	Debug.Break();
+}
+
+#else
+
 //held on MediaViewer empty GO
 
 import UnityEngine.UI;
@@ -193,5 +231,4 @@ function loadContextImage(texLocation : String)
 	//Resize RawImg rect
 	imgRect.sizeDelta = new Vector2(texWidth, texHeight);	
 }
-
-
+#endif
