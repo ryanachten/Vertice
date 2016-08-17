@@ -1,8 +1,8 @@
 <MetaPipeObjects>
   <MetaPipeObject name="DeerMan">
     <FileName>DoprahDeer.obj</FileName>
-    <MeshLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/DeerMan/DeerMan_Model/DoprahDeer.obj</MeshLocation>
-    <TexLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/DeerMan/DeerMan_Model/DoprahDeer_tex.jpg</TexLocation>
+    <MeshLocation>/DeerMan/DeerMan_Model/DoprahDeer.obj</MeshLocation>
+    <TexLocation>/DeerMan/DeerMan_Model/DoprahDeer_tex.jpg</TexLocation>
     <ContribName>Ryan Achten</ContribName>
     <ContribDate>03/10/2015</ContribDate>
     <Description>3D model created for the artwork of New Zealand band, Dorpah, and their second release 'Wasting'</Description>
@@ -21,24 +21,24 @@
       <ContextMedia>
         <MediaName>DoprahWasting_FinalCovers01_B-Side-Cover_sml</MediaName>
         <MediaType>Image</MediaType>
-        <MediaLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/DeerMan/DeerMan_Context/DoprahWasting_FinalCovers01_B-Side-Cover_sml.jpg</MediaLocation>
+        <MediaLocation>/DeerMan/DeerMan_Context/DoprahWasting_FinalCovers01_B-Side-Cover_sml.jpg</MediaLocation>
       </ContextMedia>
       <ContextMedia>
         <MediaName>DoprahWasting_FinalCovers01_Lucid-Visions-Single_sml</MediaName>
         <MediaType>Image</MediaType>
-        <MediaLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/DeerMan/DeerMan_Context/DoprahWasting_FinalCovers01_Lucid-Visions-Single_sml.jpg</MediaLocation>
+        <MediaLocation>/DeerMan/DeerMan_Context/DoprahWasting_FinalCovers01_Lucid-Visions-Single_sml.jpg</MediaLocation>
       </ContextMedia>
       <ContextMedia>
         <MediaName>DoprahWasting_FinalCovers01_Wasting Album Cover</MediaName>
         <MediaType>Image</MediaType>
-        <MediaLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/DeerMan/DeerMan_Context/DoprahWasting_FinalCovers01_Wasting Album Cover.jpg</MediaLocation>
+        <MediaLocation>/DeerMan/DeerMan_Context/DoprahWasting_FinalCovers01_Wasting Album Cover.jpg</MediaLocation>
       </ContextMedia>
     </ContextualInfo>
   </MetaPipeObject>
   <MetaPipeObject name="Logs with graffiti">
     <FileName>EvanLogs.obj</FileName>
-    <MeshLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/EvanLogs/EvanLogs_Model/EvanLogs.obj</MeshLocation>
-    <TexLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/EvanLogs/EvanLogs_Model/EvanLogs.jpg</TexLocation>
+    <MeshLocation>/EvanLogs/EvanLogs_Model/EvanLogs.obj</MeshLocation>
+    <TexLocation>/EvanLogs/EvanLogs_Model/EvanLogs.jpg</TexLocation>
     <ContribName>Ryan Achten</ContribName>
     <ContribDate>03/10/2015</ContribDate>
     <Description>Logs with graffiti found out by Evan's Bay</Description>
@@ -58,8 +58,8 @@
   </MetaPipeObject>
   <MetaPipeObject name="Punch (from Paul Jen">
     <FileName>DaotfPunch.obj</FileName>
-    <MeshLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/DaotfPunch/DaotfPunch_Model/DaotfPunch.obj</MeshLocation>
-    <TexLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/DaotfPunch/DaotfPunch_Model/DaotfPunch.jpg</TexLocation>
+    <MeshLocation>/DaotfPunch/DaotfPunch_Model/DaotfPunch.obj</MeshLocation>
+    <TexLocation>/DaotfPunch/DaotfPunch_Model/DaotfPunch.jpg</TexLocation>
     <ContribName>Ryan Achten</ContribName>
     <ContribDate>04/10/2015</ContribDate>
     <Description>3D model of Judy based on Paul Jenden's costume concept illustrations for the project Digital Achives of the Future</Description>
@@ -78,8 +78,8 @@
   </MetaPipeObject>
   <MetaPipeObject name="Trolley at Evans Bay">
     <FileName>EvanTrolley.obj</FileName>
-    <MeshLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/EvanTrolley/EvanTrolley_Model/EvanTrolley.obj</MeshLocation>
-    <TexLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/EvanTrolley/EvanTrolley_Model/EvanTrolley.jpg</TexLocation>
+    <MeshLocation>/EvanTrolley/EvanTrolley_Model/EvanTrolley.obj</MeshLocation>
+    <TexLocation>/EvanTrolley/EvanTrolley_Model/EvanTrolley.jpg</TexLocation>
     <ContribName>Ryan Achten</ContribName>
     <ContribDate>08/11/2015</ContribDate>
     <Description>Old mining trolleys (?) on display at Evan's Bay. Need to find formal information</Description>
@@ -98,8 +98,8 @@
   </MetaPipeObject>
   <MetaPipeObject name="Hinerangi">
     <FileName>Hinerangi.obj</FileName>
-    <MeshLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/Hinerangi/Hinerangi_Model/Hinerangi.obj</MeshLocation>
-    <TexLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/Hinerangi/Hinerangi_Model/Hinerangi.jpg</TexLocation>
+    <MeshLocation>/Hinerangi/Hinerangi_Model/Hinerangi.obj</MeshLocation>
+    <TexLocation>/Hinerangi/Hinerangi_Model/Hinerangi.jpg</TexLocation>
     <ContribName>Ryan Achten</ContribName>
     <ContribDate>08/11/2015</ContribDate>
     <Description>Photogrammetric scan of the 'Hinerangi' monument at the War Memorial in Wellington. Add more info....</Description>
@@ -118,8 +118,8 @@
   </MetaPipeObject>
   <MetaPipeObject name="WarMem Lion Statue">
     <FileName>LionStatue.obj</FileName>
-    <MeshLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/LionStatue/LionStatue_Model/LionStatue.obj</MeshLocation>
-    <TexLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/LionStatue/LionStatue_Model/LionStatue.jpg</TexLocation>
+    <MeshLocation>/LionStatue/LionStatue_Model/LionStatue.obj</MeshLocation>
+    <TexLocation>/LionStatue/LionStatue_Model/LionStatue.jpg</TexLocation>
     <ContribName>Ryan Achten</ContribName>
     <ContribDate>08/11/2015</ContribDate>
     <Description>Lion statue monument at the Wellington War Memorial. Provide more info...</Description>
@@ -138,8 +138,8 @@
   </MetaPipeObject>
   <MetaPipeObject name="Evans Boat House">
     <FileName>BoatHouse.obj</FileName>
-    <MeshLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/BoatHouse/BoatHouse_Model/BoatHouse.obj</MeshLocation>
-    <TexLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/BoatHouse/BoatHouse_Model/BoatHouse.jpg</TexLocation>
+    <MeshLocation>/BoatHouse/BoatHouse_Model/BoatHouse.obj</MeshLocation>
+    <TexLocation>/BoatHouse/BoatHouse_Model/BoatHouse.jpg</TexLocation>
     <ContribName>Ryan Achten</ContribName>
     <ContribDate>08/11/2015</ContribDate>
     <Description>Boat house scanned at Evan's Bay</Description>
@@ -158,8 +158,8 @@
   </MetaPipeObject>
   <MetaPipeObject name="Cog Wheel Evans Bay">
     <FileName>CogWheel.obj</FileName>
-    <MeshLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/CogWheel/CogWheel_Model/CogWheel.obj</MeshLocation>
-    <TexLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/CogWheel/CogWheel_Model/CogWheel.jpg</TexLocation>
+    <MeshLocation>/CogWheel/CogWheel_Model/CogWheel.obj</MeshLocation>
+    <TexLocation>/CogWheel/CogWheel_Model/CogWheel.jpg</TexLocation>
     <ContribName>Ryan Achten</ContribName>
     <ContribDate>09/11/2015</ContribDate>
     <Description>Big cog wheel monument at Evan's Bay</Description>
@@ -178,8 +178,8 @@
   </MetaPipeObject>
   <MetaPipeObject name="Evans Bay Wharf">
     <FileName>EvanWharf.obj</FileName>
-    <MeshLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/EvanWharf/EvanWharf_Model/EvanWharf.obj</MeshLocation>
-    <TexLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/EvanWharf/EvanWharf_Model/EvanWharf.jpg</TexLocation>
+    <MeshLocation>/EvanWharf/EvanWharf_Model/EvanWharf.obj</MeshLocation>
+    <TexLocation>/EvanWharf/EvanWharf_Model/EvanWharf.jpg</TexLocation>
     <ContribName>Ryan Achten</ContribName>
     <ContribDate>09/11/2015</ContribDate>
     <Description>Wharf scanned at Evan's Bay</Description>
@@ -198,8 +198,8 @@
   </MetaPipeObject>
   <MetaPipeObject name="Trees at Evans Bay">
     <FileName>EvanTree.obj</FileName>
-    <MeshLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/EvanTree/EvanTree_Model/EvanTree.obj</MeshLocation>
-    <TexLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/EvanTree/EvanTree_Model/EvanTree.jpg</TexLocation>
+    <MeshLocation>/EvanTree/EvanTree_Model/EvanTree.obj</MeshLocation>
+    <TexLocation>/EvanTree/EvanTree_Model/EvanTree.jpg</TexLocation>
     <ContribName>Ryan Achten</ContribName>
     <ContribDate>09/11/2015</ContribDate>
     <Description>Photogrammetric scans created at Evan's Bay</Description>
@@ -218,8 +218,8 @@
   </MetaPipeObject>
   <MetaPipeObject name="Cricket Monument">
     <FileName>BasinPillars.obj</FileName>
-    <MeshLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/BasinPillars/BasinPillars_Model/BasinPillars.obj</MeshLocation>
-    <TexLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/BasinPillars/BasinPillars_Model/BasinPillars.jpg</TexLocation>
+    <MeshLocation>/BasinPillars/BasinPillars_Model/BasinPillars.obj</MeshLocation>
+    <TexLocation>/BasinPillars/BasinPillars_Model/BasinPillars.jpg</TexLocation>
     <ContribName>Ryan Achten</ContribName>
     <ContribDate>09/11/2015</ContribDate>
     <Description>Basin cricket monument....</Description>
@@ -238,8 +238,8 @@
   </MetaPipeObject>
   <MetaPipeObject name="Toilets Basin Reserve">
     <FileName>BasinToilets.obj</FileName>
-    <MeshLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/BasinToilets/BasinToilets_Model/BasinToilets.obj</MeshLocation>
-    <TexLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/BasinToilets/BasinToilets_Model/BasinToilets.jpg</TexLocation>
+    <MeshLocation>/BasinToilets/BasinToilets_Model/BasinToilets.obj</MeshLocation>
+    <TexLocation>/BasinToilets/BasinToilets_Model/BasinToilets.jpg</TexLocation>
     <ContribName>Ryan Achten</ContribName>
     <ContribDate>09/11/2015</ContribDate>
     <Description>Photogrametric toilets at the Basin Reserve</Description>
@@ -258,8 +258,8 @@
   </MetaPipeObject>
   <MetaPipeObject name="Tree Knot Mt Vic">
     <FileName>MtVicTreeKnot.obj</FileName>
-    <MeshLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/MtVicTreeKnot/MtVicTreeKnot_Model/MtVicTreeKnot.obj</MeshLocation>
-    <TexLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/MtVicTreeKnot/MtVicTreeKnot_Model/MtVicTreeKnot.jpg</TexLocation>
+    <MeshLocation>/MtVicTreeKnot/MtVicTreeKnot_Model/MtVicTreeKnot.obj</MeshLocation>
+    <TexLocation>/MtVicTreeKnot/MtVicTreeKnot_Model/MtVicTreeKnot.jpg</TexLocation>
     <ContribName>Ryan Achten</ContribName>
     <ContribDate>11/11/2015</ContribDate>
     <Description>Tree knot captured at Mt Victoria, Wellington</Description>
@@ -278,8 +278,8 @@
   </MetaPipeObject>
   <MetaPipeObject name="Tree Mt Vic">
     <FileName>MtVicTree.obj</FileName>
-    <MeshLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/MtVicTree/MtVicTree_Model/MtVicTree.obj</MeshLocation>
-    <TexLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/MtVicTree/MtVicTree_Model/MtVicTree.jpg</TexLocation>
+    <MeshLocation>/MtVicTree/MtVicTree_Model/MtVicTree.obj</MeshLocation>
+    <TexLocation>/MtVicTree/MtVicTree_Model/MtVicTree.jpg</TexLocation>
     <ContribName>Ryan Achten</ContribName>
     <ContribDate>11/11/2015</ContribDate>
     <Description>Tree scanned at Mt Victoria, Wellington, New Zealand</Description>
@@ -298,8 +298,8 @@
   </MetaPipeObject>
   <MetaPipeObject name="Pipe Mt Vic">
     <FileName>MtVicPipe.obj</FileName>
-    <MeshLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/MtVicPipe/MtVicPipe_Model/MtVicPipe.obj</MeshLocation>
-    <TexLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/MtVicPipe/MtVicPipe_Model/MtVicPipe.jpg</TexLocation>
+    <MeshLocation>/MtVicPipe/MtVicPipe_Model/MtVicPipe.obj</MeshLocation>
+    <TexLocation>/MtVicPipe/MtVicPipe_Model/MtVicPipe.jpg</TexLocation>
     <ContribName>Ryan Achten</ContribName>
     <ContribDate>11/11/2015</ContribDate>
     <Description>Stormwater pipe scanned at Mt Victoria</Description>
@@ -318,8 +318,8 @@
   </MetaPipeObject>
   <MetaPipeObject name="Doll Head">
     <FileName>DollHead.obj</FileName>
-    <MeshLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/DollHead/DollHead_Model/DollHead.obj</MeshLocation>
-    <TexLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/DollHead/DollHead_Model/DollHead.jpg</TexLocation>
+    <MeshLocation>/DollHead/DollHead_Model/DollHead.obj</MeshLocation>
+    <TexLocation>/DollHead/DollHead_Model/DollHead.jpg</TexLocation>
     <ContribName>Ryan Achten</ContribName>
     <ContribDate>12/11/2015</ContribDate>
     <Description>Head of a doll scanned using photogrammetry. Poor scan due to the material of the subject matter</Description>
@@ -338,8 +338,8 @@
   </MetaPipeObject>
   <MetaPipeObject name="Random Machine">
     <FileName>EvanMachine.obj</FileName>
-    <MeshLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/EvanMachine/EvanMachine_Model/EvanMachine.obj</MeshLocation>
-    <TexLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/EvanMachine/EvanMachine_Model/EvanMachine.jpg</TexLocation>
+    <MeshLocation>/EvanMachine/EvanMachine_Model/EvanMachine.obj</MeshLocation>
+    <TexLocation>/EvanMachine/EvanMachine_Model/EvanMachine.jpg</TexLocation>
     <ContribName>Ryan Achten</ContribName>
     <ContribDate>18/11/2015</ContribDate>
     <Description>Random machine found out at Evan's Bay</Description>
@@ -358,8 +358,8 @@
   </MetaPipeObject>
   <MetaPipeObject name="TestMonk">
     <FileName>Doog.obj</FileName>
-    <MeshLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/TEST/Doog.obj</MeshLocation>
-    <TexLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/TEST/Doog_Tex.jpg</TexLocation>
+    <MeshLocation>/TEST/Doog.obj</MeshLocation>
+    <TexLocation>/TEST/Doog_Tex.jpg</TexLocation>
     <ContribName>Ryan Achten</ContribName>
     <ContribDate>13/04/2016</ContribDate>
     <Description>Model for testing Vertice Archive connection</Description>
@@ -385,17 +385,17 @@
       <ContextMedia>
         <MediaName>MetaPipe_TestTexs_1000</MediaName>
         <MediaType>Image</MediaType>
-        <MediaLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/TEST/TestTexs_1000.jpg</MediaLocation>
+        <MediaLocation>/TEST/TestTexs_1000.jpg</MediaLocation>
       </ContextMedia>
       <ContextMedia>
         <MediaName>WorldACoke</MediaName>
         <MediaType>Video</MediaType>
-        <MediaLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/TEST/WorldACoke.ogg</MediaLocation>
+        <MediaLocation>/TEST/WorldACoke.ogg</MediaLocation>
       </ContextMedia>
       <ContextMedia>
         <MediaName>MetaPipe_TestTexs_2000W</MediaName>
         <MediaType>Image</MediaType>
-        <MediaLocation>/Users/ryanachten/Documents/UnityTests/VerticeArchive/TEST/TestTexs_2000W.jpg</MediaLocation>
+        <MediaLocation>/TEST/TestTexs_2000W.jpg</MediaLocation>
       </ContextMedia>
     </ContextualInfo>
   </MetaPipeObject>
