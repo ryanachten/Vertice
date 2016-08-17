@@ -172,7 +172,14 @@ function importObj(curObjNode : XmlNode)
 	var modelScale : float = parseFloat(curObjNode.SelectSingleNode("./ModelInfo/ModelScale").InnerText); //***NEW***
 //	Debug.Log("Model Scale: " + modelScale);
 	
-	var importModels : GameObject[] = ObjReader.use.ConvertFile(meshLocation, false, standardMaterial);
+	var importModels : GameObject[] = [];
+	// TODO: This code expects an absolute path to a file, but paths will be relative. A BASE_URL should be declared for WebGL and 
+	// the "Archive Folder Location" should be used to alter a BASE_PATH for standalone builds
+	var importer : ObjReader.ObjData = ObjReader.use.ConvertFileAsync("file://" + meshLocation, false, standardMaterial);
+	while (!importer.isDone){
+		yield;
+	}
+	importModels = importer.gameObjects;
 
 	for (var model : GameObject in importModels)
 	{

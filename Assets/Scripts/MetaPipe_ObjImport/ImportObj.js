@@ -42,8 +42,16 @@ function MeshImport(){
 	
 	var meshLocation = ObjInfoControl.control.meshLocation;
 	var objFileName = meshLocation;
-	
-	var importModels : GameObject[] = ObjReader.use.ConvertFile(objFileName, false, standardMaterial);
+	Debug.Log(objFileName);
+
+	// TODO This code expects an absolute path to a file, but paths will be relative. A BASE_URL should be declared for WebGL and 
+	// the "Archive Folder Location" should be used to alter a BASE_PATH for standalone builds
+	var importModels : GameObject[] = [];
+	var importer : ObjReader.ObjData = ObjReader.use.ConvertFileAsync("file://" + objFileName, false, standardMaterial);
+	while (!importer.isDone){
+		yield;
+	}
+	importModels = importer.gameObjects;
 
 	for (var model : GameObject in importModels)
 	{
