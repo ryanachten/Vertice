@@ -90,7 +90,21 @@ function Awake () {
 function Start(){
 	//Automatically loads XML doc for save etc
 	doc = new XmlDocument();
+
+	#if UNITY_STANDALONE
 	doc.Load(Application.dataPath + "/Metapipe_ObjArchive.xml");
+
+	#elif UNITY_WEBGL || UNITY_EDITOR
+	Debug.Log("Loading ObjArchive XML data from AWS");
+	var xmlWWW = new WWW('https://s3-ap-southeast-2.amazonaws.com/vertice-dev/Metadata/Metapipe_ObjArchive.xml');
+	while(!xmlWWW.isDone){
+		yield;
+	}
+	doc.LoadXml(xmlWWW.text);
+
+	#endif
+
+
 	root = doc.DocumentElement;
 	
 	nodeList = root.SelectNodes("MetaPipeObject");

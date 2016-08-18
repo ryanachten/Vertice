@@ -60,7 +60,7 @@ function loadCollectionObjects( listNode : XmlNode)
 		//import mesh
 
 		#if UNITY_EDITOR || UNITY_WEBGL
-		var BASE_URL = "https://s3-ap-southeast-2.amazonaws.com/vertice-dev/VerticeArchive";
+		var BASE_URL = "https://s3-ap-southeast-2.amazonaws.com/vertice-dev";
 		var importModel : GameObject[] = [];
 		var importer : ObjReader.ObjData = ObjReader.use.ConvertFileAsync(BASE_URL + curMeshLocation, false, standardMaterial);
 		while (!importer.isDone){

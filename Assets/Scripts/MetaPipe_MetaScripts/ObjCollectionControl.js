@@ -8,7 +8,7 @@ import System.Xml.XmlWriter;
 //XML Declarations
 public var collectionDoc : XmlDocument; 
 public var root : XmlNode;
-public var collectionList : XmlNodeList;
+static public var collectionList : XmlNodeList;
 private var curObjNode : XmlNode;
 
 static var curCollectionListNode : XmlNode; //used for GUI content set via buttons / other col import methods
@@ -16,21 +16,28 @@ static var curCollectionListNode : XmlNode; //used for GUI content set via butto
 function Start(){
 	//Automatically loads XML doc for save etc
 	collectionDoc = new XmlDocument();
+
+	#if UNITY_STANDALONE
 	collectionDoc.Load(Application.dataPath + "/Metapipe_UserCollections.xml");
 
+	#elif UNITY_WEBGL || UNITY_EDITOR
+	Debug.Log("Loading UserCollections XML data from AWS");
+	var xmlWWW = new WWW('https://s3-ap-southeast-2.amazonaws.com/vertice-dev/Metadata/Metapipe_UserCollections.xml');
+
+	// Note that there is a race condition here, so it isn't a good idea to yield. If this code yields in the while 
+	// loop, then the class that loads the list of "Collections Available" (c.f. Collection UI) has no data to work 
+	// with and will throw an exception
+	while(!xmlWWW.isDone){
+		yield;
+	}
+	collectionDoc.LoadXml(xmlWWW.text);
+	#endif
+
 	root = collectionDoc.DocumentElement;
-	
+
+	yield;
 	collectionList = root.SelectNodes("MetaPipeCollection");
 	//Debug.Log("Number of MetaPipe Collections: " + collectionList.Count); //returns total number of MPObjs
-}
-
-function Update()
-{
-//		if (curCollectionListNode != null && Application.loadedLevel == 2 )
-//		{
-//			Debug.Log("curCollectionListNode: " + curCollectionListNode.SelectSingleNode("@name").Value);
-//		
-//		}
 }
 
 function addObjToCollection (collectionNode : XmlNode, objName : String)
