@@ -173,9 +173,18 @@ function importObj(curObjNode : XmlNode)
 //	Debug.Log("Model Scale: " + modelScale);
 	
 	var importModels : GameObject[] = [];
+
+	#if UNITY_STANDALONE
 	// TODO: This code expects an absolute path to a file, but paths will be relative. A BASE_URL should be declared for WebGL and 
 	// the "Archive Folder Location" should be used to alter a BASE_PATH for standalone builds
 	var importer : ObjReader.ObjData = ObjReader.use.ConvertFileAsync("file://" + meshLocation, false, standardMaterial);
+
+	#elif UNITY_EDITOR || UNITY_WEBGL
+	var BASE_URL = "http://s3-ap-southeast-2.amazonaws.com/vertice-dev";
+	var fileLocation = BASE_URL + meshLocation;
+	Debug.Log("fileLocation: " + fileLocation);
+	var importer : ObjReader.ObjData = ObjReader.use.ConvertFileAsync(fileLocation, false, standardMaterial);
+	#endif
 	while (!importer.isDone){
 		yield;
 	}
@@ -207,12 +216,18 @@ function importObj(curObjNode : XmlNode)
 	}
 }
 
-
-
 function importTex(curObjNode : XmlNode)
 {
+
+	#if UNITY_STANDALONE
 	var texLocation = curObjNode.SelectSingleNode("./TexLocation").InnerText;
 	var wwwDirectory = "file://" + texLocation; //this will probably need to change for other OS (PC = file:/ [I think?]) - **REVISE**
+
+	#elif UNITY_WEBGL || UNITY_EDITOR
+	var texLocation = curObjNode.SelectSingleNode("./TexLocation").InnerText;
+	var wwwDirectory = "http://s3-ap-southeast-2.amazonaws.com/vertice-dev" + texLocation;
+
+	#endif
 	
 	objTex.material.mainTexture = new Texture2D(512, 512, TextureFormat.DXT1, false);
 	
