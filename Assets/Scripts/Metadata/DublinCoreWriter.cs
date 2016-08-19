@@ -51,10 +51,12 @@ public class DublinCoreWriter : MonoBehaviour {
 	/// </param>
 	public DublinCoreWriter(Dictionary<string, object> data){
 		xmlDocument = new XmlDocument();
-		XmlProcessingInstruction pi = xmlDocument.CreateProcessingInstruction ("xml", "version='1.0' encoding='UTF-8'");
-		XmlElement el = xmlDocument.CreateElement ("verticeMetadata");
-		xmlDocument.AppendChild (pi);
-		xmlDocument.AppendChild (el);
+
+		// Add the fundaments of an XML document: the xml processing instruction and a root element
+		XmlProcessingInstruction declareVersionAndEncoding = xmlDocument.CreateProcessingInstruction ("xml", "version='1.0' encoding='UTF-8'");
+		XmlElement rootElement = xmlDocument.CreateElement ("verticeMetadata");
+		xmlDocument.AppendChild (declareVersionAndEncoding);
+		xmlDocument.AppendChild (rootElement);
 	}
 
 
