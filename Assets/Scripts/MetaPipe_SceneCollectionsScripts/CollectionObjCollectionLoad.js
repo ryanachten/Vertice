@@ -68,7 +68,7 @@ function loadCollectionObjects( listNode : XmlNode)
 		}
 		importModel = importer.gameObjects;
 
-		#if UNITY_STANDALONE
+		#elif UNITY_STANDALONE
 		// TODO This code expects an absolute path to a file, but paths will be relative. A BASE_URL should be declared for WebGL and 
 		// the "Archive Folder Location" should be used to alter a BASE_PATH for standalone builds
 		var importModel : GameObject[] = [];
@@ -93,7 +93,7 @@ function loadCollectionObjects( listNode : XmlNode)
 			//import texture
 			#if UNITY_EDITOR || UNITY_WEBGL
 			var wwwDirectory = BASE_URL + curTexLocation; //this will probably need to change for other OS (PC = file:/ [I think?]) - **REVISE**
-			#if UNITY_STANDALONE
+			#elif UNITY_STANDALONE
 			// TODO This code expects an absolute path to a file, but paths will be relative. A BASE_URL should be declared for WebGL and 
 			// the "Archive Folder Location" should be used to alter a BASE_PATH for standalone builds
 			var wwwDirectory = "file://" + curTexLocation; //this will probably need to change for other OS (PC = file:/ [I think?]) - **REVISE**
