@@ -32,23 +32,21 @@ public function ContextImgImp(texLocation){
 
 	textureLocation = texLocation;
 
-	var wwwDirectory = "file://" + texLocation; //this will probably need to change for other OS (PC = file:/ [I think?]) - **REVISE**	
-	
-	while(true){
-	
-		var www : WWW = new WWW(wwwDirectory);
+	#if UNITY_WEBGL
+	var BASE_URL = "https://s3-ap-southeast-2.amazonaws.com/vertice-dev";
+	var wwwDirectory = BASE_URL + texLocation; //this will probably need to change for other OS (PC = file:/ [I think?]) - **REVISE**
+	#elif UNITY_STANDALONE
+	var wwwDirectory = "file://" + texLocation; //this will probably need to change for other OS (PC = file:/ [I think?]) - **REVISE**
+	#endif
 
+	var www : WWW = new WWW(wwwDirectory);
+	Debug.Log("Downloading contextual image: " + wwwDirectory);
+	while(!www.isDone){
 		yield www;
-		
-		var texWidth = www.texture.width;
-		var texHeight = www.texture.height;
-		
-//		Debug.Log("texWidth: " + texWidth + " texHeight: " + texHeight);
-		
-		if (www.isDone){
-			break; //if done downloading image break loop
-		}
 	}
+
+	var texWidth = www.texture.width;
+	var texHeight = www.texture.height;
 
 	//check img sizes
 	var imgRect : RectTransform = contextImg.GetComponent.<RectTransform>();

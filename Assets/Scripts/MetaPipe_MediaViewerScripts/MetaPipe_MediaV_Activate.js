@@ -2,42 +2,6 @@
 
 #if UNITY_WEBGL
 
-function activeMediaViewer( mediaName : String, mediaType: String, mediaLocation : String)
-{
-	Debug.LogError("Not implemented in WebGL");
-	Debug.Break();
-}
-
-
-function deactivateMediaViewer()
-{
-	Debug.LogError("Not implemented in WebGL");
-	Debug.Break();
-}
-
-
-function loadContextAudio(audioLocation : String)
-{
-	Debug.LogError("Not implemented in WebGL");
-	Debug.Break();
-}
-
-
-function loadContextVideo(texLocation : String)
-{
-	Debug.LogError("Not implemented in WebGL");
-	Debug.Break();
-}
-
-
-function loadContextImage(texLocation : String)
-{	
-	Debug.LogError("Not implemented in WebGL");
-	Debug.Break();
-}
-
-#else
-
 //held on MediaViewer empty GO
 
 import UnityEngine.UI;
@@ -47,7 +11,11 @@ var imageView : GameObject;
 var mediaTitle : Text;
 var imageRender : UI.RawImage;
 
+#if UNITY_WEBGL
+var vidTex : WebGLMovieTexture;
+#else
 var vidTex : MovieTexture;
+#endif
 
 var audSrce : AudioSource;
 var audImg : Texture2D;
@@ -68,12 +36,17 @@ function activeMediaViewer( mediaName : String, mediaType: String, mediaLocation
 		
 	if (!imageView.activeSelf)
 		imageView.SetActive(true);
-		
+
+	#if UNITY_WEBGL
+	Debug.LogError("Not implemented in WebGL");
+	#else
 	if (vidTex != null && vidTex.isPlaying)
 		vidTex.Stop();
 		
 	if (audSrce.isPlaying)
 		audSrce.Stop();
+	#endif
+
 	
 	//Reset windows sizes
 	var mvMaxWidth = imgRect.rect.width;
@@ -107,16 +80,34 @@ function activeMediaViewer( mediaName : String, mediaType: String, mediaLocation
 
 function deactivateMediaViewer()
 {
+
+	#if UNITY_WEBGL
+	Debug.LogError("Not implemented for WebGL");
+	#else
 	if (vidTex!= null && vidTex.isPlaying)
 		vidTex.Stop(); //prevents videos running in the bg consuming CPU
 	
 	if (audSrce.isPlaying)
 		audSrce.Stop();
+	#endif
 	
 	mediaViewerPanel.SetActive(false);	
 }
 
+#if UNITY_WEBGL
+function loadContextAudio(audioLocation : String)
+{
+	Debug.LogError("Not implemented in WebGL");
+	Debug.Break();
+}
 
+
+function loadContextVideo(texLocation : String)
+{
+	Debug.LogError("Not implemented in WebGL");
+	Debug.Break();
+}
+#else
 function loadContextAudio(audioLocation : String)
 {
 	var wwwDirectory = "file://" + audioLocation; //this will probably need to change for other OS (PC = file:/ [I think?]) - **REVISE**
@@ -187,12 +178,18 @@ function loadContextVideo(texLocation : String)
 	//Activate Media Controls
 	mediaButtonCont.setMedia("Video");	
 }
-
+#endif
 
 function loadContextImage(texLocation : String)
 {	
+
+	#if UNITY_WEBGL
+	var BASE_URL = "https://s3-ap-southeast-2.amazonaws.com/vertice-dev";
+	var wwwDirectory = BASE_URL + texLocation;	
+	#else
 	var wwwDirectory = "file://" + texLocation; //this will probably need to change for other OS (PC = file:/ [I think?]) - **REVISE**	
-	
+	#endif
+
 	while(true){
 	
 		var www : WWW = new WWW(wwwDirectory);
@@ -231,4 +228,3 @@ function loadContextImage(texLocation : String)
 	//Resize RawImg rect
 	imgRect.sizeDelta = new Vector2(texWidth, texHeight);	
 }
-#endif

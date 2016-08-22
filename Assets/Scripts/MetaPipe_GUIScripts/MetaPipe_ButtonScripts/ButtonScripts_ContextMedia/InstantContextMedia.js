@@ -1,49 +1,11 @@
 ﻿#pragma strict
 
-#if UNITY_WEBGL
-
-function instantImg(){
-	Debug.LogError("Not implemented in WebGL");
-	Debug.Break();
-}
-
-function instantXmlImg(){
-	Debug.LogError("Not implemented in WebGL");
-	Debug.Break();
-}
-
-function instantVid(){
-	Debug.LogError("Not implemented in WebGL");
-	Debug.Break();
-}
-
-function instantXmlVid(){
-	Debug.LogError("Not implemented in WebGL");
-	Debug.Break();
-}
-
-function instantAud(){
-	Debug.LogError("Not implemented in WebGL");
-	Debug.Break();
-}
-
-function instantXmlAud(){
-	Debug.LogError("Not implemented in WebGL");
-	Debug.Break();
-}
-
-#else
-
-//hosted on Import / ArtInfoPanel / AddButtons 
-
-
 var objInfoCont : ObjInfoControl;
 
 var instantParent : Transform; //parent new context media needs to be added below - Context Media Panel
 var imgMediaAsset : GameObject;
 var vidMediaAsset : GameObject;
 var audMediaAsset : GameObject;
-
 
 function instantImg(){
 
@@ -67,6 +29,18 @@ function instantXmlImg(){ //instantiated via xml load
 	imgNameCont.ImgName();
 }
 
+#if UNITY_WEBGL
+function instantVid(){
+	Debug.LogError("Not implemented in WebGL");
+	Debug.Break();
+}
+
+function instantXmlVid(){
+	Debug.LogError("Not implemented in WebGL");
+	Debug.Break();
+}
+
+#else
 function instantVid(){
 
 	var instVid = Instantiate(vidMediaAsset, instantParent.position, instantParent.rotation);
@@ -88,6 +62,9 @@ function instantXmlVid(){ //instantiated via xml load
 	impContScript.ContextVidImp();
 	vidNameCont.VidName();
 }
+#endif
+
+
 
 function instantAud(){
 
@@ -110,4 +87,3 @@ function instantXmlAud(){ //instantiated via xml load
 	impContScript.ContextAudioImp();
 	audNameCont.AudName();
 }
-#endif
