@@ -1,38 +1,11 @@
 ﻿#pragma strict
 
-#if UNITY_WEBGL
-
-function instantXmlImg(imgName : String, sourceImgAd : String){
-	Debug.LogError("Not implemented in WebGL");
-	Debug.Break();
-}
-
-
-function instantXmlVid(vidName : String, sourceVidAd : String){
-	Debug.LogError("Not implemented in WebGL");
-	Debug.Break();
-}
-
-
-function instantXmlAud(audName: String, sourceAudAd : String){
-	Debug.LogError("Not implemented in WebGL");
-	Debug.Break();
-}
-
-function clearChildren(){
-	Debug.LogError("Not implemented in WebGL");
-	Debug.Break();
-}
-
-#else
-
 var browseContextInfo = BrowseContextInfoXml;
 
 var instantParent : Transform; //parent new context media needs to be added below
 var imgMediaAsset : GameObject;
 var vidMediaAsset : GameObject;
 var audMediaAsset : GameObject;
-
 
 function instantXmlImg(imgName : String, sourceImgAd : String){ //instantiated via xml load
 	
@@ -45,6 +18,36 @@ function instantXmlImg(imgName : String, sourceImgAd : String){ //instantiated v
 	
 	impContScript.ContextImgImp(sourceImgAd);
 }
+
+function clearChildren()
+{
+	for (var i = instantParent.childCount - 1; i >= 0; i--)
+	{
+		//GameObject.Destroy(instantParent.GetChild(i).gameObject);
+		var curGo = instantParent.GetChild(i).gameObject;
+		if (curGo.transform.tag == "Context Media Asset")
+		{
+			GameObject.Destroy(curGo);
+		
+		}
+	}
+	//instantParent.DetachChildren();
+}
+
+#if UNITY_WEBGL
+
+function instantXmlVid(vidName : String, sourceVidAd : String){
+	Debug.LogError("Not implemented in WebGL");
+	Debug.Break();
+}
+
+
+function instantXmlAud(audName: String, sourceAudAd : String){
+	Debug.LogError("Not implemented in WebGL");
+	Debug.Break();
+}
+
+#else
 
 
 function instantXmlVid(vidName : String, sourceVidAd : String){ //instantiated via xml load
@@ -72,18 +75,5 @@ function instantXmlAud(audName: String, sourceAudAd : String){ //instantiated vi
 	impContScript.ContextAudioImp(sourceAudAd);
 }
 
-function clearChildren()
-{
-	for (var i = instantParent.childCount - 1; i >= 0; i--)
-	{
-		//GameObject.Destroy(instantParent.GetChild(i).gameObject);
-		var curGo = instantParent.GetChild(i).gameObject;
-		if (curGo.transform.tag == "Context Media Asset")
-		{
-			GameObject.Destroy(curGo);
-		
-		}
-	}
-	//instantParent.DetachChildren();
-}
+
 #endif

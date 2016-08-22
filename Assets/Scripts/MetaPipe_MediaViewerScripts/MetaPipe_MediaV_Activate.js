@@ -12,7 +12,7 @@ var mediaTitle : Text;
 var imageRender : UI.RawImage;
 
 #if UNITY_WEBGL
-var vidTex : WebGLMovieTexture;
+var vidTex = null;
 #else
 var vidTex : MovieTexture;
 #endif
