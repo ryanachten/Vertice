@@ -17,12 +17,12 @@ function Start(){
 	//Automatically loads XML doc for save etc
 	collectionDoc = new XmlDocument();
 
-	#if UNITY_STANDALONE
-	collectionDoc.Load(Application.dataPath + "/Metapipe_UserCollections.xml");
 
-	#elif UNITY_WEBGL || UNITY_EDITOR
+
+	#if UNITY_WEBGL
 	Debug.Log("Loading UserCollections XML data from AWS");
-	var xmlWWW = new WWW('https://s3-ap-southeast-2.amazonaws.com/vertice-dev/Metadata/Metapipe_UserCollections.xml');
+	var url = Paths.Remote + "/Metadata/Metapipe_UserCollections.xml";
+	var xmlWWW = new WWW(url);
 
 	// Note that there is a race condition here, so it isn't a good idea to yield. If this code yields in the while 
 	// loop, then the class that loads the list of "Collections Available" (c.f. Collection UI) has no data to work 
@@ -31,6 +31,8 @@ function Start(){
 		yield;
 	}
 	collectionDoc.LoadXml(xmlWWW.text);
+	#else
+	collectionDoc.Load(Application.dataPath + "/Metapipe_UserCollections.xml");
 	#endif
 
 	root = collectionDoc.DocumentElement;

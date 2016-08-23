@@ -159,10 +159,9 @@ function loadContextAudio(audioLocation : String)
 {
 
 	#if UNITY_WEBGL
-	var BASE_URL = "https://s3-ap-southeast-2.amazonaws.com/vertice-dev";
-	var wwwDirectory = BASE_URL + audioLocation;
+	var wwwDirectory = Paths.Remote + audioLocation;
 	#else
-	var wwwDirectory = "file://" + audioLocation; //this will probably need to change for other OS (PC = file:/ [I think?]) - **REVISE**
+	var wwwDirectory = Paths.Local + audioLocation; //this will probably need to change for other OS (PC = file:/ [I think?]) - **REVISE**
 	#endif
 	var www : WWW = new WWW(wwwDirectory);
 	
@@ -184,10 +183,9 @@ function loadContextImage(texLocation : String)
 {	
 
 	#if UNITY_WEBGL
-	var BASE_URL = "https://s3-ap-southeast-2.amazonaws.com/vertice-dev";
-	var wwwDirectory = BASE_URL + texLocation;	
+	var wwwDirectory = Paths.Remote + texLocation;	
 	#else
-	var wwwDirectory = "file://" + texLocation; //this will probably need to change for other OS (PC = file:/ [I think?]) - **REVISE**	
+	var wwwDirectory = Paths.Local + texLocation; //this will probably need to change for other OS (PC = file:/ [I think?]) - **REVISE**	
 	#endif
 
 	while(true){
