@@ -42,9 +42,16 @@ function instantXmlVid(vidName : String, sourceVidAd : String){
 }
 
 
-function instantXmlAud(audName: String, sourceAudAd : String){
-	Debug.LogError("BrowseContextMediaInstance.instantXmlAud not implemented in WebGL");
-	Debug.Break();
+function instantXmlAud(audName: String, sourceAudAd : String){ //instantiated via xml load
+	
+	var instAud = Instantiate(audMediaAsset, instantParent.position, instantParent.rotation);
+	instAud.transform.SetParent(instantParent, false);
+	
+	var impContScript : BrowseImpContextAudio = instAud.GetComponentInChildren(BrowseImpContextAudio);
+	var audNameText : Text = instAud.GetComponentInChildren(Text);
+	audNameText.text = audName;
+
+	impContScript.ContextAudioImp(sourceAudAd);
 }
 
 #else

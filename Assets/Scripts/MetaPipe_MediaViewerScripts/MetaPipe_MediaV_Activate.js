@@ -38,14 +38,14 @@ function activeMediaViewer( mediaName : String, mediaType: String, mediaLocation
 		imageView.SetActive(true);
 
 	#if UNITY_WEBGL
-	Debug.LogError("MetaPipe_MediaV_Activate [vidTex.Stop and audSrc.Stop()] not implemented in WebGL in activeMediaViewer");
-	#else
-	if (vidTex != null && vidTex.isPlaying)
-		vidTex.Stop();
+	Debug.LogError("MetaPipe_MediaV_Activate [vidTex.Stop] not implemented in WebGL in activeMediaViewer");
+//	if (vidTex != null && vidTex.isPlaying)
+//		vidTex.Stop();
+	#endif
+
 		
 	if (audSrce.isPlaying)
 		audSrce.Stop();
-	#endif
 
 	
 	//Reset windows sizes
@@ -82,51 +82,25 @@ function deactivateMediaViewer()
 {
 
 	#if UNITY_WEBGL
-	Debug.LogError("MetaPipe_MediaV_Activate [vidTex.Stop and audSrc.Stop()] not implemented for WebGL in deactivateMediaViewer");
-	#else
-	if (vidTex!= null && vidTex.isPlaying)
-		vidTex.Stop(); //prevents videos running in the bg consuming CPU
-	
-	if (audSrce.isPlaying)
-		audSrce.Stop();
+	Debug.LogError("MetaPipe_MediaV_Activate [vidTex.Stop] not implemented for WebGL in deactivateMediaViewer");
+//	if (vidTex!= null && vidTex.isPlaying)
+//		vidTex.Stop(); //prevents videos running in the bg consuming CPU
 	#endif
-	
+
+	if (audSrce.isPlaying){
+		audSrce.Stop();
+	}
+
 	mediaViewerPanel.SetActive(false);	
 }
 
 #if UNITY_WEBGL
-function loadContextAudio(audioLocation : String)
-{
-	Debug.LogError("MetaPipe_MediaV_Activate.loadContextAudio not implemented in WebGL");
-	Debug.Break();
-}
-
-
 function loadContextVideo(texLocation : String)
 {
 	Debug.LogError("MetaPipe_MediaV_Activate.loadContextVideo not implemented in WebGL");
 	Debug.Break();
 }
 #else
-function loadContextAudio(audioLocation : String)
-{
-	var wwwDirectory = "file://" + audioLocation; //this will probably need to change for other OS (PC = file:/ [I think?]) - **REVISE**
-	var www : WWW = new WWW(wwwDirectory);
-	
-	while(!www.isDone){
-		yield www;
-		if (www.isDone){
-			break; //if done downloading image break loop
-		}
-	}	
-	
-	var audClip = www.audioClip;		
-	audSrce.clip = audClip;
-
-	imageRender.texture = audImg;
-
-	mediaButtonCont.setMedia("Audio");
-}
 
 
 function loadContextVideo(texLocation : String)
@@ -179,6 +153,32 @@ function loadContextVideo(texLocation : String)
 	mediaButtonCont.setMedia("Video");	
 }
 #endif
+
+
+function loadContextAudio(audioLocation : String)
+{
+
+	#if UNITY_WEBGL
+	var BASE_URL = "https://s3-ap-southeast-2.amazonaws.com/vertice-dev";
+	var wwwDirectory = BASE_URL + audioLocation;
+	#else
+	var wwwDirectory = "file://" + audioLocation; //this will probably need to change for other OS (PC = file:/ [I think?]) - **REVISE**
+	#endif
+	var www : WWW = new WWW(wwwDirectory);
+	
+	while(!www.isDone){
+		yield www;
+	}
+	Debug.Log("Loaded audio file from: " + wwwDirectory);
+	
+	var audClip = www.audioClip;		
+	audSrce.clip = audClip;
+	Debug.Log("Loaded audio in to audSrce");
+
+	imageRender.texture = audImg;
+
+	mediaButtonCont.setMedia("Audio");
+}
 
 function loadContextImage(texLocation : String)
 {	
