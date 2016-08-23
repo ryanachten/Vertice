@@ -3,39 +3,19 @@ using System.Collections;
 using System.Xml;
 using System.Collections.Generic;
 using System.IO;
+using System;
 
 public class DublinCoreWriter {
 
 	XmlDocument xmlDocument;
 
 	/// <summary>
-	/// Initializes a new instance of the <see cref="DublinCoreWriter"/> class. This writer will 
-	/// update an existing XML file.
-	/// </summary>
-	/// <param name="data">A nested dictionary representing the structure of a metadata record. 
-	/// 	{ 
-	/// 		"descriptive" : {
-	/// 			"title" : "A title",
-	/// 			...
-	/// 			}
-	///			"structural" : {
-	/// 			"identifier" : "12345.obj",
-	/// 			...
-	/// 			}
-	/// 		}
-	/// 	}
-	/// 
-	/// </param>
-	/// <param name="metadataRecordPath">A path to an existing metadata record that should be updated</param>
-	public DublinCoreWriter(Dictionary<string, System.Object> data, string metadataRecordPath){
-		LoadXmlFromFile (metadataRecordPath);
-	}
-
-	/// <summary>
 	/// Initializes a new instance of the <see cref="DublinCoreWriter"/> class. This writer will create a new 
-	/// XML file
+	/// XML file in the case where no file exists
 	/// </summary>
 	/// <param name="data">A nested dictionary representing the structure of a metadata record. 
+	/// <param name="metadataRecordPath">The path to a metadata file. If no path is provided, and new 
+	/// file will be created at Application.persistentDataPath</param>
 	/// 	{ 
 	/// 		"descriptive" : {
 	/// 			"title" : ["A title", "A subtitle"],
@@ -49,19 +29,43 @@ public class DublinCoreWriter {
 	/// 	}
 	/// 
 	/// </param>
-	public DublinCoreWriter(Dictionary<string, object> data){
-		xmlDocument = new XmlDocument();
+	public DublinCoreWriter(Dictionary<string, object> data, string metadataRecordPath = null){
 
+		try {
+			LoadXmlFromFile (metadataRecordPath);
+		} catch (FileNotFoundException fnfException) {
+			Debug.Log (String.Format("Could not open an XML file at {0} -- will create new metadata file", metadataRecordPath));
+			metadataRecordPath = String.Format ("{0}/{1}", Application.dataPath, "vertice_metadata.xml");
+			xmlDocument = new XmlDocument ();
+			EstablishNewDocument ();
+		} catch (ArgumentNullException nullException){
+			Debug.Log (String.Format("Could not open an XML file at {0} -- will create new metadata file", metadataRecordPath));
+			metadataRecordPath = String.Format ("{0}/{1}", Application.dataPath, "vertice_metadata.xml");
+			EstablishNewDocument ();
+		}
+
+		try {
+			UnpackDictionaries (data, GetRootElement());
+			WriteXmlToFile(metadataRecordPath);
+			Debug.Log(String.Format("Wrote metadata to {0}", metadataRecordPath));
+		} catch (NullReferenceException nullReference) {
+			Debug.LogError ("An error occurred converting a nested dictionary to XML -- you must pass in a nested dictionary (not null!)");
+		} catch (FileNotFoundException fnfException) {
+			Debug.LogError(String.Format("An error occurred writing the XML document to a file. Exception is:\n\n\n{0}", fnfException.Message));
+		}
+
+	}
+
+	/// <summary>
+	/// Creates a new document with a <verticeMetadata> root node and XML preamble
+	/// </summary>
+	void EstablishNewDocument(){
+		xmlDocument = new XmlDocument ();
 		// Add the fundaments of an XML document: the xml processing instruction and a root element
 		XmlProcessingInstruction declareVersionAndEncoding = xmlDocument.CreateProcessingInstruction ("xml", "version='1.0' encoding='UTF-8'");
 		XmlElement rootElement = xmlDocument.CreateElement ("verticeMetadata");
 		xmlDocument.AppendChild (declareVersionAndEncoding);
 		xmlDocument.AppendChild (rootElement);
-
-		if (data != null) {
-			UnpackDictionaries (data, rootElement);
-		}
-
 	}
 
 	/// <summary>
@@ -112,7 +116,7 @@ public class DublinCoreWriter {
 		foreach (string value in elementValues) {
 			Debug.Log ("Adding " + elementName + " node to " + parentElement.LocalName + " with value " + value);
 			XmlElement newElement = xmlDocument.CreateElement (elementName);
-			newElement.InnerText = elementName;
+			newElement.InnerText = value;
 			parentElement.AppendChild (newElement);
 		}
 
@@ -124,18 +128,15 @@ public class DublinCoreWriter {
 	/// Loads XML data from a specified file
 	/// </summary>
 	/// <param name="filePath">The absolute or relative (i.e. relative to the project) path to a file</param>
-	void LoadXmlFromFile(string filePath){
+	/// <exception cref="fnfException">Throws FileNotFound to caller if the file cannot be opened</exception>
+	void LoadXmlFromFile(string filePath) {
 		
 		XmlReader reader = null;
 		try
 		{
-			
 			reader = XmlReader.Create(filePath);
 			xmlDocument = new XmlDocument();
 			xmlDocument.Load(reader);
-		}
-		catch (FileNotFoundException fnfException) {
-			Debug.Log (fnfException);
 		}
 		finally
 		{
@@ -143,6 +144,26 @@ public class DublinCoreWriter {
 				reader.Close();
 		}
 	}
+
+	void WriteXmlToFile(string filePath){
+
+		XmlWriter writer = null;
+		XmlWriterSettings settings = new XmlWriterSettings ();
+		settings.Indent = true;
+		try
+		{
+			writer = XmlWriter.Create(filePath, settings);
+			xmlDocument.WriteTo(writer);
+			writer.Flush();
+		}
+		finally
+		{
+			if (writer != null)
+				writer.Close();
+		}
+		
+	}
+
 
 	/// <summary>
 	/// Extracts the root element from the XML document that this writer will write to
@@ -159,4 +180,5 @@ public class DublinCoreWriter {
 	public XmlDocument GetDocument(){
 		return xmlDocument;
 	}
+
 }
