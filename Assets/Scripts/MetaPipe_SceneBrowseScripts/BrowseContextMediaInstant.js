@@ -34,14 +34,6 @@ function clearChildren()
 	//instantParent.DetachChildren();
 }
 
-#if UNITY_WEBGL
-
-function instantXmlVid(vidName : String, sourceVidAd : String){
-	Debug.LogError("BrowseContextMediaInstance.instantXmlVid not implemented in WebGL");
-	Debug.Break();
-}
-
-
 function instantXmlAud(audName: String, sourceAudAd : String){ //instantiated via xml load
 	
 	var instAud = Instantiate(audMediaAsset, instantParent.position, instantParent.rotation);
@@ -52,6 +44,13 @@ function instantXmlAud(audName: String, sourceAudAd : String){ //instantiated vi
 	audNameText.text = audName;
 
 	impContScript.ContextAudioImp(sourceAudAd);
+}
+
+#if UNITY_WEBGL
+
+function instantXmlVid(vidName : String, sourceVidAd : String){
+	Debug.LogError("BrowseContextMediaInstance.instantXmlVid not implemented in WebGL");
+	Debug.Break();
 }
 
 #else
@@ -68,19 +67,5 @@ function instantXmlVid(vidName : String, sourceVidAd : String){ //instantiated v
 	
 	impContScript.ContextVidImp(sourceVidAd);
 }
-
-
-function instantXmlAud(audName: String, sourceAudAd : String){ //instantiated via xml load
-	
-	var instAud = Instantiate(audMediaAsset, instantParent.position, instantParent.rotation);
-	instAud.transform.SetParent(instantParent, false);
-	
-	var impContScript : BrowseImpContextAudio = instAud.GetComponentInChildren(BrowseImpContextAudio);
-	var audNameText : Text = instAud.GetComponentInChildren(Text);
-	audNameText.text = audName;
-
-	impContScript.ContextAudioImp(sourceAudAd);
-}
-
 
 #endif
