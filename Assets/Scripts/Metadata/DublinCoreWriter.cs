@@ -50,8 +50,8 @@ public class DublinCoreWriter {
 			Debug.Log(String.Format("Wrote metadata to {0}", metadataRecordPath));
 		} catch (NullReferenceException nullReference) {
 			Debug.LogError ("An error occurred converting a nested dictionary to XML -- you must pass in a nested dictionary (not null!)");
-		} catch (FileNotFoundException fnfException) {
-			Debug.LogError(String.Format("An error occurred writing the XML document to a file. Exception is:\n\n\n{0}", fnfException.Message));
+		} catch (ArgumentNullException nullArgument){
+			Debug.LogError (String.Format("An error occurred writing the file to XML -- it's likely that no filePath was passed. Exception message:\n\n\n{0}", nullArgument.Message));
 		}
 
 	}
@@ -145,6 +145,11 @@ public class DublinCoreWriter {
 		}
 	}
 
+	/// <summary>
+	/// Writes the built XML document to a file
+	/// </summary>
+	/// <param name="filePath">The file path to write to</param>
+	/// <exception cref="FileNotFoundException">Thrown if the file cannot </exception>
 	void WriteXmlToFile(string filePath){
 
 		XmlWriter writer = null;
