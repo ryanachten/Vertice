@@ -30,6 +30,8 @@ public class BrowseCamMovement : MonoBehaviour {
 	private int fallMass = 3;
 	private int groundedMass = 1;
 
+	public GameObject browseGui; //browse GUI to be toggled on an off depending on whether nav/gui mode
+
 
 	void Start () {
 		rb = GetComponent<Rigidbody>();
@@ -54,7 +56,7 @@ public class BrowseCamMovement : MonoBehaviour {
 	{
 		if (navMode) { //turn off navMode
 			Cursor.visible = true;
-	//		browsePanel.SetActive(true); //GUI elements not available in the test scene I working from
+			browseGui.SetActive(true); 
 //			curPos = transform; //this will be used to hold the player in place while scene is paused - I think; not currently used
 			rb.isKinematic = true; 
 			rb.useGravity = false; 
@@ -62,7 +64,7 @@ public class BrowseCamMovement : MonoBehaviour {
 		}
 		else { //turn on navMode
 			Cursor.visible = false;
-	//		browsePanel.SetActive(false); //GUI elements not available in the test scene I working from
+			browseGui.SetActive(false);
 			rb.isKinematic = false; 
 			rb.useGravity = true; 
 			navMode = true;

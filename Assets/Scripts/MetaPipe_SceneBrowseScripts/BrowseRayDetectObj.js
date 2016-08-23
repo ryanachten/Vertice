@@ -27,6 +27,7 @@ var mediaViewerScript : MetaPipe_MediaV_Activate; 	//***NEW***
 
 var curObj : GameObject; //used for edit cur obj functionality
 
+
 function Start()
 {
 	prevObjName = null;
@@ -35,13 +36,12 @@ function Start()
 
 function Update()
 {
-	navMode = browseCamMove.navMode;
-	if (navMode)
+//	navMode = 
+	if (browseCamMove.navMode)
 	{
 		detectObj();
 	}
-	
-	
+
 	if (selectPanelActive && Input.GetMouseButtonDown(0) && !contextPanelActive)
 	{
 		selectContextPanel.SetActive(true);
