@@ -4,6 +4,7 @@
 //loads collection models from xmlNodeList
 
 import System.Xml;
+import Paths;
 
 var objInfoControl : ObjInfoControl;
 var objInfoContRoot : XmlNode;
@@ -27,7 +28,6 @@ function loadCollectionObjects( listNode : XmlNode)
 	var loadPlaneMin = loadPlaneBoxCol.bounds.min;
 	var loadPlaneMax = loadPlaneBoxCol.bounds.max;
 	//Debug.Log("loadPlaneMin: " + loadPlaneMin + " loadPlaneMax: " + loadPlaneMax);
-	
 	if (objInfoControl == null)
 	{
 		Debug.Log("objInfoControl MISSING -> retrieving");
@@ -59,20 +59,19 @@ function loadCollectionObjects( listNode : XmlNode)
 
 		//import mesh
 
-		#if UNITY_EDITOR || UNITY_WEBGL
-		var BASE_URL = "https://s3-ap-southeast-2.amazonaws.com/vertice-dev";
+		#if UNITY_WEBGL
 		var importModel : GameObject[] = [];
-		var importer : ObjReader.ObjData = ObjReader.use.ConvertFileAsync(BASE_URL + curMeshLocation, false, standardMaterial);
+		var importer : ObjReader.ObjData = ObjReader.use.ConvertFileAsync(Paths.Remote + curMeshLocation, false, standardMaterial);
 		while (!importer.isDone){
 			yield;
 		}
 		importModel = importer.gameObjects;
 
-		#elif UNITY_STANDALONE
+		#else
 		// TODO This code expects an absolute path to a file, but paths will be relative. A BASE_URL should be declared for WebGL and 
 		// the "Archive Folder Location" should be used to alter a BASE_PATH for standalone builds
 		var importModel : GameObject[] = [];
-		var importer : ObjReader.ObjData = ObjReader.use.ConvertFileAsync("file://" + curMeshLocation, false, standardMaterial);
+		var importer : ObjReader.ObjData = ObjReader.use.ConvertFileAsync(Paths.Local + curMeshLocation, false, standardMaterial);
 		while (!importer.isDone){
 			yield;
 		}
@@ -91,12 +90,12 @@ function loadCollectionObjects( listNode : XmlNode)
 		
 		
 			//import texture
-			#if UNITY_EDITOR || UNITY_WEBGL
-			var wwwDirectory = BASE_URL + curTexLocation; //this will probably need to change for other OS (PC = file:/ [I think?]) - **REVISE**
-			#elif UNITY_STANDALONE
+			#if UNITY_WEBGL
+			var wwwDirectory = Paths.Remote + curTexLocation; //this will probably need to change for other OS (PC = file:/ [I think?]) - **REVISE**
+			#else
 			// TODO This code expects an absolute path to a file, but paths will be relative. A BASE_URL should be declared for WebGL and 
 			// the "Archive Folder Location" should be used to alter a BASE_PATH for standalone builds
-			var wwwDirectory = "file://" + curTexLocation; //this will probably need to change for other OS (PC = file:/ [I think?]) - **REVISE**
+			var wwwDirectory = Paths.Local + curTexLocation; //this will probably need to change for other OS (PC = file:/ [I think?]) - **REVISE**
 			#endif
 
 			objTex.material.mainTexture = new Texture2D(512, 512, TextureFormat.DXT1, false);

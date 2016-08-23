@@ -1,36 +1,5 @@
 ﻿#pragma strict
 
-#if UNITY_WEBGL
-
-import UnityEngine.UI;
-
-function setMedia( mediaType : String)
-{
-	Debug.LogError("Not implemented in WebGL");
-	Debug.Break();
-}
-
-
-function playMedia()
-{
-	Debug.LogError("Not implemented in WebGL");
-	Debug.Break();
-}
-
-function pauseMedia()
-{
-	Debug.LogError("Not implemented in WebGL");
-	Debug.Break();
-}
-
-function replayMedia()
-{
-	Debug.LogError("Not implemented in WebGL");
-	Debug.Break();
-}
-
-#else
-
 import UnityEngine.UI;
 
 var mvActivateScript : MetaPipe_MediaV_Activate;
@@ -47,14 +16,19 @@ var curVid : MovieTexture;
 function setMedia( mediaType : String)
 {
 	curMediaType = mediaType;
-	
+
+	#if UNITY_WEBGL
+	Debug.Log("MetaPipe_MediaV_ButonCont.setMedia not implemented for video");
+	#else
 	if (mediaType == "Video")
 	{	
 		curVid = mvActivateScript.vidTex;
 		audSrce = mvActivateScript.audSrce;
 	}
+	#endif
 	if (mediaType == "Audio")
 	{
+		Debug.Log("Trying to access audSrce");
 		audSrce = mvActivateScript.audSrce;
 	}
 }
@@ -62,26 +36,47 @@ function setMedia( mediaType : String)
 
 function playMedia()
 {
-	if (curMediaType == "Video")
+
+	if (curMediaType == "Audio"){
+		audSrce.Play();
+	}
+	#if UNITY_WEBGL
+	Debug.Log("MetaPipe_MediaV_ButonCont.setMedia not implemented for video");
+	#else
+	else if (curMediaType == "Video")
 	{
 		curVid.Play();
 		audSrce.Play();
 	}
-	else if (curMediaType == "Audio")
-		audSrce.Play();	
+	#endif
+		
 }
 
 function pauseMedia()
 {
-	if (curMediaType == "Video")
+
+	if (curMediaType == "Audio")
+		audSrce.Pause();
+	#if UNITY_WEBGL
+	Debug.Log("MetaPipe_MediaV_ButonCont.setMedia not implemented for video");
+	#else
+	else if (curMediaType == "Video")
 	{
 		curVid.Pause();
 		audSrce.Pause();
-	} 
-	else if (curMediaType == "Audio")
-		audSrce.Pause();
+	}
+	#endif
+
 }
 
+#if UNITY_WEBGL
+
+function replayMedia()
+{
+	Debug.LogError("MetaPipe_MediaV_ButonCont.replayMedia not implemented in WebGL");
+	Debug.Break();
+}
+#else
 function replayMedia()
 {
 	if (curMediaType == "Video")
