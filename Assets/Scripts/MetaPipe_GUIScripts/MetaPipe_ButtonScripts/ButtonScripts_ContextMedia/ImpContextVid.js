@@ -3,46 +3,46 @@
 #if UNITY_WEBGL
 
 function Awake(){
-	Debug.LogError("Not implemented in WebGL");
+	Debug.LogError("ImpContextVid.Awake not implemented in WebGL");
 	Debug.Break();
 }
 
 
 function FixedUpdate()
 {	
-	Debug.LogError("Not implemented in WebGL");
+	Debug.LogError("ImpContextVid.FixedUpdate not implemented in WebGL");
 	Debug.Break();
 }
 
 
 public function OpenVidAsset(){ 
-	Debug.LogError("Not implemented in WebGL");
+	Debug.LogError("ImpContextVid.OpenVidAsset not implemented in WebGL");
 	Debug.Break();
 
 }
 
 public function VidAssetFile(pathToTex : String){
-	Debug.LogError("Not implemented in WebGL");
+	Debug.LogError("ImpContextVid.VidAssetFile not implemented in WebGL");
 	Debug.Break();
 
 }
 
 
 public function ContextVidImp(){
-	Debug.LogError("Not implemented in WebGL");
+	Debug.LogError("ImpContextVid.ContextVidImp not implemented in WebGL");
 	Debug.Break();
 
 }
 
 function VidNameSplit(){
-	Debug.LogError("Not implemented in WebGL");
+	Debug.LogError("ImpContextVid.VidNameSplit not implemented in WebGL");
 	Debug.Break();
 
 }
 
 function sendActive()
 {
-	Debug.LogError("Not implemented in WebGL");
+	Debug.LogError("ImpContextVid.sendActive not implemented in WebGL");
 	Debug.Break();
 }
 

@@ -37,13 +37,13 @@ function clearChildren()
 #if UNITY_WEBGL
 
 function instantXmlVid(vidName : String, sourceVidAd : String){
-	Debug.LogError("Not implemented in WebGL");
+	Debug.LogError("BrowseContextMediaInstance.instantXmlVid not implemented in WebGL");
 	Debug.Break();
 }
 
 
 function instantXmlAud(audName: String, sourceAudAd : String){
-	Debug.LogError("Not implemented in WebGL");
+	Debug.LogError("BrowseContextMediaInstance.instantXmlAud not implemented in WebGL");
 	Debug.Break();
 }
 

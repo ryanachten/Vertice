@@ -6,26 +6,26 @@ import UnityEngine.UI;
 
 function setMedia( mediaType : String)
 {
-	Debug.LogError("Not implemented in WebGL");
+	Debug.LogError("MetaPipe_MediaV_ButonCont.setMedia not implemented in WebGL");
 	Debug.Break();
 }
 
 
 function playMedia()
 {
-	Debug.LogError("Not implemented in WebGL");
+	Debug.LogError("MetaPipe_MediaV_ButonCont.playMedia not implemented in WebGL");
 	Debug.Break();
 }
 
 function pauseMedia()
 {
-	Debug.LogError("Not implemented in WebGL");
+	Debug.LogError("MetaPipe_MediaV_ButonCont.pauseMedia not implemented in WebGL");
 	Debug.Break();
 }
 
 function replayMedia()
 {
-	Debug.LogError("Not implemented in WebGL");
+	Debug.LogError("MetaPipe_MediaV_ButonCont.replayMedia not implemented in WebGL");
 	Debug.Break();
 }
 

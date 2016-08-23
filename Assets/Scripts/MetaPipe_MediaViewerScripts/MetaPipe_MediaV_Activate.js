@@ -38,7 +38,7 @@ function activeMediaViewer( mediaName : String, mediaType: String, mediaLocation
 		imageView.SetActive(true);
 
 	#if UNITY_WEBGL
-	Debug.LogError("Not implemented in WebGL");
+	Debug.LogError("MetaPipe_MediaV_Activate [vidTex.Stop and audSrc.Stop()] not implemented in WebGL in activeMediaViewer");
 	#else
 	if (vidTex != null && vidTex.isPlaying)
 		vidTex.Stop();
@@ -82,7 +82,7 @@ function deactivateMediaViewer()
 {
 
 	#if UNITY_WEBGL
-	Debug.LogError("Not implemented for WebGL");
+	Debug.LogError("MetaPipe_MediaV_Activate [vidTex.Stop and audSrc.Stop()] not implemented for WebGL in deactivateMediaViewer");
 	#else
 	if (vidTex!= null && vidTex.isPlaying)
 		vidTex.Stop(); //prevents videos running in the bg consuming CPU
@@ -97,14 +97,14 @@ function deactivateMediaViewer()
 #if UNITY_WEBGL
 function loadContextAudio(audioLocation : String)
 {
-	Debug.LogError("Not implemented in WebGL");
+	Debug.LogError("MetaPipe_MediaV_Activate.loadContextAudio not implemented in WebGL");
 	Debug.Break();
 }
 
 
 function loadContextVideo(texLocation : String)
 {
-	Debug.LogError("Not implemented in WebGL");
+	Debug.LogError("MetaPipe_MediaV_Activate.loadContextVideo not implemented in WebGL");
 	Debug.Break();
 }
 #else

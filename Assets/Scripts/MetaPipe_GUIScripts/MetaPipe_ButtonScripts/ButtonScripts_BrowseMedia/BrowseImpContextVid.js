@@ -5,13 +5,13 @@
 import UnityEngine.UI;
 
 public function ContextVidImp(texLocation){
-	Debug.LogError("Not implemented in WebGL");
+	Debug.LogError("BrowseImpContextVid.ContextVidImp not implemented in WebGL");
 	Debug.Break();
 }
 
 function sendActive()
 {
-	Debug.LogError("Not implemented in WebGL");
+	Debug.LogError("BrowseImpContextVid.sendActive not implemented in WebGL");
 	Debug.Break();
 }
 

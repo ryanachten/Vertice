@@ -31,12 +31,12 @@ function instantXmlImg(){ //instantiated via xml load
 
 #if UNITY_WEBGL
 function instantVid(){
-	Debug.LogError("Not implemented in WebGL");
+	Debug.LogError("InstantContextMedia.instantVid not implemented in WebGL");
 	Debug.Break();
 }
 
 function instantXmlVid(){
-	Debug.LogError("Not implemented in WebGL");
+	Debug.LogError("InstantContextMedia.instantXmlVid not implemented in WebGL");
 	Debug.Break();
 }
 
