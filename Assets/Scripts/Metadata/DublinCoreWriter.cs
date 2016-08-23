@@ -4,7 +4,7 @@ using System.Xml;
 using System.Collections.Generic;
 using System.IO;
 
-public class DublinCoreWriter : MonoBehaviour {
+public class DublinCoreWriter {
 
 	XmlDocument xmlDocument;
 
@@ -27,7 +27,7 @@ public class DublinCoreWriter : MonoBehaviour {
 	/// 
 	/// </param>
 	/// <param name="metadataRecordPath">A path to an existing metadata record that should be updated</param>
-	public DublinCoreWriter(Dictionary<string, object> data, string metadataRecordPath){
+	public DublinCoreWriter(Dictionary<string, System.Object> data, string metadataRecordPath){
 		LoadXmlFromFile (metadataRecordPath);
 	}
 
@@ -38,11 +38,11 @@ public class DublinCoreWriter : MonoBehaviour {
 	/// <param name="data">A nested dictionary representing the structure of a metadata record. 
 	/// 	{ 
 	/// 		"descriptive" : {
-	/// 			"title" : "A title",
+	/// 			"title" : ["A title", "A subtitle"],
 	/// 			...
 	/// 			}
 	///			"structural" : {
-	/// 			"identifier" : "12345.obj",
+	/// 			"identifier" : ["12345.obj"],
 	/// 			...
 	/// 			}
 	/// 		}
@@ -57,7 +57,67 @@ public class DublinCoreWriter : MonoBehaviour {
 		XmlElement rootElement = xmlDocument.CreateElement ("verticeMetadata");
 		xmlDocument.AppendChild (declareVersionAndEncoding);
 		xmlDocument.AppendChild (rootElement);
+
+		if (data != null) {
+			UnpackDictionaries (data, rootElement);
+		}
+
 	}
+
+	/// <summary>
+	/// Recursively the Dictionary passed in to the constructor and mimics the nested structure in the 
+	/// XML document, as a child of the passed in element <verticeMetadata>
+	/// </summary>
+	/// <param name="metadataDictionary">Metadata dictionary.</param>
+	/// <param name="rootElement">The parent element for this nested metadata dictionary</param>
+	void UnpackDictionaries(Dictionary<string, object> metadataDictionary, XmlElement parentElement)	{
+
+		foreach (string key in metadataDictionary.Keys) {
+			if (metadataDictionary[key].GetType() == typeof(string[])) {
+				UnpackList (key, (string[]) metadataDictionary [key], parentElement);
+			}
+			else {
+				XmlElement newElement = xmlDocument.CreateElement ((string)(object)key);
+				parentElement.AppendChild (newElement);
+				Debug.Log ("Unpacking dictionary: " + key);
+				UnpackDictionaries((Dictionary<string, object>) metadataDictionary [key], newElement);
+			}
+		}
+	
+	}
+
+	/// <summary>
+	/// Unpacks the leaves of the nested dictionary (i.e. the values for a field, expressed in an array). That is, given the 
+	/// following dictionary:
+	/// 
+	/// { 
+	/// 		"descriptive" : {
+	/// 			"title" : ["A title", "A subtitle"],
+	/// 			...
+	/// 			}
+	///			"structural" : {
+	/// 			"identifier" : ["12345.obj"],
+	/// 			...
+	/// 			}
+	/// 		}
+	/// 	}
+	/// 
+	/// this method will unpack, e.g., the "title" and "identfier" arrays
+	/// </summary>
+	/// <param name="elementName">The name for the new element</param>
+	/// <param name="elementValues">The array of values to be associated with this element</param>
+	/// <param name="parentElement">The parent element that the newly created element(s) will be added to</param>
+	void UnpackList(string elementName, string[] elementValues, XmlElement parentElement){
+		Debug.Log ("Unpacking list: " + elementName);
+		foreach (string value in elementValues) {
+			Debug.Log ("Adding " + elementName + " node to " + parentElement.LocalName + " with value " + value);
+			XmlElement newElement = xmlDocument.CreateElement (elementName);
+			newElement.InnerText = elementName;
+			parentElement.AppendChild (newElement);
+		}
+
+	}
+		
 
 
 	/// <summary>
@@ -88,7 +148,15 @@ public class DublinCoreWriter : MonoBehaviour {
 	/// Extracts the root element from the XML document that this writer will write to
 	/// </summary>
 	/// <returns>The root element.</returns>
-	public XmlNode GetRootElement(){
-		return xmlDocument.SelectSingleNode("/verticeMetadata");
+	public XmlElement GetRootElement(){
+		return (XmlElement) xmlDocument.SelectSingleNode("/verticeMetadata");
+	}
+
+	/// <summary>
+	/// Getter for the XML document that this class mutates
+	/// </summary>
+	/// <returns>The XML document</returns>
+	public XmlDocument GetDocument(){
+		return xmlDocument;
 	}
 }
