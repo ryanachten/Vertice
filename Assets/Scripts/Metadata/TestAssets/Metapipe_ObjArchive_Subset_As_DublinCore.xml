@@ -37,7 +37,7 @@
     </relatedAssets>
   </artefact>
 
-  <artefact name="TestMonk">
+  <artefact id="TestMonk">
     <descriptive>
       <title>Test Monk</title>
       <title>Doog</title>
