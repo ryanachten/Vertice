@@ -11,27 +11,18 @@ public class TestDublinCoreWriter {
 	[Test]
 	public void TestInstantiateNewWriter()
 	{
-		DublinCoreWriter dcWriter = new DublinCoreWriter (null);
+		DublinCoreWriter dcWriter = new DublinCoreWriter (null, "*");
 		Assert.NotNull(dcWriter);
 		Assert.That (dcWriter.GetRootElement ().LocalName == "verticeMetadata");
 
 	}
 
 	[Test]
-	public void TestInstantiateEditor_Valid()
+	public void TestInstantiateEditor()
 	{
 		DublinCoreWriter dcWriter = new DublinCoreWriter (null, "Assets/Scripts/Metadata/TestAssets/Vertice_RootOnly_Valid.xml");
 		Assert.NotNull(dcWriter);
 		Assert.That(dcWriter.GetRootElement().LocalName == "verticeMetadata");
-
-	}
-
-	[Test]
-	public void TestInstantiateEditor_Invalid()
-	{
-		DublinCoreWriter dcWriter = new DublinCoreWriter (null, "Assets/Scripts/Metadata/TestAssets/Vertice_RootOnly_Invalid.xml");
-		Assert.NotNull(dcWriter);
-		Assert.That(dcWriter.GetRootElement() == null);
 
 	}
 
@@ -61,19 +52,20 @@ public class TestDublinCoreWriter {
 		structural.Add ("isVersionOf", new string[] { "http://themuseum.org/repository/ID123419A.zip" });
 		metadata_basic.Add ("structural", structural);
 
-		DublinCoreWriter dcWriter = new DublinCoreWriter (metadata_basic);
+		DublinCoreWriter dcWriter = new DublinCoreWriter (metadata_basic, "ID1234/19/A");
 		XmlDocument builtDocument = dcWriter.GetDocument ();
 
 		// Search for appropriate nodes to test the built XML document
 		XmlNodeList verticeMetadataChildren = builtDocument.SelectSingleNode ("//verticeMetadata").ChildNodes;
+		XmlNodeList artefact = builtDocument.SelectSingleNode ("//verticeMetadata/artefact").ChildNodes;
 		XmlNodeList descriptiveChildren = builtDocument.SelectSingleNode ("//descriptive").ChildNodes;
 		XmlNodeList structuralChildren = builtDocument.SelectSingleNode ("//structural").ChildNodes;
 		XmlNodeList titleNodes = builtDocument.SelectNodes ("//descriptive/title");
 
 		// Are <descriptive> and <structural> entered correctly
-		Assert.That (verticeMetadataChildren.Count == 2); 
-		Assert.That (verticeMetadataChildren [0].LocalName == "descriptive" || verticeMetadataChildren [0].LocalName == "structural");
-		Assert.That (verticeMetadataChildren [1].LocalName == "descriptive" || verticeMetadataChildren [1].LocalName == "structural");
+		Assert.That (verticeMetadataChildren.Count == 1); 
+		Assert.That (artefact [0].LocalName == "descriptive" || artefact [0].LocalName == "structural");
+		Assert.That (artefact [1].LocalName == "descriptive" || artefact [1].LocalName == "structural");
 
 		// Are the child elements of <descriptive> and <structural> entered correctly
 		Assert.That (descriptiveChildren.Count == 7);
@@ -135,24 +127,24 @@ public class TestDublinCoreWriter {
 		metadata_basic_02.Add ("structural", structural_02);
 
 
-		DublinCoreWriter dcWriter_01 = new DublinCoreWriter (metadata_basic_01, "Assets/Scripts/Metadata/TestAssets/Vertice_Test_Append.xml");
-		DublinCoreWriter dcWriter_02 = new DublinCoreWriter (metadata_basic_02, "Assets/Scripts/Metadata/TestAssets/Vertice_Test_Append.xml");
+		DublinCoreWriter dcWriter_01 = new DublinCoreWriter (metadata_basic_01, "ID1234/19/A", Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Vertice_Test_Append.xml");
+		DublinCoreWriter dcWriter_02 = new DublinCoreWriter (metadata_basic_02, "ID1234/19/B", Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Vertice_Test_Append.xml");
 		XmlDocument builtDocument = dcWriter_02.GetDocument ();
 
 		// Search for appropriate nodes to test the basic structure of the built XML document
-		XmlNodeList verticeMetadataChildren = builtDocument.SelectSingleNode ("//verticeMetadata").ChildNodes;
+		XmlNodeList verticeMetadataChildren = builtDocument.SelectSingleNode ("/verticeMetadata").ChildNodes;
 
 		// First artefact
-		XmlNodeList artefact_01 = builtDocument.SelectSingleNode (String.Format("//artefact[id='{0}']", "ID1234/19/A")).ChildNodes;
-		XmlNodeList descriptiveChildren_01 = builtDocument.SelectSingleNode (String.Format("//artefact[id='{0}']/descriptive", "ID1234/19/A")).ChildNodes;
-		XmlNodeList structuralChildren_01 = builtDocument.SelectSingleNode (String.Format("//artefact[id='{0}']/structural", "ID1234/19/A")).ChildNodes;
-		XmlNodeList titleNodes_01 = builtDocument.SelectNodes (String.Format("//artefact[id='{0}']/descriptive/title", "ID1234/19/A"));
+		XmlNodeList artefact_01 = builtDocument.SelectSingleNode (String.Format("/verticeMetadata/artefact[@id='{0}']", "ID1234/19/A")).ChildNodes;
+		XmlNodeList descriptiveChildren_01 = builtDocument.SelectSingleNode (String.Format("/verticeMetadata/artefact[@id='{0}']/descriptive", "ID1234/19/A")).ChildNodes;
+		XmlNodeList structuralChildren_01 = builtDocument.SelectSingleNode (String.Format("/verticeMetadata/artefact[@id='{0}']/structural", "ID1234/19/A")).ChildNodes;
+		XmlNodeList titleNodes_01 = builtDocument.SelectNodes (String.Format("/verticeMetadata/artefact[@id='{0}']/descriptive/title", "ID1234/19/A"));
 
 		// Second artefeact
-		XmlNodeList artefact_02 = builtDocument.SelectSingleNode (String.Format("//artefact[id='{0}']", "ID1234/19/B")).ChildNodes;
-		XmlNodeList descriptiveChildren_02 = builtDocument.SelectSingleNode (String.Format("//artefact[id='{0}']/descriptive", "ID1234/19/B")).ChildNodes;
-		XmlNodeList structuralChildren_02 = builtDocument.SelectSingleNode (String.Format("//artefact[id='{0}']/structural", "ID1234/19/B")).ChildNodes;
-		XmlNodeList titleNodes_02 = builtDocument.SelectNodes (String.Format("//artefact[id='{0}']/descriptive/title", "ID1234/19/B"));
+		XmlNodeList artefact_02 = builtDocument.SelectSingleNode (String.Format("/verticeMetadata/artefact[@id='{0}']", "ID1234/19/B")).ChildNodes;
+		XmlNodeList descriptiveChildren_02 = builtDocument.SelectSingleNode (String.Format("/verticeMetadata/artefact[@id='{0}']/descriptive", "ID1234/19/B")).ChildNodes;
+		XmlNodeList structuralChildren_02 = builtDocument.SelectSingleNode (String.Format("/verticeMetadata/artefact[@id='{0}']/structural", "ID1234/19/B")).ChildNodes;
+		XmlNodeList titleNodes_02 = builtDocument.SelectNodes (String.Format("/verticeMetadata/artefact[@id='{0}']/descriptive/title", "ID1234/19/B"));
 
 		// Are there now two children of the <verticeMedata> element?
 		Assert.That(verticeMetadataChildren.Count == 2);
@@ -166,15 +158,15 @@ public class TestDublinCoreWriter {
 		Assert.That (artefact_02 [1].LocalName == "descriptive" || artefact_02 [1].LocalName == "structural");
 
 		// Are the child elements of <descriptive> and <structural> entered correctly
-		Assert.That (descriptiveChildren_01.Count == 8);
+		Assert.That (descriptiveChildren_01.Count == 9);
 		Assert.That (descriptiveChildren_02.Count == 7);
-		Assert.That (structuralChildren_01.Count == 4);
-		Assert.That (structuralChildren_02.Count == 4);
+		Assert.That (structuralChildren_01.Count == 5);
+		Assert.That (structuralChildren_02.Count == 6);
 
 		// Are fields with unrestricted cardinality entered correctly
 		Assert.That (titleNodes_01.Count == 3);
 		Assert.That (titleNodes_02.Count == 2);
 
-		//File.Delete ("Assets/Scripts/Metadata/TestAssets/Vertice_Test_Append.xml");
+		File.Delete (Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Vertice_Test_Append.xml");
 	}
 }
