@@ -2,43 +2,71 @@
 using UnityEditor;
 using NUnit.Framework;
 using System.Collections.Generic;
+using System;
+using System.IO;
 
 public class TestDublinCoreReader {
 
 	[Test]
-	public void TestDummyData(){
-		Dictionary<string, Dictionary<string, string[]>> data = DublinCoreReader.GetArtefactWithIdentifier ("THIS WONT DO ANYTHING");
+	/// <summary>
+	/// Test that a specified XML file can be read in and assigned to the internal _xmlDocument property
+	/// </summary>
+	public void TestLazyInitialisation(){
+		DublinCoreReader.LoadXml ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_ObjArchive_Subset_As_DublinCore.xml");
+		Assert.NotNull (DublinCoreReader.Xml());
+	}
 
-		// Ensure that the nested dictionary structure exists
-		Assert.NotNull (data);
-		Assert.NotNull (data ["descriptive"]);
-		Assert.NotNull (data ["structural"]);
+	[Test]
+	[ExpectedException(typeof( FileNotFoundException ))]
+	public void RefreshThrowsFileNotFoundIfXmlDocumentNotLoaded(){
+		// Explicitly set _uri to null
+		DublinCoreReader.LoadXml (null);
+		DublinCoreReader.Refresh ();
+	}
 
-		// Ensure that the structure of the dictionary is as expected
-		Assert.That(data.Keys.Count == 2);
-		Assert.That(data["descriptive"].Keys.Count == 6);
-		Assert.That(data["structural"].Keys.Count == 4);
+	[Test]
+	public void TestBasicMetadataReading_01(){
+		DublinCoreReader.LoadXml ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_ObjArchive_Subset_As_DublinCore.xml");
+		Dictionary<string, Dictionary<string, string[]>> metadata = DublinCoreReader.GetArtefactWithIdentifier ("TestMonk");
 
-		// Ensure that the length of the arrays in the 'leaves' is as expected
-		//
-		// <descriptive>
-		Assert.That(data["descriptive"]["title"].Length == 3);
-		Assert.That(data["descriptive"]["creator"].Length == 2);
-		Assert.That(data["descriptive"]["description"].Length == 1);
-		Assert.That(data["descriptive"]["format"].Length == 1);
-		Assert.That(data["descriptive"]["identifier"].Length == 1);
-		Assert.That(data["descriptive"]["relation"].Length == 1);
+		// Check that both titles are represented
+		Assert.That (metadata ["descriptive"] ["title"] [0] == "Test Monk" || metadata ["descriptive"] ["title"] [0] == "Doog");
+		Assert.That (metadata ["descriptive"] ["title"] [1] == "Test Monk" || metadata ["descriptive"] ["title"] [1] == "Doog");
 
-		// <structural>
-		Assert.That(data["structural"]["creator"].Length == 1);
-		Assert.That(data["structural"]["created"].Length == 1);
-		Assert.That(data["structural"]["identifier"].Length == 2);
-		Assert.That(data["structural"]["isVersionOf"].Length == 1);
+		// Check that the number of keys in each dictionary makes sense
+		Assert.That(metadata["descriptive"].Keys.Count == 4); // Title, Description, Creator, Date
+		Assert.That(metadata["structural"].Keys.Count == 5); // Creator, Created, Description, Identifier, Extent
 
-		// Ensure that (some of) the actual data is correct
-		Assert.That (data ["descriptive"] ["title"] [0] == "Another title for another original resource");
-		Assert.That (data["descriptive"]["title"][1] == "Another title for that original resource, maybe in some other language?");
-		Assert.That (data ["structural"] ["identifier"] [0] == "ID1234.19.A.obj");
+		// Check that the content makes sense
+		Assert.That(metadata["descriptive"]["description"][0] == "Model for testing Vertice Archive connection");
+		Assert.That(metadata["descriptive"]["creator"][0] == "Ryan Achten");
+		Assert.That(metadata["descriptive"]["date"][0] == "13/04/2016");
 
+		Assert.That(metadata["structural"]["creator"][0] == "Ryan Achten");
+		Assert.That(metadata["structural"]["created"][0] == "13/04/2016");
+		Assert.That(metadata["structural"]["description"][0] == "Created in Blender");
+		Assert.That(metadata["structural"]["identifier"][0] == "Doog.obj");
+		Assert.That(metadata["structural"]["extent"][0] == "1.5 scale");
+
+	}
+
+	[Test]
+	public void TestGetMeshLocationForArtefactWithIdentifier(){
+		Assert.Fail ();
+	}
+
+	[Test]
+	public void TestGetTexLocationForArtefactWithIdentifier(){
+		Assert.Fail ();
+	}
+
+	[Test]
+	public void TestGetContextualMediaForArtefactWithIdentifier(){
+		Assert.Fail ();
+	}
+
+	[Test]
+	public void TestGetContextualMediaOfTypeForArtefactWithIdentifier(){
+		Assert.Fail ();
 	}
 }
