@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <verticeMetadata>
-  <aretefact id="DeerMan">
+  <artefact id="DeerMan">
     <descriptive>
       <creator>Ryan Achten</creator>
       <created>03/10/2015</created>
@@ -37,7 +37,7 @@
     </relatedAssets>
   </artefact>
 
-  <aretefact name="TestMonk">
+  <artefact name="TestMonk">
     <descriptive>
       <description>Model for testing Vertice Archive connection</description>
       <creator>Ryan Achten</creator>
@@ -70,5 +70,5 @@
         <MediaLocation>/VerticeArchive/TEST/TestTexs_2000W.jpg</MediaLocation>
       </ContextMedia>
     </relatedAssets>
-  </aretefact>
+  </artefact>
 </verticeMetadata>
