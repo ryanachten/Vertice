@@ -39,6 +39,8 @@
 
   <artefact name="TestMonk">
     <descriptive>
+      <title>Test Monk</title>
+      <title>Doog</title>
       <description>Model for testing Vertice Archive connection</description>
       <creator>Ryan Achten</creator>
       <date>13/04/2016</date>
