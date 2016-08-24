@@ -5,6 +5,21 @@ using System.Collections.Generic;
 using System.IO;
 using System;
 
+[Serializable]
+public class NoSuchArtefactException : Exception
+{
+	public NoSuchArtefactException ()
+	{}
+
+	public NoSuchArtefactException (string message) 
+		: base(message)
+	{}
+
+	public NoSuchArtefactException (string message, Exception innerException)
+		: base (message, innerException)
+	{}    
+}
+
 /// <summary>
 /// The DublinCoreReader reads in XML data from a specified file. The pattern of 
 /// use for this class is as follows:
@@ -31,6 +46,7 @@ public static class DublinCoreReader {
 	/// <summary>
 	/// Synchronise the system's copy of the artefact library with the XML file stored on disk
 	/// </summary>
+	/// <exception cref="FileNotFoundException">Throws an exception if the the URI for the XML file was never set</exception>
 	public static void Refresh(){
 
 		if (_uri == null) {
@@ -53,7 +69,7 @@ public static class DublinCoreReader {
 	/// Lazily read in XML data to the local _xmlDocument variable
 	/// </summary>
 	/// <returns>The XML document representing artefacts in the system</returns>
-	public static XmlDocument Xml(){
+	static XmlDocument Xml(){
 		if (_xmlDocument == null) {
 			Refresh ();
 		}
@@ -91,9 +107,26 @@ public static class DublinCoreReader {
 		return retVal;
 	}
 
+	/// <summary>
+	/// Queries the XML file containing metadata for artefacts represented in the system and retrieves information 
+	/// for the artefact with a given identifier
+	/// </summary>
+	/// <returns>A nested dictionary representation of the data. Data -- if it exists -- can be accessed using 
+	/// a combination of dictionary and array accessors: data["descriptive"]["title"][0] // returns the first 
+	/// title (or throws an exception if no <title> elements existed.
+	/// </returns>
+	/// <param name="identifier">The identifier of the artefact to retrieve</param>
+	/// <exception cref="NoSuchArtefactException">Throws NoSuchArtefactException if the artefact cannot be found</exception>
 	public static Dictionary<string, Dictionary<string, string[]>> GetArtefactWithIdentifier(string identifier){
 		Dictionary<string, Dictionary<string, string[]>> retVal = new Dictionary<string, Dictionary<string, string[]>> ();
 		XmlNode artefact = Xml().SelectSingleNode(String.Format("//artefact[@id='{0}']", identifier));
+
+		// If there is no match on the identifier, return an empty dictionary
+		if (artefact == null) {
+			throw new NoSuchArtefactException (String.Format ("Artefact with identifier {0} does not exist", identifier));
+		}
+
+
 		XmlNode descriptive = artefact.SelectSingleNode ("./descriptive");
 		XmlNode structural = artefact.SelectSingleNode ("./structural");
 
@@ -101,7 +134,21 @@ public static class DublinCoreReader {
 		retVal ["structural"] = UnpackSubtree (structural);
 
 		return retVal;
+	}
 
+	public static string GetMeshLocationForArtefactWithIdentifier(string identifier){
+		return "";
+	}
 
+	public static string GetTexLocationForArtefactWithIdentifier(string identifier){
+		return "";
+	}
+
+	public static Dictionary<string, Dictionary<string, string>>[] GetContextualMediaForArtefactWithIdentifier(string identifier){
+		return new Dictionary<string, Dictionary<string, string>>[]{};
+	}
+
+	public static Dictionary<string, Dictionary<string, string>>[] GetContextualMediaOfTypeForArtefactWithIdentifier(string type, string identifier){
+		return new Dictionary<string, Dictionary<string, string>>[]{};
 	}
 }
