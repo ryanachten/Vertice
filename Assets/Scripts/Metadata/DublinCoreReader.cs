@@ -106,6 +106,19 @@ public static class DublinCoreReader {
 		return _xmlDocument;
 	}
 
+	/// <summary>
+	/// Takes a subtree of the DublinCore XML document and converts it to a Dictionary representation. Subtrees must be of 
+	/// the form (e.g. for the <descriptive> subtree)
+	/// 
+	/// <subtree-root>
+	/// 	<child>
+	/// 	<child>
+	/// 	...
+	/// </subtree-root>
+	/// 
+	/// </summary>
+	/// <returns>A Dictionary<string, string[]> mapping DublinCore element names to their (possibly repeated) values</returns>
+	/// <param name="subtree">A subtree of the XML document.</param>
 	static Dictionary<string, string[]> UnpackSubtree(XmlNode subtree){
 		Dictionary<string, List<string>> subtreeDictionary = new Dictionary<string, List<string>>();
 		Dictionary<string, string[]> retVal = new Dictionary<string, string[]> ();
@@ -209,6 +222,16 @@ public static class DublinCoreReader {
 		return texLocationNode.InnerText;
 	}
 
+	/// <summary>
+	/// Gets the contextual media for an artefact with a given identifier.
+	/// </summary>
+	/// <returns>An array of dictionaries, each comprising key-value pairs pertaining the contextual media. E.g
+	/// 
+	/// // Access the media location for the first contextual media asset associated with artefact having identifier the-identifier
+	/// Dictionary<string, string>[] contextInformation = DublinCoreReader.GetContextualMediaForArtefactWithIdentifier("the-identifier");
+	/// string mediaLocation = contextInformation[0]["MediaLocation"];  
+	/// </returns>
+	/// <param name="identifier">The identifier of the artefact</param>
 	public static Dictionary<string, string>[] GetContextualMediaForArtefactWithIdentifier(string identifier){
 		XmlNode artefact = Xml().SelectSingleNode(String.Format("//artefact[@id='{0}']", identifier));
 		if (artefact == null) {
@@ -233,6 +256,17 @@ public static class DublinCoreReader {
 		return retVal;
 	}
 
+	/// <summary>
+	/// Gets contextual media of a specified type for an artefact with a given identifier
+	/// </summary>
+	/// <returns>An array of dictionaries, each comprising key-value pairs pertaining the contextual media. E.g
+	/// 
+	/// // Access the media location for the first contextual media asset associated with artefact having identifier the-identifier
+	/// Dictionary<string, string>[] contextInformation = DublinCoreReader.GetContextualMediaForArtefactWithIdentifier("the-identifier");
+	/// string mediaLocation = contextInformation[0]["MediaLocation"];  
+	/// </returns>
+	/// <param name="identifier">The identifier of the artefact</param>
+	/// <param name="type">The media type (e.g. Image, Audio, Video) to filter on</param>
 	public static Dictionary<string, string>[] GetContextualMediaArtefactWithIdentifierAndType(string identifier, string type){
 		XmlNode artefact = Xml().SelectSingleNode(String.Format("//artefact[@id='{0}']", identifier));
 		if (artefact == null) {
