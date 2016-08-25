@@ -20,6 +20,36 @@ public class NoSuchArtefactException : Exception
 	{}    
 }
 
+[Serializable]
+public class NoModelInformationException : Exception
+{
+	public NoModelInformationException ()
+	{}
+
+	public NoModelInformationException (string message) 
+		: base(message)
+	{}
+
+	public NoModelInformationException (string message, Exception innerException)
+		: base (message, innerException)
+	{}    
+}
+
+[Serializable]
+public class NoContextualMediaException : Exception
+{
+	public NoContextualMediaException ()
+	{}
+
+	public NoContextualMediaException (string message) 
+		: base(message)
+	{}
+
+	public NoContextualMediaException (string message, Exception innerException)
+		: base (message, innerException)
+	{}    
+}
+
 /// <summary>
 /// The DublinCoreReader reads in XML data from a specified file. The pattern of 
 /// use for this class is as follows:
@@ -125,8 +155,7 @@ public static class DublinCoreReader {
 		if (artefact == null) {
 			throw new NoSuchArtefactException (String.Format ("Artefact with identifier {0} does not exist", identifier));
 		}
-
-
+			
 		XmlNode descriptive = artefact.SelectSingleNode ("./descriptive");
 		XmlNode structural = artefact.SelectSingleNode ("./structural");
 
@@ -136,19 +165,96 @@ public static class DublinCoreReader {
 		return retVal;
 	}
 
+	/// <summary>
+	/// Gets the mesh location for an artefact with a given identifier.
+	/// </summary>
+	/// <returns>A string representing the relative path to the identifier. This path should be prepended 
+	/// with the appropriate base path</returns>
+	/// <param name="identifier">The identifier of the artefact</param>
+	/// <exception cref="NoSuchArtefactException">Throws NoSuchArtefactException if the artefact cannot be found</exception>
+	/// <exception cref="NoModelInformationException">Thrown if the artefact is not associated with any model information</exception>
 	public static string GetMeshLocationForArtefactWithIdentifier(string identifier){
-		return "";
+		XmlNode artefact = Xml().SelectSingleNode(String.Format("//artefact[@id='{0}']", identifier));
+		if (artefact == null) {
+			throw new NoSuchArtefactException (String.Format ("Artefact with identifier {0} does not exist", identifier));
+		}
+
+		XmlNode meshLocationNode = artefact.SelectSingleNode(String.Format("./relatedAssets/MeshLocation"));
+		if (meshLocationNode == null) {
+			throw new NoModelInformationException (String.Format ("Artefact with identifier {0} is not associated with a model", identifier));
+		}
+
+		return meshLocationNode.InnerText;
 	}
 
-	public static string GetTexLocationForArtefactWithIdentifier(string identifier){
-		return "";
+	/// <summary>
+	/// Gets the texture location for an artefact with a given identifier.
+	/// </summary>
+	/// <returns>A string representing the relative path to the identifier. This path should be prepended 
+	/// with the appropriate base path</returns>
+	/// <param name="identifier">The identifier of the artefact</param>
+	/// <exception cref="NoSuchArtefactException">Throws NoSuchArtefactException if the artefact cannot be found</exception>
+	/// <exception cref="NoModelInformationException">Thrown if the artefact is not associated with any model information</exception>
+	public static string GetTextureLocationForArtefactWithIdentifier(string identifier){
+		XmlNode artefact = Xml().SelectSingleNode(String.Format("//artefact[@id='{0}']", identifier));
+		if (artefact == null) {
+			throw new NoSuchArtefactException (String.Format ("Artefact with identifier {0} does not exist", identifier));
+		}
+
+		XmlNode texLocationNode = artefact.SelectSingleNode("./relatedAssets/TexLocation");
+		if (texLocationNode == null) {
+			throw new NoModelInformationException (String.Format ("Artefact with identifier {0} is not associated with a model", identifier));
+		}
+
+		return texLocationNode.InnerText;
 	}
 
-	public static Dictionary<string, Dictionary<string, string>>[] GetContextualMediaForArtefactWithIdentifier(string identifier){
-		return new Dictionary<string, Dictionary<string, string>>[]{};
+	public static Dictionary<string, string>[] GetContextualMediaForArtefactWithIdentifier(string identifier){
+		XmlNode artefact = Xml().SelectSingleNode(String.Format("//artefact[@id='{0}']", identifier));
+		if (artefact == null) {
+			throw new NoSuchArtefactException (String.Format ("Artefact with identifier {0} does not exist", identifier));
+		}
+
+		XmlNodeList contextualMediaNodes = artefact.SelectNodes("./relatedAssets/ContextMedia");
+		if (contextualMediaNodes == null) {
+			throw new NoContextualMediaException (String.Format ("Artefact with identifier {0} is not associated with any contextual information", identifier));
+		}
+
+		Dictionary<string, string>[] retVal = new Dictionary<string, string>[contextualMediaNodes.Count];
+		for (int i = 0; i < contextualMediaNodes.Count; i++) {
+			Dictionary<string, string> contextInformation = new Dictionary<string, string> ();
+			foreach (XmlNode field in contextualMediaNodes[i]) {
+				Debug.Log(String.Format("Trying to add an element to slot {0}", i));
+				Debug.Log (String.Format ("Trying to do something with field: {0} having value: {1}", field.LocalName, field.InnerText));
+				contextInformation.Add(field.LocalName, field.InnerText);
+			}
+			retVal [i] = contextInformation;
+		}
+		return retVal;
 	}
 
-	public static Dictionary<string, Dictionary<string, string>>[] GetContextualMediaOfTypeForArtefactWithIdentifier(string type, string identifier){
-		return new Dictionary<string, Dictionary<string, string>>[]{};
+	public static Dictionary<string, string>[] GetContextualMediaArtefactWithIdentifierAndType(string identifier, string type){
+		XmlNode artefact = Xml().SelectSingleNode(String.Format("//artefact[@id='{0}']", identifier));
+		if (artefact == null) {
+			throw new NoSuchArtefactException (String.Format ("Artefact with identifier {0} does not exist", identifier));
+		}
+
+		XmlNodeList contextualMediaNodes = artefact.SelectNodes(String.Format("./relatedAssets/ContextMedia/MediaType[text()='{0}']/parent::ContextMedia", type));
+		if (contextualMediaNodes == null || contextualMediaNodes.Count == 0) {
+			throw new NoContextualMediaException (String.Format ("Artefact with identifier {0} is not associated with any contextual information of type {1}", identifier, type));
+		}
+
+		Dictionary<string, string>[] retVal = new Dictionary<string, string>[contextualMediaNodes.Count];
+		Debug.Log (String.Format ("retVal has {0} slots", retVal.Length));
+		for (int i = 0; i < contextualMediaNodes.Count; i++) {
+			Dictionary<string, string> contextInformation = new Dictionary<string, string> ();
+			foreach (XmlNode field in contextualMediaNodes[i]) {
+				Debug.Log(String.Format("Trying to add an element to slot {0}", i));
+				Debug.Log (String.Format ("Trying to do something with field: {0} having value: {1}", field.LocalName, field.InnerText));
+				contextInformation.Add(field.LocalName, field.InnerText);
+			}
+			retVal [i] = contextInformation;
+		}
+		return retVal;
 	}
 }
