@@ -17,23 +17,22 @@
     <relatedAssets>
       <MeshLocation>/VerticeArchive/DeerMan/DeerMan_Model/DoprahDeer.obj</MeshLocation>
       <TexLocation>/VerticeArchive/DeerMan/DeerMan_Model/DoprahDeer_tex.jpg</TexLocation>
-      <ContextualInfo>
-        <ContextMedia>
-          <MediaName>DoprahWasting_FinalCovers01_B-Side-Cover_sml</MediaName>
-          <MediaType>Image</MediaType>
-          <MediaLocation>/VerticeArchive/DeerMan/DeerMan_Context/DoprahWasting_FinalCovers01_B-Side-Cover_sml.jpg</MediaLocation>
-        </ContextMedia>
-        <ContextMedia>
-          <MediaName>DoprahWasting_FinalCovers01_Lucid-Visions-Single_sml</MediaName>
-          <MediaType>Image</MediaType>
-          <MediaLocation>/VerticeArchive/DeerMan/DeerMan_Context/DoprahWasting_FinalCovers01_Lucid-Visions-Single_sml.jpg</MediaLocation>
-        </ContextMedia>
-        <ContextMedia>
-          <MediaName>DoprahWasting_FinalCovers01_Wasting Album Cover</MediaName>
-          <MediaType>Image</MediaType>
-          <MediaLocation>/VerticeArchive/DeerMan/DeerMan_Context/DoprahWasting_FinalCovers01_Wasting Album Cover.jpg</MediaLocation>
-        </ContextMedia>
-      </ContextualInfo>
+      <ContextMedia>
+        <MediaName>DoprahWasting_FinalCovers01_B-Side-Cover_sml</MediaName>
+        <MediaType>Image</MediaType>
+        <MediaLocation>/VerticeArchive/DeerMan/DeerMan_Context/DoprahWasting_FinalCovers01_B-Side-Cover_sml.jpg</MediaLocation>
+      </ContextMedia>
+      <ContextMedia>
+        <MediaName>DoprahWasting_FinalCovers01_Lucid-Visions-Single_sml</MediaName>
+        <MediaType>Image</MediaType>
+        <MediaLocation>/VerticeArchive/DeerMan/DeerMan_Context/DoprahWasting_FinalCovers01_Lucid-Visions-Single_sml.jpg</MediaLocation>
+      </ContextMedia>
+      <ContextMedia>
+        <MediaName>DoprahWasting_FinalCovers01_Wasting Album Cover</MediaName>
+        <MediaType>Image</MediaType>
+        <MediaLocation>/VerticeArchive/DeerMan/DeerMan_Context/DoprahWasting_FinalCovers01_Wasting Album Cover.jpg</MediaLocation>
+      </ContextMedia>
+      
     </relatedAssets>
   </artefact>
 
@@ -71,6 +70,18 @@
         <MediaType>Image</MediaType>
         <MediaLocation>/VerticeArchive/TEST/TestTexs_2000W.jpg</MediaLocation>
       </ContextMedia>
+    </relatedAssets>
+  </artefact>
+
+  <artefact id="NoAssets">
+    <descriptive>
+      <title>No Assets</title>
+      <description>Contrived to support DublinCoreReader test case</description>
+    </descriptive>
+    <structural>
+    </structural>
+
+    <relatedAssets>
     </relatedAssets>
   </artefact>
 </verticeMetadata>
