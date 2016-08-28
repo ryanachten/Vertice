@@ -14,7 +14,7 @@ public class ContextInfoModeToggle : MonoBehaviour {
 
 	void Start()
 	{
-		SwitchMode("info"); //default 
+		SwitchMode("info"); //default - should be 'info'
 	}
 
 
