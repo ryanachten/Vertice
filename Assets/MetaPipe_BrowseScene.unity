@@ -7209,6 +7209,7 @@ GameObject:
   - 224: {fileID: 183266293}
   - 222: {fileID: 183266295}
   - 114: {fileID: 183266294}
+  - 114: {fileID: 183266296}
   m_Layer: 5
   m_Name: ArtefactInfo_MediaControls
   m_TagString: Untagged
@@ -7263,6 +7264,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 183266292}
+--- !u!114 &183266296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 183266292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1184210157, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AllowSwitchOff: 0
 --- !u!1 &186080379
 GameObject:
   m_ObjectHideFlags: 0
@@ -18651,9 +18664,9 @@ RectTransform:
   - {fileID: 625358599}
   m_Father: {fileID: 1418241193}
   m_RootOrder: 2
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 5, y: -325}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &571684510
@@ -19005,9 +19018,9 @@ RectTransform:
   - {fileID: 756397481}
   m_Father: {fileID: 1658462761}
   m_RootOrder: 1
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: -202.45505}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &586688977
@@ -23626,7 +23639,6 @@ GameObject:
   - 224: {fileID: 750380836}
   - 114: {fileID: 750380839}
   - 114: {fileID: 750380838}
-  - 114: {fileID: 750380837}
   m_Layer: 5
   m_Name: ArtefactInfo_Audio_Toggle
   m_TagString: Untagged
@@ -23654,20 +23666,6 @@ RectTransform:
   m_AnchoredPosition: {x: 145, y: -15}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &750380837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 750380835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 452436be1d0774063af9c755197eb87e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  toggle: {fileID: 750380839}
-  panelDefault: 0
-  panel: {fileID: 728171238}
 --- !u!114 &750380838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23724,19 +23722,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1561497634}
   toggleTransition: 1
   graphic: {fileID: 92750355}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 183266296}
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 750380837}
-        m_MethodName: TogglePanel
-        m_Mode: 1
+      - m_Target: {fileID: 910485719}
+        m_MethodName: LoadMedia
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: TestMonk
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -31876,7 +31874,6 @@ GameObject:
   - 224: {fileID: 1102121735}
   - 114: {fileID: 1102121738}
   - 114: {fileID: 1102121737}
-  - 114: {fileID: 1102121736}
   m_Layer: 5
   m_Name: ArtefactInfo_Images_Toggle
   m_TagString: Untagged
@@ -31904,20 +31901,6 @@ RectTransform:
   m_AnchoredPosition: {x: 45, y: -15}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1102121736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1102121734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 452436be1d0774063af9c755197eb87e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  toggle: {fileID: 1102121738}
-  panelDefault: 1
-  panel: {fileID: 2089263221}
 --- !u!114 &1102121737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31974,19 +31957,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1263744004}
   toggleTransition: 1
   graphic: {fileID: 972278916}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 183266296}
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1102121736}
-        m_MethodName: TogglePanel
-        m_Mode: 1
+      - m_Target: {fileID: 910485719}
+        m_MethodName: LoadMedia
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: TestMonk
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -33009,7 +32992,6 @@ GameObject:
   - 224: {fileID: 1150934577}
   - 114: {fileID: 1150934580}
   - 114: {fileID: 1150934579}
-  - 114: {fileID: 1150934578}
   m_Layer: 5
   m_Name: ArtefactInfo_Video_Toggle
   m_TagString: Untagged
@@ -33037,20 +33019,6 @@ RectTransform:
   m_AnchoredPosition: {x: 95, y: -15}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1150934578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1150934576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 452436be1d0774063af9c755197eb87e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  toggle: {fileID: 1150934580}
-  panelDefault: 0
-  panel: {fileID: 1982533258}
 --- !u!114 &1150934579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33107,19 +33075,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 662349061}
   toggleTransition: 1
   graphic: {fileID: 1847638905}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 183266296}
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1150934578}
-        m_MethodName: TogglePanel
-        m_Mode: 1
+      - m_Target: {fileID: 910485719}
+        m_MethodName: LoadMedia
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: TestMonk
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,

@@ -11,7 +11,7 @@ public class ContextPanel_MediaController : MonoBehaviour {
 	public Toggle videoToggle;
 
 	public Transform contentParent;
-	public Object imagePrefab;
+	public Object imagePrefab; //TODO something is wrong with this prefab setup - revise rectTransforms
 	public Object audioPrefab;
 	public Object videoPrefab;
 
@@ -21,8 +21,12 @@ public class ContextPanel_MediaController : MonoBehaviour {
 		LoadMedia(TestIdent);
 	}
 
-	
-	public void LoadMedia(string artefactIdentifier)
+//	TODO this current process isn't ideal as the toggles are required to
+//	change what media is required, however they can't pass the identifier
+//	on the fly. Need to store the identifier somewhere to allow this
+//	perhaps have a dedicated public var in this script - too unstable?
+
+	public void LoadMedia(string artefactIdentifier) 
 	{
 		DublinCoreReader.LoadXml("file://" + Application.dataPath + "/Scripts/Metadata/TestAssets/Metapipe_ObjArchive_Subset_As_DublinCore.xml");
 
@@ -55,8 +59,6 @@ public class ContextPanel_MediaController : MonoBehaviour {
 
 	private void InstantMedia(string identifier, string mediaType)
 	{
-		Dictionary<string, string>[] media = DublinCoreReader.GetContextualMediaArtefactWithIdentifierAndType(identifier, mediaType); 
-
 		Object mediaPrefab = new Object();
 		if (mediaType == "Image")
 		{
@@ -72,19 +74,27 @@ public class ContextPanel_MediaController : MonoBehaviour {
 		}
 
 		try {
+			Dictionary<string, string>[] media = DublinCoreReader.GetContextualMediaArtefactWithIdentifierAndType(identifier, mediaType); 
+
 			for (int i = 0; i < media.Length; i++) 
 			{
 				string mediaName = media[i]["MediaName"];
-				string mediaLocation = media[i]["MediaLocation"];  //Access first image and its media location
+				string mediaLocation = media[i]["MediaLocation"];
 				Debug.Log(mediaName);
 				Debug.Log(mediaLocation);
 
-				Object.Instantiate(mediaPrefab, contentParent);
+				GameObject mediaInstant = Object.Instantiate(mediaPrefab, contentParent) as GameObject;
+
+				Text mediaText = mediaInstant.transform.GetChild(1).gameObject.GetComponent<Text>(); //updates the prefab title
+				mediaText.text = mediaName;
+
+				//TODO write link between XML mediaLocation and prefab import script
 			}
 		}
 		catch(System.Exception ex)
 		{
 			Debug.Log("No Contextual Media for this artefact");
+			//TODO create feedback prefab for when not media to view
 		}
 	}
 		
