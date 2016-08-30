@@ -12262,6 +12262,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11404648, guid: 27ab19e32e5ce4cd397e9ce668befbe0, type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 27ab19e32e5ce4cd397e9ce668befbe0, type: 2}
   m_IsPrefabParent: 0
@@ -23810,7 +23814,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 910485719}
         m_MethodName: LoadMedia
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -26463,8 +26467,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1421434285}
   m_HandleRect: {fileID: 1421434284}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.99999964
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -27504,7 +27508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a73430d5aefbd448bb812a4f6d0cbf65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TestIdent: TestMonk
+  artefactId: DeerMan
   imagesToggle: {fileID: 1102121738}
   audioToggle: {fileID: 750380839}
   videoToggle: {fileID: 1150934580}
@@ -31954,7 +31958,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 910485719}
         m_MethodName: LoadMedia
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -33072,7 +33076,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 910485719}
         m_MethodName: LoadMedia
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

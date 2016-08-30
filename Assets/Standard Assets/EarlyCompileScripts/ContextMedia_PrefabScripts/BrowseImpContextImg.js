@@ -7,8 +7,6 @@ import UnityEngine.UI;
 public var contextMediaType : String = "Image"; //new - used to send to media viewer
 public var textureLocation : String; //new
 
-
-
 public var contextImg : GameObject;
 private var contImg : RawImage;
 public var contImgTitle : GameObject;
@@ -30,6 +28,7 @@ function Awake(){
 
 public function ContextImgImp(texLocation){
 
+	Debug.Log("Img location: " + texLocation);
 	textureLocation = texLocation;
 
 	#if UNITY_WEBGL

@@ -12,7 +12,8 @@ public class ContextPanel_TestController : MonoBehaviour {
 	{
 		string testIdentifier = userInput.text;
 		InfoCont.LoadData(testIdentifier);
-		MediaCont.LoadMedia(testIdentifier);
+		MediaCont.artefactId = testIdentifier;
+		MediaCont.LoadMedia();
 
 	}
 }
