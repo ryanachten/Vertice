@@ -279,12 +279,12 @@ public static class DublinCoreReader {
 		}
 
 		Dictionary<string, string>[] retVal = new Dictionary<string, string>[contextualMediaNodes.Count];
-//		Debug.Log (String.Format ("retVal has {0} slots", retVal.Length));
+		Debug.Log (String.Format ("retVal has {0} slots", retVal.Length));
 		for (int i = 0; i < contextualMediaNodes.Count; i++) {
 			Dictionary<string, string> contextInformation = new Dictionary<string, string> ();
 			foreach (XmlNode field in contextualMediaNodes[i]) {
-//				Debug.Log(String.Format("Trying to add an element to slot {0}", i));
-//				Debug.Log (String.Format ("Trying to do something with field: {0} having value: {1}", field.LocalName, field.InnerText));
+				Debug.Log(String.Format("Trying to add an element to slot {0}", i));
+				Debug.Log (String.Format ("Trying to do something with field: {0} having value: {1}", field.LocalName, field.InnerText));
 				contextInformation.Add(field.LocalName, field.InnerText);
 			}
 			retVal [i] = contextInformation;

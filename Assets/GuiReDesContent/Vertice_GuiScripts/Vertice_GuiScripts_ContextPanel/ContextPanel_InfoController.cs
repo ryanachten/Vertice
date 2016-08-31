@@ -40,6 +40,10 @@ public class ContextPanel_InfoController : MonoBehaviour {
 	public Text mRightsText;
 
 
+	/// <summary>
+	/// Executes load methods for each of the panels
+	/// </summary>
+	/// <param name="artefactIdentifier">Identifier for the artefact whose information is to be viewed</param>
 	public void LoadData(string artefactIdentifier)
 	{
 //		Debug.Log("Aretfact Identifier: " +  artefactIdentifier);
@@ -54,6 +58,10 @@ public class ContextPanel_InfoController : MonoBehaviour {
 		MeshInfoLoad(data); 
 	}
 
+	/// <summary>
+	/// Loads information into Artefact Info panel
+	/// </summary>
+	/// <param name="data">Artefact dictionary</param>
 	public void ArtefactInfoLoad(Dictionary<string, Dictionary<string, string[]>> data)
 	{
 		InstantFieldData (data, "descriptive", "title", titleGroup);
@@ -63,7 +71,11 @@ public class ContextPanel_InfoController : MonoBehaviour {
 		InstantFieldData (data, "descriptive", "date", dateGroup);
 		ImportTextData (data, "descriptive", "rights", rightsText);
 	}
-		
+
+	/// <summary>
+	/// Loads information into Context Info panel
+	/// </summary>
+	/// <param name="data">Artefact dictionary</param>
 	public void ContextInfoLoad(Dictionary<string, Dictionary<string, string[]>> data)
 	{
 		InstantFieldData (data, "descriptive", "coverage", coverageGroup);
@@ -72,6 +84,10 @@ public class ContextPanel_InfoController : MonoBehaviour {
 		InstantFieldData (data, "descriptive", "relation", relationGroup);
 	}
 
+	/// <summary>
+	/// Loads information into Object Info panel
+	/// </summary>
+	/// <param name="data">Artefact dictionary</param>
 	public void ObjectInfoLoad(Dictionary<string, Dictionary<string, string[]>> data)
 	{
 		InstantFieldData (data, "descriptive", "format", formatGroup);
@@ -79,6 +95,10 @@ public class ContextPanel_InfoController : MonoBehaviour {
 		InstantFieldData (data, "descriptive", "extent", extentGroup);
 	}
 
+	/// <summary>
+	/// Loads information into Media Info panel
+	/// </summary>
+	/// <param name="data">Artefact dictionary</param>
 	public void MediaInfoLoad(Dictionary<string, Dictionary<string, string[]>> data)
 	{
 		InstantFieldData (data, "structural", "creator", mCreatorGroup);
@@ -86,6 +106,10 @@ public class ContextPanel_InfoController : MonoBehaviour {
 		ImportTextData (data, "structural", "description", mDescriptionText);
 	}
 
+	/// <summary>
+	/// Loads information into Mesh Info panel
+	/// </summary>
+	/// <param name="data">Artefact dictionary</param>
 	public void MeshInfoLoad(Dictionary<string, Dictionary<string, string[]>> data)
 	{
 		InstantFieldData (data, "structural", "format", mFormatGroup);
@@ -95,7 +119,13 @@ public class ContextPanel_InfoController : MonoBehaviour {
 	}
 		
 
-	//Loading methods
+	/// <summary>
+	/// Instantiates prefabs for multi-field attributes
+	/// </summary>
+	/// <param name="data">Artefac dictionary data.</param>
+	/// <param name="elementType">Dublin Core type to be searched (i.e. Descriptive or Structural).</param>
+	/// <param name="elementName">Attribute to be found in artefact data (i.e. Title / Date etc)</param>
+	/// <param name="fieldGroup">Parent for the prefab to be instanted under</param>
 	private void InstantFieldData(Dictionary<string, Dictionary<string, string[]>> data, 
 									string elementType, string elementName, Transform fieldGroup)
 	{
@@ -117,7 +147,14 @@ public class ContextPanel_InfoController : MonoBehaviour {
 			Debug.Log ("No data in field");
 		}
 	}
-		
+
+	/// <summary>
+	/// Assigns XML data to single field attributes
+	/// </summary>
+	/// <param name="data">Data.</param>
+	/// <param name="elementType">Dublin Core type to be searched (i.e. Descriptive or Structural).</param>
+	/// <param name="elementName">Attribute to be found in artefact data (i.e. Title / Date etc)</param>
+	/// <param name="elementText">Text element for data to be assigned to</param>
 	private void ImportTextData(Dictionary<string, Dictionary<string, string[]>> data, 
 									string elementType, string elementName, Text elementText)
 	{
@@ -131,6 +168,10 @@ public class ContextPanel_InfoController : MonoBehaviour {
 
 	}
 
+	/// <summary>
+	/// Resets fields between artefacts
+	/// </summary>
+	/// <param name="fieldGroup">Field parent for fields to be removed from</param>
 	private void ResetField(Transform fieldGroup)
 	{
 		for (int i = 0; i < fieldGroup.childCount; i++) {

@@ -11,6 +11,11 @@ public class BrowseImpContextImg : MonoBehaviour {
 	private string contextMediaType = "Image";
 	private string textureLocation;
 
+	/// <summary>
+	/// Coroutine for importing and scaling jpg image to contextual media prefab
+	/// </summary>
+	/// <returns>Image 2D texture</returns>
+	/// <param name="texLocation">Texture directory URI.</param>
 	public IEnumerator ContextImgImp (string texLocation)
 //	public void ContextImgImp(string texLocation)
 	{
@@ -27,7 +32,7 @@ public class BrowseImpContextImg : MonoBehaviour {
 		WWW www = new WWW(wwwDirectory);
 		Debug.Log("Downloading contextual image: " + wwwDirectory);
 		while(!www.isDone){
-			yield return www; //TODO requries IEnumerator
+			yield return www; //TODO not downloading all of the data before continuing
 		}
 
 		float texWidth = www.texture.width;
@@ -53,7 +58,7 @@ public class BrowseImpContextImg : MonoBehaviour {
 		}
 
 		//Assigning to RawImg comp
-		Texture2D newImgTex = new Texture2D(Mathf.RoundToInt(texWidth), Mathf.RoundToInt(texHeight)); //HERE - need to change this to be further down - create size using texWidth and texHeight
+		Texture2D newImgTex = new Texture2D(Mathf.RoundToInt(texWidth), Mathf.RoundToInt(texHeight));
 		www.LoadImageIntoTexture(newImgTex);
 		RawImage imageRender = contextImg.GetComponent<RawImage>();
 		imageRender.texture = newImgTex;	
@@ -63,12 +68,13 @@ public class BrowseImpContextImg : MonoBehaviour {
 		layoutElement.minHeight = texHeight;	
 	}
 
-
-
-	void sendActive() //used to activate media viewer
+	/// <summary>
+	/// Activates the MediaViewer for viewing cotextual media
+	/// </summary>
+	void sendActive()
 	{
 		GameObject mediaViewer = GameObject.FindGameObjectWithTag("MediaViewer");
-		MetaPipe_MediaV_Activate mediaActiveScript = mediaViewer.GetComponent<MetaPipe_MediaV_Activate>();
+		MetaPipe_MediaV_Activate mediaActiveScript = mediaViewer.GetComponent<MetaPipe_MediaV_Activate>(); //TODO need to refactor the MediaViewer script
 
 		string imgTitle = contImgTitle.GetComponent<Text>().text;
 		Debug.Log("imgTitle: " + imgTitle);

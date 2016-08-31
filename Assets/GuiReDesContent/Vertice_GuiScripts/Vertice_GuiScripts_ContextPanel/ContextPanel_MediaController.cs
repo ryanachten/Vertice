@@ -16,16 +16,15 @@ public class ContextPanel_MediaController : MonoBehaviour {
 	public Object videoPrefab;
 
 
-	void Start()
-	{
-		LoadMedia();
-	}
-
 //	TODO this current process isn't ideal the ID is referenced from the TestController script
 	//this could later be a 'Panel Controller', however not sure if this is the best approach
 	//(i.e. relying on a public var too unstable?)
 
-	public void LoadMedia() 
+
+	/// <summary>
+	/// Detects which user defined toggles are active for viewing media
+	/// </summary>
+	public void LoadMedia() //executed on pressing Media button
 	{
 		DublinCoreReader.LoadXml("file://" + Application.dataPath + "/Scripts/Metadata/TestAssets/Metapipe_ObjArchive_Subset_As_DublinCore.xml");
 
@@ -46,7 +45,9 @@ public class ContextPanel_MediaController : MonoBehaviour {
 		}
 	}
 
-
+	/// <summary>
+	/// Resets the media panel between artefacts
+	/// </summary>
 	private void ResetPanel()
 	{
 		for (int i = 0; i < contentParent.childCount; i++) 
@@ -56,7 +57,11 @@ public class ContextPanel_MediaController : MonoBehaviour {
 		}
 	}
 
-
+	/// <summary>
+	/// Instantiates media prefabs depending on media type
+	/// </summary>
+	/// <param name="identifier">Identifier of artefact.</param>
+	/// <param name="mediaType">Media type of media to be instantiated.</param>
 	private void InstantMedia(string identifier, string mediaType)
 	{
 		Object mediaPrefab = new Object();
@@ -91,7 +96,7 @@ public class ContextPanel_MediaController : MonoBehaviour {
 				if (mediaType == "Image")
 				{
 					BrowseImpContextImg imgImpScript = mediaInstant.GetComponentInChildren<BrowseImpContextImg>();
-//					StartCoroutine(imgImpScript.ContextImgImp(mediaLocation)); //TODO this coroutine is not working properly due to path issues
+					StartCoroutine(imgImpScript.ContextImgImp(mediaLocation)); //TODO this coroutine is not working properly
 				} 
 //				else if (mediaType == "Audio")
 //				{
