@@ -4,13 +4,14 @@ using UnityEngine.UI;
 
 public class Browse_BrowseMode : MonoBehaviour {
 
-	public Browse_BrowseControl BrowseControl;
+	public Browse_SelectAttributes SelectAttr;
 	public Transform fieldGroup;
+	public GameObject attributePanel;
 
 	/// <summary>
 	/// Detects which toggle has been activated by user
 	/// </summary>
-	public void UserBrowse() //finds user defined browse group
+	public void UserBrowse()
 	{
 		for (int i = 0; i < fieldGroup.childCount; i++) {
 
@@ -29,36 +30,37 @@ public class Browse_BrowseMode : MonoBehaviour {
 	/// <param name="toggleName">Active toggle name</param>
 	void GetBrowseMode (string toggleName) //takes the user defined field and executes appropiate function
 	{
+		attributePanel.SetActive (true);
+
 		switch (toggleName) {
 
 		case "BrowseTitle_FieldToggle" : 
-			BrowseControl.FindArtefacts("Title");
+			SelectAttr.GetAttributes("Title");
 			break;
 
 		case "BrowseCreator_FieldToggle" : 
-			BrowseControl.FindArtefacts("Creator");
+			SelectAttr.GetAttributes("Creator");
 			break;
 
 		case "BrowseContributor_FieldToggle" : 
-			BrowseControl.FindArtefacts("Contributor");
+			SelectAttr.GetAttributes("Contributor");
 			break;
 
 		case "BrowseDate_FieldToggle" : 
-			BrowseControl.FindArtefacts("Date");
+			SelectAttr.GetAttributes("Date");
 			break;
 
 		case "BrowseSubject_FieldToggle" : 
-			BrowseControl.FindArtefacts("Subject");
+			SelectAttr.GetAttributes("Subject");
 			break;
 
 		case "BrowseCoverage_FieldToggle" : 
-			BrowseControl.FindArtefacts("Coverage");
+			SelectAttr.GetAttributes("Coverage");
 			break;
 
 		default:
 			break;
 		}
-
 	}
 
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Browse_BrowseControl : MonoBehaviour {
 
@@ -7,12 +8,15 @@ public class Browse_BrowseControl : MonoBehaviour {
 
 	public Transform instantParent;
 	private Transform[] instantPoints;
+	private GameObject[] importedObjects;
+	private Texture2D objTexture;
+
 
 	void Start()
 	{
-		GetInstantPoints();
+		GetInstantPoints(); //updates points once per execution
 	}
-
+		
 
 	/// <summary>
 	/// Gets transforms from editor mockup to assign to instantiated artefacts
@@ -23,21 +27,80 @@ public class Browse_BrowseControl : MonoBehaviour {
 
 		for (int i = 0; i < instantPoints.Length; i++) {
 			instantPoints[i] = instantParent.GetChild(i);
-			Debug.Log("instantPoint " + i + ": " + instantPoints[i].position);
+//			Debug.Log("instantPoint " + i + ": " + instantPoints[i].position);
 		}
 	}
 
-	/// <summary>
-	/// Uses DCReader to return a list of artefacts relevant to user search query
-	/// </summary>
-	/// <param name="browseMode">Parameter user wants to browse</param>
-	public void FindArtefacts(string browseMode)
-	{
-		//TODO need a DublinCoreReader function for accessing a singular DC attribute for all of the artefacts
-		// i.e. Browse by title -> returns something like a dictionary listing all of the titles in the XML
-		//alternatively, could just have a function to expose a list of all the artefacts in the XML and I can write logic to test against this
 
+	/// <summary>
+	/// Imports browse artefact's mesh and texture, assigns object info
+	/// </summary>
+	/// <param name="browseIdentifiers">array of identifiers to browse</param>
+	public void ImportArtefacts(List<string> browseIdentifiers)
+	{
+		for (int i = 0; i < browseIdentifiers.Count; i++) {
+			Dictionary<string, Dictionary<string, string[]>> curArtefactDict = DublinCoreReader.GetArtefactWithIdentifier (browseIdentifiers [i]);
+
+			string meshLocation = curArtefactDict["relatedAssets"]["MeshLocation"][0]; //TODO check that there isn't more than one meshLocation
+			StartCoroutine (ImportModel(meshLocation));
+			GameObject curArtefact = importedObjects [0];
+
+			objTexture = new Texture2D (512, 512);
+			string texLocation = curArtefactDict["relatedAssets"]["TexLocation"][0]; //TODO check that there isn't more than one texLocation
+			StartCoroutine(ImportTexture(texLocation));
+			curArtefact.GetComponent<MeshRenderer> ().material.mainTexture = objTexture;
+
+			curArtefact.name = browseIdentifiers [i]; //artefact gameobject will be identifier for ease of reference
+			curArtefact.tag = "Active Model";
+			curArtefact.AddComponent<BoxCollider> ();
+
+
+			PlaceArtefact (i, curArtefact);
+		}
+	}
+		
+	/// <summary>
+	/// Imports mesh information using ObjReader
+	/// </summary>
+	/// <returns>Array containing gameobject</returns>
+	/// <param name="meshLocation">Location of mesh information</param>
+	IEnumerator ImportModel(string meshLocation)
+	{
+		ObjReader.ObjData objReader = ObjReader.use.ConvertFileAsync(meshLocation, false);
+		while (!objReader.isDone) 
+		{
+			yield return null;
+		}
+		importedObjects = objReader.gameObjects;
+	}
+		
+	/// <summary>
+	/// Imports texture information
+	/// </summary>
+	/// <returns>Model 2D texture</returns>
+	/// <param name="texLocation">Location of texture</param>
+	IEnumerator ImportTexture(string texLocation)
+	{
+		string wwwDirectory = texLocation;
+		WWW www = new WWW(wwwDirectory);
+
+		while (!www.isDone){
+			yield return null;
+		}
+		www.LoadImageIntoTexture(objTexture);
 	}
 
 
+	/// <summary>
+	/// Places artefact at one of the instance points defined in Editor
+	/// </summary>
+	/// <param name="instantNumber">Instantiation number to place artefact at</param>
+	/// <param name="browseArtefact">Artefact to place</param>
+	private void PlaceArtefact(int instantNumber, GameObject browseArtefact)
+	{
+		Vector3 artefactPosition = instantPoints [instantNumber].position;
+		browseArtefact.transform.position = artefactPosition;
+	}
 }
+
+
