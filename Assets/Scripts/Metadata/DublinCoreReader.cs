@@ -292,20 +292,35 @@ public static class DublinCoreReader {
 		return retVal;
 	}
 
-	private static string[] nodesToSortedArrayWithSetSemantics(XmlNodeList identifierNodes){
+	private static string[] nodeListToSortedArrayWithSetSemantics(XmlNodeList nodes){
 		HashSet<string> returnSet = new HashSet<string>();
-		foreach (XmlNode node in identifierNodes) {
+		foreach (XmlNode node in nodes) {
 			returnSet.Add (node.InnerXml);
 		}
+
 		string[] returnArray = new string[returnSet.Count];
 		returnSet.CopyTo (returnArray);
 		Array.Sort (returnArray);
 		return returnArray;
 	}
 
-	public static string[] BrowseByCreator(string creatorName){
-		XmlNodeList results = Xml().SelectNodes(String.Format("/verticeMetadata/artefact/descriptive/creator[starts-with(., '{0}')]/../../@id", creatorName));
-		return nodesToSortedArrayWithSetSemantics (results);
+	public static string[] GetValuesForCreator(){
+		XmlNodeList results = Xml ().SelectNodes ("/verticeMetadata/artefact/descriptive/creator");
+		return nodeListToSortedArrayWithSetSemantics (results);
+	}
+
+	public static string[] GetIndentifiersForCreators(string[] creatorNames){
+		HashSet<string> identifierSet = new HashSet<string> ();
+		XmlNodeList creatorNodes = Xml ().SelectNodes ("/verticeMetadata/artefact/descriptive/creator");
+		foreach (XmlNode node in creatorNodes) {
+			if (Array.Exists (creatorNames, element => element == node.InnerXml)) {
+				identifierSet.Add(node.SelectSingleNode ("../../@id").InnerXml);
+			}
+		}
+		string[] returnArray = new string[identifierSet.Count];
+		identifierSet.CopyTo (returnArray);
+		Array.Sort (returnArray);
+		return returnArray;
 	}
 
 	public static string[] BrowseByContributor(string contributorName){
@@ -327,4 +342,8 @@ public static class DublinCoreReader {
 	public static string[] BrowseByCoverage(string coverage){
 		return null;
 	}
+
+
+	// Searching code?
+	//XmlNodeList results = Xml().SelectNodes(String.Format("/verticeMetadata/artefact/descriptive/creator[starts-with(., '{0}')]/../../@id", creatorName));
 }

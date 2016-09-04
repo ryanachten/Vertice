@@ -11,25 +11,41 @@ public class TestDublinCoreBrowse {
 	}
 
 	[Test]
-	public void TestBrowseByCreator_Exact()
+	public void TestGetValuesForCreator()
 	{
-		string[] identifiers = DublinCoreReader.BrowseByCreator ("Ryan Achten");
+		string[] values = DublinCoreReader.GetValuesForCreator ();
+		Assert.That (values.Length == 2);
+		Assert.That (values [0] == "Ryan Achten");
+		Assert.That (values [1] == "Some Other Guy");
+	}
+
+	[Test]
+	public void TestGetIdentifiersForCreators_01()
+	{
+		string[] values = DublinCoreReader.GetValuesForCreator ();
+		string[] identifiers = DublinCoreReader.GetIndentifiersForCreators (new string[] {values[0]});
 		Assert.That (identifiers.Length == 2);
 	}
 
 	[Test]
-	public void TestBrowseByCreator_StartsWith()
+	public void TestGetIdentifiersForCreators_02()
 	{
-		string[] identifiers = DublinCoreReader.BrowseByCreator ("Ryan");
-		Assert.That (identifiers.Length == 2);
-		Assert.That (identifiers [0] == "DeerMan");
-		Assert.That (identifiers [1] == "TestMonk");
+		string[] values = DublinCoreReader.GetValuesForCreator ();
+		string[] identifiers = DublinCoreReader.GetIndentifiersForCreators (new string[] {values[1]});
+		Assert.That (identifiers.Length == 1);
 	}
 
 	[Test]
-	public void TestBrowseByCreator_NoResults()
+	public void TestGetIdentifiersForCreators_03()
 	{
-		string[] identifiers = DublinCoreReader.BrowseByCreator ("No one");
+		string[] values = DublinCoreReader.GetValuesForCreator ();
+		string[] identifiers = DublinCoreReader.GetIndentifiersForCreators (values);
+		Assert.That (identifiers.Length == 2);
+	}
+
+	[Test]
+	public void TestGetIdentifiersForCreators_NoResults(){
+		string[] identifiers = DublinCoreReader.GetIndentifiersForCreators (new string[] {"No one"});
 		Assert.That (identifiers.Length == 0);
 	}
 
