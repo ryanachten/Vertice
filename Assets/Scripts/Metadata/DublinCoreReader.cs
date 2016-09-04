@@ -338,16 +338,17 @@ public static class DublinCoreReader {
 		return GetIdentifiersForValuesInElement (contributorNames, "contributor");
 	}
 
-	public static string[] BrowseByDateEquals(DateTime date){
-		return null;
-	}
-
 	public static string[] BrowseByDateRange(DateTime start, DateTime end){
 		return null;
 	}
 
-	public static string[] BrowseBySubject(string subject){
-		return null;
+	public static string[] GetValuesForSubject(){
+		XmlNodeList results = Xml ().SelectNodes ("/verticeMetadata/artefact/descriptive/subject");
+		return nodeListToSortedArrayWithSetSemantics (results);
+	}
+
+	public static string[] GetIdentifiersForSubjects(string[] subjects){
+		return GetIdentifiersForValuesInElement (subjects, "subject");
 	}
 
 	public static string[] BrowseByCoverage(string coverage){

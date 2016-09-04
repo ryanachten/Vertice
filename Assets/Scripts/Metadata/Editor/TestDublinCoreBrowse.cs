@@ -77,7 +77,7 @@ public class TestDublinCoreBrowse {
 	[Test]
 	public void TestGetIdentifiersForContributors_02()
 	{
-		// Test set semantics (i.e. values[0] and values[1] are contributors for the same artefact, so should return one result)
+		// Test set semantics (i.e. values[1] and values[3] are contributors for the same artefact, so should return one result)
 		string[] values = DublinCoreReader.GetValuesForContributor ();
 		string[] identifiers = DublinCoreReader.GetIdentifiersForContributors (new string[] { values [1], values [3] });
 		Assert.That (identifiers.Length == 1);
@@ -104,21 +104,58 @@ public class TestDublinCoreBrowse {
 	}
 
 	[Test]
-	public void TestBrowseByDateEquals()
-	{
-		Assert.Fail ();
-	}
-
-	[Test]
 	public void TestBrowseByDateRange()
 	{
 		Assert.Fail ();
 	}
 
 	[Test]
-	public void TestBrowseBySubject()
+	public void TestGetValuesForSubject()
 	{
-		Assert.Fail ();
+		string[] values = DublinCoreReader.GetValuesForSubject ();
+		Assert.That (values.Length == 4);
+		Assert.That (values [0] == "Album Art");
+		Assert.That (values [1] == "Music");
+		Assert.That (values [2] == "Stuff Ryan made");
+		Assert.That (values [3] == "Testing");
+	}
+
+	[Test]
+	public void TestGetIdentifiersForSubjects_01()
+	{
+		// Test that passing all subjects returns all artefacts
+		string[] values = DublinCoreReader.GetValuesForSubject ();
+		string[] identifiers = DublinCoreReader.GetIdentifiersForSubjects (values);
+		Assert.That (identifiers.Length == 2);
+	}
+
+	[Test]
+	public void TestGetIdentifiersForSubjects_02()
+	{
+		// Test set semantics (i.e. values[0] and values[1] are subjects for the same artefact, so should return one result)
+		string[] values = DublinCoreReader.GetValuesForSubject ();
+		string[] identifiers = DublinCoreReader.GetIdentifiersForSubjects (new string[] { values [0], values [1] });
+		Assert.That (identifiers.Length == 1);
+		Assert.That (identifiers[0] == "DeerMan");
+	}
+
+	[Test]
+	public void TestGetIdentifiersForSubjects_03()
+	{
+		// Test that a Subject appearing in two artefacts returns two identifiers
+		string[] values = DublinCoreReader.GetValuesForSubject ();
+		string[] identifiers = DublinCoreReader.GetIdentifiersForSubjects (new string[] { values [2]});
+		Assert.That (identifiers.Length == 2);
+		Assert.That (identifiers[0] == "DeerMan");
+		Assert.That (identifiers[1] == "TestMonk");
+	}
+
+	[Test]
+	public void TestGetIdentifiersForSubjects_NoResults()
+	{
+		// Test that a non-existant value returns no results
+		string[] identifiers = DublinCoreReader.GetIdentifiersForSubjects (new string[] {"NO SUBJECT"});
+		Assert.That (identifiers.Length == 0);
 	}
 
 	[Test]
