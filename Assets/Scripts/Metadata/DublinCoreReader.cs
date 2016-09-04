@@ -291,4 +291,40 @@ public static class DublinCoreReader {
 		}
 		return retVal;
 	}
+
+	private static string[] nodesToSortedArrayWithSetSemantics(XmlNodeList identifierNodes){
+		HashSet<string> returnSet = new HashSet<string>();
+		foreach (XmlNode node in identifierNodes) {
+			returnSet.Add (node.InnerXml);
+		}
+		string[] returnArray = new string[returnSet.Count];
+		returnSet.CopyTo (returnArray);
+		Array.Sort (returnArray);
+		return returnArray;
+	}
+
+	public static string[] BrowseByCreator(string creatorName){
+		XmlNodeList results = Xml().SelectNodes(String.Format("/verticeMetadata/artefact/descriptive/creator[starts-with(., '{0}')]/../../@id", creatorName));
+		return nodesToSortedArrayWithSetSemantics (results);
+	}
+
+	public static string[] BrowseByContributor(string contributorName){
+		return null;
+	}
+
+	public static string[] BrowseByDateEquals(DateTime date){
+		return null;
+	}
+
+	public static string[] BrowseByDateRange(DateTime start, DateTime end){
+		return null;
+	}
+
+	public static string[] BrowseBySubject(string subject){
+		return null;
+	}
+
+	public static string[] BrowseByCoverage(string coverage){
+		return null;
+	}
 }

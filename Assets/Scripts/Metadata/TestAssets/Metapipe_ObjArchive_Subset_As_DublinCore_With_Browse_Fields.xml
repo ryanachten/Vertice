@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<verticeMetadata>
+  <artefact id="DeerMan">
+    <descriptive>
+      <creator>Ryan Achten</creator>
+      <created>03/10/2015</created>
+      <description>3D model created for the artwork of New Zealand band, Doprah, and their second release 'Wasting'</description>
+      <subject>Music</subject>
+      <subject>Album Art</subject>
+      <subject>Stuff Ryan made</subject>
+      <contributor>Doprah</contributor>
+      <contributor>Another Contributor</contributor>
+      <coverage>New Zealand</coverage>
+
+    </descriptive>
+
+    <structural>
+      <identifier>DoprahDeer.obj</identifier>
+      <creator>Ryan Achten</creator>
+      <created>22/12/2014</created>
+      <extent>0.02 scale</extent>
+    </structural>
+
+    <relatedAssets>
+      <MeshLocation>/VerticeArchive/DeerMan/DeerMan_Model/DoprahDeer.obj</MeshLocation>
+      <TexLocation>/VerticeArchive/DeerMan/DeerMan_Model/DoprahDeer_tex.jpg</TexLocation>
+      <ContextMedia>
+        <MediaName>DoprahWasting_FinalCovers01_B-Side-Cover_sml</MediaName>
+        <MediaType>Image</MediaType>
+        <MediaLocation>/VerticeArchive/DeerMan/DeerMan_Context/DoprahWasting_FinalCovers01_B-Side-Cover_sml.jpg</MediaLocation>
+      </ContextMedia>
+      <ContextMedia>
+        <MediaName>DoprahWasting_FinalCovers01_Lucid-Visions-Single_sml</MediaName>
+        <MediaType>Image</MediaType>
+        <MediaLocation>/VerticeArchive/DeerMan/DeerMan_Context/DoprahWasting_FinalCovers01_Lucid-Visions-Single_sml.jpg</MediaLocation>
+      </ContextMedia>
+      <ContextMedia>
+        <MediaName>DoprahWasting_FinalCovers01_Wasting Album Cover</MediaName>
+        <MediaType>Image</MediaType>
+        <MediaLocation>/VerticeArchive/DeerMan/DeerMan_Context/DoprahWasting_FinalCovers01_Wasting Album Cover.jpg</MediaLocation>
+      </ContextMedia>
+      
+    </relatedAssets>
+  </artefact>
+
+  <artefact id="TestMonk">
+    <descriptive>
+      <title>Test Monk</title>
+      <title>Doog</title>
+      <description>Model for testing Vertice Archive connection</description>
+      <creator>Ryan Achten</creator>
+      <creator>Some Other Guy</creator>
+      <contributor>Some Contributor</contributor>
+      <contributor>Another Contributor</contributor>
+      <subject>Testing</subject>
+      <subject>Stuff Ryan made</subject>
+      <date>13/04/2016</date>
+    </descriptive>
+    <structural>
+      <creator>Ryan Achten</creator>
+      <created>13/04/2016</created>
+      <description>Created in Blender</description>
+      <identifier>Doog.obj</identifier>
+      <extent>1.5 scale</extent>
+    </structural>
+
+    <relatedAssets>
+      <MeshLocation>/VerticeArchive/TEST/Doog.obj</MeshLocation>
+      <TexLocation>/VerticeArchive/TEST/Doog_Tex.jpg</TexLocation>
+      <ContextMedia>
+        <MediaName>MetaPipe_TestTexs_1000</MediaName>
+        <MediaType>Image</MediaType>
+        <MediaLocation>/VerticeArchive/TEST/TestTexs_1000.jpg</MediaLocation>
+      </ContextMedia>
+      <ContextMedia>
+        <MediaName>WorldACoke</MediaName>
+        <MediaType>Video</MediaType>
+        <MediaLocation>/VerticeArchive/TEST/WorldACoke.ogg</MediaLocation>
+      </ContextMedia>
+      <ContextMedia>
+        <MediaName>MetaPipe_TestTexs_2000W</MediaName>
+        <MediaType>Image</MediaType>
+        <MediaLocation>/VerticeArchive/TEST/TestTexs_2000W.jpg</MediaLocation>
+      </ContextMedia>
+    </relatedAssets>
+  </artefact>
+
+  <artefact id="NoAssets">
+    <descriptive>
+      <title>No Assets</title>
+      <description>Contrived to support DublinCoreReader test case</description>
+    </descriptive>
+    <structural>
+    </structural>
+
+    <relatedAssets>
+    </relatedAssets>
+  </artefact>
+</verticeMetadata>
