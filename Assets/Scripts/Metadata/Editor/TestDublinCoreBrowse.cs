@@ -23,36 +23,84 @@ public class TestDublinCoreBrowse {
 	public void TestGetIdentifiersForCreators_01()
 	{
 		string[] values = DublinCoreReader.GetValuesForCreator ();
-		string[] identifiers = DublinCoreReader.GetIndentifiersForCreators (new string[] {values[0]});
+		string[] identifiers = DublinCoreReader.GetIdentifiersForCreators (new string[] {values[0]});
 		Assert.That (identifiers.Length == 2);
+		Assert.That (identifiers [0] == "DeerMan");
+		Assert.That (identifiers [1] == "TestMonk");
 	}
 
 	[Test]
 	public void TestGetIdentifiersForCreators_02()
 	{
 		string[] values = DublinCoreReader.GetValuesForCreator ();
-		string[] identifiers = DublinCoreReader.GetIndentifiersForCreators (new string[] {values[1]});
+		string[] identifiers = DublinCoreReader.GetIdentifiersForCreators (new string[] {values[1]});
 		Assert.That (identifiers.Length == 1);
+		Assert.That (identifiers [0] == "TestMonk");
 	}
 
 	[Test]
 	public void TestGetIdentifiersForCreators_03()
 	{
 		string[] values = DublinCoreReader.GetValuesForCreator ();
-		string[] identifiers = DublinCoreReader.GetIndentifiersForCreators (values);
+		string[] identifiers = DublinCoreReader.GetIdentifiersForCreators (values);
 		Assert.That (identifiers.Length == 2);
+		Assert.That (identifiers [0] == "DeerMan");
+		Assert.That (identifiers [1] == "TestMonk");
 	}
 
 	[Test]
 	public void TestGetIdentifiersForCreators_NoResults(){
-		string[] identifiers = DublinCoreReader.GetIndentifiersForCreators (new string[] {"No one"});
+		string[] identifiers = DublinCoreReader.GetIdentifiersForCreators (new string[] {"No one"});
 		Assert.That (identifiers.Length == 0);
 	}
 
 	[Test]
-	public void TestBrowseByContributor()
+	public void TestGetValuesForContributor()
 	{
-		Assert.Fail ();
+		string[] values = DublinCoreReader.GetValuesForContributor ();
+		Assert.That (values.Length == 4);
+		Assert.That (values [0] == "Another Contributor");
+		Assert.That (values [1] == "Doprah");
+		Assert.That (values [2] == "Some Contributor");
+		Assert.That (values [3] == "Yet Another Contributor");
+	}
+
+	[Test]
+	public void TestGetIdentifiersForContributors_01()
+	{
+		// Test that passing all contributors returns all artefacts
+		string[] values = DublinCoreReader.GetValuesForContributor ();
+		string[] identifiers = DublinCoreReader.GetIdentifiersForContributors (values);
+		Assert.That (identifiers.Length == 2);
+	}
+
+	[Test]
+	public void TestGetIdentifiersForContributors_02()
+	{
+		// Test set semantics (i.e. values[0] and values[1] are contributors for the same artefact, so should return one result)
+		string[] values = DublinCoreReader.GetValuesForContributor ();
+		string[] identifiers = DublinCoreReader.GetIdentifiersForContributors (new string[] { values [1], values [3] });
+		Assert.That (identifiers.Length == 1);
+		Assert.That (identifiers[0] == "DeerMan");
+	}
+
+	[Test]
+	public void TestGetIdentifiersForContributors_03()
+	{
+		// Test that a Contributor appearing in two artefacts returns two identifiers
+		string[] values = DublinCoreReader.GetValuesForContributor ();
+		string[] identifiers = DublinCoreReader.GetIdentifiersForContributors (new string[] { values [0]});
+		Assert.That (identifiers.Length == 2);
+		Assert.That (identifiers[0] == "DeerMan");
+		Assert.That (identifiers[1] == "TestMonk");
+	}
+
+	[Test]
+	public void TestGetIdentifiersForContributors_NoResults()
+	{
+		// Test that a non-existant value returns no results
+		string[] identifiers = DublinCoreReader.GetIdentifiersForContributors (new string[] { "NO ONE"});
+		Assert.That (identifiers.Length == 0);
 	}
 
 	[Test]

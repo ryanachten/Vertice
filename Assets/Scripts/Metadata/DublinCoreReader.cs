@@ -304,16 +304,12 @@ public static class DublinCoreReader {
 		return returnArray;
 	}
 
-	public static string[] GetValuesForCreator(){
-		XmlNodeList results = Xml ().SelectNodes ("/verticeMetadata/artefact/descriptive/creator");
-		return nodeListToSortedArrayWithSetSemantics (results);
-	}
-
-	public static string[] GetIndentifiersForCreators(string[] creatorNames){
+	private static string[] GetIdentifiersForValuesInElement(string[] values, string dcElement){
 		HashSet<string> identifierSet = new HashSet<string> ();
-		XmlNodeList creatorNodes = Xml ().SelectNodes ("/verticeMetadata/artefact/descriptive/creator");
-		foreach (XmlNode node in creatorNodes) {
-			if (Array.Exists (creatorNames, element => element == node.InnerXml)) {
+		string xPath = String.Format ("/verticeMetadata/artefact/descriptive/{0}", dcElement);
+		XmlNodeList nodes = Xml ().SelectNodes (xPath);
+		foreach (XmlNode node in nodes) {
+			if (Array.Exists (values, element => element == node.InnerXml)) {
 				identifierSet.Add(node.SelectSingleNode ("../../@id").InnerXml);
 			}
 		}
@@ -323,8 +319,23 @@ public static class DublinCoreReader {
 		return returnArray;
 	}
 
-	public static string[] BrowseByContributor(string contributorName){
-		return null;
+	public static string[] GetValuesForCreator(){
+		XmlNodeList results = Xml ().SelectNodes ("/verticeMetadata/artefact/descriptive/creator");
+		return nodeListToSortedArrayWithSetSemantics (results);
+	}
+
+	public static string[] GetIdentifiersForCreators(string[] creatorNames){
+		return GetIdentifiersForValuesInElement (creatorNames, "creator");
+		
+	}
+
+	public static string[] GetValuesForContributor(){
+		XmlNodeList results = Xml ().SelectNodes ("/verticeMetadata/artefact/descriptive/contributor");
+		return nodeListToSortedArrayWithSetSemantics (results);
+	}
+
+	public static string[] GetIdentifiersForContributors(string[] contributorNames){
+		return GetIdentifiersForValuesInElement (contributorNames, "contributor");
 	}
 
 	public static string[] BrowseByDateEquals(DateTime date){
