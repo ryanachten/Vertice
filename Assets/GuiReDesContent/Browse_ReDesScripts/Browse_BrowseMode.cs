@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class Browse_BrowseMode : MonoBehaviour {
 
-	public Browse_SelectAttributes SelectAttr;
+	public Browse_BrowseSelectAttributes SelectAttr;
 	public Transform fieldGroup;
 	public GameObject attributePanel;
 

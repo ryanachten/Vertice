@@ -36,24 +36,22 @@ public class Browse_BrowseControl : MonoBehaviour {
 	/// Imports browse artefact's mesh and texture, assigns object info
 	/// </summary>
 	/// <param name="browseIdentifiers">array of identifiers to browse</param>
-	public void ImportArtefacts(List<string> browseIdentifiers)
+	public void ImportArtefacts(string[] browseIdentifiers)
 	{
-		for (int i = 0; i < browseIdentifiers.Count; i++) {
-			Dictionary<string, Dictionary<string, string[]>> curArtefactDict = DublinCoreReader.GetArtefactWithIdentifier (browseIdentifiers [i]);
+		for (int i = 0; i < browseIdentifiers.Length; i++) {
 
-			string meshLocation = curArtefactDict["relatedAssets"]["MeshLocation"][0]; //TODO check that there isn't more than one meshLocation
+			string meshLocation = "file://" + Application.dataPath + "/../.." + DublinCoreReader.GetMeshLocationForArtefactWithIdentifier(browseIdentifiers [i]); //TODO change directory to reference Paths.js
 			StartCoroutine (ImportModel(meshLocation));
 			GameObject curArtefact = importedObjects [0];
 
 			objTexture = new Texture2D (512, 512);
-			string texLocation = curArtefactDict["relatedAssets"]["TexLocation"][0]; //TODO check that there isn't more than one texLocation
+			string texLocation = "file://" + Application.dataPath + "/../.." + DublinCoreReader.GetTextureLocationForArtefactWithIdentifier(browseIdentifiers [i]); //TODO change directory to reference Paths.js
 			StartCoroutine(ImportTexture(texLocation));
 			curArtefact.GetComponent<MeshRenderer> ().material.mainTexture = objTexture;
 
 			curArtefact.name = browseIdentifiers [i]; //artefact gameobject will be identifier for ease of reference
 			curArtefact.tag = "Active Model";
 			curArtefact.AddComponent<BoxCollider> ();
-
 
 			PlaceArtefact (i, curArtefact);
 		}

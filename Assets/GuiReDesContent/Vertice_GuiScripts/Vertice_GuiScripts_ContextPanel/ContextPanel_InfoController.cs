@@ -51,9 +51,9 @@ public class ContextPanel_InfoController : MonoBehaviour {
 		DublinCoreReader.LoadXml("file://" + Application.dataPath + "/Scripts/Metadata/TestAssets/Metapipe_ObjArchive_Subset_As_DublinCore.xml");
 		Dictionary<string, Dictionary<string, string[]>> data = DublinCoreReader.GetArtefactWithIdentifier(artefactIdentifier);
 
-		ArtefactInfoLoad(data); //TODO these need to be removed from Start method
-		ContextInfoLoad(data); //and activated via context info toggles
-		ObjectInfoLoad(data); //should prob be provided their own script maybe?
+		ArtefactInfoLoad(data);
+		ContextInfoLoad(data);
+		ObjectInfoLoad(data); 
 		MediaInfoLoad(data);
 		MeshInfoLoad(data); 
 	}
