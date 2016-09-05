@@ -104,9 +104,47 @@ public class TestDublinCoreBrowse {
 	}
 
 	[Test]
-	public void TestBrowseByDateRange()
+	public void TestGetIdentifiersForDateRange_01()
 	{
-		Assert.Fail ();
+		// Test that all artefact are returned when the date range is sufficiently wide
+		DateTime start = DateTime.Parse("2015-10-02");
+		DateTime end = DateTime.Parse ("2016-08-05");
+		string[] identifiers = DublinCoreReader.GetIdentifiersForDateRange (start, end);
+		Assert.That (identifiers.Length == 2);
+		Assert.That (identifiers[0] == "DeerMan");
+		Assert.That (identifiers[1] == "TestMonk");
+	}
+
+	[Test]
+	public void TestGetIdentifiersForDateRange_02()
+	{
+		// Test that a specific artefact is returned when the date range is sufficient narrow
+		DateTime start = DateTime.Parse("2015-10-02");
+		DateTime end = DateTime.Parse ("2015-10-04");
+		string[] identifiers = DublinCoreReader.GetIdentifiersForDateRange (start, end);
+		Assert.That (identifiers.Length == 1);
+		Assert.That (identifiers[0] == "DeerMan");
+	}
+
+	[Test]
+	public void TestGetIdentifiersForDateRange_03()
+	{
+		// Test that no artefacts are returned when the date range does not overlap the artefacts
+		DateTime start = DateTime.Parse("1970-01-01");
+		DateTime end = DateTime.Parse ("1971-01-01");
+		string[] identifiers = DublinCoreReader.GetIdentifiersForDateRange (start, end);
+		Assert.That (identifiers.Length == 0);
+	}
+
+	[Test]
+	public void TestGetIdentifiersForDateRange_04()
+	{
+		// Test that an artefact is returned when the start date and end date are equal, and equal the created date of the artefact
+		DateTime start = DateTime.Parse("2015-10-03");
+		DateTime end = DateTime.Parse ("2015-10-03");
+		string[] identifiers = DublinCoreReader.GetIdentifiersForDateRange (start, end);
+		Assert.That (identifiers.Length == 1);
+		Assert.That (identifiers[0] == "DeerMan");
 	}
 
 	[Test]
@@ -156,11 +194,5 @@ public class TestDublinCoreBrowse {
 		// Test that a non-existant value returns no results
 		string[] identifiers = DublinCoreReader.GetIdentifiersForSubjects (new string[] {"NO SUBJECT"});
 		Assert.That (identifiers.Length == 0);
-	}
-
-	[Test]
-	public void TestBrowseByCoverage()
-	{
-		Assert.Fail ();
 	}
 }

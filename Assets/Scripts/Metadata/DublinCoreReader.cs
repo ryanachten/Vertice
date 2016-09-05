@@ -338,8 +338,19 @@ public static class DublinCoreReader {
 		return GetIdentifiersForValuesInElement (contributorNames, "contributor");
 	}
 
-	public static string[] BrowseByDateRange(DateTime start, DateTime end){
-		return null;
+	public static string[] GetIdentifiersForDateRange(DateTime start, DateTime end){
+		HashSet<string> identifiers = new HashSet<string> ();
+		XmlNodeList dates = Xml ().SelectNodes ("/verticeMetadata/artefact/descriptive/date");
+		foreach (XmlNode date in dates) {
+			DateTime artefactDateTime = DateTime.Parse (date.InnerXml);
+			if (artefactDateTime >= start && artefactDateTime <= end) {
+				identifiers.Add (date.SelectSingleNode ("../../@id").InnerXml);
+			}
+		}
+		string[] returnArray = new string[identifiers.Count];
+		identifiers.CopyTo (returnArray);
+		Array.Sort (returnArray);
+		return returnArray;
 	}
 
 	public static string[] GetValuesForSubject(){
