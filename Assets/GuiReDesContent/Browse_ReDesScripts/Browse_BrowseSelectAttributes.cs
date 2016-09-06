@@ -12,6 +12,8 @@ public class Browse_BrowseSelectAttributes : MonoBehaviour {
 	public Object attributePrefab;
 	public Browse_BrowseControl BrowseCont;
 
+	public string[] dateAttributes;
+
 	private string browseMode; //user defined browse mode
 
 
@@ -39,7 +41,7 @@ public class Browse_BrowseSelectAttributes : MonoBehaviour {
 			break;
 
 		case "Date" : 
-			browseAttributes = null; //TODO this will need to be apporoached differently
+			browseAttributes = dateAttributes; //TODO this will need to be apporoached differently
 			break;
 
 		case "Subject" : 
@@ -57,6 +59,34 @@ public class Browse_BrowseSelectAttributes : MonoBehaviour {
 
 		browseMode = browseType;
 		InstantAttributes(browseAttributes);
+	}
+		
+
+	/// <summary>
+	/// Instantiates browse attribute prefabs for user to select
+	/// </summary>
+	/// <param name="InstantAttributes">attributes in XML related to user query</param>
+	private void InstantAttributes( string[] browseAttributes)
+	{
+		ResetAttributes ();
+		for (int i = 0; i < browseAttributes.Length; i++) {
+
+			GameObject curBrowseAtt = Object.Instantiate (attributePrefab, attributeParent) as GameObject;
+			curBrowseAtt.GetComponentInChildren<Text>().text = browseAttributes[i];
+		}
+	}
+
+
+	/// <summary>
+	/// Resets the attribute panel
+	/// </summary>
+	private void ResetAttributes()
+	{
+		for (int i = 0; i < attributeParent.childCount; i++) 
+		{
+			GameObject curAttr = attributeParent.GetChild (i).gameObject;
+			Destroy(curAttr);
+		}
 	}
 
 
@@ -79,62 +109,47 @@ public class Browse_BrowseSelectAttributes : MonoBehaviour {
 		string[] activeAttrArray = activeAttributes.ToArray(); //need to convert to array to account for DCReader, need list cause don't know how many attrs will be active
 		string[] attributeIdentifiers;
 
-		if (browseMode == "Creator"){
-			attributeIdentifiers = DublinCoreReader.GetIdentifiersForCreators(activeAttrArray);
-		}
-		else if (browseMode == "Contributor"){
-			attributeIdentifiers = DublinCoreReader.GetIdentifiersForContributors(activeAttrArray);
-		}
-		else if (browseMode == "Date"){
-			attributeIdentifiers = null; //TODO this will need to be approached differently
-		}
-		else if (browseMode == "Subject"){
-			attributeIdentifiers = DublinCoreReader.GetIdentifiersForSubjects(activeAttrArray); //TODO this will need to be approached differently
-		}
-		else if (browseMode == "Coverage"){
-			attributeIdentifiers = null; //TODO no method
-		}
-		else 
+		switch (browseMode)
 		{
-			attributeIdentifiers = null;
-		}
-			
-		for (int i = 0; i < attributeIdentifiers.Length; i++) {
-			Debug.Log("activeAttributes: " + attributeIdentifiers[i]);
-		}
+			case "Creator" : 
+				attributeIdentifiers = DublinCoreReader.GetIdentifiersForCreators(activeAttrArray);
+				break;
 
-		BrowseCont.ImportArtefacts (attributeIdentifiers);
-		gameObject.SetActive (false);
+			case "Contributor" : 
+				attributeIdentifiers = DublinCoreReader.GetIdentifiersForContributors(activeAttrArray);
+				break;
 
+			case "Date" : 
+				GetDateAttributeIdentifiers(activeAttrArray, out attributeIdentifiers); //TODO this will need to be approached differently
+				break;
+
+			case "Subject" : 	
+				attributeIdentifiers = DublinCoreReader.GetIdentifiersForSubjects(activeAttrArray);
+				break;
+
+			default :
+				attributeIdentifiers = null;
+				break;
+		}
 	}
 
 
-
-	/// <summary>
-	/// Instantiates browse attribute prefabs for user to select
-	/// </summary>
-	/// <param name="InstantAttributes">attributes in XML related to user query</param>
-	private void InstantAttributes( string[] browseAttributes)
+	static private void GetDateAttributeIdentifiers(string[] activeAttributes, out string[] attributeIdentifiers)
 	{
-		ResetAttributes ();
-		for (int i = 0; i < browseAttributes.Length; i++) {
-			
-			GameObject curBrowseAtt = Object.Instantiate (attributePrefab, attributeParent) as GameObject;
-			curBrowseAtt.GetComponentInChildren<Text>().text = browseAttributes[i];
-		}
-	}
-		
+		attributeIdentifiers = null;
 
-	/// <summary>
-	/// Resets the attribute panel
-	/// </summary>
-	private void ResetAttributes()
-	{
-		for (int i = 0; i < attributeParent.childCount; i++) 
-		{
-			GameObject curAttr = attributeParent.GetChild (i).gameObject;
-			Destroy(curAttr);
+		for (int i = 0; i < activeAttributes.Length; i++) {
+
+				//DateTime start, DateTime end
+				//asumming the value returned is 1999
+				//assuming the value returned is 2011
+				System.DateTime startDate = new System.DateTime(int.Parse(activeAttributes[i]), 1, 1); //Between Jan 1
+				System.DateTime endDate =  new System.DateTime(int.Parse(activeAttributes[i]), 12, 31); //...and Dec 31
+
+				attributeIdentifiers = DublinCoreReader.GetIdentifiersForDateRange(startDate, endDate);	
 		}
 	}
+
+
 
 }
