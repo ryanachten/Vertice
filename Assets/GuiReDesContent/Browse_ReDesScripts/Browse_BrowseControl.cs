@@ -93,6 +93,7 @@ public class Browse_BrowseControl : MonoBehaviour {
 	{
 		Vector3 artefactPosition = instantPoints [instantNumber].position;
 		browseArtefact.transform.position = artefactPosition;
+		browseArtefact.AddComponent<Rigidbody> ();
 	}
 }
 

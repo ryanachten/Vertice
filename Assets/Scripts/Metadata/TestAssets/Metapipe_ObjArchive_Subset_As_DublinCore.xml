@@ -3,14 +3,14 @@
   <artefact id="DeerMan">
     <descriptive>
       <creator>Ryan Achten</creator>
-      <created>03/10/2015</created>
+      <date>2015/10/03</date>
       <description>3D model created for the artwork of New Zealand band, Dorpah, and their second release 'Wasting'</description>
     </descriptive>
 
     <structural>
       <identifier>DoprahDeer.obj</identifier>
       <creator>Ryan Achten</creator>
-      <created>22/12/2014</created>
+      <created>2014/12/22</created>
       <extent>0.02 scale</extent>
     </structural>
 
@@ -42,11 +42,11 @@
       <title>Doog</title>
       <description>Model for testing Vertice Archive connection</description>
       <creator>Blender Org</creator>
-      <date>13/04/2016</date>
+      <date>2016/04/13</date>
     </descriptive>
     <structural>
       <creator>Ryan Achten</creator>
-      <created>13/04/2016</created>
+      <created>2016/04/13</created>
       <description>Created in Blender</description>
       <identifier>Doog.obj</identifier>
       <extent>1.5 scale</extent>

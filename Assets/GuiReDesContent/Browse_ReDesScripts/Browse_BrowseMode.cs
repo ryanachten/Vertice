@@ -34,10 +34,6 @@ public class Browse_BrowseMode : MonoBehaviour {
 
 		switch (toggleName) {
 
-		case "BrowseTitle_FieldToggle" : 
-			SelectAttr.GetAttributes("Title");
-			break;
-
 		case "BrowseCreator_FieldToggle" : 
 			SelectAttr.GetAttributes("Creator");
 			break;
@@ -52,10 +48,6 @@ public class Browse_BrowseMode : MonoBehaviour {
 
 		case "BrowseSubject_FieldToggle" : 
 			SelectAttr.GetAttributes("Subject");
-			break;
-
-		case "BrowseCoverage_FieldToggle" : 
-			SelectAttr.GetAttributes("Coverage");
 			break;
 
 		default:

@@ -12,7 +12,7 @@ public class Browse_BrowseSelectAttributes : MonoBehaviour {
 	public Object attributePrefab;
 	public Browse_BrowseControl BrowseCont;
 
-	public string[] dateAttributes;
+
 
 	private string browseMode; //user defined browse mode
 
@@ -24,7 +24,6 @@ public class Browse_BrowseSelectAttributes : MonoBehaviour {
 	/// <param name="browseType">Type of browse user wants to view</param>
 	public void GetAttributes(string browseType)
 	{
-		//TODO DCReader function for returning attributes based on user type query
 		DublinCoreReader.LoadXml("file://" + Application.dataPath + "/Scripts/Metadata/TestAssets/Metapipe_ObjArchive_Subset_As_DublinCore.xml");
 		Debug.Log("GetAttr: " + browseType);
 
@@ -41,15 +40,11 @@ public class Browse_BrowseSelectAttributes : MonoBehaviour {
 			break;
 
 		case "Date" : 
-			browseAttributes = dateAttributes; //TODO this will need to be apporoached differently
+			browseAttributes = DublinCoreReader.GetAllYears();
 			break;
 
 		case "Subject" : 
-			browseAttributes = DublinCoreReader.GetValuesForSubject(); //TODO this will need to be apporoached differently
-			break;
-
-		case "Coverage" : 
-			browseAttributes = null; //TODO no method
+			browseAttributes = DublinCoreReader.GetValuesForSubject();
 			break;
 
 		default:
@@ -120,7 +115,7 @@ public class Browse_BrowseSelectAttributes : MonoBehaviour {
 				break;
 
 			case "Date" : 
-				GetDateAttributeIdentifiers(activeAttrArray, out attributeIdentifiers); //TODO this will need to be approached differently
+				attributeIdentifiers = DublinCoreReader.GetIdentifiersForYears(activeAttrArray);
 				break;
 
 			case "Subject" : 	
@@ -131,25 +126,8 @@ public class Browse_BrowseSelectAttributes : MonoBehaviour {
 				attributeIdentifiers = null;
 				break;
 		}
+
+		BrowseCont.ImportArtefacts(attributeIdentifiers);
+		gameObject.SetActive(false); //turns panel off once query has been committed
 	}
-
-
-	static private void GetDateAttributeIdentifiers(string[] activeAttributes, out string[] attributeIdentifiers)
-	{
-		attributeIdentifiers = null;
-
-		for (int i = 0; i < activeAttributes.Length; i++) {
-
-				//DateTime start, DateTime end
-				//asumming the value returned is 1999
-				//assuming the value returned is 2011
-				System.DateTime startDate = new System.DateTime(int.Parse(activeAttributes[i]), 1, 1); //Between Jan 1
-				System.DateTime endDate =  new System.DateTime(int.Parse(activeAttributes[i]), 12, 31); //...and Dec 31
-
-				attributeIdentifiers = DublinCoreReader.GetIdentifiersForDateRange(startDate, endDate);	
-		}
-	}
-
-
-
 }
