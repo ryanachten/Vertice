@@ -148,6 +148,62 @@ public class TestDublinCoreBrowse {
 	}
 
 	[Test]
+	public void TestGetAllYears_Ascending()
+	{
+		// Test that all years are a returned in ascending order
+		string[] years = DublinCoreReader.GetAllYears(true);
+		Assert.That (years.Length == 2);
+		Assert.That (years[0] == "2015");
+		Assert.That (years[1] == "2016");
+	}
+
+	[Test]
+	public void TestGetAllYears_Descending()
+	{
+		// Test that all years are a returned in reverse-sorted order
+		string[] years = DublinCoreReader.GetAllYears();
+		Assert.That (years.Length == 2);
+		Assert.That (years[0] == "2016");
+		Assert.That (years[1] == "2015");
+	}
+
+	[Test]
+	public void TestGetIdentifiersForYears_01()
+	{
+		// Test that an artefact for a specific year is returned
+		string[] identifiers = DublinCoreReader.GetIdentifiersForYears(new string[]{"2015"});
+		Assert.That (identifiers.Length == 1);
+		Assert.That (identifiers[0] == "DeerMan");
+	}
+
+	[Test]
+	public void TestGetIdentifiersForYears_02()
+	{
+		// Test that artefacts for many years are returned
+		string[] identifiers = DublinCoreReader.GetIdentifiersForYears(new string[]{"2015", "2016"});
+		Assert.That (identifiers.Length == 2);
+		Assert.That (identifiers[0] == "DeerMan");
+		Assert.That (identifiers[1] == "TestMonk");
+	}
+
+	[Test]
+	public void TestGetIdentifiersForYears_03()
+	{
+		// Test that artefacts are not returned if the year(s) are irrelevant
+		string[] identifiers = DublinCoreReader.GetIdentifiersForYears(new string[]{"1900", "1901", "1902"});
+		Assert.That (identifiers.Length == 0);
+	}
+
+	[Test]
+	public void TestGetIdentifiersForYears_04()
+	{
+		// Test that artefacts are returned even if some years are irrelevant
+		string[] identifiers = DublinCoreReader.GetIdentifiersForYears(new string[]{"2015", "1901", "1902"});
+		Assert.That (identifiers.Length == 1);
+		Assert.That (identifiers[0] == "DeerMan");
+	}
+
+	[Test]
 	public void TestGetValuesForSubject()
 	{
 		string[] values = DublinCoreReader.GetValuesForSubject ();

@@ -353,6 +353,37 @@ public static class DublinCoreReader {
 		return returnArray;
 	}
 
+	public static string[] GetAllYears(bool asc = false){
+		XmlNodeList results = Xml ().SelectNodes ("/verticeMetadata/artefact/descriptive/date");
+		HashSet<string> years = new HashSet<string> ();
+		foreach (XmlNode node in results){
+			years.Add(DateTime.Parse(node.InnerXml).Year.ToString());
+		}
+		string[] yearsArray = new string[years.Count];
+		years.CopyTo (yearsArray);
+		Array.Sort (yearsArray);
+		if (!asc){
+			Array.Reverse(yearsArray);
+		}
+
+		return yearsArray;
+
+	}
+
+	public static string[] GetIdentifiersForYears(string[] years){
+		List<string> returnList = new List<string>();
+		foreach (string year in years){
+			DateTime firstDayOfYear = new DateTime(int.Parse(year), 1, 1);
+			DateTime lastDayOfYear = new DateTime(int.Parse(year), 12, 31);
+			returnList.AddRange(GetIdentifiersForDateRange(firstDayOfYear, lastDayOfYear));
+		}
+		string[] returnArray = new string[returnList.Count];
+		returnList.CopyTo (returnArray);
+		Array.Sort (returnArray);
+		return returnArray;
+
+	}
+
 	public static string[] GetValuesForSubject(){
 		XmlNodeList results = Xml ().SelectNodes ("/verticeMetadata/artefact/descriptive/subject");
 		return nodeListToSortedArrayWithSetSemantics (results);
