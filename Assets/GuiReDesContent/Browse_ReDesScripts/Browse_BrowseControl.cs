@@ -9,7 +9,7 @@ public class Browse_BrowseControl : MonoBehaviour {
 	public Transform instantParent;
 	private Transform[] instantPoints;
 	private GameObject[] importedObjects;
-	private Texture2D objTexture;
+	//private Texture2D objTexture;
 
 
 	void Start()
@@ -38,22 +38,11 @@ public class Browse_BrowseControl : MonoBehaviour {
 	/// <param name="browseIdentifiers">array of identifiers to browse</param>
 	public void ImportArtefacts(string[] browseIdentifiers)
 	{
+		importedObjects = new GameObject[browseIdentifiers.Length];
 		for (int i = 0; i < browseIdentifiers.Length; i++) {
-
 			string meshLocation = "file://" + Application.dataPath + "/../.." + DublinCoreReader.GetMeshLocationForArtefactWithIdentifier(browseIdentifiers [i]); //TODO change directory to reference Paths.js
-			StartCoroutine (ImportModel(meshLocation));
-			GameObject curArtefact = importedObjects [0];
-
-			objTexture = new Texture2D (512, 512);
 			string texLocation = "file://" + Application.dataPath + "/../.." + DublinCoreReader.GetTextureLocationForArtefactWithIdentifier(browseIdentifiers [i]); //TODO change directory to reference Paths.js
-			StartCoroutine(ImportTexture(texLocation));
-			curArtefact.GetComponent<MeshRenderer> ().material.mainTexture = objTexture;
-
-			curArtefact.name = browseIdentifiers [i]; //artefact gameobject will be identifier for ease of reference
-			curArtefact.tag = "Active Model";
-			curArtefact.AddComponent<BoxCollider> ();
-
-			PlaceArtefact (i, curArtefact);
+			StartCoroutine (ImportModel (i, browseIdentifiers[i], meshLocation, texLocation));
 		}
 	}
 		
@@ -62,30 +51,36 @@ public class Browse_BrowseControl : MonoBehaviour {
 	/// </summary>
 	/// <returns>Array containing gameobject</returns>
 	/// <param name="meshLocation">Location of mesh information</param>
-	IEnumerator ImportModel(string meshLocation)
+	IEnumerator ImportModel(int index, string browseIdentifier, string meshLocation, string texLocation)
 	{
+
+		// Download mesh
 		ObjReader.ObjData objReader = ObjReader.use.ConvertFileAsync(meshLocation, false);
 		while (!objReader.isDone) 
 		{
 			yield return null;
 		}
-		importedObjects = objReader.gameObjects;
-	}
-		
-	/// <summary>
-	/// Imports texture information
-	/// </summary>
-	/// <returns>Model 2D texture</returns>
-	/// <param name="texLocation">Location of texture</param>
-	IEnumerator ImportTexture(string texLocation)
-	{
-		string wwwDirectory = texLocation;
-		WWW www = new WWW(wwwDirectory);
+		importedObjects[index] = objReader.gameObjects[0];
+
+
+		// Create GameObject
+		Texture2D objTexture = new Texture2D (512, 512);
+		importedObjects[index].GetComponent<MeshRenderer> ().material.mainTexture = objTexture;
+		importedObjects[index].name = browseIdentifier; //artefact gameobject will be identifier for ease of reference
+		importedObjects[index].tag = "Active Model";
+		importedObjects[index].AddComponent<BoxCollider> ();
+
+		// Download texture
+		WWW www = new WWW(texLocation);
 
 		while (!www.isDone){
 			yield return null;
 		}
 		www.LoadImageIntoTexture(objTexture);
+
+
+
+		PlaceArtefact (index, importedObjects[index]);
 	}
 
 
