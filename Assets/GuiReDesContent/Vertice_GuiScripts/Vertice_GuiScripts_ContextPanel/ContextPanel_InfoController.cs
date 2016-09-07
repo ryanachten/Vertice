@@ -7,6 +7,7 @@ public class ContextPanel_InfoController : MonoBehaviour {
 
 	public Object fieldText;
 	public Object fieldException;
+	public string artefactId; //accessed via context media controller
 
 	//Artefact Information Panel
 	public Transform titleGroup;
@@ -46,7 +47,7 @@ public class ContextPanel_InfoController : MonoBehaviour {
 	/// <param name="artefactIdentifier">Identifier for the artefact whose information is to be viewed</param>
 	public void LoadData(string artefactIdentifier)
 	{
-//		Debug.Log("Aretfact Identifier: " +  artefactIdentifier);
+		artefactId = artefactIdentifier;
 
 		DublinCoreReader.LoadXml("file://" + Application.dataPath + "/Scripts/Metadata/TestAssets/Metapipe_ObjArchive_Subset_As_DublinCore.xml");
 		Dictionary<string, Dictionary<string, string[]>> data = DublinCoreReader.GetArtefactWithIdentifier(artefactIdentifier);

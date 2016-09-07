@@ -5,7 +5,8 @@ using System.Collections.Generic;
 
 public class ContextPanel_MediaController : MonoBehaviour {
 
-	public string artefactId = "DeerMan"; //TODO ID is currently updated via the Panel_TestController script - not ideal
+	public ContextPanel_InfoController ContextInfoCont;
+//	public string artefactId = "DeerMan"; //TODO ID is currently updated via the Panel_TestController script - not ideal
 	public Toggle imagesToggle;
 	public Toggle audioToggle;
 	public Toggle videoToggle;
@@ -27,6 +28,8 @@ public class ContextPanel_MediaController : MonoBehaviour {
 	public void LoadMedia() //executed on pressing Media button
 	{
 		DublinCoreReader.LoadXml("file://" + Application.dataPath + "/Scripts/Metadata/TestAssets/Metapipe_ObjArchive_Subset_As_DublinCore.xml");
+
+		string artefactId = ContextInfoCont.artefactId;
 
 		Debug.Log("artefactId: " + artefactId);
 		ResetPanel();

@@ -9,7 +9,8 @@ public class Browse_BrowseControl : MonoBehaviour {
 	public Transform instantParent;
 	private Transform[] instantPoints;
 	private GameObject[] importedObjects;
-	//private Texture2D objTexture;
+	public Transform browseArtefactParent;
+
 
 
 	void Start()
@@ -27,10 +28,9 @@ public class Browse_BrowseControl : MonoBehaviour {
 
 		for (int i = 0; i < instantPoints.Length; i++) {
 			instantPoints[i] = instantParent.GetChild(i);
-//			Debug.Log("instantPoint " + i + ": " + instantPoints[i].position);
 		}
 	}
-
+		
 
 	/// <summary>
 	/// Imports browse artefact's mesh and texture, assigns object info
@@ -38,6 +38,7 @@ public class Browse_BrowseControl : MonoBehaviour {
 	/// <param name="browseIdentifiers">array of identifiers to browse</param>
 	public void ImportArtefacts(string[] browseIdentifiers)
 	{
+		ResetInstances();
 		importedObjects = new GameObject[browseIdentifiers.Length];
 		for (int i = 0; i < browseIdentifiers.Length; i++) {
 			string meshLocation = "file://" + Application.dataPath + "/../.." + DublinCoreReader.GetMeshLocationForArtefactWithIdentifier(browseIdentifiers [i]); //TODO change directory to reference Paths.js
@@ -45,7 +46,19 @@ public class Browse_BrowseControl : MonoBehaviour {
 			StartCoroutine (ImportModel (i, browseIdentifiers[i], meshLocation, texLocation));
 		}
 	}
-		
+
+
+	/// <summary>
+	/// Removes artefacts between browse queries
+	/// </summary>
+	private void ResetInstances()
+	{
+		for (int i = 0; i < browseArtefactParent.transform.childCount; i++) {
+			Destroy(browseArtefactParent.GetChild(i).gameObject);
+		}
+	}
+
+
 	/// <summary>
 	/// Imports mesh information using ObjReader
 	/// </summary>
@@ -69,6 +82,7 @@ public class Browse_BrowseControl : MonoBehaviour {
 		importedObjects[index].name = browseIdentifier; //artefact gameobject will be identifier for ease of reference
 		importedObjects[index].tag = "Active Model";
 		importedObjects[index].AddComponent<BoxCollider> ();
+		importedObjects[index].transform.SetParent(browseArtefactParent);
 
 		// Download texture
 		WWW www = new WWW(texLocation);
