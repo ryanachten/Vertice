@@ -49,7 +49,7 @@ public class ContextPanel_InfoController : MonoBehaviour {
 	{
 		artefactId = artefactIdentifier;
 
-		DublinCoreReader.LoadXml("file://" + Application.dataPath + "/Scripts/Metadata/TestAssets/Metapipe_ObjArchive_Subset_As_DublinCore.xml");
+		DublinCoreReader.LoadXml("file://" + Application.dataPath + "/Scripts/Metadata/TestAssets/Vertice_ArtefactInformation.xml");
 		Dictionary<string, Dictionary<string, string[]>> data = DublinCoreReader.GetArtefactWithIdentifier(artefactIdentifier);
 
 		ArtefactInfoLoad(data);
@@ -138,14 +138,14 @@ public class ContextPanel_InfoController : MonoBehaviour {
 				GameObject field = Object.Instantiate (fieldText) as GameObject;
 				field.transform.SetParent (fieldGroup, false);
 				field.GetComponent<Text> ().text = curData [i];
-				Debug.Log (field.name + " " + i + " : " + curData [i]);
+//				Debug.Log (field.name + " " + i + " : " + curData [i]);
 			}
 		}
 		catch(System.Exception ex)
 		{
 			GameObject field = Object.Instantiate (fieldException) as GameObject;
 			field.transform.SetParent (fieldGroup, false);
-			Debug.Log ("No data in field");
+//			Debug.Log ("No data in field");
 		}
 	}
 
@@ -177,7 +177,7 @@ public class ContextPanel_InfoController : MonoBehaviour {
 	{
 		for (int i = 0; i < fieldGroup.childCount; i++) {
 			GameObject groupChild = fieldGroup.GetChild(i).gameObject;
-			Debug.Log("Deleting Field: " + groupChild.name);
+//			Debug.Log("Deleting Field: " + groupChild.name);
 			Destroy(groupChild);
 		}
 	}

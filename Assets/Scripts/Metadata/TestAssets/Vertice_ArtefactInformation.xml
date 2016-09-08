@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<verticeMetadata>
+  <artefact id="LB2848">
+    <descriptive>
+      <title>Godwit</title>
+      <title>Küaka</title>
+      <title>Limosa lapponica</title>
+      <creator>Auckland Museum</creator>
+      <contributor>W. J. Cheeseman</contributor>
+      <date>1881/04/05</date>
+      <description>Bar-tailed godwits (Limosa lapponica) are the most common Arctic migrant to New Zealand. 
+      In 2005 scientists reported that they make the longest non-stop flight of all birds – an amazing 11,000 kilometres from Alaska to New Zealand, in only eight or nine days.</description>
+    </descriptive>
+    <structural>
+      <identifier>Vertice_AuckMuse_Godwit_02Decim.obj</identifier>
+      <creator>Auckland Museum</creator>
+      <created>2016/07/01</created>
+      <extent></extent>
+    </structural>
+    <relatedAssets>
+      <MeshLocation>/VerticeArchive/Godwit/Vertice_AuckMuse_Godwit_02Decim.obj</MeshLocation>
+      <TexLocation>/VerticeArchive/Godwit/Vertice_AuckMuse_Godwit_02Decim.jpg</TexLocation>
+      <ContextMedia>
+        <MediaName>Limosa lapponica</MediaName>
+        <MediaType>Image</MediaType>
+        <MediaLocation>/VerticeArchive/Godwit/Godwit_Context/Godwit.jpg</MediaLocation>
+      </ContextMedia>
+    </relatedAssets>
+  </artefact>
+
+  <artefact id="LB13701">
+    <descriptive>
+      <title>Blue Penguin</title>
+      <title>Korora</title>
+      <title>Eudyptula minor</title>
+      <creator>Auckland Museum</creator>
+      <contributor>Dow, A</contributor>
+      <date>1958/08/01</date>
+      <description>The world’s smallest penguin, little penguin (also known as little blue penguin) stand just over 25 cm and weigh around one kg. 
+      They spend much of their time at sea hunting small fish, crustaceans and squid.</description>
+    </descriptive>
+    <structural>
+      <identifier>Vertice_AuckMuse_Penguin_02Decim.obj</identifier>
+      <creator>Auckland Museum</creator>
+      <created>2016/07/01</created>
+      <extent></extent>
+    </structural>
+    <relatedAssets>
+      <MeshLocation>/VerticeArchive/Penguin/Vertice_AuckMuse_Penguin_02Decim.obj</MeshLocation>
+      <TexLocation>/VerticeArchive/Penguin/Vertice_AuckMuse_Penguin_02Decim.jpg</TexLocation>
+      <ContextMedia>
+        <MediaName>100948</MediaName>
+        <MediaType>Image</MediaType>
+        <MediaLocation>/VerticeArchive/Penguin/Penguin_Context/100948.jpg</MediaLocation>
+      </ContextMedia>
+    </relatedAssets>
+  </artefact>
+  
+  <artefact id="LB13701">
+    <descriptive>
+      <title>Blue Penguin</title>
+      <title>Korora</title>
+      <title>Eudyptula minor</title>
+      <creator>Auckland Museum</creator>
+      <contributor>Dow, A</contributor>
+      <date>1958/08/01</date>
+      <description>The world’s smallest penguin, little penguin (also known as little blue penguin) stand just over 25 cm and weigh around one kg. 
+      They spend much of their time at sea hunting small fish, crustaceans and squid.</description>
+    </descriptive>
+    <structural>
+      <identifier>Vertice_AuckMuse_Penguin_02Decim.obj</identifier>
+      <creator>Auckland Museum</creator>
+      <created>2016/07/01</created>
+      <extent></extent>
+    </structural>
+    <relatedAssets>
+      <MeshLocation>/VerticeArchive/Penguin/Vertice_AuckMuse_Penguin_02Decim.obj</MeshLocation>
+      <TexLocation>/VerticeArchive/Penguin/Vertice_AuckMuse_Penguin_02Decim.jpg</TexLocation>
+      <ContextMedia>
+        <MediaName>100948</MediaName>
+        <MediaType>Image</MediaType>
+        <MediaLocation>/VerticeArchive/Penguin/Penguin_Context/100948.jpg</MediaLocation>
+      </ContextMedia>
+    </relatedAssets>
+  </artefact>
+  
+  <artefact id="Tarantula">
+    <descriptive>
+      <title>King Baboon Tarantula</title>
+      <title>Pelinobius muticus</title>
+      <creator>Auckland Museum</creator>
+      <date>2016/07/01</date>
+      <description>The king baboon spider, scientific name , is a tarantula species native to East Africa. The king baboon spider can grow up to 20 cm in leg span. 
+      It is a slow-growing species. The spider is often rusty brown or orange in colour. 
+      As a burrowing species, the back legs are very thick and used for digging burrows.</description>
+    </descriptive>
+    <structural>
+      <identifier>Vertice_AuckMuse_Tarantula_02Decim.obj</identifier>
+      <creator>Auckland Museum</creator>
+      <created>2016/07/01</created>
+      <extent></extent>
+    </structural>
+    <relatedAssets>
+      <MeshLocation>/VerticeArchive/Tarantula/Vertice_AuckMuse_Tarantula_02Decim.obj</MeshLocation>
+      <TexLocation>/VerticeArchive/Tarantula/Vertice_AuckMuse_Tarantula_02Decim.jpg</TexLocation>
+    </relatedAssets>
+  </artefact>
+  
+  <artefact id="AMNZ21862">
+    <descriptive>
+      <title>Giant weta</title>
+      <title>Colenso's Giant Weta</title>
+      <title>Wëtäpunga</title>
+      <title>Hemideina Gigantea</title>
+      <creator>Auckland Museum</creator>
+      <date>1839/01/01</date>
+      <description>Wētāpunga are very large insects, unique to New Zealand. When fully grown they can even be heavier than a mouse or sparrow.
+During the day they usually hide in dead foliage such as the drooping dead fronds of tree ferns, nīkau palms or cabbage trees. 
+At night they leave their resting places to move around in trees or on the ground.</description>
+    </descriptive>
+    <structural>
+      <identifier>Vertice_AuckMuse_Tarantula_02Decim.obj</identifier>
+      <creator>Auckland Museum</creator>
+      <created>2016/07/01</created>
+      <extent></extent>
+    </structural>
+   <relatedAssets>
+      <MeshLocation>/VerticeArchive/Weta/Vertice_AuckMuse_Weta_02Decim.obj</MeshLocation>
+      <TexLocation>/VerticeArchive/Weta/Vertice_AuckMuse_Weta_02Decim.jpg</TexLocation>
+      <ContextMedia>
+        <MediaName>49356</MediaName>
+        <MediaType>Image</MediaType>
+        <MediaLocation>/VerticeArchive/Weta/Weta_Context/49356.jpg</MediaLocation>
+      </ContextMedia>
+    </relatedAssets>
+  </artefact>
+  
+  <artefact id="LionSkull">
+    <descriptive>
+      <title>Lion Skull</title>
+      <creator>Auckland Museum</creator>
+      <date>2016/01/01</date>
+      <description>A lion skull from the Auckland Museum CITES handling collection. 
+      Sample scan testing the Artec EVA scanner.</description>
+    </descriptive>
+    <structural>
+      <identifier>Vertice_AuckMuse_LionSkull_02Decim_ML.obj</identifier>
+      <creator>Auckland Museum</creator>
+      <created>2016/01/01</created>
+      <extent></extent>
+    </structural>
+   <relatedAssets>
+      <MeshLocation>/VerticeArchive/LionSkull/Vertice_AuckMuse_LionSkull_02Decim_ML.obj</MeshLocation>
+      <TexLocation>/VerticeArchive/LionSkull/Vertice_AuckMuse_LionSkull_02Decim_ML.jpg</TexLocation>
+    </relatedAssets>
+  </artefact>
+
+  <artefact id="TestMonk">
+    <descriptive>
+      <title>Test Monk</title>
+      <title>Doog</title>
+      <description>Model for testing Vertice Archive connection</description>
+      <creator>Blender Org</creator>
+      <date>2016/04/13</date>
+    </descriptive>
+    <structural>
+      <creator>Ryan Achten</creator>
+      <created>2016/04/13</created>
+      <description>Created in Blender</description>
+      <identifier>Doog.obj</identifier>
+      <extent>1.5 scale</extent>
+    </structural>
+
+    <relatedAssets>
+      <MeshLocation>/VerticeArchive/TEST/Doog.obj</MeshLocation>
+      <TexLocation>/VerticeArchive/TEST/Doog_Tex.jpg</TexLocation>
+      <ContextMedia>
+        <MediaName>MetaPipe_TestTexs_1000</MediaName>
+        <MediaType>Image</MediaType>
+        <MediaLocation>/VerticeArchive/TEST/TestTexs_1000.jpg</MediaLocation>
+      </ContextMedia>
+      <ContextMedia>
+        <MediaName>WorldACoke</MediaName>
+        <MediaType>Video</MediaType>
+        <MediaLocation>/VerticeArchive/TEST/WorldACoke.ogg</MediaLocation>
+      </ContextMedia>
+      <ContextMedia>
+        <MediaName>MetaPipe_TestTexs_2000W</MediaName>
+        <MediaType>Image</MediaType>
+        <MediaLocation>/VerticeArchive/TEST/TestTexs_2000W.jpg</MediaLocation>
+      </ContextMedia>
+    </relatedAssets>
+  </artefact>
+
+  <artefact id="NoAssets">
+    <descriptive>
+      <title>No Assets</title>
+      <description>Contrived to support DublinCoreReader test case</description>
+    </descriptive>
+    <structural>
+    </structural>
+
+    <relatedAssets>
+    </relatedAssets>
+  </artefact>
+</verticeMetadata>
