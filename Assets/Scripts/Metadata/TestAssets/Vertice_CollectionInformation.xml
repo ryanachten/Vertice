@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<verticeMetadata>
+	<artefact id="LB2848">
+		<descriptive>
+			<title>Godwit</title>
+			<title>Küaka</title>
+			<title>Limosa lapponica</title>
+			<creator>Auckland Museum</creator>
+			<contributor>W. J. Cheeseman</contributor>
+			<date>1881/04/05</date>
+			<description>Bar-tailed godwits (Limosa lapponica) are the most common Arctic migrant to New Zealand. 
+      In 2005 scientists reported that they make the longest non-stop flight of all birds – an amazing 11,000 kilometres from Alaska to New Zealand, in only eight or nine days.</description>
+		</descriptive>
+		<structural>
+			<identifier>Vertice_AuckMuse_Godwit_02Decim.obj</identifier>
+			<creator>Auckland Museum</creator>
+			<created>2016/07/01</created>
+			<extent>
+			</extent>
+		</structural>
+		<relatedAssets>
+			<MeshLocation>/VerticeArchive/Godwit/Vertice_AuckMuse_Godwit_02Decim.obj</MeshLocation>
+			<TexLocation>/VerticeArchive/Godwit/Vertice_AuckMuse_Godwit_02Decim.jpg</TexLocation>
+			<ContextMedia>
+				<MediaName>Limosa lapponica</MediaName>
+				<MediaType>Image</MediaType>
+				<MediaLocation>/VerticeArchive/Godwit/Godwit_Context/Godwit.jpg</MediaLocation>
+			</ContextMedia>
+		</relatedAssets>
+	</artefact>
+</verticeMetadata>

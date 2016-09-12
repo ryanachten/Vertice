@@ -1,206 +1,601 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <verticeMetadata>
-  <artefact id="LB2848">
-    <descriptive>
-      <title>Godwit</title>
-      <title>Küaka</title>
-      <title>Limosa lapponica</title>
-      <creator>Auckland Museum</creator>
-      <contributor>W. J. Cheeseman</contributor>
-      <date>1881/04/05</date>
-      <description>Bar-tailed godwits (Limosa lapponica) are the most common Arctic migrant to New Zealand. 
+	<artefact id="LB2848">
+		<descriptive>
+			<title>Godwit</title>
+			<title>Küaka</title>
+			<title>Limosa lapponica</title>
+			<creator>Auckland Museum</creator>
+			<contributor>W. J. Cheeseman</contributor>
+			<date>1881/04/05</date>
+			<description>Bar-tailed godwits (Limosa lapponica) are the most common Arctic migrant to New Zealand. 
       In 2005 scientists reported that they make the longest non-stop flight of all birds – an amazing 11,000 kilometres from Alaska to New Zealand, in only eight or nine days.</description>
-    </descriptive>
-    <structural>
-      <identifier>Vertice_AuckMuse_Godwit_02Decim.obj</identifier>
-      <creator>Auckland Museum</creator>
-      <created>2016/07/01</created>
-      <extent></extent>
-    </structural>
-    <relatedAssets>
-      <MeshLocation>/VerticeArchive/Godwit/Vertice_AuckMuse_Godwit_02Decim.obj</MeshLocation>
-      <TexLocation>/VerticeArchive/Godwit/Vertice_AuckMuse_Godwit_02Decim.jpg</TexLocation>
-      <ContextMedia>
-        <MediaName>Limosa lapponica</MediaName>
-        <MediaType>Image</MediaType>
-        <MediaLocation>/VerticeArchive/Godwit/Godwit_Context/Godwit.jpg</MediaLocation>
-      </ContextMedia>
-    </relatedAssets>
-  </artefact>
-
-  <artefact id="LB13701">
-    <descriptive>
-      <title>Blue Penguin</title>
-      <title>Korora</title>
-      <title>Eudyptula minor</title>
-      <creator>Auckland Museum</creator>
-      <contributor>Dow, A</contributor>
-      <date>1958/08/01</date>
-      <description>The world’s smallest penguin, little penguin (also known as little blue penguin) stand just over 25 cm and weigh around one kg. 
+		</descriptive>
+		<structural>
+			<identifier>Vertice_AuckMuse_Godwit_02Decim.obj</identifier>
+			<creator>Auckland Museum</creator>
+			<created>2016/07/01</created>
+			<extent>
+			</extent>
+		</structural>
+		<relatedAssets>
+			<MeshLocation>/VerticeArchive/Godwit/Vertice_AuckMuse_Godwit_02Decim.obj</MeshLocation>
+			<TexLocation>/VerticeArchive/Godwit/Vertice_AuckMuse_Godwit_02Decim.jpg</TexLocation>
+			<ContextMedia>
+				<MediaName>Limosa lapponica</MediaName>
+				<MediaType>Image</MediaType>
+				<MediaLocation>/VerticeArchive/Godwit/Godwit_Context/Godwit.jpg</MediaLocation>
+			</ContextMedia>
+		</relatedAssets>
+	</artefact>
+	<artefact id="LB13701">
+		<descriptive>
+			<title>Blue Penguin</title>
+			<title>Korora</title>
+			<title>Eudyptula minor</title>
+			<creator>Auckland Museum</creator>
+			<contributor>Dow, A</contributor>
+			<date>1958/08/01</date>
+			<description>The world’s smallest penguin, little penguin (also known as little blue penguin) stand just over 25 cm and weigh around one kg. 
       They spend much of their time at sea hunting small fish, crustaceans and squid.</description>
-    </descriptive>
-    <structural>
-      <identifier>Vertice_AuckMuse_Penguin_02Decim.obj</identifier>
-      <creator>Auckland Museum</creator>
-      <created>2016/07/01</created>
-      <extent></extent>
-    </structural>
-    <relatedAssets>
-      <MeshLocation>/VerticeArchive/Penguin/Vertice_AuckMuse_Penguin_02Decim.obj</MeshLocation>
-      <TexLocation>/VerticeArchive/Penguin/Vertice_AuckMuse_Penguin_02Decim.jpg</TexLocation>
-      <ContextMedia>
-        <MediaName>100948</MediaName>
-        <MediaType>Image</MediaType>
-        <MediaLocation>/VerticeArchive/Penguin/Penguin_Context/100948.jpg</MediaLocation>
-      </ContextMedia>
-    </relatedAssets>
-  </artefact>
-  
-  <artefact id="LB13701">
-    <descriptive>
-      <title>Blue Penguin</title>
-      <title>Korora</title>
-      <title>Eudyptula minor</title>
-      <creator>Auckland Museum</creator>
-      <contributor>Dow, A</contributor>
-      <date>1958/08/01</date>
-      <description>The world’s smallest penguin, little penguin (also known as little blue penguin) stand just over 25 cm and weigh around one kg. 
-      They spend much of their time at sea hunting small fish, crustaceans and squid.</description>
-    </descriptive>
-    <structural>
-      <identifier>Vertice_AuckMuse_Penguin_02Decim.obj</identifier>
-      <creator>Auckland Museum</creator>
-      <created>2016/07/01</created>
-      <extent></extent>
-    </structural>
-    <relatedAssets>
-      <MeshLocation>/VerticeArchive/Penguin/Vertice_AuckMuse_Penguin_02Decim.obj</MeshLocation>
-      <TexLocation>/VerticeArchive/Penguin/Vertice_AuckMuse_Penguin_02Decim.jpg</TexLocation>
-      <ContextMedia>
-        <MediaName>100948</MediaName>
-        <MediaType>Image</MediaType>
-        <MediaLocation>/VerticeArchive/Penguin/Penguin_Context/100948.jpg</MediaLocation>
-      </ContextMedia>
-    </relatedAssets>
-  </artefact>
-  
-  <artefact id="Tarantula">
-    <descriptive>
-      <title>King Baboon Tarantula</title>
-      <title>Pelinobius muticus</title>
-      <creator>Auckland Museum</creator>
-      <date>2016/07/01</date>
-      <description>The king baboon spider, scientific name , is a tarantula species native to East Africa. The king baboon spider can grow up to 20 cm in leg span. 
+		</descriptive>
+		<structural>
+			<identifier>Vertice_AuckMuse_Penguin_02Decim.obj</identifier>
+			<creator>Auckland Museum</creator>
+			<created>2016/07/01</created>
+			<extent>
+			</extent>
+		</structural>
+		<relatedAssets>
+			<MeshLocation>/VerticeArchive/Penguin/Vertice_AuckMuse_Penguin_02Decim.obj</MeshLocation>
+			<TexLocation>/VerticeArchive/Penguin/Vertice_AuckMuse_Penguin_02Decim.jpg</TexLocation>
+			<ContextMedia>
+				<MediaName>100948</MediaName>
+				<MediaType>Image</MediaType>
+				<MediaLocation>/VerticeArchive/Penguin/Penguin_Context/100948.jpg</MediaLocation>
+			</ContextMedia>
+		</relatedAssets>
+	</artefact>
+	<artefact id="Tarantula">
+		<descriptive>
+			<title>King Baboon Tarantula</title>
+			<title>Pelinobius muticus</title>
+			<creator>Auckland Museum</creator>
+			<date>2016/07/01</date>
+			<description>The king baboon spider, scientific name , is a tarantula species native to East Africa. The king baboon spider can grow up to 20 cm in leg span. 
       It is a slow-growing species. The spider is often rusty brown or orange in colour. 
       As a burrowing species, the back legs are very thick and used for digging burrows.</description>
-    </descriptive>
-    <structural>
-      <identifier>Vertice_AuckMuse_Tarantula_02Decim.obj</identifier>
-      <creator>Auckland Museum</creator>
-      <created>2016/07/01</created>
-      <extent></extent>
-    </structural>
-    <relatedAssets>
-      <MeshLocation>/VerticeArchive/Tarantula/Vertice_AuckMuse_Tarantula_02Decim.obj</MeshLocation>
-      <TexLocation>/VerticeArchive/Tarantula/Vertice_AuckMuse_Tarantula_02Decim.jpg</TexLocation>
-    </relatedAssets>
-  </artefact>
-  
-  <artefact id="AMNZ21862">
-    <descriptive>
-      <title>Giant weta</title>
-      <title>Colenso's Giant Weta</title>
-      <title>Wëtäpunga</title>
-      <title>Hemideina Gigantea</title>
-      <creator>Auckland Museum</creator>
-      <date>1839/01/01</date>
-      <description>Wētāpunga are very large insects, unique to New Zealand. When fully grown they can even be heavier than a mouse or sparrow.
+		</descriptive>
+		<structural>
+			<identifier>Vertice_AuckMuse_Tarantula_02Decim.obj</identifier>
+			<creator>Auckland Museum</creator>
+			<created>2016/07/01</created>
+			<extent>
+			</extent>
+		</structural>
+		<relatedAssets>
+			<MeshLocation>/VerticeArchive/Tarantula/Vertice_AuckMuse_Tarantula_02Decim.obj</MeshLocation>
+			<TexLocation>/VerticeArchive/Tarantula/Vertice_AuckMuse_Tarantula_02Decim.jpg</TexLocation>
+		</relatedAssets>
+	</artefact>
+	<artefact id="AMNZ21862">
+		<descriptive>
+			<title>Giant weta</title>
+			<title>Colenso's Giant Weta</title>
+			<title>Wëtäpunga</title>
+			<title>Hemideina Gigantea</title>
+			<creator>Auckland Museum</creator>
+			<date>1839/01/01</date>
+			<description>Wētāpunga are very large insects, unique to New Zealand. When fully grown they can even be heavier than a mouse or sparrow.
 During the day they usually hide in dead foliage such as the drooping dead fronds of tree ferns, nīkau palms or cabbage trees. 
 At night they leave their resting places to move around in trees or on the ground.</description>
-    </descriptive>
-    <structural>
-      <identifier>Vertice_AuckMuse_Tarantula_02Decim.obj</identifier>
-      <creator>Auckland Museum</creator>
-      <created>2016/07/01</created>
-      <extent></extent>
-    </structural>
-   <relatedAssets>
-      <MeshLocation>/VerticeArchive/Weta/Vertice_AuckMuse_Weta_02Decim.obj</MeshLocation>
-      <TexLocation>/VerticeArchive/Weta/Vertice_AuckMuse_Weta_02Decim.jpg</TexLocation>
-      <ContextMedia>
-        <MediaName>49356</MediaName>
-        <MediaType>Image</MediaType>
-        <MediaLocation>/VerticeArchive/Weta/Weta_Context/49356.jpg</MediaLocation>
-      </ContextMedia>
-    </relatedAssets>
-  </artefact>
-  
-  <artefact id="LionSkull">
-    <descriptive>
-      <title>Lion Skull</title>
-      <creator>Auckland Museum</creator>
-      <date>2016/01/01</date>
-      <description>A lion skull from the Auckland Museum CITES handling collection. 
+		</descriptive>
+		<structural>
+			<identifier>Vertice_AuckMuse_Tarantula_02Decim.obj</identifier>
+			<creator>Auckland Museum</creator>
+			<created>2016/07/01</created>
+			<extent>
+			</extent>
+		</structural>
+		<relatedAssets>
+			<MeshLocation>/VerticeArchive/Weta/Vertice_AuckMuse_Weta_02Decim.obj</MeshLocation>
+			<TexLocation>/VerticeArchive/Weta/Vertice_AuckMuse_Weta_02Decim.jpg</TexLocation>
+			<ContextMedia>
+				<MediaName>49356</MediaName>
+				<MediaType>Image</MediaType>
+				<MediaLocation>/VerticeArchive/Weta/Weta_Context/49356.jpg</MediaLocation>
+			</ContextMedia>
+		</relatedAssets>
+	</artefact>
+	<artefact id="LionSkull">
+		<descriptive>
+			<title>Lion Skull</title>
+			<creator>Auckland Museum</creator>
+			<date>2016/01/01</date>
+			<description>A lion skull from the Auckland Museum CITES handling collection. 
       Sample scan testing the Artec EVA scanner.</description>
-    </descriptive>
-    <structural>
-      <identifier>Vertice_AuckMuse_LionSkull_02Decim_ML.obj</identifier>
-      <creator>Auckland Museum</creator>
-      <created>2016/01/01</created>
-      <extent></extent>
-    </structural>
-   <relatedAssets>
-      <MeshLocation>/VerticeArchive/LionSkull/Vertice_AuckMuse_LionSkull_02Decim_ML.obj</MeshLocation>
-      <TexLocation>/VerticeArchive/LionSkull/Vertice_AuckMuse_LionSkull_02Decim_ML.jpg</TexLocation>
-    </relatedAssets>
-  </artefact>
+		</descriptive>
+		<structural>
+			<identifier>Vertice_AuckMuse_LionSkull_02Decim_ML.obj</identifier>
+			<creator>Auckland Museum</creator>
+			<created>2016/01/01</created>
+			<extent>
+			</extent>
+		</structural>
+		<relatedAssets>
+			<MeshLocation>/VerticeArchive/LionSkull/Vertice_AuckMuse_LionSkull_02Decim_ML.obj</MeshLocation>
+			<TexLocation>/VerticeArchive/LionSkull/Vertice_AuckMuse_LionSkull_02Decim_ML.jpg</TexLocation>
+		</relatedAssets>
+	</artefact>
+	<artefact id="LH654">
+		<descriptive>
+			<title>Hawksbill Turtle</title>
+			<title>Honu</title>
+			<title>Eretmochelys imbricata</title>
+			<creator>Auckland Museum</creator>
+			<date>1982/01/01</date>
+			<description>A hawksbill sea turtle (Eretmochelys imbricata) from Auckland Museum’s CITES handling collection.</description>
+		</descriptive>
+		<structural>
+			<identifier>Vertice_AuckMuse_SeaTurtle_02Decim.obj</identifier>
+			<creator>Auckland Museum</creator>
+			<created>2016/02/01</created>
+			<extent>
+			</extent>
+		</structural>
+		<relatedAssets>
+			<MeshLocation>/VerticeArchive/Turtle/Vertice_AuckMuse_SeaTurtle_02Decim.obj</MeshLocation>
+			<TexLocation>/VerticeArchive/Turtle/Vertice_AuckMuse_SeaTurtle_02Decim.jpg</TexLocation>
+			<ContextMedia>
+				<MediaName>63664</MediaName>
+				<MediaType>Image</MediaType>
+				<MediaLocation>/VerticeArchive/Turtle/Turtle_Context/63664.jpg</MediaLocation>
+			</ContextMedia>
+		</relatedAssets>
+	</artefact>
+	<artefact id="AMNZ81764">
+		<descriptive>
+			<title>Pūriri Grub</title>
+			<title>Pepetuna</title>
+			<title>Aenetus virescens</title>
+			<creator>Auckland Museum</creator>
+			<date>2008/10/13</date>
+			<description>Grub of a Pūriri moth.
+According to a Ngāti Kahungunu tradition, an ancestor named Hinepeke (jumping woman) married Tūteahuru, a grandson of Tāne, god of the forest. 
+They produced a vast number of insects and lizards that dwell within the earth, on the land or stones, and in the water.
+One descendant was the pepetuna, commonly known as the pūriri moth or ghost moth (Aenetus virescens), a parasite of pūriri trees.</description>
+		</descriptive>
+		<structural>
+			<identifier>Vertice_AuckMuse_Grub_2Decim.obj</identifier>
+			<creator>Auckland Museum</creator>
+			<created>2016/02/01</created>
+			<extent>
+			</extent>
+		</structural>
+		<relatedAssets>
+			<MeshLocation>/VerticeArchive/Grub/Vertice_AuckMuse_Grub_2Decim.obj</MeshLocation>
+			<TexLocation>/VerticeArchive/Grub/Vertice_AuckMuse_Grub_2Decim.jpg</TexLocation>
+			<ContextMedia>
+				<MediaName>120133</MediaName>
+				<MediaType>Image</MediaType>
+				<MediaLocation>/VerticeArchive/Grub/Grub_Context/120133.jpg</MediaLocation>
+			</ContextMedia>
+		</relatedAssets>
+	</artefact>
+	<artefact id="42.25.12">
+		<descriptive>
+			<title>Head of a Bodhisattva</title>
+			<title>唐 天龍山第21窟 彩繪石雕菩薩頭像（砂岩）</title>
+			<creator>The Metropolitan Museum of Art</creator>
+			<contributor>Abby Aldrich Rockefeller</contributor>
+			<date>710/01/01</date>
+			<description>This head once belonged to an attendant bodhisattva, which had been carved into the back wall of Cave 21 at Tianlongshan, a small complex consisting of twenty-four cave shrines and a wooden temple. 
+      Located about twenty-five miles southwest of Taiyuan, in Shanxi province, Tianlongshan opened in the mid-sixth century and was revived in the early eighth century. 
+      The history of the site is recorded on a large stone stele, erected in 706 by a General Xun and his wife, who were visiting the site at that time.</description>
+		</descriptive>
+		<structural>
+			<identifier>Vertice_MetCollect_BodhisattvaHead_2Decim.obj</identifier>
+			<creator>The Metropolitan Museum of Art</creator>
+			<created>2012/06/02</created>
+			<extent>
+			</extent>
+		</structural>
+		<relatedAssets>
+			<MeshLocation>/VerticeArchive/BodhisattvaHead/Vertice_MetCollect_BodhisattvaHead_2Decim.obj</MeshLocation>
+			<TexLocation>/VerticeArchive/BodhisattvaHead/Vertice_MetCollect_BodhisattvaHead_2Decim.jpg</TexLocation>
+			<ContextMedia>
+				<MediaName>120133</MediaName>
+				<MediaType>Image</MediaType>
+				<MediaLocation>/VerticeArchive/BodhisattvaHead/BodhisattvaHead_Context/DP170147.jpg</MediaLocation>
+			</ContextMedia>
+		</relatedAssets>
+	</artefact>
+	<artefact id="1978.412.859">
+		<descriptive>
+			<title>Head for Yam ceremony</title>
+			<title>Yena</title>
+			<creator>The Metropolitan Museum of Art</creator>
+			<contributor>Nelson A. Rockefeller</contributor>
+			<date>1800/01/01</date>
+			<description>The Kwoma, Nukuma, and Yasyin-Mayo peoples of the Washkuk Hills region north of the upper Sepik River share a distinctive artistic tradition centered on an annual sequence of ceremonies devoted to the cultivation of yams. 
+      A supernaturally powerful food, yams cannot be eaten until the spirits responsible for their growth have been appropriately honored. Following the yam harvest, the spirits are celebrated in a sequence of three ceremonies, yena, mindja, and noukwi. 
+      Each ceremony requires the creation of a specific type of figure. 
+In the first two rituals, yena and mindja, the figures are lavishly adorned and displayed atop a large basket-like structure containing part of the yam crop. 
+The yena rites generally involve the display of wood heads with neck-like stalks. However, in some cases, ceramic yena heads such as the present work are also used. 
+The mindja ceremony involves plank-like figures with yena-like faces and bodies adorned with diamond-shaped motifs representing banana leaves and undulating forms depicting the coils of snakes. 
+The final ceremony, noukwi, restricted to senior initiated men, involves the display of female figures.
+</description>
+		</descriptive>
+		<structural>
+			<identifier>Vertice_MetCollect_YamHead_2Decim.obj</identifier>
+			<creator>The Metropolitan Museum of Art</creator>
+			<created>2012/06/02</created>
+			<extent>
+			</extent>
+		</structural>
+		<relatedAssets>
+			<MeshLocation>/VerticeArchive/YamHead/Vertice_MetCollect_YamHead_2Decim.obj</MeshLocation>
+			<TexLocation>/VerticeArchive/YamHead/Vertice_MetCollect_YamHead_2Decim.jpg</TexLocation>
+			<ContextMedia>
+				<MediaName>DP145469	</MediaName>
+				<MediaType>Image</MediaType>
+				<MediaLocation>/VerticeArchive/YamHead/YamHead_Context/DP145469.jpg</MediaLocation>
+			</ContextMedia>
+		</relatedAssets>
+	</artefact>
+	<artefact id="1988.160">
+		<descriptive>
+			<title>The Goddess Durga Victorious over the Buffalo Demon, Mahisha </title>
+			<title>Mahishasuramardini</title>
+			<creator>The Metropolitan Museum of Art</creator>
+			<contributor>Mr. and Mrs. Donald Bruckmann</contributor>
+			<date>800/01/01</date>
+			<description>Representations of the goddess Durga killing the buffalo demon are celebrated throughout India. 
+      Transmitted to Southeast Asia, the theme appears in Indonesian art and in the early sculpture of Thailand and Cambodia. 
+      When the gods were defeated by the lord of the demons, Mahisha, they pleaded with Durga, the incarnation of female energy, to defend the universe. 
+      Having been given a weapon by each of the gods and thus possessing all of their powers, she defeated first the demon's armies and then Mahisha himself, who had taken the form of a buffalo.
+In this sculpture, Durga stands on the corpse of the vanquished beast. The demon, having already left it, kneels behind its head and prays to the goddess for mercy. 
+Despite the loss of the heads of Durga and the demon and the partial restoration of the breasts, this unusually large sculpture remains one of the most imposing images of this theme.
+</description>
+		</descriptive>
+		<structural>
+			<identifier>Durga_cleaned.obj</identifier>
+			<creator>The Metropolitan Museum of Art</creator>
+			<created>2012/06/02</created>
+			<extent>
+			</extent>
+		</structural>
+		<relatedAssets>
+			<MeshLocation>/VerticeArchive/Durga/Durga_cleaned.obj</MeshLocation>
+			<TexLocation>/VerticeArchive/Durga/Durga_cleaned.jpg</TexLocation>
+			<ContextMedia>
+				<MediaName>1988_160</MediaName>
+				<MediaType>Image</MediaType>
+				<MediaLocation>/VerticeArchive/Durga/Durga_Context/1988_160.jpg</MediaLocation>
+			</ContextMedia>
+		</relatedAssets>
+	</artefact>
+	<artefact id="1979.406">
+		<descriptive>
+			<title>Guardian Lion</title>
+			<creator>The Metropolitan Museum of Art</creator>
+			<contributor>Fletcher Fund</contributor>
+			<date>1000/01/01</date>
+			<description>Guardian lions flanked the main approaches to the sanctuary of most Khmer temples and were also placed along the stairways and on terraces. 
+      The lion, representing royalty, strength, and courage, was the personal symbol of the Khmer kings, who were believed to be gods as well. 
+      Therefore, the lion as guardian of the sacred precinct suggested the ability to ward off evil through both divine and royal protection.
+</description>
+		</descriptive>
+		<structural>
+			<identifier>GuardianLion_Cleaned.obj</identifier>
+			<creator>The Metropolitan Museum of Art</creator>
+			<created>2012/06/01</created>
+			<extent>
+			</extent>
+		</structural>
+		<relatedAssets>
+			<MeshLocation>/VerticeArchive/GuardianLion/GuardianLion_Cleaned.obj</MeshLocation>
+			<TexLocation>/VerticeArchive/GuardianLion/GuardianLion_Cleaned.jpg</TexLocation>
+			<ContextMedia>
+				<MediaName>1979_406</MediaName>
+				<MediaType>Image</MediaType>
+				<MediaLocation>/VerticeArchive/GuardianLion/GuardianLion_Context/1979_406.jpg</MediaLocation>
+			</ContextMedia>
+		</relatedAssets>
+	</artefact>
+	<artefact id="1979.406">
+		<descriptive>
+			<title>Guardian Lion</title>
+			<creator>The Metropolitan Museum of Art</creator>
+			<contributor>Fletcher Fund</contributor>
+			<date>1000/01/01</date>
+			<description>Guardian lions flanked the main approaches to the sanctuary of most Khmer temples and were also placed along the stairways and on terraces. 
+      The lion, representing royalty, strength, and courage, was the personal symbol of the Khmer kings, who were believed to be gods as well. 
+      Therefore, the lion as guardian of the sacred precinct suggested the ability to ward off evil through both divine and royal protection.
+	</description>
+		</descriptive>
+		<structural>
+			<identifier>GuardianLion_Cleaned.obj</identifier>
+			<creator>The Metropolitan Museum of Art</creator>
+			<created>2012/06/01</created>
+			<extent>
+			</extent>
+		</structural>
+		<relatedAssets>
+			<MeshLocation>/VerticeArchive/GuardianLion/GuardianLion_Cleaned.obj</MeshLocation>
+			<TexLocation>/VerticeArchive/GuardianLion/GuardianLion_Cleaned.jpg</TexLocation>
+			<ContextMedia>
+				<MediaName>1979_406</MediaName>
+				<MediaType>Image</MediaType>
+				<MediaLocation>/VerticeArchive/GuardianLion/GuardianLion_Context/1979_406.jpg</MediaLocation>
+			</ContextMedia>
+		</relatedAssets>
+	</artefact>
+	<artefact id="1987.418.1">
+		<descriptive>
+			<title>Bust of a Female Deity</title>
+			<creator>The Metropolitan Museum of Art</creator>
+			<contributor>Mr. and Mrs. Perry J. Lewis</contributor>
+			<date>900/01/01</date>
+			<description>
+			</description>
+		</descriptive>
+		<structural>
+			<identifier>bustofafemaledeity_cleaned.obj</identifier>
+			<creator>The Metropolitan Museum of Art</creator>
+			<created>2012/06/04</created>
+			<extent>
+			</extent>
+		</structural>
+		<relatedAssets>
+			<MeshLocation>/VerticeArchive/FemaleDeity/bustofafemaledeity_cleaned.obj</MeshLocation>
+			<TexLocation>/VerticeArchive/FemaleDeity/bustofafemaledeity_cleaned.jpg</TexLocation>
+			<ContextMedia>
+				<MediaName>1987_418_1</MediaName>
+				<MediaType>Image</MediaType>
+				<MediaLocation>/VerticeArchive/FemaleDeity/FemaleDeity_Context/1987_418_1.jpg</MediaLocation>
+			</ContextMedia>
+		</relatedAssets>
+	</artefact>
+	<artefact id="1970.1">
+		<descriptive>
+			<title>Reclining Naiad</title>
+			<creator>The Metropolitan Museum of Art</creator>
+			<contributor>Antonio Canova</contributor>
+			<contributor>Mrs. Joseph A. Neff</contributor>
+			<date>1819/01/01</date>
+			<description>
+			</description>
+		</descriptive>
+		<structural>
+			<identifier>Vertice_MetCollect_RecliningNaiad_2Decim.obj</identifier>
+			<creator>The Metropolitan Museum of Art</creator>
+			<created>2012/06/01</created>
+			<extent>
+			</extent>
+		</structural>
+		<relatedAssets>
+			<MeshLocation>/VerticeArchive/RecliningNaiad/Vertice_MetCollect_RecliningNaiad_2Decim.obj</MeshLocation>
+			<TexLocation>/VerticeArchive/RecliningNaiad/Vertice_MetCollect_RecliningNaiad_2Decim.jpg</TexLocation>
+			<ContextMedia>
+				<MediaName>DP-960-01</MediaName>
+				<MediaType>Image</MediaType>
+				<MediaLocation>/VerticeArchive/RecliningNaiad/RecliningNaiad_Context/DP-960-01.jpg</MediaLocation>
+			</ContextMedia>
+		</relatedAssets>
+	</artefact>
+	<artefact id="1975.93">
+		<descriptive>
+			<title>Slit Gong</title>
+			<title>Atingting kon</title>
+			<creator>The Metropolitan Museum of Art</creator>
+			<contributor>Tin Mweleun (artist)</contributor>
+			<contributor>Rogers Fund</contributor>
+			<date>1960/01/01</date>
+			<description>
+			</description>
+		</descriptive>
+		<structural>
+			<identifier>Vertice_MetCollect_SlitGong_cleaned.obj</identifier>
+			<creator>The Metropolitan Museum of Art</creator>
+			<created>2012/06/02</created>
+			<extent>
+			</extent>
+		</structural>
+		<relatedAssets>
+			<MeshLocation>/VerticeArchive/SlitGong/Vertice_MetCollect_SlitGong_cleaned.obj</MeshLocation>
+			<TexLocation>/VerticeArchive/SlitGong/Vertice_MetCollect_SlitGong_cleaned.jpg</TexLocation>
+			<ContextMedia>
+				<MediaName>DP294850</MediaName>
+				<MediaType>Image</MediaType>
+				<MediaLocation>/VerticeArchive/SlitGong/SlitGong_Context/DP294850.jpg</MediaLocation>
+			</ContextMedia>
+		</relatedAssets>
+	</artefact>
+	<artefact id="2001.422">
+		<descriptive>
+			<title>Head of a Buddha</title>
+			<creator>The Metropolitan Museum of Art</creator>
+			<contributor>Vincent Astor Foundation</contributor>
+			<date>550/01/01</date>
+			<description>The subtle fleshiness of the cheeks, thin nose ridge, and elegant curve of the eyebrows and eyelids are characteristic of sculpture produced in Shandong province, in northeast China, during the second half of the sixth century. 
+			Identification of this school of Chinese Buddhist sculpture is based on recent, spectacular archaeological discoveries at sites such as Qingzhou.
+			</description>
+		</descriptive>
+		<structural>
+			<identifier>Vertice_MetCollect_HeadOfABuddha_2Decim.obj</identifier>
+			<creator>The Metropolitan Museum of Art</creator>
+			<created>2012/06/03</created>
+			<extent>
+			</extent>
+		</structural>
+		<relatedAssets>
+			<MeshLocation>/VerticeArchive/HeadofBuddha/Vertice_MetCollect_HeadOfABuddha_2Decim.obj</MeshLocation>
+			<TexLocation>/VerticeArchive/HeadofBuddha/Vertice_MetCollect_HeadOfABuddha_2Decim.jpg</TexLocation>
+			<ContextMedia>
+				<MediaName>DP170247</MediaName>
+				<MediaType>Image</MediaType>
+				<MediaLocation>/VerticeArchive/HeadofBuddha/HeadofBuddha_Context/DP170247.jpg</MediaLocation>
+			</ContextMedia>
+		</relatedAssets>
+	</artefact>
+	<artefact id="2001.422">
+		<descriptive>
+			<title>Head of a Buddha</title>
+			<creator>The Metropolitan Museum of Art</creator>
+			<contributor>Vincent Astor Foundation</contributor>
+			<date>300/01/01</date>
+			<description>The subtle fleshiness of the cheeks, thin nose ridge, and elegant curve of the eyebrows and eyelids are characteristic of sculpture produced in Shandong province, in northeast China, during the second half of the sixth century. 
+			Identification of this school of Chinese Buddhist sculpture is based on recent, spectacular archaeological discoveries at sites such as Qingzhou.
+			</description>
+		</descriptive>
+		<structural>
+			<identifier>Vertice_MetCollect_HeadOfABuddha_2Decim.obj</identifier>
+			<creator>The Metropolitan Museum of Art</creator>
+			<created>2012/06/03</created>
+			<extent>
+			</extent>
+		</structural>
+		<relatedAssets>
+			<MeshLocation>/VerticeArchive/HeadofBuddha/Vertice_MetCollect_HeadOfABuddha_2Decim.obj</MeshLocation>
+			<TexLocation>/VerticeArchive/HeadofBuddha/Vertice_MetCollect_HeadOfABuddha_2Decim.jpg</TexLocation>
+			<ContextMedia>
+				<MediaName>DP170247</MediaName>
+				<MediaType>Image</MediaType>
+				<MediaLocation>/VerticeArchive/HeadofBuddha/HeadofBuddha_Context/DP170247.jpg</MediaLocation>
+			</ContextMedia>
+		</relatedAssets>
+	</artefact>
+	<artefact id="28.105">
+		<descriptive>
+			<title>The Great Departure and the Temptation of the Buddha</title>
+			<creator>The Metropolitan Museum of Art</creator>
+			<contributor>Fletcher Fund</contributor>
+			<date>550/01/01</date>
+			<description>The lower scene shows Siddhartha on horseback leaving his father's palace in order to seek enlightenment. 
+			A groom leads the horse, whose hoofs are supported by ganas (semi-divine dwarves), so the people of the palace will not be awakened. 
+			The other figures are divine beings that have come to witness his departure from the material world. Above, the Buddha's enlightenment at Bodhgaya is shown. 
+			The evil god Mara attempts to thwart Siddhartha first by sending his beautiful daughters to tempt him and then by attacking the Buddha with his army of demons, here shown as ganas brandishing weapons and riding an elephant.</description>
+		</descriptive>
+		<structural>
+			<identifier>Vertice_MetCollect_GreatDeparture_2Decim.obj</identifier>
+			<creator>The Metropolitan Museum of Art</creator>
+			<created>2012/06/26</created>
+			<extent>
+			</extent>
+		</structural>
+		<relatedAssets>
+			<MeshLocation>/VerticeArchive/GreatDeparture/Vertice_MetCollect_GreatDeparture_2Decim.obj</MeshLocation>
+			<TexLocation>/VerticeArchive/GreatDeparture/Vertice_MetCollect_GreatDeparture_2Decim.jpg</TexLocation>
+			<ContextMedia>
+				<MediaName>ASA390</MediaName>
+				<MediaType>Image</MediaType>
+				<MediaLocation>/VerticeArchive/GreatDeparture/GreatDeparture_Context/ASA390.jpg</MediaLocation>
+			</ContextMedia>
+		</relatedAssets>
+	</artefact>
+	<artefact id="1992.390.1">
+		<descriptive>
+			<title>Kneeling Male Attendant</title>
+			<creator>The Metropolitan Museum of Art</creator>
+			<contributor>Douglas Latchford</contributor>
+			<date>921/01/01</date>
+			<description>
+			</description>
+		</descriptive>
+		<structural>
+			<identifier>Vertice_MetCollect_KneelingAttendant_2Decim.obj</identifier>
+			<creator>The Metropolitan Museum of Art</creator>
+			<created>2012/06/06</created>
+			<extent>
+			</extent>
+		</structural>
+		<relatedAssets>
+			<MeshLocation>/VerticeArchive/KneelingAttendant/Vertice_MetCollect_KneelingAttendant_2Decim.obj</MeshLocation>
+			<TexLocation>/VerticeArchive/KneelingAttendant/Vertice_MetCollect_KneelingAttendant_2Decim.jpg</TexLocation>
+		</relatedAssets>
+	</artefact>
 
-  <artefact id="TestMonk">
-    <descriptive>
-      <title>Test Monk</title>
-      <title>Doog</title>
-      <description>Model for testing Vertice Archive connection</description>
-      <creator>Blender Org</creator>
-      <date>2016/04/13</date>
-    </descriptive>
-    <structural>
-      <creator>Ryan Achten</creator>
-      <created>2016/04/13</created>
-      <description>Created in Blender</description>
-      <identifier>Doog.obj</identifier>
-      <extent>1.5 scale</extent>
-    </structural>
 
-    <relatedAssets>
-      <MeshLocation>/VerticeArchive/TEST/Doog.obj</MeshLocation>
-      <TexLocation>/VerticeArchive/TEST/Doog_Tex.jpg</TexLocation>
-      <ContextMedia>
-        <MediaName>MetaPipe_TestTexs_1000</MediaName>
-        <MediaType>Image</MediaType>
-        <MediaLocation>/VerticeArchive/TEST/TestTexs_1000.jpg</MediaLocation>
-      </ContextMedia>
-      <ContextMedia>
-        <MediaName>WorldACoke</MediaName>
-        <MediaType>Video</MediaType>
-        <MediaLocation>/VerticeArchive/TEST/WorldACoke.ogg</MediaLocation>
-      </ContextMedia>
-      <ContextMedia>
-        <MediaName>MetaPipe_TestTexs_2000W</MediaName>
-        <MediaType>Image</MediaType>
-        <MediaLocation>/VerticeArchive/TEST/TestTexs_2000W.jpg</MediaLocation>
-      </ContextMedia>
-    </relatedAssets>
-  </artefact>
+	<artefact id="2007.215.2">
+		<descriptive>
+			<title>Funerary Carving</title>
+			<title>Malagan</title>
+			<creator>The Metropolitan Museum of Art</creator>
+			<contributor>Muriel Kallis Newman</contributor>
+			<date>1900/01/01</date>
+			<description>The ephemeral malagan carvings of northern New Ireland, the northeasternmost province of Papua New Guinea, are among the most intricate sculptures in Oceania. 
+			The term malagan refers to a complex series of ceremonies and the visual art forms associated with them. 
+			Malagan rites mark nearly all important stages of an individual's life. Possession of rights, similar to copyrights, to specific malagan images and the rituals associated with them confers status and prestige. 
+			Men, in particular, compete to obtain rights to the greatest number of malagan.
 
-  <artefact id="NoAssets">
-    <descriptive>
-      <title>No Assets</title>
-      <description>Contrived to support DublinCoreReader test case</description>
-    </descriptive>
-    <structural>
-    </structural>
-
-    <relatedAssets>
-    </relatedAssets>
-  </artefact>
+The most spectacular malagan carvings, including the type seen here, are created and displayed during the final memorial ceremony honoring the deceased, which, due to the great expense and extensive preparations involved, often occurs months or years after a person's death. 
+The carvings constitute a visual résumé of the deceased's achievements in obtaining malagan rites. 
+The human and animal images in the malagan—here a human figure surrounded by a group of flying fish—depict supernatural beings associated with specific clans. 
+Each of the figures and other elements represents a different manifestation of the single life-giving force that sustains the clan. 
+Performance of the final malagan rites frees the living from their obligations to the dead. Afterward, the carvings, having served their purpose, are either destroyed, allowed to rot, or sold to outsiders.
+			</description>
+		</descriptive>
+		<structural>
+			<identifier>Vertice_MetCollect_FuneraryCarving_2Decim.obj</identifier>
+			<creator>The Metropolitan Museum of Art</creator>
+			<created>2012/06/02</created>
+			<extent>
+			</extent>
+		</structural>
+		<relatedAssets>
+			<MeshLocation>/VerticeArchive/FuneraryCarving/Vertice_MetCollect_FuneraryCarving_2Decim.obj</MeshLocation>
+			<TexLocation>/VerticeArchive/FuneraryCarving/Vertice_MetCollect_FuneraryCarving_2Decim.jpg</TexLocation>
+			<ContextMedia>
+				<MediaName>DP148686</MediaName>
+				<MediaType>Image</MediaType>
+				<MediaLocation>/VerticeArchive/FuneraryCarving/FuneraryCarving_Context/DP148686.jpg</MediaLocation>
+			</ContextMedia>
+		</relatedAssets>
+	</artefact>
+	<artefact id="TestMonk">
+		<descriptive>
+			<title>Test Monk</title>
+			<title>Doog</title>
+			<description>Model for testing Vertice Archive connection</description>
+			<creator>Blender Org</creator>
+			<date>2016/04/13</date>
+		</descriptive>
+		<structural>
+			<creator>Ryan Achten</creator>
+			<created>2016/04/13</created>
+			<description>Created in Blender</description>
+			<identifier>Doog.obj</identifier>
+			<extent>1.5 scale</extent>
+		</structural>
+		<relatedAssets>
+			<MeshLocation>/VerticeArchive/TEST/Doog.obj</MeshLocation>
+			<TexLocation>/VerticeArchive/TEST/Doog_Tex.jpg</TexLocation>
+			<ContextMedia>
+				<MediaName>MetaPipe_TestTexs_1000</MediaName>
+				<MediaType>Image</MediaType>
+				<MediaLocation>/VerticeArchive/TEST/TestTexs_1000.jpg</MediaLocation>
+			</ContextMedia>
+			<ContextMedia>
+				<MediaName>WorldACoke</MediaName>
+				<MediaType>Video</MediaType>
+				<MediaLocation>/VerticeArchive/TEST/WorldACoke.ogg</MediaLocation>
+			</ContextMedia>
+			<ContextMedia>
+				<MediaName>MetaPipe_TestTexs_2000W</MediaName>
+				<MediaType>Image</MediaType>
+				<MediaLocation>/VerticeArchive/TEST/TestTexs_2000W.jpg</MediaLocation>
+			</ContextMedia>
+		</relatedAssets>
+	</artefact>
+	<artefact id="NoAssets">
+		<descriptive>
+			<title>No Assets</title>
+			<description>Contrived to support DublinCoreReader test case</description>
+		</descriptive>
+		<structural>
+		</structural>
+		<relatedAssets>
+		</relatedAssets>
+	</artefact>
 </verticeMetadata>

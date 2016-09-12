@@ -42,23 +42,11 @@ public class Cam_RayDetect : MonoBehaviour {
 				contextInfoPanel.SetActive(true);
 				ContextInfoCont.LoadData(artefactIdentifier);
 			}
+		} else //if not an artefact
+		{
+			previousIdentifier = null;
+			if (contextInfoPanel.activeSelf)
+				contextInfoPanel.SetActive(false);
 		}
 	}
-
-
-	/*
-
-	else if (foundHit) //if the ray hits a valid object
-	{
-		curObjName = hit.transform.name;
-		curObj = hit.transform.gameObject;	
-	
-		if (!selectPanelActive)// if panel is not active
-		{
-			activateSelectPanel();
-			selectPanelActive = true;
-		}		
-	}	
-}
-	*/
 }
