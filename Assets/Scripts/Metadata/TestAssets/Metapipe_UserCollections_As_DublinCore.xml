@@ -1,10 +1,13 @@
 <verticeCollections>
-  <verticeCollection id="Photogrammetry Test Scans">
+  <verticeCollection id="P14C3H01D3R-01">
     <descriptive>
       <title>Photogrammetry Test Scans</title>
       <creator>Ryan Achten</creator>
       <date>29/11/2015</date>
       <description>A museum is distinguished by a collection of often unique objects that forms the core of its activities for exhibitions, education, research, etc.</description>
+      <subject>Photogrammetry</subject>
+      <coverage>Evan's Bay</coverage>
+      <coverage>Basin Reserve</coverage>
     </descriptive>
     <structural>
       <artefact id="Evans Bay Wharf">
@@ -104,9 +107,11 @@
       </artefact>
     </structural>
   </verticeCollection>
-  <verticeCollection id="War Memorial Scans">
+  <verticeCollection id="P14C3H01D3R-02">
     <descriptive>
+      <title>War Memorial Scans</title>
       <date>29/05/2016</date>
+      <subject>World War 1</subject>
     </descriptive>
     <structural>
       <artefact id="WarMem Lion Statue">
@@ -149,9 +154,12 @@
       </artefact>
     </structural>
   </verticeCollection>
-  <verticeCollection id="Basin Reserve Scans">
+  <verticeCollection id="P14C3H01D3R-03">
     <descriptive>
+      <title>Basin Reserve Scans</title>
       <date>29/05/2016</date>
+      <subject>Cricket</subject>
+      <subject>Stadium Architecture</subject>
     </decriptive>
     <structural>
       <artefact id="Cricket Monument">
@@ -194,9 +202,11 @@
       </artefact>
     </structural>
   </verticeCollection>
-  <verticeCollection id="Mt Victoria Scans">
+  <verticeCollection id="P14C3H01D3R-04">
     <descriptive>
+      <title>Mt Victoria Scans<title>
       <date>29/05/2016</date>
+      <coverage>Mt Victoria</coverage>
     </descriptive>
     <structural>
       <artefact id="Pipe Mt Vic">
@@ -258,9 +268,11 @@
       </artefact>
     </structural>
   </verticeCollection>
-  <verticeCollection id="Evan's Bay Scans">
+  <verticeCollection id="P14C3H01D3R-05">
     <descriptive>
+      <title>Evan's Bay Scans</title>
       <date>29/05/2016</date>
+      <coverage>Evan's Bay</coverage>
     </descriptive>
     <structural>
       <artefact id="Cog Wheel Evans Bay">
@@ -417,8 +429,9 @@
       </artefact>
     </structural>
   </verticeCollection>
-  <verticeCollection id="Test">
+  <verticeCollection id="P14C3H01D3R-06">
     <descriptive>
+      <title>Test</title>
       <date>21/05/2016</date>
     </descriptive>
     <artefact id="TestMonk">
