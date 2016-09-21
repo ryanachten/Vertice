@@ -1,5 +1,5 @@
 <verticeCollections>
-  <verticeCollection id="P14C3H01D3R-01">
+  <verticeCollection id="P14C3H01D3R-00">
     <descriptive>
       <title>Photogrammetry Test Scans</title>
       <creator>Ryan Achten</creator>
@@ -18,9 +18,10 @@
             <z>184.2516</z>
           </position>
           <rotation>
-            <x>2.871543E-07</x>
-            <y>-7.172732E-06</y>
-            <z>2.647873E-07</z>
+            <x>1.0</x>
+            <y>1.0</y>
+            <z>1.0</z>
+            <w>1.0</w>
           </rotation>
           <scale>
             <x>1</x>
@@ -107,7 +108,7 @@
       </artefact>
     </structural>
   </verticeCollection>
-  <verticeCollection id="P14C3H01D3R-02">
+  <verticeCollection id="P14C3H01D3R-01">
     <descriptive>
       <title>War Memorial Scans</title>
       <date>29/05/2016</date>
@@ -154,7 +155,7 @@
       </artefact>
     </structural>
   </verticeCollection>
-  <verticeCollection id="P14C3H01D3R-03">
+  <verticeCollection id="P14C3H01D3R-02">
     <descriptive>
       <title>Basin Reserve Scans</title>
       <date>29/05/2016</date>
@@ -202,7 +203,7 @@
       </artefact>
     </structural>
   </verticeCollection>
-  <verticeCollection id="P14C3H01D3R-04">
+  <verticeCollection id="P14C3H01D3R-03">
     <descriptive>
       <title>Mt Victoria Scans</title>
       <date>29/05/2016</date>
@@ -268,7 +269,7 @@
       </artefact>
     </structural>
   </verticeCollection>
-  <verticeCollection id="P14C3H01D3R-05">
+  <verticeCollection id="P14C3H01D3R-04">
     <descriptive>
       <title>Evan's Bay Scans</title>
       <date>29/05/2016</date>
@@ -429,7 +430,7 @@
       </artefact>
     </structural>
   </verticeCollection>
-  <verticeCollection id="P14C3H01D3R-06">
+  <verticeCollection id="P14C3H01D3R-05">
     <descriptive>
       <title>Test</title>
       <date>21/05/2016</date>
