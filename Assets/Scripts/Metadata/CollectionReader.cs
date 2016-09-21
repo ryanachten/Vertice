@@ -52,7 +52,14 @@ public static class CollectionReader {
 	}
 
 	public static string[] GetIdentifiersForCollections() {
-		return null;
+		XmlNodeList collections = Xml().SelectNodes("//verticeCollection/@id");
+		string[] collectionIdentifiers = new string[collections.Count];
+
+		for (int i = 0; i < collections.Count; i++) {
+			collectionIdentifiers [i] = collections [i].InnerXml;
+		}
+
+		return collectionIdentifiers;
 	}
 
 	public static Dictionary<string, Dictionary<string, string[]>> GetCollectionMetadataWithIdentifier(string collectionIdentifier){
