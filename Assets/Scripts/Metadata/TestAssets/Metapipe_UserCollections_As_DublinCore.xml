@@ -1,0 +1,444 @@
+<verticeCollections>
+  <verticeCollection id="Photogrammetry Test Scans">
+    <descriptive>
+      <title>Photogrammetry Test Scans</title>
+      <creator>Ryan Achten</creator>
+      <date>29/11/2015</date>
+      <description>A museum is distinguished by a collection of often unique objects that forms the core of its activities for exhibitions, education, research, etc.</description>
+    </descriptive>
+    <structural>
+      <artefact id="Evans Bay Wharf">
+        <transform>
+          <position>
+            <x>40.01599</x>
+            <y>-11.58916</y>
+            <z>184.2516</z>
+          </position>
+          <rotation>
+            <x>2.871543E-07</x>
+            <y>-7.172732E-06</y>
+            <z>2.647873E-07</z>
+          </rotation>
+          <scale>
+            <x>1</x>
+            <y>1</y>
+            <z>1</z>
+          </scale>
+        </transform>
+      </artefact>
+      <artefact id="Cog Wheel Evans Bay">
+        <transform>
+          <position>
+            <x>-61.25173</x>
+            <y>-12.86976</y>
+            <z>39.5129</z>
+          </position>
+          <rotation>
+            <x>-0.001511671</x>
+            <y>0.04385883</y>
+            <z>0.01296486</z>
+          </rotation>
+          <scale>
+            <x>1</x>
+            <y>1</y>
+            <z>1</z>
+          </scale>
+        </transform>
+      </artefact>
+      <artefact id="Evans Boat House">
+        <transform>
+          <position>
+            <x>-65.33916</x>
+            <y>-8.744591</y>
+            <z>126.5536</z>
+          </position>
+          <rotation>
+            <x>-0.005366722</x>
+            <y>0.7899417</y>
+            <z>0.006911641</z>
+          </rotation>
+          <scale>
+            <x>1</x>
+            <y>1</y>
+            <z>1</z>
+          </scale>
+        </transform>
+      </artefact>
+      <artefact id="Cricket Monument">
+        <transform>
+          <position>
+            <x>61.16817</x>
+            <y>-8.586862</y>
+            <z>44.03521</z>
+          </position>
+          <rotation>
+            <x>0.002390777</x>
+            <y>0.9999844</y>
+            <z>-0.003106454</z>
+          </rotation>
+          <scale>
+            <x>1</x>
+            <y>1</y>
+            <z>1</z>
+          </scale>
+        </transform>
+      </artefact>
+      <artefact id="Doll Head">
+        <transform>
+          <position>
+            <x>1.921084</x>
+            <y>-13.04464</y>
+            <z>158.9712</z>
+          </position>
+          <rotation>
+            <x>0.02416938</x>
+            <y>-0.002134346</y>
+            <z>3.243667E-06</z>
+          </rotation>
+          <scale>
+            <x>1</x>
+            <y>1</y>
+            <z>1</z>
+          </scale>
+        </transform>
+      </artefact>
+    </structural>
+  </verticeCollection>
+  <verticeCollection id="War Memorial Scans">
+    <descriptive>
+      <date>29/05/2016</date>
+    </descriptive>
+    <structural>
+      <artefact id="WarMem Lion Statue">
+        <transform>
+          <position>
+            <x>-62.92326</x>
+            <y>-12.69437</y>
+            <z>173.0723</z>
+          </position>
+          <rotation>
+            <x>-0.0255452</x>
+            <y>0.2022121</y>
+            <z>0.01089142</z>
+          </rotation>
+          <scale>
+            <x>1</x>
+            <y>1</y>
+            <z>1</z>
+          </scale>
+        </transform>
+      </artefact>
+      <artefact id="Hinerangi">
+        <transform>
+          <position>
+            <x>-77.01621</x>
+            <y>-12.78019</y>
+            <z>82.59956</z>
+          </position>
+          <rotation>
+            <x>0.00447807</x>
+            <y>0.03721666</y>
+            <z>0.02007303</z>
+          </rotation>
+          <scale>
+            <x>1</x>
+            <y>1</y>
+            <z>1</z>
+          </scale>
+        </transform>
+      </artefact>
+    </structural>
+  </verticeCollection>
+  <verticeCollection id="Basin Reserve Scans">
+    <descriptive>
+      <date>29/05/2016</date>
+    </decriptive>
+    <structural>
+      <artefact id="Cricket Monument">
+        <transform>
+          <position>
+            <x />
+            <y />
+            <z />
+          </position>
+          <rotation>
+            <x />
+            <y />
+            <z />
+          </rotation>
+          <scale>
+            <x />
+            <y />
+            <z />
+          </scale>
+        </transform>
+      </artefact>
+      <artefact id="Toilets Basin Reserve">
+        <transform>
+          <position>
+            <x />
+            <y />
+            <z />
+          </position>
+          <rotation>
+            <x />
+            <y />
+            <z />
+          </rotation>
+          <scale>
+            <x />
+            <y />
+            <z />
+          </scale>
+        </transform>
+      </artefact>
+    </structural>
+  </verticeCollection>
+  <verticeCollection id="Mt Victoria Scans">
+    <descriptive>
+      <date>29/05/2016</date>
+    </descriptive>
+    <structural>
+      <artefact id="Pipe Mt Vic">
+        <transform>
+          <position>
+            <x>172.6049</x>
+            <y>-27.46213</y>
+            <z>312.9754</z>
+          </position>
+          <rotation>
+            <x>0.3410974</x>
+            <y>-0.4113913</y>
+            <z>0.8447277</z>
+          </rotation>
+          <scale>
+            <x>1</x>
+            <y>1</y>
+            <z>1</z>
+          </scale>
+        </transform>
+      </artefact>
+      <artefact id="Tree Knot Mt Vic">
+        <transform>
+          <position>
+            <x>-232.5389</x>
+            <y>-23.65247</y>
+            <z>39.77093</z>
+          </position>
+          <rotation>
+            <x>0.08001217</x>
+            <y>-0.2095843</y>
+            <z>0.1611416</z>
+          </rotation>
+          <scale>
+            <x>1</x>
+            <y>1</y>
+            <z>1</z>
+          </scale>
+        </transform>
+      </artefact>
+      <artefact id="Tree Mt Vic">
+        <transform>
+          <position>
+            <x>-107.4692</x>
+            <y>0.9972119</y>
+            <z>147.8072</z>
+          </position>
+          <rotation>
+            <x>-0.007800073</x>
+            <y>-0.001837903</y>
+            <z>-0.03607201</z>
+          </rotation>
+          <scale>
+            <x>1</x>
+            <y>1</y>
+            <z>1</z>
+          </scale>
+        </transform>
+      </artefact>
+    </structural>
+  </verticeCollection>
+  <verticeCollection id="Evan's Bay Scans">
+    <descriptive>
+      <date>29/05/2016</date>
+    </descriptive>
+    <structural>
+      <artefact id="Cog Wheel Evans Bay">
+        <transform>
+          <position>
+            <x />
+            <y />
+            <z />
+          </position>
+          <rotation>
+            <x />
+            <y />
+            <z />
+          </rotation>
+          <scale>
+            <x />
+            <y />
+            <z />
+          </scale>
+        </transform>
+      </artefact>
+      <artefact id="Evans Bay Wharf">
+        <transform>
+          <position>
+            <x />
+            <y />
+            <z />
+          </position>
+          <rotation>
+            <x />
+            <y />
+            <z />
+          </rotation>
+          <scale>
+            <x />
+            <y />
+            <z />
+          </scale>
+        </transform>
+      </artefact>
+      <artefact id="Evans Boat House">
+        <transform>
+          <position>
+            <x />
+            <y />
+            <z />
+          </position>
+          <rotation>
+            <x />
+            <y />
+            <z />
+          </rotation>
+          <scale>
+            <x />
+            <y />
+            <z />
+          </scale>
+        </transform>
+      </artefact>
+      <artefact id="Logs with graffiti">
+        <transform>
+          <position>
+            <x />
+            <y />
+            <z />
+          </position>
+          <rotation>
+            <x />
+            <y />
+            <z />
+          </rotation>
+          <scale>
+            <x />
+            <y />
+            <z />
+          </scale>
+        </transform>
+      </artefact>
+      <artefact id="Random Machine">
+        <transform>
+          <position>
+            <x />
+            <y />
+            <z />
+          </position>
+          <rotation>
+            <x />
+            <y />
+            <z />
+          </rotation>
+          <scale>
+            <x />
+            <y />
+            <z />
+          </scale>
+        </transform>
+      </artefact>
+      <artefact id="Random Machine">
+        <transform>
+          <position>
+            <x />
+            <y />
+            <z />
+          </position>
+          <rotation>
+            <x />
+            <y />
+            <z />
+          </rotation>
+          <scale>
+            <x />
+            <y />
+            <z />
+          </scale>
+        </transform>
+      </artefact>
+      <artefact id="Trees at Evans Bay">
+        <transform>
+          <position>
+            <x />
+            <y />
+            <z />
+          </position>
+          <rotation>
+            <x />
+            <y />
+            <z />
+          </rotation>
+          <scale>
+            <x />
+            <y />
+            <z />
+          </scale>
+        </transform>
+      </artefact>
+      <artefact id="Trolley at Evans Bay">
+        <transform>
+          <position>
+            <x />
+            <y />
+            <z />
+          </position>
+          <rotation>
+            <x />
+            <y />
+            <z />
+          </rotation>
+          <scale>
+            <x />
+            <y />
+            <z />
+          </scale>
+        </transform>
+      </artefact>
+    </structural>
+  </verticeCollection>
+  <verticeCollection id="Test">
+    <descriptive>
+      <date>21/05/2016</date>
+    </descriptive>
+    <artefact id="TestMonk">
+      <transform>
+        <position>
+          <x>-16.93519</x>
+          <y>-11.86442</y>
+          <z>-0.5005934</z>
+        </position>
+        <rotation>
+          <x>-0.3450647</x>
+          <y>-0.3450637</y>
+          <z>-0.6171963</z>
+        </rotation>
+        <scale>
+          <x>1</x>
+          <y>1</y>
+          <z>1</z>
+        </scale>
+      </transform>
+    </artefact>
+  </verticeCollection>
+</verticeCollections>
