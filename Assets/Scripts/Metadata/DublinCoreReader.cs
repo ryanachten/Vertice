@@ -393,11 +393,4 @@ public static class DublinCoreReader {
 		return GetIdentifiersForValuesInElement (subjects, "subject");
 	}
 
-	public static string[] BrowseByCoverage(string coverage){
-		return null;
-	}
-
-
-	// Searching code?
-	//XmlNodeList results = Xml().SelectNodes(String.Format("/verticeMetadata/artefact/descriptive/creator[starts-with(., '{0}')]/../../@id", creatorName));
 }
