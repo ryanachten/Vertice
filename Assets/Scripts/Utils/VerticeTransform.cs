@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-class VerticeTransform {
+public class VerticeTransform {
 
 	public Vector3 position;
 	public Quaternion rotation;
