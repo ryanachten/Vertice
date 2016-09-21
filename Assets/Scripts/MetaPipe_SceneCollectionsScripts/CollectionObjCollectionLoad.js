@@ -110,7 +110,15 @@ function loadCollectionObjects( listNode : XmlNode)
 
 			}
 		}
-		
+
+		// TODO This can be replaced with the new CollectionReader and VerticeTransform classes. E.g.
+
+		// Dictionary<string, Dictionary<string, float>> transformData = GetTransformForArtefactWithIdentifierInCollection(string artefactIdentifier, string collectionIdentifier)
+		// VerticeTransform transform = new VerticeTransform(transformData);
+		// curObj.transform.position = transform.position;
+		// curObj.transform.rotation = transform.roation;
+		// curObj.transform.localScale = transform.scale;
+
 		//assign placement
 		var curObjPos : Vector3 = new Vector3();
 		var existPosNode = curObjNode.SelectSingleNode("./ObjTransformInfo/ObjPosition");
@@ -129,6 +137,9 @@ function loadCollectionObjects( listNode : XmlNode)
 			var existScaleZ = existScaleNode.SelectSingleNode("./ObjScaleZ").InnerText;
 		
 		//if no model settings have been assigned
+		// TODO This functionality can be replaced by instantiating the VerticeTransform.cs class
+		// e.g VerticeTransform randomPosition = new VerticeTransform(loadPlaneMin.x, loadPlaneMax.x, loadPlaneMin.z, loadPlaneMax.z);
+		// curObj.transform.position = randomPosition.postion;
 		if (existPosX == "" && existPosY == "" && existPosY == "")
 		{
 		
