@@ -160,7 +160,7 @@
       <date>29/05/2016</date>
       <subject>Cricket</subject>
       <subject>Stadium Architecture</subject>
-    </decriptive>
+    </descriptive>
     <structural>
       <artefact id="Cricket Monument">
         <transform>
@@ -204,7 +204,7 @@
   </verticeCollection>
   <verticeCollection id="P14C3H01D3R-04">
     <descriptive>
-      <title>Mt Victoria Scans<title>
+      <title>Mt Victoria Scans</title>
       <date>29/05/2016</date>
       <coverage>Mt Victoria</coverage>
     </descriptive>
