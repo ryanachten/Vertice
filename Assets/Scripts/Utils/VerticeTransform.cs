@@ -90,7 +90,7 @@ public class VerticeTransform {
 	/// <param name="zMin">The minimum z coordinate of the plane</param>
 	/// <param name="zMax">The maximum z coordinate of the plane</param>
 	/// <param name="y">The y coordinate; defaults to 15</param>
-	public VerticeTransform(float xMin, float xMax, float zMin, float zMax, float y = 15){
+	public VerticeTransform(float xMin, float xMax, float zMin, float zMax, float y = 15.0f){
 
 		// Set position to a random point on the plane
 		position = new Vector3 (Random.Range (xMin, xMax), y, Random.Range (zMin, zMax));

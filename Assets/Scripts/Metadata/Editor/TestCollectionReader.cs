@@ -38,17 +38,60 @@ public class TestCollectionReader {
 	}
 
 	[Test]
-	public void GetCollectionMetadataWithIdentifier(string collectionIdentifier){
+	public void GetCollectionMetadataWithIdentifier(){
 		Assert.Fail();
 	}
 
 	[Test]
-	public void GetIdentifiersForArtefactsInCollectionWithIdentifier(string collectionIdentifier){
-		Assert.Fail();
+	public void GetIdentifiersForArtefactsInCollectionWithIdentifier(){
+		CollectionReader.LoadXml ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_UserCollections_As_DublinCore.xml");
+		string[] collectionIdentifiers = CollectionReader.GetIdentifiersForCollections ();
+		string[] artefactIdentifiers = CollectionReader.GetIdentifiersForArtefactsInCollectionWithIdentifier(collectionIdentifiers[0]);
+
+		Assert.That (artefactIdentifiers[0] == "Evans Bay Wharf");
+		Assert.That (artefactIdentifiers[1] == "Cog Wheel Evans Bay");
+		Assert.That (artefactIdentifiers[2] == "Evans Boat House");
+		Assert.That (artefactIdentifiers[3] == "Cricket Monument");
+		Assert.That (artefactIdentifiers[4] == "Doll Head");
 	}
 
 	[Test]
-	public void GetTransformForArtefactWithIdentifierInCollection(string artefactIdentifier, string collectionIdentifier) {
-		Assert.Fail();
+	[ExpectedException(typeof( NoSuchCollectionException ))]
+	public void GetIdentifiersForArtefactsInCollectionWithIdentifier_Invalid(){
+		CollectionReader.LoadXml ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_UserCollections_As_DublinCore.xml");
+		string[] artefactIdentifiers = CollectionReader.GetIdentifiersForArtefactsInCollectionWithIdentifier("THIS IS NOT A REAL COLLECTION ID");
+	}
+
+	[Test]
+	public void GetTransformForArtefactWithIdentifierInCollection() {
+		CollectionReader.LoadXml ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_UserCollections_As_DublinCore.xml");
+		Dictionary<string, Dictionary<string, float>> transformData = CollectionReader.GetTransformForArtefactWithIdentifierInCollection("P14C3H01D3R-00", "Evans Bay Wharf");
+
+		Assert.That (transformData ["position"] ["x"] == 40.01599f);
+		Assert.That (transformData ["position"] ["y"] == -11.58916f);
+		Assert.That (transformData ["position"] ["z"] == 184.2516f);
+
+		Assert.That (transformData ["rotation"] ["x"] == 1.0f);
+		Assert.That (transformData ["rotation"] ["y"] == 1.0f);
+		Assert.That (transformData ["rotation"] ["z"] == 1.0f);
+		Assert.That (transformData ["rotation"] ["w"] == 1.0f);
+
+		Assert.That (transformData ["scale"] ["x"] == 1.0f);
+		Assert.That (transformData ["scale"] ["y"] == 1.0f);
+		Assert.That (transformData ["scale"] ["z"] == 1.0f);
+	}
+
+	[Test]
+	[ExpectedException(typeof( MalformedTransformCoordinateException ))]
+	public void GetTransformForArtefactWithIdentifierInCollection_IncompleteTransform() {
+		CollectionReader.LoadXml ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_UserCollections_As_DublinCore.xml");
+		Dictionary<string, Dictionary<string, float>> transformData = CollectionReader.GetTransformForArtefactWithIdentifierInCollection("P14C3H01D3R-00", "Cog Wheel Evans Bay");
+	}
+
+	[Test]
+	[ExpectedException(typeof( NoSuchArtefactInCollectionException ))]
+	public void GetTransformForArtefactWithIdentifierInCollection_InvalidArtefact() {
+		CollectionReader.LoadXml ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_UserCollections_As_DublinCore.xml");
+		Dictionary<string, Dictionary<string, float>> transformData = CollectionReader.GetTransformForArtefactWithIdentifierInCollection("P14C3H01D3R-00", "NO SUCH ARTEFACT");
 	}
 }
