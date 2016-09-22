@@ -138,7 +138,38 @@ public static class CollectionReader {
 	/// </returns>
 	/// <param name="collectionIdentifier">The identifier of the collection for which to get metadata</param>
 	public static Dictionary<string, string[]> GetCollectionMetadataWithIdentifier(string collectionIdentifier){
-		return null;
+
+		// TODO Replace the MOCK_DICTIONARY with a real implementation
+		Dictionary<string, string[]> MOCK_DICTIONARY = new Dictionary<string, string[]> ();
+
+		string[] title = new string[1];
+		string[] creator = new string[2];
+		string[] contributor = new string[1];
+		string[] date = new string[1];
+		string[] coverage = new string[2];
+		string[] subject = new string[2];
+		string[] description = new string[1];
+
+		title [0] = "This Is A Mock Title For A Collection";
+		creator [0] = "Timothy J. Bathgate";
+		creator [1] = "Some Guy";
+		contributor [0] = "Some Other Guy";
+		date [0] = "2016-09-22";
+		coverage [0] = "New Zealand";
+		coverage [1] = "Early 21st Century";
+		subject [0] = "Important things";
+		subject [1] = "Testing (2016–)";
+		description[0] = "This is the description for a collection. Museums will describe their collections here. They'll say things like 'This is the description for the X collection. The X collections consists of lots of little xs and ys";
+
+		MOCK_DICTIONARY.Add("title", title);
+		MOCK_DICTIONARY.Add("creator", creator);
+		MOCK_DICTIONARY.Add("contributor", contributor);
+		MOCK_DICTIONARY.Add("date", date);
+		MOCK_DICTIONARY.Add("coverage", coverage);
+		MOCK_DICTIONARY.Add("subject", subject);
+		MOCK_DICTIONARY.Add("description", description);
+
+		return MOCK_DICTIONARY;
 
 	}
 
