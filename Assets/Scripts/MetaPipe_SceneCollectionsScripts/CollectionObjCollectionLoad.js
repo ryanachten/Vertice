@@ -38,26 +38,35 @@ function loadCollectionObjects( listNode : XmlNode)
 	objInfoControl.Start();
 	objInfoContRoot = objInfoControl.root;
 
+	// TODO This can be replace with CollectionReader.GetIdentifiersForArtefactsInCollectionWithIdentifier(string collectionIdentifier)
+	// where the collectionIdentifier is obtain from, e.g., the UI. For the sake of testing, CollectionReader.GetIdentifiersForArtefactsInCollectionWithIdentifier("P14C3H01D3R-00") should
+	// yield useful data
 	var collectionObjects : XmlNodeList = listNode.SelectNodes("MetaPipeObject");
 	
 	camMoveScript.navLocked = true;
 	progressBar.SetActive(true);
 	progressBarScript.setMaxVal(collectionObjects.Count);
-	
+
+
+	// TODO In replacing this with the CollectionReader, you'll be iterating through artefact identifiers; keep this in mind... objNode, for the purpose of this discussion, is 
+	// an artefact identifier
 	for (objNode in collectionObjects)
 	{
-		var curObjNode : XmlNode = objNode as XmlNode;
+		var curObjNode : XmlNode = objNode as XmlNode; // Probably redundant with the CollectionReader
 		
-		var curObjName = curObjNode.SelectSingleNode("@name").Value;
+		var curObjName = curObjNode.SelectSingleNode("@name").Value; // @name has been replaced, in essence, by @id... in this case, curObjName would be set to objNode (remember, we're iterating through identifiers)
 	
 		progressBarScript.AddTask(curObjName); 
 	
 		//info contained in ObjArchive XML
-		var curObjInfoContNode = objInfoContRoot.SelectSingleNode("MetaPipeObject[@name='"+ curObjName +"']"); 
-			var curMeshLocation = curObjInfoContNode.SelectSingleNode("./MeshLocation").InnerText;
-			var curTexLocation = curObjInfoContNode.SelectSingleNode("./TexLocation").InnerText;		
+		// TODO This info USED to be in ObjArchiveXML... what you should do here is
+		// use the DublinCoreReader
+		var curObjInfoContNode = objInfoContRoot.SelectSingleNode("MetaPipeObject[@name='"+ curObjName +"']"); // Redundant with DublinCoreReader... I think
+			var curMeshLocation = curObjInfoContNode.SelectSingleNode("./MeshLocation").InnerText; // DublinCoreReader.GetMeshLocationForArtefactWithIdentifier(objNode)... definitely change objNode to something like artefactIdentifier
+			var curTexLocation = curObjInfoContNode.SelectSingleNode("./TexLocation").InnerText; // DublinCoreReader.GetTextureLocationForArtefactWithIdentifier(objNode)		
 
 		//import mesh
+		// TODO Easy! I'm pretty sure nothing should change here
 
 		#if UNITY_WEBGL
 		var importModel : GameObject[] = [];
