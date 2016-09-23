@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -26,22 +27,37 @@ public class Collect_AvailableCollections : MonoBehaviour {
 
 	private void InstantCollectButton(string collectID)
 	{
-		Object curCollectButton = Instantiate(collectButtonPrefab, instantParent);
-
+		GameObject curCollectButton = Instantiate(collectButtonPrefab, instantParent) as GameObject;
 		Dictionary<string, string[]> data = CollectionReader.GetCollectionMetadataWithIdentifier(collectID);
-		string collectTitle = data["title"][0]; //grabs first title for collection button
-		string collectCreator = data["creator"][0];
-		string collectDate = data["date"][0];
-		string collectDescription = data["description"][0];
 
-		Debug.Log("");
-		Debug.Log("collectTitle: " + collectTitle);
-		Debug.Log("collectCreator: " + collectCreator);
-		Debug.Log("collectDate: " + collectDate);
-		Debug.Log("collectDescription: " + collectDescription);
-		Debug.Log("");
+		string[] collectData = new string[5];
 
+		try {
+			collectData[0] = data["title"][0]; //grabs first title for collection button	
+		} catch (System.Exception ex) {
+			collectData[0] = "";
+		}
+		try {
+			collectData[1] = data["identifier"][0]; //grabs first title for collection button	
+		} catch (System.Exception ex) {
+			collectData[1] = "";
+		}
+		try {
+			collectData[2] = data["creator"][0]; //grabs first title for collection button	
+		} catch (System.Exception ex) {
+			collectData[2] = "";
+		}
+		try {
+			collectData[3] = data["date"][0]; //grabs first title for collection button	
+		} catch (System.Exception ex) {
+			collectData[3] = "";
+		}
+		try {
+			collectData[4] = data["description"][0]; //grabs first title for collection button	
+		} catch (System.Exception ex) {
+			collectData[4] = "";
+		}
 
-		//TODO add other CollectionReader references to get the rest of metadata -> send to new script to update button gui
+		curCollectButton.GetComponent<Collect_LoadCollectButtonInfo>().LoadInfo(collectData);
 	}
 }
