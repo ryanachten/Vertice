@@ -113,6 +113,24 @@ public static class CollectionReader {
 	}
 
 	/// <summary>
+	/// Gets a list of element values for a given element in a given <descriptive> node
+	/// </summary>
+	/// <returns>An array of strings representing the values associated with a given element</returns>
+	/// <param name="descriptiveNode">The <descriptive> node for a particular <verticeCollection></param>
+	/// <param name="elementName">The name of the element (e.g. title, description, etc.)</param>
+	private static string[] GetValuesForElementsWithNameInDescriptiveNode(XmlNode descriptiveNode, string elementName){
+	
+		XmlNodeList elements = descriptiveNode.SelectNodes (String.Format ("./{0}", elementName));
+		string[] values = new string[elements.Count];
+		for (int i = 0; i < elements.Count; i++) {
+			Debug.Log (elements [i].InnerXml);
+			values [i] = elements [i].InnerXml;
+		}
+
+		return values;
+	}
+
+	/// <summary>
 	/// Retrieves the descriptive metadata associated with a collection
 	/// </summary>
 	/// <returns>The descriptive metadata in a nested dictionary having the form: 
@@ -139,43 +157,22 @@ public static class CollectionReader {
 	/// <param name="collectionIdentifier">The identifier of the collection for which to get metadata</param>
 	public static Dictionary<string, string[]> GetCollectionMetadataWithIdentifier(string collectionIdentifier){
 
-		// TODO Replace the MOCK_DICTIONARY with a real implementation
-		Dictionary<string, string[]> MOCK_DICTIONARY = new Dictionary<string, string[]> ();
+		Dictionary<string, string[]> retVal = new Dictionary<string, string[]> ();
+		HashSet<string> elements = new HashSet<string> ();
+		XmlNode descriptionElements = Xml ().SelectSingleNode (String.Format ("//verticeCollections/verticeCollection[@id='{0}']/descriptive", collectionIdentifier));
+		foreach (XmlNode element in descriptionElements.ChildNodes) {
+			elements.Add (element.Name);
+		}
 
-		string[] identifier = new string[1];
-		string[] title = new string[1];
-		string[] creator = new string[1];
-		string[] date = new string[1];
-		string[] coverage = new string[2];
-		string[] subject = new string[1];
-		string[] description = new string[1];
-		string[] extent = new string[1];
+		foreach (string element in elements) {
+			retVal.Add(element, GetValuesForElementsWithNameInDescriptiveNode(descriptionElements, element));
+		}
 
-
-		identifier [0] = "P14C3H01D3R-00";
-		title [0] = "Photogrammetry Test Scans";
-		creator [0] = "Ryan Achten";
-		date [0] = "2015-11-29";
-		coverage [0] = "Evan's Bay";
-		coverage [1] = "Basin Reserve";
-		subject [0] = "Photogrammetry";
-		description[0] = "A museum is distinguished by a collection of often unique objects that forms the core of its activities for exhibitions, education, research, etc.";
-
-		string[] artefactIds = GetIdentifiersForArtefactsInCollectionWithIdentifier ("P14C3H01D3R-00");
-		string extentString = String.Format ("{0} artefacts", artefactIds.Length);
-		extent [0] = extentString;
-
-			
-		MOCK_DICTIONARY.Add("title", title);
-		MOCK_DICTIONARY.Add("identifier", identifier);
-		MOCK_DICTIONARY.Add("creator", creator);
-		MOCK_DICTIONARY.Add("date", date);
-		MOCK_DICTIONARY.Add("coverage", coverage);
-		MOCK_DICTIONARY.Add("subject", subject);
-		MOCK_DICTIONARY.Add("description", description);
-		MOCK_DICTIONARY.Add("extent", extent);
-
-		return MOCK_DICTIONARY;
+		int numberOfArtefacts = Xml ().SelectNodes (String.Format ("//verticeCollections/verticeCollection[@id='{0}']/structural/artefact", collectionIdentifier)).Count;
+		string numberOfArtefactsString = numberOfArtefacts.ToString ();
+		retVal.Add ("extent", new string[]{ numberOfArtefactsString });
+		retVal.Add ("identifier", new string[]{ collectionIdentifier });
+		return retVal;
 
 	}
 
