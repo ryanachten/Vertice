@@ -39,7 +39,20 @@ public class TestCollectionReader {
 
 	[Test]
 	public void GetCollectionMetadataWithIdentifier(){
-		Assert.Fail();
+		CollectionReader.LoadXml ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_UserCollections_As_DublinCore.xml");
+		string[] collectionIdentifiers = CollectionReader.GetIdentifiersForCollections ();
+		Dictionary<string, string[]> collectionMetadata = CollectionReader.GetCollectionMetadataWithIdentifier (collectionIdentifiers [0]);
+
+		Assert.That (collectionMetadata ["identifier"] [0] == collectionIdentifiers [0]);
+		Assert.That (collectionMetadata ["title"][0] == "Photogrammetry Test Scans");
+		Assert.That (collectionMetadata ["creator"][0] == "Ryan Achten");
+		Assert.That (collectionMetadata ["date"][0] == "29/11/2015");
+		Assert.That (collectionMetadata ["description"][0] == "A museum is distinguished by a collection of often unique objects that forms the core of its activities for exhibitions, education, research, etc.");
+		Assert.That (collectionMetadata ["subject"][0] == "Photogrammetry");
+		Assert.That (collectionMetadata ["coverage"] [0] == "Evan's Bay");
+		Assert.That (collectionMetadata ["coverage"] [1] == "Basin Reserve");
+		Assert.That (collectionMetadata ["extent"] [0] == "5");
+
 	}
 
 	[Test]
