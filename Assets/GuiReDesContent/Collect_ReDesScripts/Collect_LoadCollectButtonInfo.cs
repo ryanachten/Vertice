@@ -23,6 +23,6 @@ public class Collect_LoadCollectButtonInfo : MonoBehaviour {
 	public void SendToLoad()
 	{
 		Collect_CollectControl CollectControl = GameObject.Find("CollectionMenu_Panel").GetComponent<Collect_CollectControl>();
-		CollectControl.GetCollectionArtefacts(identifier.text);
+		CollectControl.ImportArtefacts(identifier.text);
 	}
 }

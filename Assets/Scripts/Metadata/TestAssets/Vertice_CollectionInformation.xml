@@ -1,31 +1,130 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<verticeMetadata>
-	<artefact id="LB2848">
-		<descriptive>
-			<title>Godwit</title>
-			<title>Küaka</title>
-			<title>Limosa lapponica</title>
-			<creator>Auckland Museum</creator>
-			<contributor>W. J. Cheeseman</contributor>
-			<date>1881/04/05</date>
-			<description>Bar-tailed godwits (Limosa lapponica) are the most common Arctic migrant to New Zealand. 
-      In 2005 scientists reported that they make the longest non-stop flight of all birds – an amazing 11,000 kilometres from Alaska to New Zealand, in only eight or nine days.</description>
-		</descriptive>
-		<structural>
-			<identifier>Vertice_AuckMuse_Godwit_02Decim.obj</identifier>
-			<creator>Auckland Museum</creator>
-			<created>2016/07/01</created>
-			<extent>
-			</extent>
-		</structural>
-		<relatedAssets>
-			<MeshLocation>/VerticeArchive/Godwit/Vertice_AuckMuse_Godwit_02Decim.obj</MeshLocation>
-			<TexLocation>/VerticeArchive/Godwit/Vertice_AuckMuse_Godwit_02Decim.jpg</TexLocation>
-			<ContextMedia>
-				<MediaName>Limosa lapponica</MediaName>
-				<MediaType>Image</MediaType>
-				<MediaLocation>/VerticeArchive/Godwit/Godwit_Context/Godwit.jpg</MediaLocation>
-			</ContextMedia>
-		</relatedAssets>
-	</artefact>
-</verticeMetadata>
+<verticeCollections>
+  <verticeCollection id="P14C3H01D3R-00">
+    <descriptive>
+      <title>Auckland Museum</title>
+      <creator>Ryan Achten</creator>
+      <date>24/09/2016</date>
+      <description>Auckland Museum test collection</description>
+      <subject>Photogrammetry</subject>
+      <coverage>Evan's Bay</coverage>
+      <coverage>Basin Reserve</coverage>
+    </descriptive>
+    <structural>
+      <artefact id="LB2848">
+        <transform>
+          <position>
+            <x>40.01599</x>
+            <y>-11.58916</y>
+            <z>184.2516</z>
+          </position>
+          <rotation>
+            <x>1.0</x>
+            <y>1.0</y>
+            <z>1.0</z>
+            <w>1.0</w>
+          </rotation>
+          <scale>
+            <x>1</x>
+            <y>1</y>
+            <z>1</z>
+          </scale>
+        </transform>
+      </artefact>
+      <artefact id="LB13701">
+        <transform>
+          <position>
+            <x>-61.25173</x>
+            <y>-12.86976</y>
+            <z>39.5129</z>
+          </position>
+          <rotation>
+            <x>-0.001511671</x>
+            <y>0.04385883</y>
+            <z>0.01296486</z>
+          </rotation>
+          <scale>
+            <x>1</x>
+            <y>1</y>
+            <z>1</z>
+          </scale>
+        </transform>
+      </artefact>
+      <artefact id="Tarantula">
+        <transform>
+          <position>
+            <x>-65.33916</x>
+            <y>-8.744591</y>
+            <z>126.5536</z>
+          </position>
+          <rotation>
+            <x>-0.005366722</x>
+            <y>0.7899417</y>
+            <z>0.006911641</z>
+          </rotation>
+          <scale>
+            <x>1</x>
+            <y>1</y>
+            <z>1</z>
+          </scale>
+        </transform>
+      </artefact>
+      <artefact id="AMNZ21862">
+        <transform>
+          <position>
+            <x>61.16817</x>
+            <y>-8.586862</y>
+            <z>44.03521</z>
+          </position>
+          <rotation>
+            <x>0.002390777</x>
+            <y>0.9999844</y>
+            <z>-0.003106454</z>
+          </rotation>
+          <scale>
+            <x>1</x>
+            <y>1</y>
+            <z>1</z>
+          </scale>
+        </transform>
+      </artefact>
+      <artefact id="LionSkull">
+        <transform>
+          <position>
+            <x>1.921084</x>
+            <y>-13.04464</y>
+            <z>158.9712</z>
+          </position>
+          <rotation>
+            <x>0.02416938</x>
+            <y>-0.002134346</y>
+            <z>3.243667E-06</z>
+          </rotation>
+          <scale>
+            <x>1</x>
+            <y>1</y>
+            <z>1</z>
+          </scale>
+        </transform>
+      </artefact>
+            <artefact id="AMNZ81764">
+        <transform>
+          <position>
+            <x>1.921084</x>
+            <y>-13.04464</y>
+            <z>158.9712</z>
+          </position>
+          <rotation>
+            <x>0.02416938</x>
+            <y>-0.002134346</y>
+            <z>3.243667E-06</z>
+          </rotation>
+          <scale>
+            <x>1</x>
+            <y>1</y>
+            <z>1</z>
+          </scale>
+        </transform>
+      </artefact>
+    </structural>
+  </verticeCollection>
+</verticeCollections>

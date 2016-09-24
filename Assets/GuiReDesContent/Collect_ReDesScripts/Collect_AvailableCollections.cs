@@ -17,7 +17,7 @@ public class Collect_AvailableCollections : MonoBehaviour {
 
 
 	public void GetCollections () {
-		CollectionReader.LoadXml("file://" + Application.dataPath + "/Scripts/Metadata/TestAssets/Metapipe_UserCollections_As_DublinCore.xml");
+		CollectionReader.LoadXml("file://" + Application.dataPath + "/Scripts/Metadata/TestAssets/Vertice_CollectionInformation.xml");
 
 		string[] collectIdentifiers = CollectionReader.GetIdentifiersForCollections();
 		for (int i = 0; i < collectIdentifiers.Length; i++) {
