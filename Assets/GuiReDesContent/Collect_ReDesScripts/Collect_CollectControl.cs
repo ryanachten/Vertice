@@ -8,6 +8,7 @@ public class Collect_CollectControl : MonoBehaviour {
 	private GameObject[] importedObjects;
 	public Transform collectArtefactParent;
 	public string collectionId; //used to check whether collection present and to get trasnform info
+	public BoxCollider loadPlaneBoxCol;
 
 
 	/// <summary>
@@ -78,24 +79,24 @@ public class Collect_CollectControl : MonoBehaviour {
 	/// <param name="browseArtefact">Artefact to place</param>
 	private void PlaceArtefact(int instantNumber, GameObject collectArtefact)
 	{
-		Debug.Log("collectionId: " + collectionId + " | " + " collectArtefact.name: " + collectArtefact.name);
-		Dictionary<string, Dictionary<string, float>> transInfo = CollectionReader.GetTransformForArtefactWithIdentifierInCollection(collectionId, collectArtefact.name); 	//TODO need to get transform information for ea. artefact 
+		Dictionary<string, Dictionary<string, float>> transInfo;
+		VerticeTransform VertTrans;
 
-		VerticeTransform VertTrans = new VerticeTransform(transInfo);
-		Debug.Log("VertTrans.position.x " + VertTrans.position.x);
+		try {
+			transInfo = CollectionReader.GetTransformForArtefactWithIdentifierInCollection(collectionId, collectArtefact.name);
+			VertTrans = new VerticeTransform(transInfo);	
+		} 
+		catch (System.Exception ex) 
+		{
+			transInfo = null;
 
-//		Vector3 artefactPosition;
-
-//		try {
-//			artefactPosition = new Vector3(transInfo["position"]["x"], transInfo["position"]["y"], transInfo["position"]["z"]);
-//		} catch (System.Exception ex) {
-//
-//			//TODO random position assigment for artefacts w/o pos assignment
-//			artefactPosition = new Vector3(Random.Range(100, 100), 10f, Random.Range(100, 100));
-//		}
-//
-//		collectArtefact.transform.position = artefactPosition;
-//		Rigidbody rb = collectArtefact.AddComponent<Rigidbody> ();
-//		rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+			VertTrans = new VerticeTransform(loadPlaneBoxCol.bounds.min.x, loadPlaneBoxCol.bounds.max.x, 
+												loadPlaneBoxCol.bounds.min.z, loadPlaneBoxCol.bounds.max.z);
+			Debug.Log("No pos info available, random assignment");
+			Debug.Log("Random pos: " + VertTrans.position.x + " " + VertTrans.position.y + " " + VertTrans.position.z);
+		}
+			
+		collectArtefact.transform.position = VertTrans.position;;
+		Rigidbody rb = collectArtefact.AddComponent<Rigidbody> ();
 	}
 }
