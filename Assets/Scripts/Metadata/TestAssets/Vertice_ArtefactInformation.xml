@@ -439,33 +439,6 @@ Despite the loss of the heads of Durga and the demon and the partial restoration
 			</ContextMedia>
 		</relatedAssets>
 	</artefact>
-	<artefact id="2001.422">
-		<descriptive>
-			<title>Head of a Buddha</title>
-			<creator>The Metropolitan Museum of Art</creator>
-			<contributor>Vincent Astor Foundation</contributor>
-			<date>300/01/01</date>
-			<description>The subtle fleshiness of the cheeks, thin nose ridge, and elegant curve of the eyebrows and eyelids are characteristic of sculpture produced in Shandong province, in northeast China, during the second half of the sixth century. 
-			Identification of this school of Chinese Buddhist sculpture is based on recent, spectacular archaeological discoveries at sites such as Qingzhou.
-			</description>
-		</descriptive>
-		<structural>
-			<identifier>Vertice_MetCollect_HeadOfABuddha_2Decim.obj</identifier>
-			<creator>The Metropolitan Museum of Art</creator>
-			<created>2012/06/03</created>
-			<extent>
-			</extent>
-		</structural>
-		<relatedAssets>
-			<MeshLocation>/VerticeArchive/HeadofBuddha/Vertice_MetCollect_HeadOfABuddha_2Decim.obj</MeshLocation>
-			<TexLocation>/VerticeArchive/HeadofBuddha/Vertice_MetCollect_HeadOfABuddha_2Decim.jpg</TexLocation>
-			<ContextMedia>
-				<MediaName>DP170247</MediaName>
-				<MediaType>Image</MediaType>
-				<MediaLocation>/VerticeArchive/HeadofBuddha/HeadofBuddha_Context/DP170247.jpg</MediaLocation>
-			</ContextMedia>
-		</relatedAssets>
-	</artefact>
 	<artefact id="28.105">
 		<descriptive>
 			<title>The Great Departure and the Temptation of the Buddha</title>
@@ -515,8 +488,6 @@ Despite the loss of the heads of Durga and the demon and the partial restoration
 			<TexLocation>/VerticeArchive/KneelingAttendant/Vertice_MetCollect_KneelingAttendant_2Decim.jpg</TexLocation>
 		</relatedAssets>
 	</artefact>
-
-
 	<artefact id="2007.215.2">
 		<descriptive>
 			<title>Funerary Carving</title>
