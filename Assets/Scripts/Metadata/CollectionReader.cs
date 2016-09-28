@@ -123,7 +123,7 @@ public static class CollectionReader {
 		XmlNodeList elements = descriptiveNode.SelectNodes (String.Format ("./{0}", elementName));
 		string[] values = new string[elements.Count];
 		for (int i = 0; i < elements.Count; i++) {
-			Debug.Log (elements [i].InnerXml);
+//			Debug.Log (elements [i].InnerXml);
 			values [i] = elements [i].InnerXml;
 		}
 

@@ -8,6 +8,8 @@ public class Collect_CollectGuiInfo : MonoBehaviour {
 	private Dictionary<string, string[]> data;
 	public Object fieldText;
 	public Object fieldException;
+	public GameObject guiInfoPanel; //panel containing info fields
+
 
 	//Descriptive elements
 	public Transform titleGroup;
@@ -24,21 +26,29 @@ public class Collect_CollectGuiInfo : MonoBehaviour {
 
 	public void LoadCollectInfo(string collectId)
 	{
+		guiInfoPanel.SetActive(true);
+
 		data = new Dictionary<string, string[]>();
 		data = CollectionReader.GetCollectionMetadataWithIdentifier(collectId);
 
 		InstantFieldData ( "title", titleGroup);
-//		InstantFieldData ( "identifier", "descriptive", identifierText); //TODO text function
+		ImportTextData ( "identifier", identifierText); //TODO text function
 		InstantFieldData ( "creator", creatorGroup);
 		InstantFieldData ( "contributor", contributorGroup);
 		InstantFieldData ( "date", dateGroup);
 		InstantFieldData ( "coverage", coverageGroup);
 		InstantFieldData ( "subject", subjectGroup);
-//		InstantFieldData ( "description", "descriptive", descriptionText); //TODO text function
+		ImportTextData ( "description", descriptionText); //TODO text function
 
 	}
 
-
+	/// <summary>
+	/// Instantiates prefabs for multi-field attributes
+	/// </summary>
+	/// <param name="data">Artefac dictionary data.</param>
+	/// <param name="elementType">Dublin Core type to be searched (i.e. Descriptive or Structural).</param>
+	/// <param name="elementName">Attribute to be found in artefact data (i.e. Title / Date etc)</param>
+	/// <param name="fieldGroup">Parent for the prefab to be instanted under</param>
 	public void InstantFieldData (string elementName, Transform fieldGroup) 
 	{
 //		ResetField(fieldGroup); //TODO reset field function
@@ -59,6 +69,25 @@ public class Collect_CollectGuiInfo : MonoBehaviour {
 //			Debug.Log ("No data in field");
 		}
 		
+	}
+
+	/// <summary>
+	/// Assigns XML data to single field attributes
+	/// </summary>
+	/// <param name="data">Data.</param>
+	/// <param name="elementType">Dublin Core type to be searched (i.e. Descriptive or Structural).</param>
+	/// <param name="elementName">Attribute to be found in artefact data (i.e. Title / Date etc)</param>
+	/// <param name="elementText">Text element for data to be assigned to</param>
+	private void ImportTextData(string elementName, Text elementText)
+	{
+		try
+		{
+			elementText.text = data[elementName][0]; //TODO passing this via index reference prob not ideal
+		}
+		catch(System.Exception ex) {
+			elementText.text = "No data in field";
+		}
+
 	}
 
 

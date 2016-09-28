@@ -12,6 +12,8 @@ public class Cam_RayDetect : MonoBehaviour {
 	public ContextPanel_InfoController ContextInfoCont;
 	public ContextPanel_MediaController ContextMediaCont;
 
+	public GameObject curArtefact; //used by Collect_RayCastModifyArtefact TODO not sure if this best way to get artefact into mod script
+
 	void Start()
 	{
 		CamMove = gameObject.GetComponentInParent<BrowseCamMovement>();
@@ -38,6 +40,8 @@ public class Cam_RayDetect : MonoBehaviour {
 			if (artefactIdentifier != previousIdentifier)
 			{
 				Debug.Log("Hit artefact: " + artefactIdentifier);
+				curArtefact = hit.transform.gameObject; //TODO not sure if this best way to get artefact into mod script
+
 				previousIdentifier = artefactIdentifier;
 				contextInfoPanel.SetActive(true);
 				ContextInfoCont.LoadData(artefactIdentifier);
