@@ -6,6 +6,7 @@ public class BrowseCamMovement : MonoBehaviour {
  	public BrowseCamLook CamLookScript;
 
 	public Rigidbody rb;
+	public bool defaultMode; //used to set nav/gui mode at runtime
 	public bool navMode; //used to toggle between GUI menu and navigation mode
 	public bool navLocked; //used to prevent user trying to move while importing
 //	private Transform transform; //use?
@@ -35,7 +36,7 @@ public class BrowseCamMovement : MonoBehaviour {
 
 	void Start () {
 		rb = GetComponent<Rigidbody>();
-		navMode = false;
+		navMode = defaultMode;
 		toggleNav();
 	}
 

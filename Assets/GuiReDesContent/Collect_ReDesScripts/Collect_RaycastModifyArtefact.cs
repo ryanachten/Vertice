@@ -143,6 +143,7 @@ public class Collect_RaycastModifyArtefact : MonoBehaviour {
 	{
 		RaycastHit hit;
 		bool foundHit = Physics.Raycast(transform.position, transform.forward, out hit);
+		Debug.DrawRay(transform.position, transform.forward, Color.green);
 
 		if(foundHit && hit.transform.tag == "Terrain")
 		{

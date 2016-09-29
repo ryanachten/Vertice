@@ -10,7 +10,7 @@ public class Browse_BrowseControl : MonoBehaviour {
 	private Transform[] instantPoints;
 	private GameObject[] importedObjects;
 	public Transform browseArtefactParent;
-
+	public Object particleLocator;
 
 
 	void Start()
@@ -105,6 +105,8 @@ public class Browse_BrowseControl : MonoBehaviour {
 	/// <param name="browseArtefact">Artefact to place</param>
 	private void PlaceArtefact(int instantNumber, GameObject browseArtefact)
 	{
+		Instantiate(particleLocator, browseArtefact.transform);
+
 		Vector3 artefactPosition = instantPoints [instantNumber].position;
 		browseArtefact.transform.position = artefactPosition;
 		Rigidbody rb = browseArtefact.AddComponent<Rigidbody> ();

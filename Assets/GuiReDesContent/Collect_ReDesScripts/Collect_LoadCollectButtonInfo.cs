@@ -24,5 +24,6 @@ public class Collect_LoadCollectButtonInfo : MonoBehaviour {
 	{
 		GameObject.Find("CollectionInfo").GetComponent<Collect_CollectGuiInfo>().LoadCollectInfo(identifier.text);
 		GameObject.Find("CollectionMenu_Panel").GetComponent<Collect_CollectControl>().ImportArtefacts(identifier.text);
+		GameObject.Find("ViewCollections_Toggle").GetComponent<Toggle>().isOn = false;
 	}
 }

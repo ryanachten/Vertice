@@ -9,6 +9,7 @@ public class Collect_CollectControl : MonoBehaviour {
 	public Transform collectArtefactParent;
 	public string collectionId; //used to check whether collection present and to get trasnform info
 	public BoxCollider loadPlaneBoxCol;
+	public Object particleLocator;
 
 
 	/// <summary>
@@ -94,9 +95,11 @@ public class Collect_CollectControl : MonoBehaviour {
 												loadPlaneBoxCol.bounds.min.z, loadPlaneBoxCol.bounds.max.z);
 			Debug.Log("No pos info available, random assignment");
 			Debug.Log("Random pos: " + VertTrans.position.x + " " + VertTrans.position.y + " " + VertTrans.position.z);
-		}
-			
+		}	
+		Instantiate(particleLocator, collectArtefact.transform);
+
 		collectArtefact.transform.position = VertTrans.position;;
 		Rigidbody rb = collectArtefact.AddComponent<Rigidbody> ();
+
 	}
 }
