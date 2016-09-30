@@ -11976,13 +11976,32 @@ GameObject:
   m_PrefabParentObject: {fileID: 1000010381038998, guid: 307937dbb72a746cbbd1360fe89a2a50,
     type: 2}
   m_PrefabInternal: {fileID: 1370037214}
---- !u!114 &414234146
+--- !u!114 &414234141
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 414234139}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29fd599fb8c574379b66494d110606f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RayDetect: {fileID: 981638457}
+  CamMove: {fileID: 1090128329}
+  modArtefact: {fileID: 0}
+  modWaitTime: 0.25
+  hoverHeight: 1
+  modSensitivity: 5
+  modSmoothDamp: 0.1
+  scaleIncrement: 0.05
+--- !u!114 &414234146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 414234139}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c440df4642b64ca3af234e55b3fcf0d, type: 3}
   m_Name: 
