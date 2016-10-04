@@ -11990,10 +11990,12 @@ MonoBehaviour:
   RayDetect: {fileID: 981638457}
   CamMove: {fileID: 1090128329}
   modArtefact: {fileID: 0}
+  modGrounded: {fileID: 0}
   modWaitTime: 0.25
   hoverHeight: 1
   modSensitivity: 5
   modSmoothDamp: 0.1
+  rotateIncrement: 20
   scaleIncrement: 0.05
 --- !u!114 &414234146
 MonoBehaviour:
