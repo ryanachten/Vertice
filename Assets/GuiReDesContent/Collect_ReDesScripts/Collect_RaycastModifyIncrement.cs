@@ -15,6 +15,13 @@ public class Collect_RaycastModifyIncrement : MonoBehaviour {
 	public float modSensitivity = 5f;
 	public float modSmoothDamp = 0.1f;
 
+	//Move variables
+	public Camera mainCamera;
+	public AudioListener mainCamListener;
+	public GameObject topDownCam;
+	private bool canMove;
+	public float screenSpaceZ = 475f;
+
 	//Rotate variables
 	public float rotateIncrement;
 	private bool canRotate;
@@ -24,15 +31,35 @@ public class Collect_RaycastModifyIncrement : MonoBehaviour {
 	private bool canScale;
 
 
-
 	void Start()
 	{
+		canMove = true;
 		canRotate = true;
 		canScale = true;
 	}
 
 
-	void FixedUpdate () {
+	void FixedUpdate () 
+	{
+
+		//Move TODO this might need to moved to a seperate script
+		if (Input.GetKey(KeyCode.E))
+		{	
+			if (Input.GetKeyDown(KeyCode.E))
+			{
+				SetupModArtefact("move");
+			}
+
+			if (canMove && modArtefact != null && Input.GetMouseButtonDown(0))
+			{	
+				StartCoroutine(MoveObject(modArtefact));
+			}
+		}		
+		if (Input.GetKeyUp(KeyCode.E))
+		{
+			ResetModArtefact("move");
+		}
+
 
 		//Rotate
 		if (Input.GetKey(KeyCode.R))
@@ -85,6 +112,14 @@ public class Collect_RaycastModifyIncrement : MonoBehaviour {
 
 		if (modArtefact != null)
 		{
+			if (modType == "move")
+			{
+				CamMove.navMode = false;
+
+				ToggleMainCam(false);
+
+			}
+
 			if (modType == "rotate")
 			{
 				CamMove.navMode = false; //prevent controller turning while trying to scale
@@ -92,7 +127,6 @@ public class Collect_RaycastModifyIncrement : MonoBehaviour {
 				Collect_ModGrounded groundScript = modArtefact.GetComponent<Collect_ModGrounded>();
 				if (groundScript == null)
 				{
-					Debug.Log("Adding script");
 					groundScript = modArtefact.AddComponent<Collect_ModGrounded>();
 				}
 
@@ -101,11 +135,8 @@ public class Collect_RaycastModifyIncrement : MonoBehaviour {
 					Bounds meshBounds = modArtefact.GetComponent<MeshRenderer>().bounds;
 					float[] meshSize = new float[3]{meshBounds.size.x, meshBounds.size.y, meshBounds.size.z};
 					float meshMax = Mathf.Max(meshSize) /2;
-					Debug.Log("meshMax: " + meshMax);
 
-					Debug.Log("HOVR modArtefact.transform.position: " + modArtefact.transform.position);
 					modArtefact.transform.position = new Vector3(modArtefact.transform.position.x, modArtefact.transform.position.y + meshMax, modArtefact.transform.position.z);
-					Debug.Log("GND modArtefact.transform.position: " + modArtefact.transform.position);
 				}
 
 				Rigidbody rb = modArtefact.GetComponent<Rigidbody>();
@@ -129,6 +160,12 @@ public class Collect_RaycastModifyIncrement : MonoBehaviour {
 	{
 		if (modArtefact != null)
 		{
+			if (modType == "move")
+			{
+				ToggleMainCam(true);
+				CamMove.navMode = true;
+			}
+
 			if (modType == "rotate")
 			{
 
@@ -149,37 +186,82 @@ public class Collect_RaycastModifyIncrement : MonoBehaviour {
 		}
 	}
 
+
+	void ToggleMainCam(bool mainCamOn)
+	{
+		if (!mainCamOn)
+		{
+			topDownCam.SetActive(true);
+			mainCamera.enabled = false;
+			mainCamListener.enabled = false;
+			Cursor.visible = true;
+		}
+		else
+		{
+			topDownCam.SetActive(false);
+			mainCamera.enabled = true;
+			mainCamListener.enabled = true;
+		}
+	}
+
+
+
+	IEnumerator MoveObject(GameObject modObj)
+	{
+		canMove = false;
+
+		Vector3 mousePos = Input.mousePosition;
+		Debug.Log("mousePos: " + mousePos);
+		mousePos.z = screenSpaceZ;
+		Debug.Log("newMousePos: " + mousePos);
+
+		Vector3 worldMousePos = topDownCam.GetComponent<Camera>().ScreenToWorldPoint(mousePos);
+		Debug.Log("worldMousePos: " + worldMousePos);
+
+		Debug.Log("CurPos: " + modObj.transform.position);
+		modObj.transform.position = worldMousePos;
+		Debug.Log("NewPos: " + modObj.transform.position);
+
+
+		yield return new WaitForSeconds(modWaitTime);
+		canMove = true;
+	}
+
+
 	IEnumerator RotateObject(GameObject modObj)
 	{
 		canRotate = false;
 
-		float mouseX = Input.GetAxis("Mouse X");
 		float xRotateFactor = 0f;
-		Debug.Log("mouseX: " + mouseX);
-		if (mouseX > 0)
+		if(!Input.GetMouseButton(0))
 		{
-			Debug.Log("x rot up");
-			xRotateFactor = rotateIncrement;
+			float mouseX = Input.GetAxis("Mouse X");
+			if (mouseX > 0)
+			{
+				xRotateFactor = rotateIncrement * -1;
+			}
+			else if (mouseX < 0)
+			{
+				xRotateFactor = rotateIncrement;
+			}
 		}
-		else if (mouseX < 0){
-			Debug.Log("x rot down");
-			xRotateFactor = rotateIncrement * -1;
-		}
-			
-		float mouseY = Input.GetAxis("Mouse Y");
-		Debug.Log("mouseY: " + mouseY);
+
 		float yRotateFactor = 0f;
-		if (mouseY > 0)
+		if(Input.GetMouseButton(0))
 		{
-			Debug.Log("y rot up");
-			yRotateFactor = rotateIncrement;
+			float mouseY = Input.GetAxis("Mouse Y");
+
+			if (mouseY > 0)
+			{
+				yRotateFactor = rotateIncrement;
+			}
+			else if (mouseY < 0)
+			{
+				Debug.Log("y rot down");
+				yRotateFactor = rotateIncrement * -1;
+			}
 		}
-		else if (mouseY < 0)
-		{
-			Debug.Log("y rot down");
-			yRotateFactor = rotateIncrement * -1;
-		}
-			
+
 		modObj.transform.Rotate(yRotateFactor, xRotateFactor, 0);
 
 
@@ -196,11 +278,10 @@ public class Collect_RaycastModifyIncrement : MonoBehaviour {
 		float scaleFactor = 1f;
 		if (mouseVal > 0)
 		{
-			Debug.Log("scale up");
 			scaleFactor = 1 + scaleIncrement;
 		}
-		else if (mouseVal < 0) {
-			Debug.Log("scale down");
+		else if (mouseVal < 0) 
+		{
 			scaleFactor = 1 - scaleIncrement;
 		}
 			
