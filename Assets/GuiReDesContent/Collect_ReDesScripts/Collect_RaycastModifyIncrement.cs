@@ -7,7 +7,8 @@ public class Collect_RaycastModifyIncrement : MonoBehaviour {
 	public BrowseCamMovement CamMove;
 	public GameObject modArtefact;
 	public Collect_ModGrounded modGrounded;
-
+	public GameObject modifyHelpPanel;
+	public Collect_ModifyHelp modHelpCont;
 
 	//modify controller variables
 	public float modWaitTime = 1f;
@@ -112,8 +113,12 @@ public class Collect_RaycastModifyIncrement : MonoBehaviour {
 
 		if (modArtefact != null)
 		{
+			modifyHelpPanel.SetActive(true);
+
 			if (modType == "move")
 			{
+				modHelpCont.ActivateModifyHelp("move");
+
 				CamMove.navMode = false;
 
 				ToggleMainCam(false);
@@ -122,6 +127,8 @@ public class Collect_RaycastModifyIncrement : MonoBehaviour {
 
 			if (modType == "rotate")
 			{
+				modHelpCont.ActivateModifyHelp("rotate");
+
 				CamMove.navMode = false; //prevent controller turning while trying to scale
 
 				Collect_ModGrounded groundScript = modArtefact.GetComponent<Collect_ModGrounded>();
@@ -147,6 +154,8 @@ public class Collect_RaycastModifyIncrement : MonoBehaviour {
 
 			if (modType == "scale")
 			{
+				modHelpCont.ActivateModifyHelp("scale");
+
 				CamMove.navMode = false; //prevent controller turning while trying to scale
 				Rigidbody rb = modArtefact.GetComponent<Rigidbody>();
 				rb.freezeRotation = true;
@@ -160,6 +169,8 @@ public class Collect_RaycastModifyIncrement : MonoBehaviour {
 	{
 		if (modArtefact != null)
 		{
+			modifyHelpPanel.SetActive(false);
+
 			if (modType == "move")
 			{
 				ToggleMainCam(true);
@@ -214,19 +225,14 @@ public class Collect_RaycastModifyIncrement : MonoBehaviour {
 		mousePos.z = screenSpaceZ;
 		Vector3 worldMousePos = topDownCam.GetComponent<Camera>().ScreenToWorldPoint(mousePos);
 
-//		modObj.transform.position = worldMousePos; //TODO factor in raycast
-
 		RaycastHit hit;
-
-		if (Physics.Raycast(worldMousePos, -Vector3.up, out hit)){
-			Debug.Log("Found an object: " + hit.transform.name + " distance: " + hit.distance + " point: " + hit.point);
-
+		if (Physics.Raycast(worldMousePos, -Vector3.up, out hit))
+		{
 			Bounds meshBounds = modObj.GetComponent<MeshRenderer>().bounds;
 			float[] meshSize = new float[3]{meshBounds.size.x, meshBounds.size.y, meshBounds.size.z};
 			float meshMax = Mathf.Max(meshSize) /2;
 
 			worldMousePos.y = hit.point.y + meshMax;
-			Debug.Log("New World Pos: " + worldMousePos);
 		}
 
 		modObj.transform.position = worldMousePos;
