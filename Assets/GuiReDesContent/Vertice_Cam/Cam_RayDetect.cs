@@ -39,7 +39,7 @@ public class Cam_RayDetect : MonoBehaviour {
 			string artefactIdentifier = hit.transform.gameObject.name;
 			if (artefactIdentifier != previousIdentifier)
 			{
-				Debug.Log("Hit artefact: " + artefactIdentifier);
+//				Debug.Log("Hit artefact: " + artefactIdentifier);
 				curArtefact = hit.transform.gameObject; //TODO not sure if this best way to get artefact into mod script
 
 				previousIdentifier = artefactIdentifier;

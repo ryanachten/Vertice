@@ -11998,7 +11998,7 @@ MonoBehaviour:
   mainCamera: {fileID: 414234145}
   mainCamListener: {fileID: 414234142}
   topDownCam: {fileID: 1802437393}
-  screenSpaceZ: 475
+  screenSpaceZ: 450
   rotateIncrement: 20
   scaleIncrement: 0.05
 --- !u!81 &414234142 stripped

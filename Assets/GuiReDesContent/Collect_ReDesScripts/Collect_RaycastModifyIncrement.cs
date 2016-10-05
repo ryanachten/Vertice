@@ -211,16 +211,25 @@ public class Collect_RaycastModifyIncrement : MonoBehaviour {
 		canMove = false;
 
 		Vector3 mousePos = Input.mousePosition;
-		Debug.Log("mousePos: " + mousePos);
 		mousePos.z = screenSpaceZ;
-		Debug.Log("newMousePos: " + mousePos);
-
 		Vector3 worldMousePos = topDownCam.GetComponent<Camera>().ScreenToWorldPoint(mousePos);
-		Debug.Log("worldMousePos: " + worldMousePos);
 
-		Debug.Log("CurPos: " + modObj.transform.position);
+//		modObj.transform.position = worldMousePos; //TODO factor in raycast
+
+		RaycastHit hit;
+
+		if (Physics.Raycast(worldMousePos, -Vector3.up, out hit)){
+			Debug.Log("Found an object: " + hit.transform.name + " distance: " + hit.distance + " point: " + hit.point);
+
+			Bounds meshBounds = modObj.GetComponent<MeshRenderer>().bounds;
+			float[] meshSize = new float[3]{meshBounds.size.x, meshBounds.size.y, meshBounds.size.z};
+			float meshMax = Mathf.Max(meshSize) /2;
+
+			worldMousePos.y = hit.point.y + meshMax;
+			Debug.Log("New World Pos: " + worldMousePos);
+		}
+
 		modObj.transform.position = worldMousePos;
-		Debug.Log("NewPos: " + modObj.transform.position);
 
 
 		yield return new WaitForSeconds(modWaitTime);
@@ -257,7 +266,6 @@ public class Collect_RaycastModifyIncrement : MonoBehaviour {
 			}
 			else if (mouseY < 0)
 			{
-				Debug.Log("y rot down");
 				yRotateFactor = rotateIncrement * -1;
 			}
 		}
