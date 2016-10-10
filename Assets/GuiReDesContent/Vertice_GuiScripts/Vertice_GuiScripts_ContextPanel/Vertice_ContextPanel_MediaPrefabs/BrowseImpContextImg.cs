@@ -17,9 +17,7 @@ public class BrowseImpContextImg : MonoBehaviour {
 	/// <returns>Image 2D texture</returns>
 	/// <param name="texLocation">Texture directory URI.</param>
 	public IEnumerator ContextImgImp (string texLocation)
-//	public void ContextImgImp(string texLocation)
 	{
-		textureLocation = texLocation;
 
 		#if UNITY_WEBGL
 //		var wwwDirectory = Paths.Remote + texLocation; 
@@ -28,9 +26,9 @@ public class BrowseImpContextImg : MonoBehaviour {
 		var wwwDirectory = Paths.Local + texLocation; //Doesn't work due to the VerticeArchive folder residing outside of Assets folder
 		#endif
 
+		textureLocation = wwwDirectory;
 
 		WWW www = new WWW(wwwDirectory);
-//		Debug.Log("Downloading contextual image: " + wwwDirectory);
 		while(!www.isDone){
 			yield return www; //TODO not downloading all of the data before continuing
 		}
@@ -71,13 +69,13 @@ public class BrowseImpContextImg : MonoBehaviour {
 	/// <summary>
 	/// Activates the MediaViewer for viewing cotextual media
 	/// </summary>
-	void sendActive()
+	public void sendActive()
 	{
 		GameObject mediaViewer = GameObject.FindGameObjectWithTag("MediaViewer");
-		MetaPipe_MediaV_Activate mediaActiveScript = mediaViewer.GetComponent<MetaPipe_MediaV_Activate>(); //TODO need to refactor the MediaViewer script
+		MediaView_Control mediaActiveScript = mediaViewer.GetComponent<MediaView_Control>(); //TODO need to refactor the MediaViewer script
 
 		string imgTitle = contImgTitle.GetComponent<Text>().text;
-		Debug.Log("imgTitle: " + imgTitle);
+//		Debug.Log("activeMediaViewer imgTitle: " + imgTitle + " contextMediaType: " + contextMediaType + " textureLocation: " + textureLocation);
 		mediaActiveScript.activeMediaViewer(imgTitle, contextMediaType, textureLocation);
 	}
 }

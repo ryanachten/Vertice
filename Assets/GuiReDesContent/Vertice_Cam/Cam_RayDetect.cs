@@ -13,6 +13,7 @@ public class Cam_RayDetect : MonoBehaviour {
 	public ContextPanel_InfoController ContextInfoCont;
 	public Toggle infoToggle;
 	public Toggle mediaToggle;
+	public GameObject mediaViewer;
 
 	public GameObject curArtefact; //used by Collect_RayCastModifyArtefact TODO not sure if this best way to get artefact into mod script
 
@@ -55,6 +56,10 @@ public class Cam_RayDetect : MonoBehaviour {
 			previousIdentifier = null;
 			if (contextInfoPanel.activeSelf)
 				contextInfoPanel.SetActive(false);
+			if (mediaViewer.activeSelf)
+			{
+				mediaViewer.SetActive(false);
+			}
 		}
 	}
 }
