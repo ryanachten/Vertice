@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Cam_RayDetect : MonoBehaviour {
@@ -10,9 +11,11 @@ public class Cam_RayDetect : MonoBehaviour {
 	private string previousIdentifier; //used to check against duplicate hits
 	public GameObject contextInfoPanel;
 	public ContextPanel_InfoController ContextInfoCont;
-	public ContextPanel_MediaController ContextMediaCont;
+	public Toggle infoToggle;
+	public Toggle mediaToggle;
 
 	public GameObject curArtefact; //used by Collect_RayCastModifyArtefact TODO not sure if this best way to get artefact into mod script
+
 
 	void Start()
 	{
@@ -39,11 +42,12 @@ public class Cam_RayDetect : MonoBehaviour {
 			string artefactIdentifier = hit.transform.gameObject.name;
 			if (artefactIdentifier != previousIdentifier)
 			{
-//				Debug.Log("Hit artefact: " + artefactIdentifier);
 				curArtefact = hit.transform.gameObject; //TODO not sure if this best way to get artefact into mod script
 
 				previousIdentifier = artefactIdentifier;
 				contextInfoPanel.SetActive(true);
+				infoToggle.isOn = true;
+				mediaToggle.isOn = false;
 				ContextInfoCont.LoadData(artefactIdentifier);
 			}
 		} else //if not an artefact

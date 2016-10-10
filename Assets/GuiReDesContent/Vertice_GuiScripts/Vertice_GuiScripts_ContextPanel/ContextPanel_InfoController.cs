@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 public class ContextPanel_InfoController : MonoBehaviour {
 
+	public ContextInfoModeToggle InfoMode;
+
 	public Object fieldText;
 	public Object fieldException;
 	public string artefactId; //accessed via context media controller
@@ -41,12 +43,15 @@ public class ContextPanel_InfoController : MonoBehaviour {
 	public Text mRightsText;
 
 
+
 	/// <summary>
 	/// Executes load methods for each of the panels
 	/// </summary>
 	/// <param name="artefactIdentifier">Identifier for the artefact whose information is to be viewed</param>
 	public void LoadData(string artefactIdentifier)
 	{
+		InfoMode.SwitchMode("info");
+
 		artefactId = artefactIdentifier;
 
 		DublinCoreReader.LoadXml("file://" + Application.dataPath + "/Scripts/Metadata/TestAssets/Vertice_ArtefactInformation.xml");

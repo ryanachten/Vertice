@@ -8,9 +8,11 @@ public class ContextInfoModeToggle : MonoBehaviour {
 
 	public GameObject mediaControlToggles;
 	public GameObject mediaPanel;
+	public Toggle mediaToggle;
 
 	public GameObject infoControlToggles;
 	public GameObject infoPanel;
+	public Toggle infoToggle;
 
 	void Start()
 	{

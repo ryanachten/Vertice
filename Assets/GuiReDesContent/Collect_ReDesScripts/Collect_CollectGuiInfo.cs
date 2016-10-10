@@ -9,7 +9,7 @@ public class Collect_CollectGuiInfo : MonoBehaviour {
 	public Object fieldText;
 	public Object fieldException;
 	public GameObject guiInfoPanel; //panel containing info fields
-
+	public GameObject editCollectButton;
 
 	//Descriptive elements
 	public Transform titleGroup;
@@ -23,6 +23,12 @@ public class Collect_CollectGuiInfo : MonoBehaviour {
 	public Text descriptionText;
 
 
+	void Start()
+	{
+		#if UNITY_WEBGL
+		editCollectButton.SetActive(false);
+		#endif
+	}
 
 	public void LoadCollectInfo(string collectId)
 	{

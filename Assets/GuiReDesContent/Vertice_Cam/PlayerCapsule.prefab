@@ -24,7 +24,6 @@ GameObject:
   - 124: {fileID: 124000013749838158}
   - 81: {fileID: 81000012868931752}
   - 114: {fileID: 114000013911818604}
-  - 114: {fileID: 114000013638735126}
   - 114: {fileID: 114000012710035834}
   m_Layer: 0
   m_Name: BrowseMainCam
@@ -166,33 +165,8 @@ MonoBehaviour:
   contextInfoPanel: {fileID: 0}
   ContextInfoCont: {fileID: 0}
   ContextMediaCont: {fileID: 0}
---- !u!114 &114000013638735126
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010381038998}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57dd591e1dac24c2f99ece7fc665f3f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  raycastDist: 2.5
-  tagCheck: Active Model
-  checkAllTags: 0
-  curObjName: 
-  prevObjName: 
-  selectObjPanel: {fileID: 0}
-  selectObjText: {fileID: 0}
-  selectPanelActive: 0
-  contextPanelActive: 0
-  selectContextPanel: {fileID: 0}
-  browseCamMove: {fileID: 0}
-  navMode: 0
-  instContextMedia: {fileID: 0}
-  mediaImgViewer: {fileID: 0}
-  mediaViewerScript: {fileID: 0}
-  curObj: {fileID: 0}
+  InfoMode: {fileID: 0}
+  curArtefact: {fileID: 0}
 --- !u!114 &114000013911818604
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -225,6 +199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CamLookScript: {fileID: 114000013911818604}
   rb: {fileID: 0}
+  defaultMode: 0
   navMode: 0
   navLocked: 0
   maxWalkSpeed: 20

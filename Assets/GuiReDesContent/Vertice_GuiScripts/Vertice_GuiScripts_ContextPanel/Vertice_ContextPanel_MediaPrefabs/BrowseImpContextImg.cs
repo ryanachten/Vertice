@@ -30,7 +30,7 @@ public class BrowseImpContextImg : MonoBehaviour {
 
 
 		WWW www = new WWW(wwwDirectory);
-		Debug.Log("Downloading contextual image: " + wwwDirectory);
+//		Debug.Log("Downloading contextual image: " + wwwDirectory);
 		while(!www.isDone){
 			yield return www; //TODO not downloading all of the data before continuing
 		}
