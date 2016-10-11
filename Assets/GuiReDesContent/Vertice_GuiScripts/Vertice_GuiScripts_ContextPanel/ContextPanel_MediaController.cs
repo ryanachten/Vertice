@@ -31,7 +31,7 @@ public class ContextPanel_MediaController : MonoBehaviour {
 
 		string artefactId = ContextInfoCont.artefactId;
 
-		Debug.Log("artefactId: " + artefactId);
+//		Debug.Log("artefactId: " + artefactId);
 		ResetPanel();
 
 		if (imagesToggle.isOn)
@@ -82,7 +82,7 @@ public class ContextPanel_MediaController : MonoBehaviour {
 		}
 
 		try {
-			Debug.Log("identifier: " + identifier + " mediaType: " + mediaType);
+//			Debug.Log("identifier: " + identifier + " mediaType: " + mediaType);
 			Dictionary<string, string>[] media = DublinCoreReader.GetContextualMediaArtefactWithIdentifierAndType(identifier, mediaType); 
 
 			for (int i = 0; i < media.Length; i++) 
