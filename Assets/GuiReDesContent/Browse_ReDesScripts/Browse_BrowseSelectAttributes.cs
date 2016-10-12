@@ -25,7 +25,7 @@ public class Browse_BrowseSelectAttributes : MonoBehaviour {
 	public void GetAttributes(string browseType)
 	{
 		DublinCoreReader.LoadXml("file://" + Application.dataPath + "/Scripts/Metadata/TestAssets/Vertice_ArtefactInformation.xml");
-		Debug.Log("GetAttr: " + browseType);
+//		Debug.Log("GetAttr: " + browseType);
 
 		string[] browseAttributes;
 

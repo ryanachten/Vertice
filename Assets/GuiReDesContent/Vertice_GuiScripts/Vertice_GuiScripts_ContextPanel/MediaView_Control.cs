@@ -9,8 +9,6 @@ public class MediaView_Control : MonoBehaviour {
 	public Text mediaTitle;
 	public RawImage imageRender;
 	public RectTransform imgRect;
-	private float defaultMvWidth = 900f; //TODO Should use screen.size probs
-	private float defaultMvHeight = 500f; //TODO as above
 	public GameObject mediaButtons;
 
 
@@ -23,15 +21,6 @@ public class MediaView_Control : MonoBehaviour {
 
 		if (!imageView.activeSelf)
 			imageView.SetActive(true);
-
-		/*//Reset windows sizes
-		float mvMaxWidth = imgRect.rect.width;
-		if (mvMaxWidth != defaultMvWidth)
-			imgRect.sizeDelta = new Vector2(defaultMvWidth, defaultMvHeight);
-
-		float mvMaxHeight = imgRect.rect.height;
-		if (mvMaxHeight != defaultMvHeight)
-			imgRect.sizeDelta = new Vector2(defaultMvWidth, defaultMvHeight);*/
 
 		mediaTitle.text = mediaName;
 
@@ -76,14 +65,12 @@ public class MediaView_Control : MonoBehaviour {
 		www.LoadImageIntoTexture(newImgTex);
 		imageRender.texture = newImgTex;
 
-		//Resize RawImg rect
-//		imgRect.sizeDelta = new Vector2(texWidth, texHeight);
 		downScaleRect(newImgTex);
 	}
 
 	void downScaleRect(Texture2D imgTex) //FIXME scaling fucntion still not working as expected
 	{
-		Debug.Log("ImgRect: " + imgRect.rect.width + " / " + imgRect.rect.height);
+//		Debug.Log("ImgRect: " + imgRect.rect.width + " / " + imgRect.rect.height);
 
 		float texHeight = imgTex.height;
 		float texWidth = imgTex.width;
@@ -91,18 +78,22 @@ public class MediaView_Control : MonoBehaviour {
 		float viewHeight = mediaViewerPanel.GetComponent<RectTransform>().rect.height;
 		float viewWidth = mediaViewerPanel.GetComponent<RectTransform>().rect.width;
 
-		float heightAspect = 100;
-		float widthAspect = 100;
+		float heightAspect = -100;
+		float widthAspect = -100;
 
-		if (texWidth > viewHeight && texWidth > texHeight)
-		{
-			Debug.Log("Image is portrait and bigger than viewer");
+		float scaleFactor = viewHeight / texHeight;
+//		Debug.Log("scaleFactor: " + scaleFactor);
 
-			Debug.Log("texWidth: " + texWidth + " viewWidth: " + viewWidth);
-			widthAspect = texWidth - viewWidth;
-			Debug.Log("widthAspect: " + widthAspect);
-			widthAspect += 100;
-		}
-		imgRect.sizeDelta = new Vector2(-widthAspect, -heightAspect);
+		float scaledWidth = texWidth * scaleFactor;
+//		Debug.Log("scaledWidth: " + scaledWidth);
+
+		widthAspect = scaledWidth - viewWidth;
+//		Debug.Log("widthAspect: " + widthAspect);
+
+		widthAspect -= 100;
+//		Debug.Log("widthAspect: " + widthAspect);
+
+		imgRect.sizeDelta = new Vector2(widthAspect, heightAspect);
+		Debug.Log("ImgRect: " + imgRect.rect.width + " / " + imgRect.rect.height);
 	}
 }
