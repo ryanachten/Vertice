@@ -54,7 +54,9 @@ public class ContextPanel_InfoController : MonoBehaviour {
 
 		artefactId = artefactIdentifier;
 
-		DublinCoreReader.LoadXml("file://" + Application.dataPath + "/Scripts/Metadata/TestAssets/Vertice_ArtefactInformation.xml");
+		//DublinCoreReader.LoadXml("file://" + Application.dataPath + "/Scripts/Metadata/TestAssets/Vertice_ArtefactInformation.xml");
+		// TODO The DublinCoreReader requires the caller to download XML data
+
 		Dictionary<string, Dictionary<string, string[]>> data = DublinCoreReader.GetArtefactWithIdentifier(artefactIdentifier);
 
 		ArtefactInfoLoad(data);

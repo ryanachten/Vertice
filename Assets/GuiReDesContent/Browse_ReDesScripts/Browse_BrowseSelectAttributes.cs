@@ -24,8 +24,11 @@ public class Browse_BrowseSelectAttributes : MonoBehaviour {
 	/// <param name="browseType">Type of browse user wants to view</param>
 	public void GetAttributes(string browseType)
 	{
-		DublinCoreReader.LoadXml("file://" + Application.dataPath + "/Scripts/Metadata/TestAssets/Vertice_ArtefactInformation.xml");
-//		Debug.Log("GetAttr: " + browseType);
+
+		// DublinCoreReader.LoadXml("file://" + Application.dataPath + "/Scripts/Metadata/TestAssets/Vertice_ArtefactInformation.xml");
+		// TODO DublinCoreReader requires the caller to download XML data
+
+		Debug.Log("GetAttr: " + browseType);
 
 		string[] browseAttributes;
 

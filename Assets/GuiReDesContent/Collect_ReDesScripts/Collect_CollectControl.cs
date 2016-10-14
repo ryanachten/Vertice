@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 
 public class Collect_CollectControl : MonoBehaviour {
 
@@ -11,6 +12,34 @@ public class Collect_CollectControl : MonoBehaviour {
 	public BoxCollider loadPlaneBoxCol;
 	public Object particleLocator;
 
+	IEnumerator DownloadArtefactXmlAndImportArtefacts(string collectId){
+		if (!DublinCoreReader.HasXml ()) {
+			UnityWebRequest www = UnityWebRequest.Get (Paths.Remote + "/Metadata/Vertice_ArtefactInformation.xml");
+			yield return www.Send ();
+
+			if (www.isError) {
+				// TODO: Echo the error condition to the user
+				Debug.Log ("Couldn't download XML file" + www.error);
+			} else {
+				DublinCoreReader.LoadXmlFromText (www.downloadHandler.text);
+				Debug.Log("Downloaded some XML");
+			}
+		}
+
+		collectionId = collectId;
+
+		string[] collectionIdentifiers = CollectionReader.GetIdentifiersForArtefactsInCollectionWithIdentifier(collectId);
+		importedObjects = new GameObject[collectionIdentifiers.Length];
+
+		for (int i = 0; i < collectionIdentifiers.Length; i++) {
+
+			string meshLocation = Paths.Remote + DublinCoreReader.GetMeshLocationForArtefactWithIdentifier(collectionIdentifiers [i]);
+			string texLocation = Paths.Remote + DublinCoreReader.GetTextureLocationForArtefactWithIdentifier(collectionIdentifiers [i]);
+			StartCoroutine (ImportModel (i, collectionIdentifiers[i], meshLocation, texLocation));
+		}
+
+	}
+
 
 	/// <summary>
 	/// Imports collection artefact's mesh and texture, assigns object info
@@ -18,21 +47,8 @@ public class Collect_CollectControl : MonoBehaviour {
 	/// <param name="collectionIdentifiers">array of identifiers belonging to collection</param>
 	public void ImportArtefacts(string collectId)
 	{
+		StartCoroutine(DownloadArtefactXmlAndImportArtefacts(collectId));
 
-		collectionId = collectId;
-
-		DublinCoreReader.LoadXml("file://" + Application.dataPath + "/Scripts/Metadata/TestAssets/Vertice_ArtefactInformation.xml");
-//		ResetInstances(); //TODO reset function
-
-		string[] collectionIdentifiers = CollectionReader.GetIdentifiersForArtefactsInCollectionWithIdentifier(collectId);
-		importedObjects = new GameObject[collectionIdentifiers.Length];
-
-		for (int i = 0; i < collectionIdentifiers.Length; i++) {
-
-			string meshLocation = "file://" + Application.dataPath + "/../.." + DublinCoreReader.GetMeshLocationForArtefactWithIdentifier(collectionIdentifiers [i]); //TODO change directory to reference Paths.js
-			string texLocation = "file://" + Application.dataPath + "/../.." + DublinCoreReader.GetTextureLocationForArtefactWithIdentifier(collectionIdentifiers [i]); //TODO change directory to reference Paths.js
-			StartCoroutine (ImportModel (i, collectionIdentifiers[i], meshLocation, texLocation));
-		}
 	}
 
 

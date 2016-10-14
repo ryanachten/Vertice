@@ -27,7 +27,8 @@ public class ContextPanel_MediaController : MonoBehaviour {
 	/// </summary>
 	public void LoadMedia() //executed on pressing Media button
 	{
-		DublinCoreReader.LoadXml("file://" + Application.dataPath + "/Scripts/Metadata/TestAssets/Vertice_ArtefactInformation.xml");
+		// DublinCoreReader.LoadXml("file://" + Application.dataPath + "/Scripts/Metadata/TestAssets/Vertice_ArtefactInformation.xml");
+		// TODO: The DublinCoreReader now requires the caller to download the data
 
 		string artefactId = ContextInfoCont.artefactId;
 
