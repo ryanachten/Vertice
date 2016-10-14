@@ -62,48 +62,35 @@ public class NoContextualMediaException : Exception
 public static class DublinCoreReader {
 
 	static XmlDocument _xmlDocument;
-	static string _uri;
 
 	/// <summary>
 	/// Loads XML data from a given filepath or URL
 	/// </summary>
 	/// <param name="filePath">File path.</param>
-	public static void LoadXml(string uri){
-		_uri = uri;
-		Refresh ();
-	}
-
-	/// <summary>
-	/// Synchronise the system's copy of the artefact library with the XML file stored on disk
-	/// </summary>
-	/// <exception cref="FileNotFoundException">Throws an exception if the the URI for the XML file was never set</exception>
-	public static void Refresh(){
-
-		if (_uri == null) {
-			Debug.Log ("The URI for XML data is not set. Did you forget to call LoadXml with a URI before calls to RefreshXML?");
-			throw new FileNotFoundException ();
-		}
-
-		// FIXME Loading in XML data will block until the data is returned. Using coroutines isn't a solution, since DublinCoreReader is not
-		// a subclass of MonoBehvaiour
-		WWW www = new WWW (_uri);
-		while (!www.isDone) {
-		}
+	public static void LoadXmlFromText(string text){
 		_xmlDocument = new XmlDocument ();
-		_xmlDocument.LoadXml (www.text);
-
-
+		_xmlDocument.LoadXml (text);
 	}
 
 	/// <summary>
 	/// Lazily read in XML data to the local _xmlDocument variable
 	/// </summary>
-	/// <returns>The XML document representing artefacts in the system</returns>
+	/// <returns>The XML document representing collections in the system</returns>
 	static XmlDocument Xml(){
 		if (_xmlDocument == null) {
-			Refresh ();
+			// TODO: Replace with an appropriate exception and handler
+			Debug.LogError ("Attempting to access an XML document that has not been properly loaded. Will return an empty XMLDocument to prevent a crash.");
+			return new XmlDocument ();
 		}
 		return _xmlDocument;
+	}
+
+	/// <summary>
+	/// Determines if the DublinCoreReader has any XML data associated with it
+	/// </summary>
+	/// <returns><c>true</c> If xml has already been loaded; otherwise, <c>false</c>.</returns>
+	static bool HasXml(){
+		return !(_xmlDocument == null);
 	}
 
 	/// <summary>

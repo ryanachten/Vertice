@@ -5,9 +5,27 @@ using System;
 
 public class TestDublinCoreBrowse {
 
+	private class MockClient {
+
+		string url;
+
+		public MockClient(string url) {
+			this.url = url;
+		}
+
+		public void DownloadXmlFile(){
+			WWW www = new WWW (url);
+			while (!www.isDone) {
+			}
+			DublinCoreReader.LoadXmlFromText (www.text);
+		}
+
+	}
+
 	[SetUp]
-	public void SetUpXml(){
-		DublinCoreReader.LoadXml ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_ObjArchive_Subset_As_DublinCore_With_Browse_Fields.xml");
+	public void SetUp(){
+		MockClient mockClient = new MockClient ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_ObjArchive_Subset_As_DublinCore_With_Browse_Fields.xml");
+		mockClient.DownloadXmlFile ();
 	}
 
 	[Test]

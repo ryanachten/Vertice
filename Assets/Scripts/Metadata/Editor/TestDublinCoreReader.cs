@@ -7,26 +7,31 @@ using System.IO;
 
 public class TestDublinCoreReader {
 
-	[Test]
-	/// <summary>
-	/// Indirectly test that a specified XML file can be read in and assigned to the internal _xmlDocument property
-	/// </summary>
-	public void TestLazyInitialisation(){
-		DublinCoreReader.LoadXml ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_ObjArchive_Subset_As_DublinCore.xml");
-		DublinCoreReader.Refresh ();
+	private class MockClient {
+
+		string url;
+
+		public MockClient(string url) {
+			this.url = url;
+		}
+
+		public void DownloadXmlFile(){
+			WWW www = new WWW (url);
+			while (!www.isDone) {
+			}
+			DublinCoreReader.LoadXmlFromText (www.text);
+		}
+
 	}
 
-	[Test]
-	[ExpectedException(typeof( FileNotFoundException ))]
-	public void RefreshThrowsFileNotFoundIfXmlDocumentNotLoaded(){
-		// Explicitly set _uri to null
-		DublinCoreReader.LoadXml (null);
-		DublinCoreReader.Refresh ();
+	[SetUp]
+	public void SetUp(){
+		MockClient mockClient = new MockClient ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_ObjArchive_Subset_As_DublinCore.xml");
+		mockClient.DownloadXmlFile ();
 	}
 
 	[Test]
 	public void TestBasicMetadataReading_01(){
-		DublinCoreReader.LoadXml ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_ObjArchive_Subset_As_DublinCore.xml");
 		Dictionary<string, Dictionary<string, string[]>> metadata = DublinCoreReader.GetArtefactWithIdentifier ("TestMonk");
 
 		// Check that both titles are represented
@@ -39,11 +44,11 @@ public class TestDublinCoreReader {
 
 		// Check that the content makes sense
 		Assert.That(metadata["descriptive"]["description"][0] == "Model for testing Vertice Archive connection");
-		Assert.That(metadata["descriptive"]["creator"][0] == "Ryan Achten");
-		Assert.That(metadata["descriptive"]["date"][0] == "13/04/2016");
+		Assert.That(metadata["descriptive"]["creator"][0] == "Blender Org");
+		Assert.That(metadata["descriptive"]["date"][0] == "2016/04/13");
 
 		Assert.That(metadata["structural"]["creator"][0] == "Ryan Achten");
-		Assert.That(metadata["structural"]["created"][0] == "13/04/2016");
+		Assert.That(metadata["structural"]["created"][0] == "2016/04/13");
 		Assert.That(metadata["structural"]["description"][0] == "Created in Blender");
 		Assert.That(metadata["structural"]["identifier"][0] == "Doog.obj");
 		Assert.That(metadata["structural"]["extent"][0] == "1.5 scale");
@@ -53,13 +58,11 @@ public class TestDublinCoreReader {
 	[Test]
 	[ExpectedException(typeof( NoSuchArtefactException ))]
 	public void TestBasicMetadataReading_Invalid(){
-		DublinCoreReader.LoadXml ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_ObjArchive_Subset_As_DublinCore.xml");
 		Dictionary<string, Dictionary<string, string[]>> metadata = DublinCoreReader.GetArtefactWithIdentifier ("DOES NOT EXIST");
 	}
 
 	[Test]
 	public void TestGetMeshLocationForArtefactWithIdentifier(){
-		DublinCoreReader.LoadXml ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_ObjArchive_Subset_As_DublinCore.xml");
 		string meshLocation = DublinCoreReader.GetMeshLocationForArtefactWithIdentifier ("TestMonk");
 		Assert.That (meshLocation == "/VerticeArchive/TEST/Doog.obj");
 	}
@@ -67,20 +70,17 @@ public class TestDublinCoreReader {
 	[Test]
 	[ExpectedException(typeof( NoSuchArtefactException ))]
 	public void TestGetMeshLocationForArtefactWithIdentifier_Invalid(){
-		DublinCoreReader.LoadXml ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_ObjArchive_Subset_As_DublinCore.xml");
 		string meshLocation = DublinCoreReader.GetMeshLocationForArtefactWithIdentifier ("DOES NOT EXIST");
 	}
 
 	[Test]
 	[ExpectedException(typeof( NoModelInformationException ))]
 	public void TestGetMeshLocationForArtefactWithIdentifier_NoAssets(){
-		DublinCoreReader.LoadXml ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_ObjArchive_Subset_As_DublinCore.xml");
 		string meshLocation = DublinCoreReader.GetMeshLocationForArtefactWithIdentifier ("NoAssets");
 	}
 
 	[Test]
 	public void TestGetTextureLocationForArtefactWithIdentifier(){
-		DublinCoreReader.LoadXml ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_ObjArchive_Subset_As_DublinCore.xml");
 		string texLocation = DublinCoreReader.GetTextureLocationForArtefactWithIdentifier ("TestMonk");
 		Assert.That (texLocation == "/VerticeArchive/TEST/Doog_Tex.jpg");
 	}
@@ -88,13 +88,11 @@ public class TestDublinCoreReader {
 	[Test]
 	[ExpectedException(typeof( NoSuchArtefactException ))]
 	public void TestGetTextureLocationForArtefactWithIdentifier_Invalid(){
-		DublinCoreReader.LoadXml ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_ObjArchive_Subset_As_DublinCore.xml");
 		string texLocation = DublinCoreReader.GetTextureLocationForArtefactWithIdentifier ("DOES NOT EXIST");
 	}
 
 	[Test]
 	public void TestGetContextualMediaForArtefactWithIdentifier(){
-		DublinCoreReader.LoadXml ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_ObjArchive_Subset_As_DublinCore.xml");
 		Dictionary<string, string>[] contextualMedia = DublinCoreReader.GetContextualMediaForArtefactWithIdentifier ("TestMonk");
 
 		Assert.That (contextualMedia [0] ["MediaName"] == "MetaPipe_TestTexs_1000");
@@ -113,13 +111,11 @@ public class TestDublinCoreReader {
 	[Test]
 	[ExpectedException(typeof( NoSuchArtefactException ))]
 	public void TestGetContextualMediaForArtefactWithIdentifier_Invalid(){
-		DublinCoreReader.LoadXml ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_ObjArchive_Subset_As_DublinCore.xml");
 		Dictionary<string, string>[] contextualMedia = DublinCoreReader.GetContextualMediaForArtefactWithIdentifier ("DOES NOT EXIST");
 	}
 
 	[Test]
 	public void TestGetContextualMediaOfForArtefactWithIdentifierAndType(){
-		DublinCoreReader.LoadXml ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_ObjArchive_Subset_As_DublinCore.xml");
 		Dictionary<string, string>[] contextualMedia = DublinCoreReader.GetContextualMediaArtefactWithIdentifierAndType ("TestMonk", "Image");
 
 		Assert.That (contextualMedia [0] ["MediaName"] == "MetaPipe_TestTexs_1000");
@@ -134,14 +130,12 @@ public class TestDublinCoreReader {
 	[Test]
 	[ExpectedException(typeof( NoSuchArtefactException ))]
 	public void TestGetContextualMediaOfForArtefactWithIdentifierAndType_InvalidIdentifier(){
-		DublinCoreReader.LoadXml ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_ObjArchive_Subset_As_DublinCore.xml");
 		Dictionary<string, string>[] contextualMedia = DublinCoreReader.GetContextualMediaArtefactWithIdentifierAndType ("DOES NOT EXIST", "Image");
 	}
 
 	[Test]
 	[ExpectedException(typeof( NoContextualMediaException ))]
 	public void TestGetContextualMediaOfForArtefactWithIdentifierAndType_InvalidType(){
-		DublinCoreReader.LoadXml ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_ObjArchive_Subset_As_DublinCore.xml");
 		Dictionary<string, string>[] contextualMedia = DublinCoreReader.GetContextualMediaArtefactWithIdentifierAndType ("TestMonk", "INVALID TYPE");
 	}
 }
