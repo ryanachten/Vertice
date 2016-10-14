@@ -7,6 +7,34 @@ using System.IO;
 
 public class TestVerticeTransform {
 
+	/// <summary>
+	/// Establish a mock client to (very very loosely) mimic the process of downloading XML data and loading it
+	/// in to the CollectionReader. This is required to run TestInstantiateWithCollectionReaderDictionary
+	/// </summary>
+	private class MockClient {
+
+		string url;
+
+		public MockClient(string url) {
+			this.url = url;
+		}
+
+		public void DownloadXmlFile(){
+			WWW www = new WWW (url);
+			while (!www.isDone) {
+			}
+			CollectionReader.LoadXmlFromText (www.text);
+		}
+
+	}
+
+
+	[SetUp]
+	public void SetUp(){
+		MockClient mockClient = new MockClient ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_UserCollections_As_DublinCore.xml");
+		mockClient.DownloadXmlFile ();
+	}
+
 	[Test]
 	public void TestInstantiateWithFloats(){
 		VerticeTransform transform = new VerticeTransform (1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 0.0f, -1.0f, -2.0f, -3.0f);
@@ -24,9 +52,6 @@ public class TestVerticeTransform {
 
 	[Test]
 	public void TestInstantiateWithCollectionReaderDictionary(){
-
-		// Load in the XML file
-		CollectionReader.LoadXml ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_UserCollections_As_DublinCore.xml"); 
 
 		// Get the list of collection identifiers, and subsequently the list of artefact identifiers for the first collection
 		string[] collectionIdentifiers = CollectionReader.GetIdentifiersForCollections ();

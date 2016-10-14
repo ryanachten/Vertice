@@ -1,32 +1,41 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using NUnit.Framework;
+using System.Collections;
 using System.Collections.Generic;
 using System;
 using System.IO;
+using UnityEngine.Networking;
+using System.Xml;
 
 public class TestCollectionReader {
 
-	[Test]
-	/// <summary>
-	/// Indirectly test that a specified XML file can be read in and assigned to the internal _xmlDocument property
-	/// </summary>
-	public void TestLazyInitialisation(){
-		CollectionReader.LoadXml ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_UserCollections_As_DublinCore.xml");
-		CollectionReader.Refresh ();
+	private class MockClient {
+
+		string url;
+
+		public MockClient(string url) {
+			this.url = url;
+		}
+
+		public void DownloadXmlFile(){
+			WWW www = new WWW (url);
+			while (!www.isDone) {
+			}
+			CollectionReader.LoadXmlFromText (www.text);
+		}
+
 	}
 
-	[Test]
-	[ExpectedException(typeof( FileNotFoundException ))]
-	public void RefreshThrowsFileNotFoundIfXmlDocumentNotLoaded(){
-		// Explicitly set _uri to null
-		CollectionReader.LoadXml (null);
-		CollectionReader.Refresh ();
+
+	[SetUp]
+	public void SetUp(){
+		MockClient mockClient = new MockClient ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_UserCollections_As_DublinCore.xml");
+		mockClient.DownloadXmlFile ();
 	}
 
 	[Test]
 	public void TestGetIdentifiersForCollections() {
-		CollectionReader.LoadXml ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_UserCollections_As_DublinCore.xml");
 		string[] collectionIdentifiers = CollectionReader.GetIdentifiersForCollections ();
 
 		Assert.That (collectionIdentifiers[0] == "P14C3H01D3R-00");
@@ -39,7 +48,6 @@ public class TestCollectionReader {
 
 	[Test]
 	public void GetCollectionMetadataWithIdentifier(){
-		CollectionReader.LoadXml ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_UserCollections_As_DublinCore.xml");
 		string[] collectionIdentifiers = CollectionReader.GetIdentifiersForCollections ();
 		Dictionary<string, string[]> collectionMetadata = CollectionReader.GetCollectionMetadataWithIdentifier (collectionIdentifiers [0]);
 
@@ -57,7 +65,6 @@ public class TestCollectionReader {
 
 	[Test]
 	public void GetIdentifiersForArtefactsInCollectionWithIdentifier(){
-		CollectionReader.LoadXml ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_UserCollections_As_DublinCore.xml");
 		string[] collectionIdentifiers = CollectionReader.GetIdentifiersForCollections ();
 		string[] artefactIdentifiers = CollectionReader.GetIdentifiersForArtefactsInCollectionWithIdentifier(collectionIdentifiers[0]);
 
@@ -71,13 +78,11 @@ public class TestCollectionReader {
 	[Test]
 	[ExpectedException(typeof( NoSuchCollectionException ))]
 	public void GetIdentifiersForArtefactsInCollectionWithIdentifier_Invalid(){
-		CollectionReader.LoadXml ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_UserCollections_As_DublinCore.xml");
 		string[] artefactIdentifiers = CollectionReader.GetIdentifiersForArtefactsInCollectionWithIdentifier("THIS IS NOT A REAL COLLECTION ID");
 	}
 
 	[Test]
 	public void GetTransformForArtefactWithIdentifierInCollection() {
-		CollectionReader.LoadXml ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_UserCollections_As_DublinCore.xml");
 		Dictionary<string, Dictionary<string, float>> transformData = CollectionReader.GetTransformForArtefactWithIdentifierInCollection("P14C3H01D3R-00", "Evans Bay Wharf");
 
 		Assert.That (transformData ["position"] ["x"] == 40.01599f);
@@ -97,14 +102,12 @@ public class TestCollectionReader {
 	[Test]
 	[ExpectedException(typeof( MalformedTransformCoordinateException ))]
 	public void GetTransformForArtefactWithIdentifierInCollection_IncompleteTransform() {
-		CollectionReader.LoadXml ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_UserCollections_As_DublinCore.xml");
 		Dictionary<string, Dictionary<string, float>> transformData = CollectionReader.GetTransformForArtefactWithIdentifierInCollection("P14C3H01D3R-00", "Cog Wheel Evans Bay");
 	}
 
 	[Test]
 	[ExpectedException(typeof( NoSuchArtefactInCollectionException ))]
 	public void GetTransformForArtefactWithIdentifierInCollection_InvalidArtefact() {
-		CollectionReader.LoadXml ("file://" + Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Metapipe_UserCollections_As_DublinCore.xml");
 		Dictionary<string, Dictionary<string, float>> transformData = CollectionReader.GetTransformForArtefactWithIdentifierInCollection("P14C3H01D3R-00", "NO SUCH ARTEFACT");
 	}
 }

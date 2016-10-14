@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 
 public class Collect_AvailableCollections : MonoBehaviour {
 
@@ -12,12 +13,32 @@ public class Collect_AvailableCollections : MonoBehaviour {
 	public Transform instantParent;
 
 	void Start () {
-		GetCollections();
+		// Upon creating this object, download the relevant XML data and use it to prepare the CollectionReader
+		StartCoroutine (DownloadXml (Paths.Remote + "/Metadata/Vertice_CollectionInformation.xml"));
+	}
+
+	/// <summary>
+	/// Download an XML file from a specified URL and populate a CollectionReader with the contents of the
+	/// XML file
+	/// </summary>
+	/// <param name="url">The absolute path to the XML file, with the scheme (e.g. file://, http://, etc.) </param>
+	IEnumerator DownloadXml(string url) {
+		UnityWebRequest www = UnityWebRequest.Get (url);
+		yield return www.Send ();
+
+		if (www.isError) {
+			// TODO: Echo the error condition to the user
+			Debug.Log ("Couldn't download XML file at " + url + "\n" + www.error);
+		} else {
+			CollectionReader.LoadXmlFromText (www.downloadHandler.text);
+			Debug.Log("Downloaded some XML from " + url);
+			GetCollections ();
+		}
 	}
 
 
 	public void GetCollections () {
-		CollectionReader.LoadXml("file://" + Application.dataPath + "/Scripts/Metadata/TestAssets/Vertice_CollectionInformation.xml");
+		//CollectionReader.LoadXml("file://" + Application.dataPath + "/Scripts/Metadata/TestAssets/Vertice_CollectionInformation.xml");
 
 		string[] collectIdentifiers = CollectionReader.GetIdentifiersForCollections();
 		for (int i = 0; i < collectIdentifiers.Length; i++) {
