@@ -54,7 +54,6 @@ public class MalformedTransformCoordinateException : Exception
 public static class CollectionReader {
 
 	static XmlDocument _xmlDocument;
-	static string _uri;
 
 	/// <summary>
 	/// Loads XML data from a given filepath or URL
