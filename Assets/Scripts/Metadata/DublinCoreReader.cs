@@ -89,7 +89,7 @@ public static class DublinCoreReader {
 	/// Determines if the DublinCoreReader has any XML data associated with it
 	/// </summary>
 	/// <returns><c>true</c> If xml has already been loaded; otherwise, <c>false</c>.</returns>
-	static bool HasXml(){
+	public static bool HasXml(){
 		return !(_xmlDocument == null);
 	}
 
