@@ -10,7 +10,12 @@ var stopButton : Button;
 var replayButton : Button;
 
 var curMediaType : String;
+
+#if UNITY_WEBGL
+// Don't declare a MovieTexture
+#else
 var curVid : MovieTexture;
+#endif
 
 
 function setMedia( mediaType : String)
