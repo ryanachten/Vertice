@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 
 public class ContextPanel_InfoController : MonoBehaviour {
 
@@ -44,18 +45,46 @@ public class ContextPanel_InfoController : MonoBehaviour {
 
 
 
+
 	/// <summary>
 	/// Executes load methods for each of the panels
 	/// </summary>
 	/// <param name="artefactIdentifier">Identifier for the artefact whose information is to be viewed</param>
 	public void LoadData(string artefactIdentifier)
 	{
+		StartCoroutine (LoadDataAsync (artefactIdentifier));
+
+	}
+
+	/// <summary>
+	/// Loads data asynchronously. This method is called via LoadData(string artefactIdentifier) to hide the asynchronous 
+	/// implementation from the caller as the implementation is not relevant to existing client code.
+	/// 
+	/// In many cases, this function will run all-at-once; the function need only yield in the case where data has yet to 
+	/// be loaded from disk or over the network
+	/// </summary>
+	/// <param name="artefactIdentifier">The identifier of the artefact to load</param>
+	private IEnumerator LoadDataAsync(string artefactIdentifier) {
+
+		Debug.Log ("ContextPanel_InfoController.LoadDataAsync");
+
 		InfoMode.SwitchMode("info");
 
 		artefactId = artefactIdentifier;
 
-		//DublinCoreReader.LoadXml("file://" + Application.dataPath + "/Scripts/Metadata/TestAssets/Vertice_ArtefactInformation.xml");
-		// TODO The DublinCoreReader requires the caller to download XML data
+		// If the DublinCoreReader has not been populated with data by some preceding operation, populate it now
+		if (!DublinCoreReader.HasXml()) {
+			Debug.Log ("Populateding DublinCoreReader");
+			UnityWebRequest www = new UnityWebRequest (Paths.Remote + "/Metadata/Vertice_ArtefactInformation.xml");
+
+			yield return www.Send ();
+
+			if (www.isError) {
+				Debug.Log ("There was an error downloading artefact information: " + www.error);
+			} else {
+				DublinCoreReader.LoadXmlFromText (www.downloadHandler.text);
+			}
+		}
 
 		Dictionary<string, Dictionary<string, string[]>> data = DublinCoreReader.GetArtefactWithIdentifier(artefactIdentifier);
 
