@@ -23,7 +23,9 @@ public class Collect_AvailableCollections : MonoBehaviour {
 	/// </summary>
 	/// <param name="url">The absolute path to the XML file, with the scheme (e.g. file://, http://, etc.) </param>
 	IEnumerator DownloadXml(string url) {
+		Debug.Log ("Downloading some XML from " + url);
 		UnityWebRequest www = UnityWebRequest.Get (url);
+
 		yield return www.Send ();
 
 		if (www.isError) {
@@ -38,8 +40,6 @@ public class Collect_AvailableCollections : MonoBehaviour {
 
 
 	public void GetCollections () {
-		//CollectionReader.LoadXml("file://" + Application.dataPath + "/Scripts/Metadata/TestAssets/Vertice_CollectionInformation.xml");
-
 		string[] collectIdentifiers = CollectionReader.GetIdentifiersForCollections();
 		for (int i = 0; i < collectIdentifiers.Length; i++) {
 			InstantCollectButton(collectIdentifiers[i]);
