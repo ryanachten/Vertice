@@ -28,7 +28,7 @@ public class ContextPanel_MediaController : MonoBehaviour {
 	/// </summary>
 	public void LoadMedia() //executed on pressing Media button
 	{
-		StartCoroutine (LoadMediaAsync);
+		StartCoroutine (LoadMediaAsync());
 
 	}
 
