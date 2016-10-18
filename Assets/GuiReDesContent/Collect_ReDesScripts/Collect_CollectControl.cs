@@ -12,6 +12,15 @@ public class Collect_CollectControl : MonoBehaviour {
 	public BoxCollider loadPlaneBoxCol;
 	public Object particleLocator;
 
+	/// <summary>
+	/// Asynchronous, private implementation for the public-facing ImportArtefacts(...) method. Allows the caller to 
+	/// ignore any implementation details (i.e. they do not need to call StartCoroutine, etc.
+	/// 
+	/// Checks to see if the DublinCoreReader has data available, otherwise it downloads it in a non-blocking fashion.
+	/// 
+	/// When data is present, it is used to import meshes, textures, and metadata, and instantiate objects
+	/// </summary>
+	/// <param name="collectId">Collection identifier.</param>
 	IEnumerator DownloadArtefactXmlAndImportArtefacts(string collectId){
 		if (!DublinCoreReader.HasXml ()) {
 			UnityWebRequest www = UnityWebRequest.Get (Paths.Remote + "/Metadata/Vertice_ArtefactInformation.xml");

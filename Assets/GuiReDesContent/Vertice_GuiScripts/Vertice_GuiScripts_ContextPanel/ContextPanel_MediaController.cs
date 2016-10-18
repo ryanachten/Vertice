@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 
 public class ContextPanel_MediaController : MonoBehaviour {
 
@@ -27,12 +28,32 @@ public class ContextPanel_MediaController : MonoBehaviour {
 	/// </summary>
 	public void LoadMedia() //executed on pressing Media button
 	{
-		// DublinCoreReader.LoadXml("file://" + Application.dataPath + "/Scripts/Metadata/TestAssets/Vertice_ArtefactInformation.xml");
-		// TODO: The DublinCoreReader now requires the caller to download the data
+		StartCoroutine (LoadMediaAsync);
+
+	}
+
+	/// <summary>
+	/// Provides a backing for LoadMedia() that can load data in to the DublinCoreReader asynchronously in the case 
+	/// where the DCReader has yet to be populated with data
+	/// </summary>
+	IEnumerator LoadMediaAsync(){
+
+		// If the DublinCoreReader has not been 
+		if (!DublinCoreReader.HasXml ()) {
+			UnityWebRequest www = UnityWebRequest.Get (Paths.Remote + "/Metadata/Vertice_ArtefactInformation.xml");
+			yield return www.Send ();
+
+			if (www.isError) {
+				// TODO: Echo the error condition to the user
+				Debug.Log ("Couldn't download XML file" + www.error);
+			} else {
+				DublinCoreReader.LoadXmlFromText (www.downloadHandler.text);
+				Debug.Log("Downloaded some XML");
+			}
+		}
 
 		string artefactId = ContextInfoCont.artefactId;
 
-//		Debug.Log("artefactId: " + artefactId);
 		ResetPanel();
 
 		if (imagesToggle.isOn)
@@ -47,6 +68,7 @@ public class ContextPanel_MediaController : MonoBehaviour {
 		{
 			InstantMedia(artefactId, "Video");
 		}
+		
 	}
 
 	/// <summary>

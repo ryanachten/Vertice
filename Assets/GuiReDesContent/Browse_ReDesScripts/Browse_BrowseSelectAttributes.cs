@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 
 public class Browse_BrowseSelectAttributes : MonoBehaviour {
 
@@ -24,11 +25,32 @@ public class Browse_BrowseSelectAttributes : MonoBehaviour {
 	/// <param name="browseType">Type of browse user wants to view</param>
 	public void GetAttributes(string browseType)
 	{
-
-		// DublinCoreReader.LoadXml("file://" + Application.dataPath + "/Scripts/Metadata/TestAssets/Vertice_ArtefactInformation.xml");
-		// TODO DublinCoreReader requires the caller to download XML data
-
 		Debug.Log("GetAttr: " + browseType);
+		StartCoroutine (GetAttributesAsync (browseType));
+
+
+	}
+
+	/// <summary>
+	/// Provides a backing for GetAttributes(string browseType) that can load data in to the DublinCoreReader asynchronously in the case 
+	/// where the DCReader has yet to be populated with data
+	/// </summary>
+	/// <param name="browseType">The field to browse on</param>
+	private IEnumerator GetAttributesAsync(string browseType) {
+
+		// If the DublinCoreReader has not been populated with data by some preceding operation, populate it now
+		if (!DublinCoreReader.HasXml()) {
+			Debug.Log ("Populating DublinCoreReader");
+			UnityWebRequest www = UnityWebRequest.Get(Paths.Remote + "/Metadata/Vertice_ArtefactInformation.xml");
+
+			yield return www.Send ();
+
+			if (www.isError) {
+				Debug.Log ("There was an error downloading artefact information: " + www.error);
+			} else {
+				DublinCoreReader.LoadXmlFromText (www.downloadHandler.text);
+			}
+		}
 
 		string[] browseAttributes;
 

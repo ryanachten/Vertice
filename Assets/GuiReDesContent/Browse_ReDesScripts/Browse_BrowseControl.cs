@@ -41,8 +41,8 @@ public class Browse_BrowseControl : MonoBehaviour {
 		ResetInstances();
 		importedObjects = new GameObject[browseIdentifiers.Length];
 		for (int i = 0; i < browseIdentifiers.Length; i++) {
-			string meshLocation = "file://" + Application.dataPath + "/../.." + DublinCoreReader.GetMeshLocationForArtefactWithIdentifier(browseIdentifiers [i]); //TODO change directory to reference Paths.js
-			string texLocation = "file://" + Application.dataPath + "/../.." + DublinCoreReader.GetTextureLocationForArtefactWithIdentifier(browseIdentifiers [i]); //TODO change directory to reference Paths.js
+			string meshLocation = Paths.Remote + DublinCoreReader.GetMeshLocationForArtefactWithIdentifier(browseIdentifiers [i]); //TODO change directory to reference Paths.js
+			string texLocation = Paths.Remote + DublinCoreReader.GetTextureLocationForArtefactWithIdentifier(browseIdentifiers [i]); //TODO change directory to reference Paths.js
 			StartCoroutine (ImportModel (i, browseIdentifiers[i], meshLocation, texLocation));
 		}
 	}
