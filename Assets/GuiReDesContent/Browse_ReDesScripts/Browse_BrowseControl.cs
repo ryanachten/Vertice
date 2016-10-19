@@ -12,6 +12,9 @@ public class Browse_BrowseControl : MonoBehaviour {
 	public Transform browseArtefactParent;
 	public Object particleLocator;
 
+	public GameObject progressBar;
+	public LoadProgressBar ProgressBarCont;
+
 
 	void Start()
 	{
@@ -40,9 +43,14 @@ public class Browse_BrowseControl : MonoBehaviour {
 	{
 		ResetInstances();
 		importedObjects = new GameObject[browseIdentifiers.Length];
+
+		progressBar.SetActive(true); 
+		ProgressBarCont.SetMaxVal(browseIdentifiers.Length *2);
+
+
 		for (int i = 0; i < browseIdentifiers.Length; i++) {
-			string meshLocation = Paths.Remote + DublinCoreReader.GetMeshLocationForArtefactWithIdentifier(browseIdentifiers [i]); //TODO change directory to reference Paths.js
-			string texLocation = Paths.Remote + DublinCoreReader.GetTextureLocationForArtefactWithIdentifier(browseIdentifiers [i]); //TODO change directory to reference Paths.js
+			string meshLocation = Paths.Remote + DublinCoreReader.GetMeshLocationForArtefactWithIdentifier(browseIdentifiers [i]);
+			string texLocation = Paths.Remote + DublinCoreReader.GetTextureLocationForArtefactWithIdentifier(browseIdentifiers [i]);
 			StartCoroutine (ImportModel (i, browseIdentifiers[i], meshLocation, texLocation));
 		}
 	}
@@ -73,8 +81,10 @@ public class Browse_BrowseControl : MonoBehaviour {
 		{
 			yield return null;
 		}
-		importedObjects[index] = objReader.gameObjects[0];
 
+		ProgressBarCont.AddTask("Importing " + browseIdentifier);
+
+		importedObjects[index] = objReader.gameObjects[0];
 
 		// Create GameObject
 		Texture2D objTexture = new Texture2D (512, 512);
@@ -91,8 +101,6 @@ public class Browse_BrowseControl : MonoBehaviour {
 			yield return null;
 		}
 		www.LoadImageIntoTexture(objTexture);
-
-
 
 		PlaceArtefact (index, importedObjects[index]);
 	}
@@ -111,6 +119,8 @@ public class Browse_BrowseControl : MonoBehaviour {
 		browseArtefact.transform.position = artefactPosition;
 		Rigidbody rb = browseArtefact.AddComponent<Rigidbody> ();
 		rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+
+		ProgressBarCont.AddTask("Placing " + browseArtefact.name);
 	}
 }
 

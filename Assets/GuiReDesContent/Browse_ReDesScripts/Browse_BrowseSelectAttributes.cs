@@ -25,7 +25,7 @@ public class Browse_BrowseSelectAttributes : MonoBehaviour {
 	/// <param name="browseType">Type of browse user wants to view</param>
 	public void GetAttributes(string browseType)
 	{
-		Debug.Log("GetAttr: " + browseType);
+//		Debug.Log("GetAttr: " + browseType);
 		StartCoroutine (GetAttributesAsync (browseType));
 
 

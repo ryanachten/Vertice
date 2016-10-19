@@ -12,6 +12,10 @@ public class Collect_CollectControl : MonoBehaviour {
 	public BoxCollider loadPlaneBoxCol;
 	public Object particleLocator;
 
+	public GameObject progressBar;
+	public LoadProgressBar ProgressBarCont;
+
+
 	/// <summary>
 	/// Asynchronous, private implementation for the public-facing ImportArtefacts(...) method. Allows the caller to 
 	/// ignore any implementation details (i.e. they do not need to call StartCoroutine, etc.
@@ -39,6 +43,9 @@ public class Collect_CollectControl : MonoBehaviour {
 
 		string[] collectionIdentifiers = CollectionReader.GetIdentifiersForArtefactsInCollectionWithIdentifier(collectId);
 		importedObjects = new GameObject[collectionIdentifiers.Length];
+
+		progressBar.SetActive(true); 
+		ProgressBarCont.SetMaxVal(collectionIdentifiers.Length *2);
 
 		for (int i = 0; i < collectionIdentifiers.Length; i++) {
 
@@ -75,6 +82,8 @@ public class Collect_CollectControl : MonoBehaviour {
 		{
 			yield return null;
 		}
+		ProgressBarCont.AddTask("Importing " + collectArtefactIdentifier);
+
 		importedObjects[index] = objReader.gameObjects[0];
 
 
@@ -125,6 +134,8 @@ public class Collect_CollectControl : MonoBehaviour {
 
 		collectArtefact.transform.position = VertTrans.position;;
 		Rigidbody rb = collectArtefact.AddComponent<Rigidbody> ();
+
+		ProgressBarCont.AddTask("Placing " + collectArtefact.name);
 
 	}
 }
