@@ -49,6 +49,7 @@ public class Collect_AvailableCollections : MonoBehaviour {
 	private void InstantCollectButton(string collectID)
 	{
 		GameObject curCollectButton = Instantiate(collectButtonPrefab, instantParent) as GameObject;
+		curCollectButton.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
 		Dictionary<string, string[]> data = CollectionReader.GetCollectionMetadataWithIdentifier(collectID);
 
 		string[] collectData = new string[5];

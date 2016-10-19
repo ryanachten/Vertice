@@ -92,6 +92,7 @@ public class Browse_BrowseSelectAttributes : MonoBehaviour {
 		for (int i = 0; i < browseAttributes.Length; i++) {
 
 			GameObject curBrowseAtt = Object.Instantiate (attributePrefab, attributeParent) as GameObject;
+			curBrowseAtt.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
 			curBrowseAtt.GetComponentInChildren<Text>().text = browseAttributes[i];
 		}
 	}
