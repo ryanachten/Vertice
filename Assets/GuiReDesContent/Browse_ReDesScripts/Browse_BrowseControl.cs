@@ -89,6 +89,7 @@ public class Browse_BrowseControl : MonoBehaviour {
 		// Create GameObject
 		Texture2D objTexture = new Texture2D (512, 512);
 		importedObjects[index].GetComponent<MeshRenderer> ().material.mainTexture = objTexture;
+		importedObjects[index].GetComponent<MeshRenderer>().enabled = false; //turns off the mesh before placement to avoid clustering
 		importedObjects[index].name = browseIdentifier; //artefact gameobject will be identifier for ease of reference
 		importedObjects[index].tag = "Active Model";
 		importedObjects[index].AddComponent<BoxCollider> ();
@@ -119,6 +120,7 @@ public class Browse_BrowseControl : MonoBehaviour {
 		browseArtefact.transform.position = artefactPosition;
 		Rigidbody rb = browseArtefact.AddComponent<Rigidbody> ();
 		rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+		browseArtefact.GetComponent<MeshRenderer>().enabled = true;
 
 		ProgressBarCont.AddTask("Placing " + browseArtefact.name);
 	}

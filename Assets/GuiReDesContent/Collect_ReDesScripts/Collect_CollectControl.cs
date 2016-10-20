@@ -63,8 +63,19 @@ public class Collect_CollectControl : MonoBehaviour {
 	/// <param name="collectionIdentifiers">array of identifiers belonging to collection</param>
 	public void ImportArtefacts(string collectId)
 	{
+		ResetInstances();
 		StartCoroutine(DownloadArtefactXmlAndImportArtefacts(collectId));
+	}
 
+
+	/// <summary>
+	/// Removes artefacts between browse queries
+	/// </summary>
+	private void ResetInstances()
+	{
+		for (int i = 0; i < collectArtefactParent.transform.childCount; i++) {
+			Destroy(collectArtefactParent.GetChild(i).gameObject);
+		}
 	}
 
 
@@ -90,6 +101,7 @@ public class Collect_CollectControl : MonoBehaviour {
 		// Create GameObject
 		Texture2D objTexture = new Texture2D (512, 512);
 		importedObjects[index].GetComponent<MeshRenderer> ().material.mainTexture = objTexture;
+		importedObjects[index].GetComponent<MeshRenderer>().enabled = false; //turns off the mesh before placement to avoid clustering
 		importedObjects[index].name = collectArtefactIdentifier; //artefact gameobject will be identifier for ease of reference
 		importedObjects[index].tag = "Active Model";
 		importedObjects[index].AddComponent<BoxCollider> ();
@@ -134,6 +146,7 @@ public class Collect_CollectControl : MonoBehaviour {
 
 		collectArtefact.transform.position = VertTrans.position;;
 		Rigidbody rb = collectArtefact.AddComponent<Rigidbody> ();
+		collectArtefact.GetComponent<MeshRenderer>().enabled = true;
 
 		ProgressBarCont.AddTask("Placing " + collectArtefact.name);
 

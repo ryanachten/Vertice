@@ -57,7 +57,7 @@ public class Collect_CollectGuiInfo : MonoBehaviour {
 	/// <param name="fieldGroup">Parent for the prefab to be instanted under</param>
 	public void InstantFieldData (string elementName, Transform fieldGroup) 
 	{
-//		ResetField(fieldGroup); //TODO reset field function
+		ResetField(fieldGroup); //TODO reset field function
 
 		try {
 			string[] curData = data[elementName];
@@ -65,6 +65,7 @@ public class Collect_CollectGuiInfo : MonoBehaviour {
 			{
 				GameObject field = Object.Instantiate (fieldText, fieldGroup) as GameObject;
 				field.GetComponent<Text> ().text = curData [i];
+				field.GetComponent<RectTransform>().localScale = new Vector3(1,1,1);
 //				Debug.Log (field.name + " " + i + " : " + curData [i]);
 			}
 		}
@@ -96,6 +97,13 @@ public class Collect_CollectGuiInfo : MonoBehaviour {
 
 	}
 
-
-
+	private void ResetField(Transform fieldGroup)
+	{
+		if (fieldGroup.childCount > 0)
+		{
+			for (int i = 0; i < fieldGroup.childCount; i++) {
+				Destroy(fieldGroup.GetChild(i).transform.gameObject);
+			}
+		}
+	}
 }
