@@ -524,42 +524,7 @@ Performance of the final malagan rites frees the living from their obligations t
 			</ContextMedia>
 		</relatedAssets>
 	</artefact>
-	 <artefact id="14.40.673"> 		<descriptive> 			<title>Bather</title> 			<creator>The Metropolitan Museum of Art</creator> 			<contributor>Jean Antoine Houdon (artist)</contributor> 			<contributor>Benjamin Altman</contributor> 			<date>1782/01/01</date> 			<description>This sculpture is the sole remnant of an extraordinary fountain group acquired by Louis Philippe Joseph d'Orléns, duc de Chartres (the future duc d'Orléns), for his romantic "English" garden on the outskirts of Paris at Monceau (now the Parc Monceau).  			As described by a contemporary, the fountain consisted of a white marble basin, in the center of which was a woman bathing, in white marble, and behind her, in lead, a black servant woman pouring water over her mistress from a gilded ewer (see 32.100.159)  			Sadly, the group barely survived its owner's demise (the duke was guillotined in 1793) as the fountain was heavily vandalized during the Revolution.  Houdon originally proposed the group as an acquisition for the crown, which declined to underwrite the expensive project.  Its ultimate sponsor, the exceedingly wealthy and politically liberal duke, who would later acquire Houdon's bronze "Frileuse" (62.55), may have been attracted by the cool and unselfconscious naturalism of the bathing woman's pose, or by the unprecedented sculptural portrayal of the black servant.  At any rate, the contrast between the two figures, and the use of different materials to distinguish them, must have made an extraordinary impression on all who saw the group.  Our solitary figure has been heavily eroded through exposure to the elements as well as human vandalism; restorations include the filling of bullet holes, replacement of limbs, and the addition of romantic ivy-covered stonework behind the elegantly classical draped seat.  Nonetheless, the charm and freshness of the original concept is still apparent. 			</description> 		</descriptive> 		<structural> 			<identifier>Vertice_MetCollect_GreatDeparture_2Decim.obj</identifier> 			<creator>The Metropolitan Museum of Art</creator> 			<created>2012/06/02</created> 			<extent> 			</extent> 		</structural> 		<relatedAssets> 			<MeshLocation>/VerticeArchive/Bather/Vertice_MetCollect_Bather_2Decim.obj</MeshLocation> 			<TexLocation>/VerticeArchive/Bather/Vertice_MetCollect_Bather_2Decim.jpg</TexLocation> 			<ContextMedia> 				<MediaName>DP275873</MediaName> 				<MediaType>Image</MediaType> 				<MediaLocation>/VerticeArchive/Bather/Bather_Context/DP275873.jpg</MediaLocation> 			</ContextMedia> 		</relatedAssets> 	</artefact> 
-	<artefact id="TestMonk">
-		<descriptive>
-			<title>Test Monk</title>
-			<title>Doog</title>
-			<description>Model for testing Vertice Archive connection</description>
-			<creator>Blender Org</creator>
-			<date>2016/04/13</date>
-		</descriptive>
-		<structural>
-			<creator>Ryan Achten</creator>
-			<created>2016/04/13</created>
-			<description>Created in Blender</description>
-			<identifier>Doog.obj</identifier>
-			<extent>1.5 scale</extent>
-		</structural>
-		<relatedAssets>
-			<MeshLocation>/VerticeArchive/TEST/Doog.obj</MeshLocation>
-			<TexLocation>/VerticeArchive/TEST/Doog_Tex.jpg</TexLocation>
-			<ContextMedia>
-				<MediaName>MetaPipe_TestTexs_1000</MediaName>
-				<MediaType>Image</MediaType>
-				<MediaLocation>/VerticeArchive/TEST/TestTexs_1000.jpg</MediaLocation>
-			</ContextMedia>
-			<ContextMedia>
-				<MediaName>WorldACoke</MediaName>
-				<MediaType>Video</MediaType>
-				<MediaLocation>/VerticeArchive/TEST/WorldACoke.ogg</MediaLocation>
-			</ContextMedia>
-			<ContextMedia>
-				<MediaName>MetaPipe_TestTexs_2000W</MediaName>
-				<MediaType>Image</MediaType>
-				<MediaLocation>/VerticeArchive/TEST/TestTexs_2000W.jpg</MediaLocation>
-			</ContextMedia>
-		</relatedAssets>
-	</artefact>
+	 <artefact id="14.40.673"> 		<descriptive> 			<title>Bather</title> 			<creator>The Metropolitan Museum of Art</creator> 			<contributor>Jean Antoine Houdon (artist)</contributor> 			<contributor>Benjamin Altman</contributor> 			<date>1782/01/01</date> 			<description>This sculpture is the sole remnant of an extraordinary fountain group acquired by Louis Philippe Joseph d'Orléns, duc de Chartres (the future duc d'Orléns), for his romantic "English" garden on the outskirts of Paris at Monceau (now the Parc Monceau).  			As described by a contemporary, the fountain consisted of a white marble basin, in the center of which was a woman bathing, in white marble, and behind her, in lead, a black servant woman pouring water over her mistress from a gilded ewer (see 32.100.159)  			Sadly, the group barely survived its owner's demise (the duke was guillotined in 1793) as the fountain was heavily vandalized during the Revolution.  Houdon originally proposed the group as an acquisition for the crown, which declined to underwrite the expensive project.  Its ultimate sponsor, the exceedingly wealthy and politically liberal duke, who would later acquire Houdon's bronze "Frileuse" (62.55), may have been attracted by the cool and unselfconscious naturalism of the bathing woman's pose, or by the unprecedented sculptural portrayal of the black servant.  At any rate, the contrast between the two figures, and the use of different materials to distinguish them, must have made an extraordinary impression on all who saw the group.  Our solitary figure has been heavily eroded through exposure to the elements as well as human vandalism; restorations include the filling of bullet holes, replacement of limbs, and the addition of romantic ivy-covered stonework behind the elegantly classical draped seat.  Nonetheless, the charm and freshness of the original concept is still apparent. 			</description> 		</descriptive> 		<structural> 			<identifier>Vertice_MetCollect_GreatDeparture_2Decim.obj</identifier> 			<creator>The Metropolitan Museum of Art</creator> 			<created>2012/06/02</created> 			<extent> 			</extent> 		</structural> 		<relatedAssets> 			<MeshLocation>/VerticeArchive/Bather/Vertice_MetCollect_Bather_2Decim.obj</MeshLocation> 			<TexLocation>/VerticeArchive/Bather/Vertice_MetCollect_Bather_2Decim.jpg</TexLocation> 			<ContextMedia> 				<MediaName>DP275873</MediaName> 				<MediaType>Image</MediaType> 				<MediaLocation>/VerticeArchive/Bather/Bather_Context/DP275873.jpg</MediaLocation> 			</ContextMedia> 		</relatedAssets> 	</artefact>
 	<artefact id="NoAssets">
 		<descriptive>
 			<title>No Assets</title>

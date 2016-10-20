@@ -116,6 +116,7 @@ public class ContextPanel_MediaController : MonoBehaviour {
 //				Debug.Log(mediaLocation);
 
 				GameObject mediaInstant = Object.Instantiate(mediaPrefab, contentParent) as GameObject;
+				mediaInstant.GetComponent<RectTransform>().localScale = new Vector3(1,1,1);
 
 				Text mediaText = mediaInstant.transform.GetChild(1).gameObject.GetComponent<Text>(); //updates the prefab title
 				mediaText.text = mediaName;
@@ -141,6 +142,7 @@ public class ContextPanel_MediaController : MonoBehaviour {
 		{
 			Debug.Log("No Contextual Media for this artefact");
 			GameObject mediaInstant = Object.Instantiate(noMediaPrefab, contentParent) as GameObject;
+			mediaInstant.GetComponent<RectTransform>().localScale = new Vector3(1,1,1);
 		}
 	}
 }

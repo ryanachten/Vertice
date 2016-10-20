@@ -38,13 +38,13 @@ public class Collect_CollectGuiInfo : MonoBehaviour {
 		data = CollectionReader.GetCollectionMetadataWithIdentifier(collectId);
 
 		InstantFieldData ( "title", titleGroup);
-		ImportTextData ( "identifier", identifierText); //TODO text function
+		ImportTextData ( "identifier", identifierText);
 		InstantFieldData ( "creator", creatorGroup);
 		InstantFieldData ( "contributor", contributorGroup);
 		InstantFieldData ( "date", dateGroup);
 		InstantFieldData ( "coverage", coverageGroup);
 		InstantFieldData ( "subject", subjectGroup);
-		ImportTextData ( "description", descriptionText); //TODO text function
+		ImportTextData ( "description", descriptionText);
 
 	}
 
@@ -57,7 +57,7 @@ public class Collect_CollectGuiInfo : MonoBehaviour {
 	/// <param name="fieldGroup">Parent for the prefab to be instanted under</param>
 	public void InstantFieldData (string elementName, Transform fieldGroup) 
 	{
-		ResetField(fieldGroup); //TODO reset field function
+		ResetField(fieldGroup);
 
 		try {
 			string[] curData = data[elementName];
@@ -97,6 +97,10 @@ public class Collect_CollectGuiInfo : MonoBehaviour {
 
 	}
 
+
+	/// <summary>
+	/// Resets attribute
+	/// </summary>
 	private void ResetField(Transform fieldGroup)
 	{
 		if (fieldGroup.childCount > 0)

@@ -59,7 +59,7 @@ public class MediaView_Control : MonoBehaviour {
 	{
 		float texWidth = www.texture.width;
 		float texHeight = www.texture.height;
-		Debug.Log("texDimen: " + texWidth + " : " + texHeight);
+//		Debug.Log("texDimen: " + texWidth + " : " + texHeight);
 
 		Texture2D newImgTex = new Texture2D(Mathf.RoundToInt(texWidth), Mathf.RoundToInt(texHeight)); 
 		www.LoadImageIntoTexture(newImgTex);
@@ -94,6 +94,6 @@ public class MediaView_Control : MonoBehaviour {
 //		Debug.Log("widthAspect: " + widthAspect);
 
 		imgRect.sizeDelta = new Vector2(widthAspect, heightAspect);
-		Debug.Log("ImgRect: " + imgRect.rect.width + " / " + imgRect.rect.height);
+//		Debug.Log("ImgRect: " + imgRect.rect.width + " / " + imgRect.rect.height);
 	}
 }

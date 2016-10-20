@@ -20,8 +20,7 @@ public class BrowseImpContextImg : MonoBehaviour {
 	{
 
 		#if UNITY_WEBGL
-//		var wwwDirectory = Paths.Remote + texLocation; 
-		string wwwDirectory = "file://" + Application.dataPath + "/../.." + texLocation; //TODO test directory - VerticeArchive shipped outside of Assets folder
+		var wwwDirectory = Paths.Remote + texLocation; 
 		#elif UNITY_STANDALONE
 		var wwwDirectory = Paths.Local + texLocation; //Doesn't work due to the VerticeArchive folder residing outside of Assets folder
 		#endif
@@ -72,7 +71,7 @@ public class BrowseImpContextImg : MonoBehaviour {
 	public void sendActive()
 	{
 		GameObject mediaViewer = GameObject.FindGameObjectWithTag("MediaViewer");
-		MediaView_Control mediaActiveScript = mediaViewer.GetComponent<MediaView_Control>(); //TODO need to refactor the MediaViewer script
+		MediaView_Control mediaActiveScript = mediaViewer.GetComponent<MediaView_Control>();
 
 		string imgTitle = contImgTitle.GetComponent<Text>().text;
 //		Debug.Log("activeMediaViewer imgTitle: " + imgTitle + " contextMediaType: " + contextMediaType + " textureLocation: " + textureLocation);

@@ -152,8 +152,10 @@ public class Browse_BrowseSelectAttributes : MonoBehaviour {
 				attributeIdentifiers = null;
 				break;
 		}
-
-		BrowseCont.ImportArtefacts(attributeIdentifiers);
+		if (attributeIdentifiers.Length > 0)
+		{
+			BrowseCont.ImportArtefacts(attributeIdentifiers);
+		} 
 		gameObject.SetActive(false); //turns panel off once query has been committed
 	}
 }

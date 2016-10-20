@@ -141,6 +141,7 @@ public class ContextPanel_InfoController : MonoBehaviour {
 		InstantFieldData (data, "structural", "creator", mCreatorGroup);
 		InstantFieldData (data, "structural", "created", createdGroup);
 		ImportTextData (data, "structural", "description", mDescriptionText);
+		InstantFieldData (data, "structural", "isVersion", isVersionGroup);
 	}
 
 	/// <summary>
