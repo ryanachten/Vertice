@@ -9,6 +9,9 @@ public class ContextInfoModeToggle : MonoBehaviour {
 	public GameObject mediaControlToggles;
 	public GameObject mediaPanel;
 	public Toggle mediaToggle;
+	public GameObject imageToggle;
+	public GameObject audioToggle;
+	public GameObject videoToggle;
 
 	public GameObject infoControlToggles;
 	public GameObject infoPanel;
@@ -16,6 +19,12 @@ public class ContextInfoModeToggle : MonoBehaviour {
 
 	void Start()
 	{
+		#if UNITY_WEBGL
+		imageToggle.SetActive(false);
+		audioToggle.SetActive(false);
+		videoToggle.SetActive(false);
+		#endif
+
 		SwitchMode("info"); //default - should be 'info'
 	}
 
