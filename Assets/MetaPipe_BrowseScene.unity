@@ -8262,12 +8262,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 259809455}
---- !u!114 &261702725 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114000011440208108, guid: 8fbfb1d9f79514bd3abdd0ae23a83348,
-    type: 2}
-  m_PrefabInternal: {fileID: 1026621243}
-  m_Script: {fileID: 11500000, guid: 9807c229fc02f41e08ca6f0751845f95, type: 3}
 --- !u!1 &262109013
 GameObject:
   m_ObjectHideFlags: 0
@@ -13718,12 +13712,6 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224000012196668638, guid: 8fbfb1d9f79514bd3abdd0ae23a83348,
     type: 2}
   m_PrefabInternal: {fileID: 1026621243}
---- !u!114 &513278780 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114000012665232916, guid: 8fbfb1d9f79514bd3abdd0ae23a83348,
-    type: 2}
-  m_PrefabInternal: {fileID: 1026621243}
-  m_Script: {fileID: 11500000, guid: a73430d5aefbd448bb812a4f6d0cbf65, type: 3}
 --- !u!114 &513278782 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114000011910765658, guid: 8fbfb1d9f79514bd3abdd0ae23a83348,
@@ -51177,6 +51165,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114000014109318652, guid: 307937dbb72a746cbbd1360fe89a2a50,
+        type: 2}
+      propertyPath: browseGui
+      value: 
+      objectReference: {fileID: 1418241192}
     - target: {fileID: 114000012710035834, guid: 307937dbb72a746cbbd1360fe89a2a50,
         type: 2}
       propertyPath: contextInfoPanel
@@ -51187,21 +51180,6 @@ Prefab:
       propertyPath: ContextInfoCont
       value: 
       objectReference: {fileID: 513278782}
-    - target: {fileID: 114000012710035834, guid: 307937dbb72a746cbbd1360fe89a2a50,
-        type: 2}
-      propertyPath: ContextMediaCont
-      value: 
-      objectReference: {fileID: 513278780}
-    - target: {fileID: 114000012710035834, guid: 307937dbb72a746cbbd1360fe89a2a50,
-        type: 2}
-      propertyPath: InfoMode
-      value: 
-      objectReference: {fileID: 261702725}
-    - target: {fileID: 114000014109318652, guid: 307937dbb72a746cbbd1360fe89a2a50,
-        type: 2}
-      propertyPath: browseGui
-      value: 
-      objectReference: {fileID: 1418241192}
     - target: {fileID: 114000012710035834, guid: 307937dbb72a746cbbd1360fe89a2a50,
         type: 2}
       propertyPath: infoToggle

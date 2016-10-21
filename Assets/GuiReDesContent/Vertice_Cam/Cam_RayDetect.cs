@@ -6,7 +6,7 @@ public class Cam_RayDetect : MonoBehaviour {
 
 	//used for detecting artefacts and allowing view of contextual information
 	public BrowseCamMovement CamMove;
-	public float raycastDistance;
+	public float raycastDistance = 10f;
 	public string tagCheck = "Active Model";
 	private string previousIdentifier; //used to check against duplicate hits
 	public GameObject contextInfoPanel;

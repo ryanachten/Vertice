@@ -146,6 +146,7 @@ public class Collect_CollectControl : MonoBehaviour {
 
 		collectArtefact.transform.position = VertTrans.position;;
 		Rigidbody rb = collectArtefact.AddComponent<Rigidbody> ();
+		rb.mass = 3;
 		collectArtefact.GetComponent<MeshRenderer>().enabled = true;
 
 		ProgressBarCont.AddTask("Placing " + collectArtefact.name);

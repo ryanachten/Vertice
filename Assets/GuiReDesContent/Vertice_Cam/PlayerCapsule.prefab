@@ -160,12 +160,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CamMove: {fileID: 114000014109318652}
-  raycastDistance: 2.5
+  raycastDistance: 10
   tagCheck: Active Model
   contextInfoPanel: {fileID: 0}
   ContextInfoCont: {fileID: 0}
-  ContextMediaCont: {fileID: 0}
-  InfoMode: {fileID: 0}
+  infoToggle: {fileID: 0}
+  mediaToggle: {fileID: 0}
+  mediaViewer: {fileID: 0}
   curArtefact: {fileID: 0}
 --- !u!114 &114000013911818604
 MonoBehaviour:

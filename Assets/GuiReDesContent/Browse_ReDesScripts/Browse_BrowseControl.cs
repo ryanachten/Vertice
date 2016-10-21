@@ -119,6 +119,7 @@ public class Browse_BrowseControl : MonoBehaviour {
 		Vector3 artefactPosition = instantPoints [instantNumber].position;
 		browseArtefact.transform.position = artefactPosition;
 		Rigidbody rb = browseArtefact.AddComponent<Rigidbody> ();
+		rb.mass = 3;
 		browseArtefact.GetComponent<MeshRenderer>().enabled = true;
 
 		ProgressBarCont.AddTask("Placing " + browseArtefact.name);
