@@ -81,16 +81,21 @@ public static class CollectionWriter {
 			LoadXml ();
 		}
 
-		PruneExistingCollectionWithIdentifier (collectionIdentifier);
-		XmlNode collectionNode = CreateCollectionNodeForCollectionWithIdentifier (collectionIdentifier);
-		AddDescriptiveMetadataToCollectionNode (collectionNode, descriptiveMetadata);
-		AddArtefactsToCollectionNode (collectionNode, artefactTransforms);
+		PruneExistingCollectionWithIdentifier (collectionIdentifier); // Remove the collection node that will be overwritten
+		XmlNode collectionNode = CreateCollectionNodeForCollectionWithIdentifier (collectionIdentifier); // Create a new empty <verticeCollection id="..."> node for this collection
+		AddDescriptiveMetadataToCollectionNode (collectionNode, descriptiveMetadata); // Add in the descriptive metadata
+		AddArtefactsToCollectionNode (collectionNode, artefactTransforms); // Add in the structural metadata
 		WriteXmlToFile ();
 
 
 
 	}
 
+	/// <summary>
+	/// Creates the collection node for the collection to be written
+	/// </summary>
+	/// <returns>The new node</returns>
+	/// <param name="collectionIdentifier">Collection identifier.</param>
 	static XmlNode CreateCollectionNodeForCollectionWithIdentifier(string collectionIdentifier){
 		XmlElement collectionRoot = _xmlDocument.CreateElement ("verticeCollection");
 		collectionRoot.SetAttribute ("id", collectionIdentifier);
@@ -98,11 +103,17 @@ public static class CollectionWriter {
 		return _xmlDocument.SelectSingleNode ("/verticeCollections").AppendChild (collectionRoot);
 	}
 
+	/// <summary>
+	/// Adds descriptive metadata to the <descriptive> child of the main <verticeCollection id="..."> node
+	/// </summary>
+	/// <param name="collectionNode">The parent <verticeCollection id="..."> node</param>
+	/// <param name="descriptiveMetadata">A Dictionary<string, string[]> mapping element names to lists of values</param>
 	static void AddDescriptiveMetadataToCollectionNode(XmlNode collectionNode, Dictionary<string, string[]> descriptiveMetadata) {
 
 		XmlElement descriptiveElement = _xmlDocument.CreateElement ("descriptive");
 		XmlNode descriptiveNode = collectionNode.AppendChild (descriptiveElement);
 
+		// Iterate through the elements and their values, and write that data in to <element>value</element> children of the <descriptive> node
 		foreach (string key in descriptiveMetadata.Keys) {
 			foreach (string value in descriptiveMetadata[key]) {
 				XmlElement metadataElement = _xmlDocument.CreateElement (key);
@@ -113,11 +124,38 @@ public static class CollectionWriter {
 		}
 	}
 
+	/// <summary>
+	/// Adds the artefacts belonging to a collection and their transforms to the <structural> child of a <verticeCollection> element
+	/// </summary>
+	/// <param name="collectionNode">The <verticeCollection> node</param>
+	/// <param name="artefactTransforms">A dictionary mapping artefact identifiers to their VerticeTransform transforms</param>
 	static void AddArtefactsToCollectionNode(XmlNode collectionNode, Dictionary<string, VerticeTransform> artefactTransforms) {
 
 		XmlElement structuralElement = _xmlDocument.CreateElement ("structural");
 		XmlNode structuralNode = collectionNode.AppendChild (structuralElement);
 
+		// Iterate through each artefact and pull out its identifier and transform, then add 
+		// a subtree to the <structural> element of the form:
+		//		<artefact id="...">
+		//			<transform>
+		//				<position>
+		//					<x>...</x>
+		//					<y>...</y>
+		//					<z>...</z>
+		//				</position>
+		//				<rotation>
+		//					<x>...</x>
+		//					<y>...</y>
+		//					<z>...</z>
+		//					<w>...</w>
+		//				</rotation>
+		//				<scale>
+		//					<x>...</x>
+		//					<y>...</y>
+		//					<z>...</z>
+		//				</scale>
+		//			</transform>
+		//		</artefact>
 		foreach (string key in artefactTransforms.Keys) {
 			XmlElement artefactElement = _xmlDocument.CreateElement ("artefact");
 			artefactElement.SetAttribute ("id", key);
@@ -144,6 +182,11 @@ public static class CollectionWriter {
 		
 	}
 
+	/// <summary>
+	/// Helper function for unpacking a Vector3 in to XML nodes
+	/// </summary>
+	/// <param name="node">The XML node to add this Vector3 to</param>
+	/// <param name="vector">The Vector3 to unpack</param>
 	static void addVector3ToNode(XmlNode node, Vector3 vector) {
 
 		XmlElement x = _xmlDocument.CreateElement ("x");
@@ -160,6 +203,11 @@ public static class CollectionWriter {
 	
 	}
 
+	/// <summary>
+	/// Helper function for unpacking a Quaternion in to XML nodes
+	/// </summary>
+	/// <param name="node">The XML node to add this Quaternion to</param>
+	/// <param name="vector">The Quaternion to unpack</param>
 	static void addQuaternionToNode (XmlNode node, Quaternion vector) {
 
 		XmlElement x = _xmlDocument.CreateElement ("x");
