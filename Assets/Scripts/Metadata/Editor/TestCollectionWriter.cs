@@ -9,7 +9,7 @@ public class TestCollectionWriter {
 
 	[SetUp]
 	public void Setup() {
-		CollectionWriter.SetOutputFile (Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Collection_Writer_Test.xml");
+//		CollectionWriter.SetOutputFile (Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Collection_Writer_Test.xml");
 	}
 
 	[TearDown]
