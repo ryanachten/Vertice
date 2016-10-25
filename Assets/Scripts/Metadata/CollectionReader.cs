@@ -56,12 +56,21 @@ public static class CollectionReader {
 	static XmlDocument _xmlDocument;
 
 	/// <summary>
-	/// Loads XML data from a given filepath or URL
+	/// Loads XML data using the passed in text
 	/// </summary>
-	/// <param name="filePath">File path.</param>
+	/// <param name="text">The XML-formatted text</param>
 	public static void LoadXmlFromText(string text){
 		_xmlDocument = new XmlDocument ();
 		_xmlDocument.LoadXml (text);
+	}
+
+	/// <summary>
+	/// Loads XML data from a given filepath
+	/// </summary>
+	/// <param name="filePath">File path.</param>
+	public static void LoadXmlFromFile(string filePath){
+		_xmlDocument = new XmlDocument ();
+		_xmlDocument.Load (filePath);
 	}
 
 	/// <summary>

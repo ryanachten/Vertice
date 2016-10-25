@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class VerticeTransform {
+public struct VerticeTransform {
 
 	public Vector3 position;
 	public Quaternion rotation;
@@ -27,6 +27,18 @@ public class VerticeTransform {
 		rotation = new Quaternion (rotationX, rotationY, rotationZ, rotationW);
 		scale = new Vector3 (scaleX, scaleY, scaleZ);
 
+	}
+
+	/// <summary>
+	/// Initialise a VerticeTransform with the passed in Position, Scale, and Rotation Unity objects. Useful for packaging transform data to pass to the CollectionWriter
+	/// </summary>
+	/// <param name="position">Position.</param>
+	/// <param name="rotation">Rotation.</param>
+	/// <param name="scale">Scale.</param>
+	public VerticeTransform(Vector3 position, Quaternion rotation, Vector3 scale) {
+		this.position = position;
+		this.rotation = rotation;
+		this.scale = scale;
 	}
 
 	/// <summary>
