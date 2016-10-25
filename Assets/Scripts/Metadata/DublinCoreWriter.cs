@@ -5,17 +5,16 @@ using System.Collections.Generic;
 using System.IO;
 using System;
 
-public class DublinCoreWriter {
+public static class DublinCoreWriter {
 
-	XmlDocument xmlDocument;
+	static XmlDocument xmlDocument;
 
 	/// <summary>
-	/// Initializes a new instance of the <see cref="DublinCoreWriter"/> class. This writer will create a new 
-	/// XML file in the case where no file exists
+	/// Write a metadata record to XML
 	/// </summary>
+	/// <param name="identifier">The identifier for the artefact</param>
 	/// <param name="data">A nested dictionary representing the structure of a metadata record. 
-	/// <param name="metadataRecordPath">The path to a metadata file. If no path is provided, and new 
-	/// file will be created at Application.persistentDataPath</param>
+	/// 
 	/// 	{ 
 	/// 		"descriptive" : {
 	/// 			"title" : ["A title", "A subtitle"],
@@ -29,26 +28,22 @@ public class DublinCoreWriter {
 	/// 	}
 	/// 
 	/// </param>
-	public DublinCoreWriter(Dictionary<string, object> data, string artefactIdentifier, string metadataRecordPath = null){
+	public static void WriteDataForArtefactWithIdentifier(string identifier, Dictionary<string, object> data){
 
 		try {
-			LoadXmlFromFile (metadataRecordPath);
+			LoadXmlFromFile (Paths.ArtefactMetadata);
 		} catch (FileNotFoundException fnfException) {
-			Debug.Log (String.Format("Could not open an XML file at {0} -- will create new metadata file at that path", metadataRecordPath));
+			Debug.Log (String.Format("Could not open an XML file at {0} -- will create new metadata file at that path", Paths.ArtefactMetadata));
 			EstablishNewDocument ();
 		} catch (DirectoryNotFoundException dirException) {
 			Debug.Log (String.Format ("Could not open directory\n\n {0}", dirException.Message));
 			EstablishNewDocument ();
-		} catch (ArgumentNullException nullException){
-			Debug.Log (String.Format("Could not open an XML file at {0} -- will create new metadata file", metadataRecordPath));
-			metadataRecordPath = String.Format ("{0}/{1}", Application.dataPath, "vertice_metadata.xml");
-			EstablishNewDocument ();
-		}
+		} 
 
 		try {
-			UnpackDictionaries (data, GetArtefactRoot(artefactIdentifier));
-			WriteXmlToFile(metadataRecordPath);
-			Debug.Log(String.Format("Wrote metadata to {0}", metadataRecordPath));
+			UnpackDictionaries (data, GetArtefactRoot(identifier));
+			WriteXmlToFile(Paths.ArtefactMetadata);
+			Debug.Log(String.Format("Wrote metadata to {0}", Paths.ArtefactMetadata));
 		} catch (NullReferenceException nullReference) {
 			Debug.LogError ("An error occurred converting a nested dictionary to XML -- you must pass in a nested dictionary (not null!)");
 		} catch (ArgumentNullException nullArgument){
@@ -60,7 +55,7 @@ public class DublinCoreWriter {
 	/// <summary>
 	/// Creates a new document with a <verticeMetadata> root node and XML preamble
 	/// </summary>
-	void EstablishNewDocument(){
+	static void EstablishNewDocument(){
 		xmlDocument = new XmlDocument ();
 		// Add the fundaments of an XML document: the xml processing instruction and a root element
 		XmlProcessingInstruction declareVersionAndEncoding = xmlDocument.CreateProcessingInstruction ("xml", "version='1.0' encoding='UTF-8'");
@@ -75,7 +70,7 @@ public class DublinCoreWriter {
 	/// </summary>
 	/// <param name="metadataDictionary">Metadata dictionary.</param>
 	/// <param name="rootElement">The parent element for this nested metadata dictionary</param>
-	void UnpackDictionaries(Dictionary<string, object> metadataDictionary, XmlElement parentElement)	{
+	static void UnpackDictionaries(Dictionary<string, object> metadataDictionary, XmlElement parentElement)	{
 
 
 		foreach (string key in metadataDictionary.Keys) {
@@ -97,7 +92,7 @@ public class DublinCoreWriter {
 	/// </summary>
 	/// <returns>An empty XmlElement (with an id attribute representing the identifier for the artefact) and no child elements.</returns>
 	/// <param name="identifier">The identifier for the artefact</param>
-	XmlElement GetArtefactRoot(string identifier){
+	static XmlElement GetArtefactRoot(string identifier){
 		XmlNode artefactRootNode = xmlDocument.SelectSingleNode (String.Format ("/verticeMetadata/artefact[@id='{0}']", identifier));
 		if (artefactRootNode != null) {
 			xmlDocument.SelectSingleNode ("/verticeMetadata").RemoveChild (artefactRootNode);
@@ -130,7 +125,7 @@ public class DublinCoreWriter {
 	/// <param name="elementName">The name for the new element</param>
 	/// <param name="elementValues">The array of values to be associated with this element</param>
 	/// <param name="parentElement">The parent element that the newly created element(s) will be added to</param>
-	void UnpackList(string elementName, string[] elementValues, XmlElement parentElement){
+	static void UnpackList(string elementName, string[] elementValues, XmlElement parentElement){
 		Debug.Log ("Unpacking list: " + elementName);
 		foreach (string value in elementValues) {
 			Debug.Log ("Adding " + elementName + " node to " + parentElement.LocalName + " with value " + value);
@@ -148,7 +143,7 @@ public class DublinCoreWriter {
 	/// </summary>
 	/// <param name="filePath">The absolute or relative (i.e. relative to the project) path to a file</param>
 	/// <exception cref="fnfException">Throws FileNotFound to caller if the file cannot be opened</exception>
-	void LoadXmlFromFile(string filePath) {
+	static void LoadXmlFromFile(string filePath) {
 		
 		XmlReader reader = null;
 		try
@@ -170,7 +165,7 @@ public class DublinCoreWriter {
 	/// </summary>
 	/// <param name="filePath">The file path to write to</param>
 	/// <exception cref="FileNotFoundException">Thrown if the file cannot </exception>
-	void WriteXmlToFile(string filePath){
+	static void WriteXmlToFile(string filePath){
 
 		XmlWriter writer = null;
 		XmlWriterSettings settings = new XmlWriterSettings ();
@@ -194,7 +189,7 @@ public class DublinCoreWriter {
 	/// Extracts the root element from the XML document that this writer will write to
 	/// </summary>
 	/// <returns>The root element.</returns>
-	public XmlElement GetRootElement(){
+	public static XmlElement GetRootElement(){
 		return (XmlElement) xmlDocument.SelectSingleNode("/verticeMetadata");
 	}
 
@@ -202,7 +197,7 @@ public class DublinCoreWriter {
 	/// Getter for the XML document that this class mutates
 	/// </summary>
 	/// <returns>The XML document</returns>
-	public XmlDocument GetDocument(){
+	public static XmlDocument GetDocument(){
 		return xmlDocument;
 	}
 

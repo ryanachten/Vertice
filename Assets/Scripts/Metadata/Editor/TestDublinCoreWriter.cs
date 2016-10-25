@@ -9,26 +9,9 @@ using System;
 public class TestDublinCoreWriter {
 
 	[Test]
-	public void TestInstantiateNewWriter()
-	{
-		DublinCoreWriter dcWriter = new DublinCoreWriter (null, "*");
-		Assert.NotNull(dcWriter);
-		Assert.That (dcWriter.GetRootElement ().LocalName == "verticeMetadata");
-
-	}
-
-	[Test]
-	public void TestInstantiateEditor()
-	{
-		DublinCoreWriter dcWriter = new DublinCoreWriter (null, "Assets/Scripts/Metadata/TestAssets/Vertice_RootOnly_Valid.xml");
-		Assert.NotNull(dcWriter);
-		Assert.That(dcWriter.GetRootElement().LocalName == "verticeMetadata");
-
-	}
-
-	[Test]
 	public void TestAddMetadataFromDictionary()
 	{
+		Paths.ArtefactMetadata = Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Vertice_Test_NONE.xml";
 
 		Dictionary<string, object> metadata_basic = new Dictionary<string, object> ();
 		Dictionary<string, object> descriptive = new Dictionary<string, object>();
@@ -52,8 +35,8 @@ public class TestDublinCoreWriter {
 		structural.Add ("isVersionOf", new string[] { "http://themuseum.org/repository/ID123419A.zip" });
 		metadata_basic.Add ("structural", structural);
 
-		DublinCoreWriter dcWriter = new DublinCoreWriter (metadata_basic, "ID1234/19/A");
-		XmlDocument builtDocument = dcWriter.GetDocument ();
+		DublinCoreWriter.WriteDataForArtefactWithIdentifier ("ID1234/19/A", metadata_basic);
+		XmlDocument builtDocument = DublinCoreWriter.GetDocument ();
 
 		// Search for appropriate nodes to test the built XML document
 		XmlNodeList verticeMetadataChildren = builtDocument.SelectSingleNode ("//verticeMetadata").ChildNodes;
@@ -73,16 +56,19 @@ public class TestDublinCoreWriter {
 
 		// Are fields with unrestricted cardinality entered correctly
 		Assert.That (titleNodes.Count == 2);
+
+		File.Delete (Paths.ArtefactMetadata);
 	}
 
 	[Test]
 	public void TestAddMetadataForMultipleArtefacts()
 	{
+		Paths.ArtefactMetadata = Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Vertice_Test_Add_Metadata_For_Multiple.xml";
 
 		Dictionary<string, object>[] metadata_dictionaries = GetMetadataRecords ();
-		DublinCoreWriter dcWriter_01 = new DublinCoreWriter (metadata_dictionaries[0], "ID1234/19/A", Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Vertice_Test_Append.xml");
-		DublinCoreWriter dcWriter_02 = new DublinCoreWriter (metadata_dictionaries[1], "ID1234/19/B", Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Vertice_Test_Append.xml");
-		XmlDocument builtDocument = dcWriter_02.GetDocument ();
+		DublinCoreWriter.WriteDataForArtefactWithIdentifier ("ID1234/19/A", metadata_dictionaries[0]);
+		DublinCoreWriter.WriteDataForArtefactWithIdentifier ("ID1234/19/B", metadata_dictionaries[1]);
+		XmlDocument builtDocument = DublinCoreWriter.GetDocument ();
 
 		// Search for appropriate nodes to test the basic structure of the built XML document
 		XmlNodeList verticeMetadataChildren = builtDocument.SelectSingleNode ("/verticeMetadata").ChildNodes;
@@ -120,12 +106,14 @@ public class TestDublinCoreWriter {
 		Assert.That (titleNodes_01.Count == 3);
 		Assert.That (titleNodes_02.Count == 2);
 
-		File.Delete (Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Vertice_Test_Append.xml");
+		File.Delete (Paths.ArtefactMetadata);
 	}
 
 	[Test]
 	public void TestEditArtefact()
 	{
+
+		Paths.ArtefactMetadata = Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Vertice_Test_Edit_Artefact.xml";
 
 		Dictionary<string, object> dataToEnter = new Dictionary<string, object>();
 		Dictionary<string, object> descriptive = new Dictionary<string, object>();
@@ -138,12 +126,12 @@ public class TestDublinCoreWriter {
 
 
 		Dictionary<string, object>[] metadata_dictionaries = GetMetadataRecords ();
-		DublinCoreWriter dcWriter_01 = new DublinCoreWriter (metadata_dictionaries[0], "ID1234/19/A", Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Vertice_Test_Append.xml");
-		DublinCoreWriter dcWriter_02 = new DublinCoreWriter (metadata_dictionaries[1], "ID1234/19/B", Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Vertice_Test_Append.xml");
-		DublinCoreWriter dcWriter_03 = new DublinCoreWriter(dataToEnter, "ID1234/19/A", Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Vertice_Test_Append.xml");
+		DublinCoreWriter.WriteDataForArtefactWithIdentifier ("ID1234/19/A", metadata_dictionaries[0]);
+		DublinCoreWriter.WriteDataForArtefactWithIdentifier ("ID1234/19/B", metadata_dictionaries[1]);
+		DublinCoreWriter.WriteDataForArtefactWithIdentifier ("ID1234/19/A", dataToEnter);
 
 
-		XmlDocument builtDocument = dcWriter_03.GetDocument ();
+		XmlDocument builtDocument = DublinCoreWriter.GetDocument ();
 
 		// Search for appropriate nodes to test the basic structure of the built XML document
 		XmlNodeList verticeMetadataChildren = builtDocument.SelectSingleNode ("/verticeMetadata").ChildNodes;
@@ -181,7 +169,7 @@ public class TestDublinCoreWriter {
 		Assert.That (titleNodes_01.Count == 1);
 		Assert.That (titleNodes_02.Count == 2);
 
-		File.Delete (Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Vertice_Test_Append.xml");
+		File.Delete (Paths.ArtefactMetadata);
 	}
 
 	/// <summary>
