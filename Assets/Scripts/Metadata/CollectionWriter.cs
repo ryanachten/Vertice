@@ -265,7 +265,7 @@ public static class CollectionWriter {
 	/// <summary>
 	/// Creates a new document with a <verticeMetadata> root node and XML preamble
 	/// </summary>
-	static void EstablishNewDocument(){
+	public static void EstablishNewDocument(){
 		_xmlDocument = new XmlDocument ();
 		// Add the fundaments of an XML document: the xml processing instruction and a root element
 		XmlProcessingInstruction declareVersionAndEncoding = _xmlDocument.CreateProcessingInstruction ("xml", "version='1.0' encoding='UTF-8'");
