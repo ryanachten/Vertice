@@ -11,6 +11,7 @@ public class AddInputField : MonoBehaviour {
 	public void AddField()
 	{
 		GameObject newField = Object.Instantiate(field) as GameObject;
+		newField.name = field.name;
 		newField.transform.SetParent(fieldParent, false);
 	}
 }
