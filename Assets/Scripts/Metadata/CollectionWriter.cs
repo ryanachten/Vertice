@@ -53,8 +53,7 @@ using System.IO;
 /// 
 /// </summary>
 public static class CollectionWriter {
-
-	private static string _xmlFilePath = Paths.CollectionMetadata;
+	
 	private static XmlDocument _xmlDocument;
 
 	/// <summary>
@@ -239,14 +238,6 @@ public static class CollectionWriter {
 	}
 
 	/// <summary>
-	/// Sets the output file path
-	/// </summary>
-	/// <param name="newPath">New path.</param>
-	public static void SetOutputFile(string newPath) {
-		_xmlFilePath = newPath;
-	}
-
-	/// <summary>
 	/// Loads XML data from the designated (i.e either default, or via SetOutputFile()) XML file
 	/// </summary>
 	static void LoadXml() {
@@ -254,13 +245,13 @@ public static class CollectionWriter {
 		XmlReader reader = null;
 		try
 		{
-			reader = XmlReader.Create(_xmlFilePath);
+			reader = XmlReader.Create(Paths.CollectionMetadata);
 			_xmlDocument = new XmlDocument();
 			_xmlDocument.Load(reader);
 		}
 		catch (FileNotFoundException fnf) {
 			Debug.Log ("File doesn't exist; creating an empty file");
-			FileStream fs = File.Create (_xmlFilePath);
+			FileStream fs = File.Create (Paths.CollectionMetadata);
 			EstablishNewDocument ();
 			fs.Close ();
 		}
@@ -294,7 +285,7 @@ public static class CollectionWriter {
 		settings.Indent = true;
 		try
 		{
-			writer = XmlWriter.Create(_xmlFilePath, settings);
+			writer = XmlWriter.Create(Paths.CollectionMetadata, settings);
 			_xmlDocument.WriteTo(writer);
 			writer.Flush();
 		}
