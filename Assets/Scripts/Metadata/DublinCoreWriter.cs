@@ -28,7 +28,7 @@ public static class DublinCoreWriter {
 	/// 	}
 	/// 
 	/// </param>
-	public static void WriteDataForArtefactWithIdentifier(string identifier, Dictionary<string, object> data){
+	public static void WriteDataForArtefactWithIdentifier(string identifier, Dictionary<string, object> metadata, string meshLocation, string texLocation, Dictionary<string, string>[] contextualMedia){
 
 		try {
 			LoadXmlFromFile (Paths.ArtefactMetadata);
@@ -41,7 +41,11 @@ public static class DublinCoreWriter {
 		} 
 
 		try {
-			UnpackDictionaries (data, GetArtefactRoot(identifier));
+			XmlElement artefactRoot = GetArtefactRoot(identifier);
+			UnpackDictionaries (metadata, artefactRoot);
+			Debug.Log("Unpacked dictionaries");
+			AddRelatedAssets (meshLocation, texLocation, contextualMedia, artefactRoot);
+			Debug.Log("Added related assets");
 			WriteXmlToFile(Paths.ArtefactMetadata);
 			Debug.Log(String.Format("Wrote metadata to {0}", Paths.ArtefactMetadata));
 		} catch (NullReferenceException nullReference) {
@@ -50,6 +54,43 @@ public static class DublinCoreWriter {
 			Debug.LogError (String.Format("An error occurred writing the file to XML -- it's likely that no filePath was passed. Exception message:\n\n\n{0}", nullArgument.Message));
 		}
 
+	}
+
+	static void AddRelatedAssets(string mesh, string tex, Dictionary<string, string>[] contextualMedia, XmlElement artefactRoot) {
+		XmlNode relatedAssets = xmlDocument.CreateElement ("relatedAssets");
+
+		// Add Mesh and Texture locations to <relatedAssets>
+		XmlElement meshLocation = xmlDocument.CreateElement ("MeshLocation");
+		XmlElement texLocation = xmlDocument.CreateElement ("TexLocation");
+		meshLocation.InnerText = mesh;
+		texLocation.InnerText = tex;
+		relatedAssets.AppendChild (meshLocation);
+		relatedAssets.AppendChild (texLocation);
+
+		// Loop over contextual media and add
+		foreach (Dictionary<string, string> c in contextualMedia) {
+			try {
+				XmlElement contextMedia = xmlDocument.CreateElement ("ContextMedia");
+				XmlElement mediaName = xmlDocument.CreateElement ("MediaName");
+				XmlElement mediaType = xmlDocument.CreateElement ("MediaType");
+				XmlElement mediaLocation = xmlDocument.CreateElement ("MediaLocation");
+
+				mediaName.InnerText = c ["MediaName"];
+				mediaType.InnerText = c ["MediaType"];
+				mediaLocation.InnerText = c ["MediaLocation"];
+
+				contextMedia.AppendChild (mediaName);
+				contextMedia.AppendChild (mediaType);
+				contextMedia.AppendChild (mediaLocation);
+
+				relatedAssets.AppendChild (contextMedia);
+			} catch {
+				Debug.Log ("Couldn't unpack contextual media attributes -- is there a missing attribute?");
+			}
+		} 
+
+		artefactRoot.AppendChild (relatedAssets);
+		
 	}
 
 	/// <summary>

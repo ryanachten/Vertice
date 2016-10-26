@@ -35,7 +35,7 @@ public class TestDublinCoreWriter {
 		structural.Add ("isVersionOf", new string[] { "http://themuseum.org/repository/ID123419A.zip" });
 		metadata_basic.Add ("structural", structural);
 
-		DublinCoreWriter.WriteDataForArtefactWithIdentifier ("ID1234/19/A", metadata_basic);
+		DublinCoreWriter.WriteDataForArtefactWithIdentifier ("ID1234/19/A", metadata_basic, "/NONE", "/NONE", new Dictionary<string, string>[0]);
 		XmlDocument builtDocument = DublinCoreWriter.GetDocument ();
 
 		// Search for appropriate nodes to test the built XML document
@@ -66,8 +66,8 @@ public class TestDublinCoreWriter {
 		Paths.ArtefactMetadata = Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Vertice_Test_Add_Metadata_For_Multiple.xml";
 
 		Dictionary<string, object>[] metadata_dictionaries = GetMetadataRecords ();
-		DublinCoreWriter.WriteDataForArtefactWithIdentifier ("ID1234/19/A", metadata_dictionaries[0]);
-		DublinCoreWriter.WriteDataForArtefactWithIdentifier ("ID1234/19/B", metadata_dictionaries[1]);
+		DublinCoreWriter.WriteDataForArtefactWithIdentifier ("ID1234/19/A", metadata_dictionaries[0], "/NONE", "/NONE", new Dictionary<string, string>[0]);
+		DublinCoreWriter.WriteDataForArtefactWithIdentifier ("ID1234/19/B", metadata_dictionaries[1], "/NONE", "/NONE", new Dictionary<string, string>[0]);
 		XmlDocument builtDocument = DublinCoreWriter.GetDocument ();
 
 		// Search for appropriate nodes to test the basic structure of the built XML document
@@ -88,9 +88,9 @@ public class TestDublinCoreWriter {
 		// Are there now two children of the <verticeMedata> element?
 		Assert.That(verticeMetadataChildren.Count == 2);
 
-		// Are <descriptive> and <structural> entered correctly
-		Assert.That (artefact_01.Count == 2); 
-		Assert.That (artefact_02.Count == 2); 
+		// Are <descriptive>, <structural>, and <relatedAssets> entered correctly
+		Assert.That (artefact_01.Count == 3); 
+		Assert.That (artefact_02.Count == 3); 
 		Assert.That (artefact_01 [0].LocalName == "descriptive" || artefact_01 [0].LocalName == "structural");
 		Assert.That (artefact_01 [1].LocalName == "descriptive" || artefact_01 [1].LocalName == "structural");
 		Assert.That (artefact_02 [0].LocalName == "descriptive" || artefact_02 [0].LocalName == "structural");
@@ -126,9 +126,9 @@ public class TestDublinCoreWriter {
 
 
 		Dictionary<string, object>[] metadata_dictionaries = GetMetadataRecords ();
-		DublinCoreWriter.WriteDataForArtefactWithIdentifier ("ID1234/19/A", metadata_dictionaries[0]);
-		DublinCoreWriter.WriteDataForArtefactWithIdentifier ("ID1234/19/B", metadata_dictionaries[1]);
-		DublinCoreWriter.WriteDataForArtefactWithIdentifier ("ID1234/19/A", dataToEnter);
+		DublinCoreWriter.WriteDataForArtefactWithIdentifier ("ID1234/19/A", metadata_dictionaries[0], "/NONE", "/NONE", new Dictionary<string, string>[0]);
+		DublinCoreWriter.WriteDataForArtefactWithIdentifier ("ID1234/19/B", metadata_dictionaries[1], "/NONE", "/NONE", new Dictionary<string, string>[0]);
+		DublinCoreWriter.WriteDataForArtefactWithIdentifier ("ID1234/19/A", dataToEnter, "/NONE", "/NONE", new Dictionary<string, string>[0]);
 
 
 		XmlDocument builtDocument = DublinCoreWriter.GetDocument ();
@@ -151,9 +151,9 @@ public class TestDublinCoreWriter {
 		// Are there now two children of the <verticeMedata> element?
 		Assert.That(verticeMetadataChildren.Count == 2);
 
-		// Are <descriptive> and <structural> entered correctly
-		Assert.That (artefact_01.Count == 2); 
-		Assert.That (artefact_02.Count == 2); 
+		// Are <descriptive>, <structural>, and <relatedAssets> entered correctly
+		Assert.That (artefact_01.Count == 3); 
+		Assert.That (artefact_02.Count == 3); 
 		Assert.That (artefact_01 [0].LocalName == "descriptive" || artefact_01 [0].LocalName == "structural");
 		Assert.That (artefact_01 [1].LocalName == "descriptive" || artefact_01 [1].LocalName == "structural");
 		Assert.That (artefact_02 [0].LocalName == "descriptive" || artefact_02 [0].LocalName == "structural");
@@ -170,6 +170,98 @@ public class TestDublinCoreWriter {
 		Assert.That (titleNodes_02.Count == 2);
 
 		File.Delete (Paths.ArtefactMetadata);
+	}
+
+	[Test]
+	public void TestContextualMedia(){
+
+		Paths.ArtefactMetadata = Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Vertice_Test_Context.xml";
+
+		Dictionary<string, object>[] metadata_dictionaries = GetMetadataRecords ();
+		Dictionary<string, string>[] contextual_media = new Dictionary<string, string>[2];
+		contextual_media [0] = new Dictionary<string, string> ();
+		contextual_media [1] = new Dictionary<string, string> ();
+
+		contextual_media [0].Add ("MediaName", "MetaPipe_TestTexs_1000");
+		contextual_media [0].Add ("MediaType", "Image");
+		contextual_media [0].Add ("MediaLocation", "/VerticeArchive/TEST/TestTexs_1000.jpg");
+
+		contextual_media [1].Add ("MediaName", "WorldACoke");
+		contextual_media [1].Add ("MediaType", "Video");
+		contextual_media [1].Add ("MediaLocation", "/VerticeArchive/TEST/WorldACoke.ogg");
+
+		DublinCoreWriter.WriteDataForArtefactWithIdentifier ("ID1234/19/A", metadata_dictionaries[0], "/Test/Something.obj", "/Test/Something.png", contextual_media);
+
+		DublinCoreReader.LoadXmlFromFile(Paths.ArtefactMetadata);
+		string meshLocation = DublinCoreReader.GetMeshLocationForArtefactWithIdentifier ("ID1234/19/A");
+		string texLocation = DublinCoreReader.GetTextureLocationForArtefactWithIdentifier ("ID1234/19/A");
+		Dictionary<string, string>[] contextualMedia = DublinCoreReader.GetContextualMediaForArtefactWithIdentifier ("ID1234/19/A");
+
+		Assert.That (meshLocation == "/Test/Something.obj");
+		Assert.That (texLocation == "/Test/Something.png");
+		Assert.That (contextualMedia [0] ["MediaName"] == "MetaPipe_TestTexs_1000");
+		Assert.That (contextualMedia [0] ["MediaType"] == "Image");
+		Assert.That (contextualMedia [0] ["MediaLocation"] == "/VerticeArchive/TEST/TestTexs_1000.jpg");
+		Assert.That (contextualMedia [1] ["MediaName"] == "WorldACoke");
+		Assert.That (contextualMedia [1] ["MediaType"] == "Video");
+		Assert.That (contextualMedia [1] ["MediaLocation"] == "/VerticeArchive/TEST/WorldACoke.ogg");
+
+		File.Delete (Paths.ArtefactMetadata);
+
+		
+	}
+
+	[Test]
+	public void TestUpdateContextualMedia(){
+
+		Paths.ArtefactMetadata = Environment.CurrentDirectory + "/Assets/Scripts/Metadata/TestAssets/Vertice_Test_Context_Update.xml";
+
+		Dictionary<string, object>[] metadata_dictionaries = GetMetadataRecords ();
+		Dictionary<string, string>[] contextual_media = new Dictionary<string, string>[2];
+		contextual_media [0] = new Dictionary<string, string> ();
+		contextual_media [1] = new Dictionary<string, string> ();
+
+		contextual_media [0].Add ("MediaName", "MetaPipe_TestTexs_1000");
+		contextual_media [0].Add ("MediaType", "Image");
+		contextual_media [0].Add ("MediaLocation", "/VerticeArchive/TEST/TestTexs_1000.jpg");
+		contextual_media [1].Add ("MediaName", "WorldACoke");
+		contextual_media [1].Add ("MediaType", "Video");
+		contextual_media [1].Add ("MediaLocation", "/VerticeArchive/TEST/WorldACoke.ogg");
+
+		DublinCoreWriter.WriteDataForArtefactWithIdentifier ("ID1234/19/A", metadata_dictionaries[0], "/Test/Something.obj", "/Test/Something.png", contextual_media);
+
+		DublinCoreReader.LoadXmlFromFile(Paths.ArtefactMetadata);
+		string meshLocation = DublinCoreReader.GetMeshLocationForArtefactWithIdentifier ("ID1234/19/A");
+		string texLocation = DublinCoreReader.GetTextureLocationForArtefactWithIdentifier ("ID1234/19/A");
+		Dictionary<string, string>[] contextualMedia = DublinCoreReader.GetContextualMediaForArtefactWithIdentifier ("ID1234/19/A");
+
+		Assert.That (meshLocation == "/Test/Something.obj");
+		Assert.That (texLocation == "/Test/Something.png");
+		Assert.That (contextualMedia [0] ["MediaName"] == "MetaPipe_TestTexs_1000");
+		Assert.That (contextualMedia [0] ["MediaType"] == "Image");
+		Assert.That (contextualMedia [0] ["MediaLocation"] == "/VerticeArchive/TEST/TestTexs_1000.jpg");
+		Assert.That (contextualMedia [1] ["MediaName"] == "WorldACoke");
+		Assert.That (contextualMedia [1] ["MediaType"] == "Video");
+		Assert.That (contextualMedia [1] ["MediaLocation"] == "/VerticeArchive/TEST/WorldACoke.ogg");
+
+
+		contextual_media [0]["MediaName"] = "MetaPipe_TestTexs_1000_Changed";
+		contextual_media [0]["MediaType"] = "Image_Changed";
+		contextual_media [0]["MediaLocation"] = "/VerticeArchive/TEST/TestTexs_1000.jpg_Changed";
+		contextual_media [1].Clear ();
+
+		DublinCoreWriter.WriteDataForArtefactWithIdentifier ("ID1234/19/A", metadata_dictionaries[0], "/Test/Something.obj", "/Test/Something.png", contextual_media);
+
+		DublinCoreReader.LoadXmlFromFile(Paths.ArtefactMetadata);
+		contextualMedia = DublinCoreReader.GetContextualMediaForArtefactWithIdentifier ("ID1234/19/A");
+		Assert.That (contextualMedia.Length == 1);
+		Assert.That (contextualMedia [0] ["MediaName"] == "MetaPipe_TestTexs_1000_Changed");
+		Assert.That (contextualMedia [0] ["MediaType"] == "Image_Changed");
+		Assert.That (contextualMedia [0] ["MediaLocation"] == "/VerticeArchive/TEST/TestTexs_1000.jpg_Changed");
+
+		File.Delete (Paths.ArtefactMetadata);
+
+
 	}
 
 	/// <summary>

@@ -51,13 +51,7 @@ public class NoContextualMediaException : Exception
 }
 
 /// <summary>
-/// The DublinCoreReader reads in XML data from a specified file. The pattern of 
-/// use for this class is as follows:
-/// 
-/// DublinCoreReader.LoadXml("https://www.example.com/metadata/metadata_file.xml"); // You MUST associate a metadata file before doing ANYTHING else
-/// ...
-/// ...
-/// DublinCoreReader.Refresh() // Call this if you want to check that the metadata file is up to date
+/// The DublinCoreReader interprets an XML file as a Vertice DublinCore metadata record and converts it to a convenient dictionary-based structure
 /// </summary>
 public static class DublinCoreReader {
 
@@ -70,6 +64,15 @@ public static class DublinCoreReader {
 	public static void LoadXmlFromText(string text){
 		_xmlDocument = new XmlDocument ();
 		_xmlDocument.LoadXml (text);
+	}
+
+	/// <summary>
+	/// Loads XML data from a given filepath or URL
+	/// </summary>
+	/// <param name="filePath">File path.</param>
+	public static void LoadXmlFromFile(string filePath){
+		_xmlDocument = new XmlDocument ();
+		_xmlDocument.Load (filePath);
 	}
 
 	/// <summary>
