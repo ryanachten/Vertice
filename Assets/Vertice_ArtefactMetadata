@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<verticeMetadata>
+  <artefact id="buddha">
+    <descriptive>
+      <Title>ONE</Title>
+      <Title>TWO</Title>
+      <Identifier>THREE</Identifier>
+      <Creator>FOUR</Creator>
+      <Contributor></Contributor>
+      <Date></Date>
+      <Rights></Rights>
+      <Coverage></Coverage>
+      <Subject></Subject>
+      <Description></Description>
+      <Relation></Relation>
+      <Format></Format>
+      <Medium></Medium>
+      <Extent></Extent>
+    </descriptive>
+    <structural>
+      <Creator></Creator>
+      <Created></Created>
+      <Description></Description>
+      <IsVersion></IsVersion>
+      <Format></Format>
+      <Extent></Extent>
+      <Identifier></Identifier>
+      <Rights></Rights>
+    </structural>
+    <relatedAssets>
+      <MeshLocation></MeshLocation>
+      <TexLocation></TexLocation>
+    </relatedAssets>
+  </artefact>
+</verticeMetadata>

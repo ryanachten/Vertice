@@ -111,7 +111,7 @@ public static class DublinCoreWriter {
 	/// </summary>
 	/// <param name="metadataDictionary">Metadata dictionary.</param>
 	/// <param name="rootElement">The parent element for this nested metadata dictionary</param>
-	static void UnpackDictionaries(Dictionary<string, object> metadataDictionary, XmlElement parentElement)	{
+	/*static void UnpackDictionaries(Dictionary<string, object> metadataDictionary, XmlElement parentElement)	{
 
 
 		foreach (string key in metadataDictionary.Keys) {
@@ -126,7 +126,28 @@ public static class DublinCoreWriter {
 			}
 		}
 	
+	}*/
+
+	static void UnpackDictionaries(Dictionary<string, object> metadataDictionary, XmlElement parentElement)    {
+
+
+		foreach (string key in metadataDictionary.Keys) {
+			if (metadataDictionary [key].GetType () == typeof(string[])) {
+				UnpackList (key, (string[])metadataDictionary [key], parentElement);
+			} else if (metadataDictionary [key].GetType () == typeof(Dictionary<string, object>)) {
+				XmlElement newElement = xmlDocument.CreateElement ((string)(object)key);
+				parentElement.AppendChild (newElement);
+				Debug.Log ("Unpacking dictionary: " + key);
+				UnpackDictionaries ((Dictionary<string, object>)metadataDictionary [key], newElement);
+			} else {
+				Debug.Log ("The value associated with metadataDictionary [" + key + "] violates the nested dictionary structure. It has the type: " + metadataDictionary [key].GetType ());
+			}
+		}
+
 	}
+
+
+
 
 	/// <summary>
 	/// Gets the root node for an artefact record, given its unique identifier

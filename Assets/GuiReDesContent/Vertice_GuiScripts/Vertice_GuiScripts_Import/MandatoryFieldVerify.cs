@@ -66,6 +66,6 @@ public class MandatoryFieldVerify : MonoBehaviour {
 //			Debug.Log("ADD DATA");
 //			AddDataToXml.GetFieldData();
 //		}
-		AddDataToXml.GetFieldData();//TODO comment out
+		AddDataToXml.GetArtefactData();//TODO comment out
 	}
 }
