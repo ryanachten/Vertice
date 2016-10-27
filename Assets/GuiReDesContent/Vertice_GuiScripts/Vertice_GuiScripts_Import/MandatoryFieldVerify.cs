@@ -12,6 +12,7 @@ public class MandatoryFieldVerify : MonoBehaviour {
 	public MandatoryFieldFeedback FieldFeedback;
 	public GameObject[] mandatoryAttributes;
 	private List<string> remainingMandatoryFields;
+	public bool testXmlWriterMode;
 
 
 	//TODO review this verification process - doesn't actually take into account expected data types
@@ -53,19 +54,23 @@ public class MandatoryFieldVerify : MonoBehaviour {
 				}
 			}
 		}
-//		if (remainingMandatoryFields.Count > 0)
-//		{
-//			Debug.Log("Mandatory Fields remaining:");
-//			for (int i = 0; i < remainingMandatoryFields.Count; i++) 
-//			{
+		if (remainingMandatoryFields.Count > 0)
+		{
+			Debug.Log("Mandatory Fields remaining");
+			for (int i = 0; i < remainingMandatoryFields.Count; i++) 
+			{
 //				Debug.Log("Field: " + remainingMandatoryFields[i]);
-//			}
-//		}
-//		else if (remainingMandatoryFields.Count == 0)
-//		{
-//			Debug.Log("ADD DATA");
-//			AddDataToXml.GetFieldData();
-//		}
-		AddDataToXml.GetArtefactData();//TODO comment out
+			}
+		}
+		else if (remainingMandatoryFields.Count == 0)
+		{
+			Debug.Log("Fields complete! Add data");
+			AddDataToXml.GetArtefactData();
+		}
+		if (testXmlWriterMode)
+		{
+			Debug.Log("Debug test");
+			AddDataToXml.GetArtefactData();
+		}
 	}
 }
