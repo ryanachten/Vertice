@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Import_ImportContextlMedia : MonoBehaviour {
 
@@ -16,12 +17,6 @@ public class Import_ImportContextlMedia : MonoBehaviour {
 			fileExtensions[0] = "jpg";
 			UniFileBrowser.use.SetFileExtensions(fileExtensions);
 			UniFileBrowser.use.OpenFileWindow(OpenImage);
-		}
-		else if (openMode == "audio")
-		{
-			fileExtensions[0] = "ogg";
-			UniFileBrowser.use.SetFileExtensions(fileExtensions);
-//			UniFileBrowser.use.OpenFileWindow(OpenTexture);
 		}
 	}
 
@@ -50,5 +45,28 @@ public class Import_ImportContextlMedia : MonoBehaviour {
 		}
 		www.LoadImageIntoTexture(imgTexture);
 		prefabRawImg.texture = imgTexture;
+
+		string mediaName;
+		DefaultNameSplit(texLocation, out mediaName);
+		imgPrefab.GetComponentInChildren<Text>().text = mediaName;
+
+		Dictionary<string, string> contextMediaDictionary = new Dictionary<string, string>();
+		contextMediaDictionary.Add("MediaName", mediaName);
+		contextMediaDictionary.Add("MediaType", "image");
+		contextMediaDictionary.Add("MediaLocation", texLocation);
+
+		ArtefactSaveData.ContextualMediaAssets.Add(contextMediaDictionary);
+	}
+
+
+	private void DefaultNameSplit(string texLocation, out string mediaName) //TODO should be revised for performance reasons
+	{
+		int splitIndex = texLocation.LastIndexOf("/") + 1;
+		int endIndex = texLocation.LastIndexOf(".");
+		int subStrLength = endIndex - splitIndex;
+
+		string nameSubstring = texLocation.Substring(splitIndex, subStrLength);
+
+		mediaName = nameSubstring;
 	}
 }

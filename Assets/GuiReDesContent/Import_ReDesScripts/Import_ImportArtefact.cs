@@ -6,6 +6,15 @@ public class Import_ImportArtefact : MonoBehaviour {
 	public Transform ImportParent;
 	public Material defaultMaterial;
 
+	void Start()
+	{
+//		ArtefactSaveData SaveHost = new ArtefactSaveData();
+//		ArtefactSaveData.MeshLocation = "Testing Save Host";
+//		Debug.Log("MeshLocation: " + ArtefactSaveData.MeshLocation);
+	}
+
+
+
 	public void OpenDialogue(string openMode){
 
 		//TODO add default path directory for dialogue window
@@ -31,6 +40,7 @@ public class Import_ImportArtefact : MonoBehaviour {
 		if (pathToModel.Length > 0)
 		{
 			StartCoroutine(ImportModel("file://" + pathToModel));
+			ArtefactSaveData.ClearSaveData();
 		}
 	}
 
@@ -61,6 +71,9 @@ public class Import_ImportArtefact : MonoBehaviour {
 		curArtefact.tag = "Current Model";
 		curArtefact.transform.SetParent(ImportParent);
 //		curArtefact.name = browseIdentifier; //TODO assign default name to gameobject
+
+		ArtefactSaveData.MeshLocation = meshLocation;
+//		Debug.Log("MeshLocation: " + ArtefactSaveData.MeshLocation);
 	}
 
 
@@ -77,5 +90,8 @@ public class Import_ImportArtefact : MonoBehaviour {
 			yield return null;
 		}
 		www.LoadImageIntoTexture(objTexture);
+
+		ArtefactSaveData.TexLocation = texLocation;
+//		Debug.Log("TexLocation: " + ArtefactSaveData.TexLocation);
 	}
 }

@@ -7,60 +7,33 @@ public class Import_AddDataToXml : MonoBehaviour {
 
 	public GameObject[] descriptiveFieldAttributes;
 	public GameObject[] structuralFieldAttributes;
-	public string meshLocation = "/Users/ryanachten/Documents/UnityTests/VerticeArchive_old/Buddha/Buddha_Model.obj"; //TODO assign during import
-	public string texLocation = "/Users/ryanachten/Documents/UnityTests/VerticeArchive_old/Buddha/Buddha_Model.jpg";//TODO assign during import
-	private string identifier = "buddha"; //TODO placeholder atm
+	private string identifier = "";
 	private Dictionary<string, object> data;
 
 
-
-	//string identifier, Dictionary<string, object> metadata, string meshLocation, string texLocation, Dictionary<string, string>[] contextualMedia
-
+	/// <summary>
+	/// Compiles artefact metadata returned from text input fields with those stored in the SaveData struct
+	/// </summary>
 	public void GetArtefactData()
 	{
-		Dictionary<string, string>[] contextualMedia = new Dictionary<string, string>[1]; //TODO write GetContextualMedia method
-
 		data = new Dictionary<string, object>();
 		GenerateInfoDictionaries("descriptive", descriptiveFieldAttributes);
 		GenerateInfoDictionaries("structural", structuralFieldAttributes);
 
+		string meshLocation = ArtefactSaveData.MeshLocation;
+		string texLocation = ArtefactSaveData.TexLocation;
+		Dictionary<string, string>[] contextualMedia = ArtefactSaveData.ContextualMediaAssets.ToArray();
+
 		DublinCoreWriter.WriteDataForArtefactWithIdentifier(identifier,data,meshLocation, texLocation, contextualMedia);
-
-
-	//Dictionary Test
-		/*	foreach (KeyValuePair<string, object> dataTypeDict in data) 
-		{
-			Debug.Log("dataType: " + dataTypeDict.Key);
-			if (dataTypeDict.Value == null)
-			{
-				Debug.Log("dataTypeDict == null");
-			}
-
-			Dictionary<string, string[]> attrDict = dataTypeDict.Value as Dictionary<string, string[]>;
-
-			foreach (KeyValuePair<string, string[]> attribute in attrDict) 
-			{
-				if (attrDict == null)
-				{
-					Debug.Log("dataTypeDict == null");
-				}
-					
-				Debug.Log("\tAttribute: " + attribute.Key);
-				for (int i = 0; i < attribute.Value.Length; i++) {
-					Debug.Log("\t\tValue: " + attribute.Value[i]);
-					if(attribute.Value == null)
-					{
-						Debug.Log("Attribute == null");
-					}
-				}
-			}
-		}*/
 	}
 
-
+	/// <summary>
+	/// Generates dictionaries of attributes and their text values from input fields
+	/// </summary>
+	/// <param name="dataType">Data type; either descritpive or structural</param>
+	/// <param name="fieldAttributes">Field attributes related to those data types</param>
 	private void GenerateInfoDictionaries(string dataType, GameObject[] fieldAttributes) //for all of descriptive or structural attributes
 	{
-//		Dictionary<string, string[]> attrDictionary = new Dictionary<string, string[]>();
 		Dictionary<string, object> attrDictionary = new Dictionary<string, object>();
 
 		for (int i = 0; i < fieldAttributes.Length; i++) 
@@ -84,7 +57,12 @@ public class Import_AddDataToXml : MonoBehaviour {
 		data.Add(dataType, attrDictionary);
 	}
 
-
+	/// <summary>
+	/// Goes through field attributes and pulls data from their text objects to be returned as a list
+	/// </summary>
+	/// <param name="attrName">Name of the current attribute</param>
+	/// <param name="fieldAttribute">Attribute gameobject assigned via editor</param>
+	/// <param name="attributeList">List of attribute value(s) to be returned</param>
 	private void GenerateFieldList(string attrName, GameObject fieldAttribute, out List<string> attributeList)
 	{
 		List<string> attributeFieldContent = new List<string>();
@@ -107,10 +85,11 @@ public class Import_AddDataToXml : MonoBehaviour {
 								if (fieldAttrChildText.Length > 0) //if user has assigned input add it to the list
 								{
 									attributeFieldContent.Add(fieldAttrChildText);
+									if(attrName == "Identifier")
+									{
+										identifier = fieldAttrChildText;
+									}
 								}
-//								else //if user input hasn't been assigned to the input field text add default info assignment or "" TODO
-//								{									
-//								}
 							}
 						}
 					}

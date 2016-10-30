@@ -1,9 +1,62 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <verticeMetadata>
-  <artefact id="buddha">
+  <artefact id="">
+    <descriptive>
+      <Title>
+      </Title>
+      <Identifier>
+      </Identifier>
+      <Creator>
+      </Creator>
+      <Contributor>
+      </Contributor>
+      <Date>
+      </Date>
+      <Rights>
+      </Rights>
+      <Coverage>
+      </Coverage>
+      <Subject>
+      </Subject>
+      <Description>
+      </Description>
+      <Relation>
+      </Relation>
+      <Format>
+      </Format>
+      <Medium>
+      </Medium>
+      <Extent>
+      </Extent>
+    </descriptive>
+    <structural>
+      <Creator>
+      </Creator>
+      <Created>
+      </Created>
+      <Description>
+      </Description>
+      <IsVersion>
+      </IsVersion>
+      <Format>
+      </Format>
+      <Extent>
+      </Extent>
+      <Identifier>
+      </Identifier>
+      <Rights>
+      </Rights>
+    </structural>
+    <relatedAssets>
+      <MeshLocation>file:///Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/monkey.obj</MeshLocation>
+      <TexLocation>
+      </TexLocation>
+    </relatedAssets>
+  </artefact>
+  <artefact id="testing123">
     <descriptive>
       <Title></Title>
-      <Identifier></Identifier>
+      <Identifier>testing123</Identifier>
       <Creator></Creator>
       <Contributor></Contributor>
       <Date></Date>
@@ -27,7 +80,7 @@
       <Rights></Rights>
     </structural>
     <relatedAssets>
-      <MeshLocation></MeshLocation>
+      <MeshLocation>file:///Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/monkey.obj</MeshLocation>
       <TexLocation></TexLocation>
     </relatedAssets>
   </artefact>
