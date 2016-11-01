@@ -168,6 +168,32 @@ public class TestCollectionWriter {
 
 	}
 
+	[Test]
+	public void TestAddArtefactToCollection(){
+		CreateTwoCollectionsWithTwoArtefacts ();
+		CollectionReader.LoadXmlFromFile(Paths.CollectionMetadata);
+		string[] collectionIdentifiers_00 = CollectionReader.GetIdentifiersForArtefactsInCollectionWithIdentifier ("TEST-COLLECTION-00");
+		int numArtefactsBeforeAdd = collectionIdentifiers_00.Length;
+
+		CollectionWriter.AddArtefactToCollectionWithIdentifier ("TEST-COLLECTION-00", "NEW-ARTEFACT", new VerticeTransform (0f, 0f, 0f, 0f));
+
+		CollectionReader.LoadXmlFromFile(Paths.CollectionMetadata);
+
+		string[] updated_collectionIdentifiers_00 = CollectionReader.GetIdentifiersForArtefactsInCollectionWithIdentifier ("TEST-COLLECTION-00");
+		int numArtefactsAfterAdd = updated_collectionIdentifiers_00.Length;
+		Assert.That (numArtefactsAfterAdd == (numArtefactsBeforeAdd + 1));
+
+	}
+
+	[Test]
+	[ExpectedException(typeof(NoSuchCollectionException))]
+	public void TestAddArtefactToNonexistantCollection(){
+
+		CollectionWriter.EstablishNewDocument ();
+		CollectionWriter.AddArtefactToCollectionWithIdentifier ("NON-EXISTANT COLLECTION", "", new VerticeTransform (0f, 0f, 0f, 0f));
+		
+	}
+
 	public void CreateTwoCollectionsWithTwoArtefacts() {
 
 		for (int i = 0; i < 2; i++) {

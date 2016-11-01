@@ -90,6 +90,19 @@ public static class CollectionWriter {
 
 	}
 
+	public static void AddArtefactToCollectionWithIdentifier(string collectionIdentifier, string newArtefactIdentifier, VerticeTransform newArtefactTransform) {
+		XmlNode collectionNode = _xmlDocument.SelectSingleNode (String.Format("/verticeCollections/verticeCollection[@id='{0}']", collectionIdentifier));
+			
+		if (collectionNode == null) {
+			throw new NoSuchCollectionException ();
+		} else {
+			Dictionary<string, VerticeTransform> newArtefact = new Dictionary<string, VerticeTransform> ();
+			newArtefact.Add (newArtefactIdentifier, newArtefactTransform);
+			AddArtefactsToCollectionNode (collectionNode, newArtefact);
+			WriteXmlToFile ();
+		}
+	}
+
 	/// <summary>
 	/// Creates the collection node for the collection to be written
 	/// </summary>
@@ -130,8 +143,11 @@ public static class CollectionWriter {
 	/// <param name="artefactTransforms">A dictionary mapping artefact identifiers to their VerticeTransform transforms</param>
 	static void AddArtefactsToCollectionNode(XmlNode collectionNode, Dictionary<string, VerticeTransform> artefactTransforms) {
 
-		XmlElement structuralElement = _xmlDocument.CreateElement ("structural");
-		XmlNode structuralNode = collectionNode.AppendChild (structuralElement);
+		XmlNode structuralNode = collectionNode.SelectSingleNode ("structural");
+		if (structuralNode == null) {
+			XmlElement structuralElement = _xmlDocument.CreateElement ("structural");
+			structuralNode = collectionNode.AppendChild (structuralElement);
+		}
 
 		// Iterate through each artefact and pull out its identifier and transform, then add 
 		// a subtree to the <structural> element of the form:
