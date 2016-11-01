@@ -90,6 +90,14 @@ public static class CollectionWriter {
 
 	}
 
+	/// <summary>
+	/// Adds the passed in artefact to an existing collection in a Vertice XML and persists the data to the 
+	/// collection XML file
+	/// </summary>
+	/// <param name="collectionIdentifier">The identifier for the collection in which to add the artefact</param>
+	/// <param name="newArtefactIdentifier">The identifier for the new artefact (which should correspond with the artefact XML file)</param>
+	/// <param name="newArtefactTransform">The VerticeTransform to use as the default coordinate for the new artefact</param>
+	/// <exception cref="NoSuchCollectionException>If the collection identifier does not correspond to a collection in the XML file, NoSuchCollectionException is thrown and no data is written</exception>
 	public static void AddArtefactToCollectionWithIdentifier(string collectionIdentifier, string newArtefactIdentifier, VerticeTransform newArtefactTransform) {
 		XmlNode collectionNode = _xmlDocument.SelectSingleNode (String.Format("/verticeCollections/verticeCollection[@id='{0}']", collectionIdentifier));
 			
