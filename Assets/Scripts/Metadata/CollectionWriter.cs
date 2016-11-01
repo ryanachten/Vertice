@@ -99,6 +99,11 @@ public static class CollectionWriter {
 	/// <param name="newArtefactTransform">The VerticeTransform to use as the default coordinate for the new artefact</param>
 	/// <exception cref="NoSuchCollectionException>If the collection identifier does not correspond to a collection in the XML file, NoSuchCollectionException is thrown and no data is written</exception>
 	public static void AddArtefactToCollectionWithIdentifier(string collectionIdentifier, string newArtefactIdentifier, VerticeTransform newArtefactTransform) {
+
+		if (_xmlDocument == null) {
+			LoadXml ();
+		}
+
 		XmlNode collectionNode = _xmlDocument.SelectSingleNode (String.Format("/verticeCollections/verticeCollection[@id='{0}']", collectionIdentifier));
 			
 		if (collectionNode == null) {
