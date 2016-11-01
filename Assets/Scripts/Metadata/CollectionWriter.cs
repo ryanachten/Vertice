@@ -317,11 +317,14 @@ public static class CollectionWriter {
 			writer = XmlWriter.Create(Paths.CollectionMetadata, settings);
 			_xmlDocument.WriteTo(writer);
 			writer.Flush();
+
 		}
 		finally
 		{
-			if (writer != null)
-				writer.Close();
+			if (writer != null) {
+				writer.Close ();
+				CollectionReader.LoadXmlFromFile (Paths.CollectionMetadata);
+			}
 		}
 
 	}
