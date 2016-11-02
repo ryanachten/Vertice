@@ -14,10 +14,13 @@ public class Import_AvailableCollections : MonoBehaviour {
 
 	void Start () {
 		// Upon creating this object, download the relevant XML data and use it to prepare the CollectionReader
+
 		#if UNITY_WEBGL
-		StartCoroutine (DownloadXml (Paths.Remote + "/Metadata/Vertice_CollectionInformation.xml"));
-		#elif UNITY_STANDALONE
-		StartCoroutine (DownloadXml ("file://" + Paths.Local + "/Metadata/Vertice_CollectionInformation.xml"));
+		StartCoroutine (DownloadXml (Paths.Local + "/Vertice_CollectionInformation.xml"));
+		#else
+		Debug.Log("Will load from " + Paths.CollectionMetadata);
+		CollectionReader.LoadXmlFromFile (Paths.CollectionMetadata);
+		GetCollections ();
 		#endif
 	}
 
@@ -27,6 +30,8 @@ public class Import_AvailableCollections : MonoBehaviour {
 	/// </summary>
 	/// <param name="url">The absolute path to the XML file, with the scheme (e.g. file://, http://, etc.) </param>
 	IEnumerator DownloadXml(string url) {
+
+
 		Debug.Log ("Downloading some XML from " + url);
 		UnityWebRequest www = UnityWebRequest.Get (url);
 
@@ -36,10 +41,12 @@ public class Import_AvailableCollections : MonoBehaviour {
 			// TODO: Echo the error condition to the user
 			Debug.Log ("Couldn't download XML file at " + url + "\n" + www.error);
 		} else {
+			Debug.Log (www.downloadHandler.text);
 			CollectionReader.LoadXmlFromText (www.downloadHandler.text);
 			Debug.Log("Downloaded some XML from " + url);
 			GetCollections ();
 		}
+
 	}
 
 

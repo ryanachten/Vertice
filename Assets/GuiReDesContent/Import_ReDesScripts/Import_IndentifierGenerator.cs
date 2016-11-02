@@ -17,7 +17,7 @@ public class Import_IndentifierGenerator : MonoBehaviour {
 
 		ArtefactSaveData.ArtefactIdentifier = vertId;
 		identifierField.text = vertId;
-		Debug.Log("vertId: " + ArtefactSaveData.ArtefactIdentifier);
+//		Debug.Log("vertId: " + ArtefactSaveData.ArtefactIdentifier);
 	}
 
 	public void UserDefinedIdentifier()

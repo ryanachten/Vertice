@@ -100,22 +100,25 @@ public static class CollectionWriter {
 	/// <exception cref="NoSuchCollectionException>If the collection identifier does not correspond to a collection in the XML file, NoSuchCollectionException is thrown and no data is written</exception>
 	public static void AddArtefactToCollectionWithIdentifier(string collectionIdentifier, string newArtefactIdentifier, VerticeTransform newArtefactTransform) {
 
+		Debug.Log(String.Format("Will attempt to write {0} to {1}", newArtefactIdentifier, collectionIdentifier));
 		if (_xmlDocument == null) {
+			Debug.Log(String.Format("_xmlDocument is not loaded; will load from {0}", Paths.CollectionMetadata));
 			LoadXml ();
 		}
 
 		XmlNode collectionNode = _xmlDocument.SelectSingleNode (String.Format("/verticeCollections/verticeCollection[@id='{0}']", collectionIdentifier));
-			
+
 		if (collectionNode == null) {
+			Debug.Log(String.Format("No such collection with id {0}", collectionIdentifier));
 			throw new NoSuchCollectionException ();
 		} else {
 			Dictionary<string, VerticeTransform> newArtefact = new Dictionary<string, VerticeTransform> ();
 			newArtefact.Add (newArtefactIdentifier, newArtefactTransform);
 			AddArtefactsToCollectionNode (collectionNode, newArtefact);
+			Debug.Log("Will write to XML");
 			WriteXmlToFile ();
 		}
 	}
-
 	/// <summary>
 	/// Creates the collection node for the collection to be written
 	/// </summary>
