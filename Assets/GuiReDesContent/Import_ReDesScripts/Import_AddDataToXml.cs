@@ -22,6 +22,7 @@ public class Import_AddDataToXml : MonoBehaviour {
 
 		string meshLocation = ArtefactSaveData.MeshLocation;
 		string texLocation = ArtefactSaveData.TexLocation;
+		string identifier = ArtefactSaveData.ArtefactIdentifier;
 		Dictionary<string, string>[] contextualMedia = ArtefactSaveData.ContextualMediaAssets.ToArray();
 
 		DublinCoreWriter.WriteDataForArtefactWithIdentifier(identifier,data,meshLocation, texLocation, contextualMedia);
@@ -85,10 +86,10 @@ public class Import_AddDataToXml : MonoBehaviour {
 								if (fieldAttrChildText.Length > 0) //if user has assigned input add it to the list
 								{
 									attributeFieldContent.Add(fieldAttrChildText);
-									if(attrName == "Identifier")
-									{
-										identifier = fieldAttrChildText;
-									}
+//									if(attrName == "Identifier")
+//									{
+//										identifier = fieldAttrChildText;
+//									}
 								}
 							}
 						}

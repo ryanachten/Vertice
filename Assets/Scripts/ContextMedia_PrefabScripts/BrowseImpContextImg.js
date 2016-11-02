@@ -94,5 +94,5 @@ function sendActive() //used to activate media viewer
 
 	var imgTitle = contImgTitle.GetComponent.<Text>().text;
 	Debug.Log("imgTitle: " + imgTitle);
-	mediaActiveScript.activeMediaViewer(imgTitle, contextMediaType, textureLocation);
+//	mediaActiveScript.activeMediaViewer(imgTitle, contextMediaType, textureLocation);
 }

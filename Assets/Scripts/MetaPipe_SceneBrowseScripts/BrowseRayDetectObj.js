@@ -49,7 +49,7 @@ function Update()
 	} else if (!selectPanelActive) 
 	{
 		if (mediaImgViewer.active) //***NEW*** prevents mediaViewer remaining active between objs
-			mediaViewerScript.deactivateMediaViewer(); //***NEW***
+//			mediaViewerScript.deactivateMediaViewer(); //***NEW***
 		
 		selectContextPanel.SetActive(false);
 		contextPanelActive = false;	

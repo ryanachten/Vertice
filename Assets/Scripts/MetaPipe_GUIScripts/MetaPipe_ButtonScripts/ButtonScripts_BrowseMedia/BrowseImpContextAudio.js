@@ -66,5 +66,5 @@ function sendActive() //used to activate media viewer
 
 	var audTitle = contAudTitle.GetComponent.<Text>().text;
 	Debug.Log("audTitle: " + audTitle);
-	mediaActiveScript.activeMediaViewer(audTitle, contextMediaType, audLocation);
+//	mediaActiveScript.activeMediaViewer(audTitle, contextMediaType, audLocation);
 }

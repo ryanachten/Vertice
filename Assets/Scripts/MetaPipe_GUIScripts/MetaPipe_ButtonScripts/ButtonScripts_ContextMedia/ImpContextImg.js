@@ -157,5 +157,5 @@ function sendActive() //used to activate media viewer
 //	mediaActiveScript.activeMediaViewer(contextMediaType, texLocation);
 	var imgTitle = contImgTitle.GetComponent.<Text>().text;
 	Debug.Log("imgTitle: " + imgTitle);
-	mediaActiveScript.activeMediaViewer(imgTitle, contextMediaType, texLocation);
+//	mediaActiveScript.activeMediaViewer(imgTitle, contextMediaType, texLocation);
 }

@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Networking;
 
-public class Collect_AvailableCollections : MonoBehaviour {
+public class Import_AvailableCollections : MonoBehaviour {
 
 	//used to load available collection buttons into collections panel
 	//activated on scene load and otherwise when panel opened
@@ -84,6 +84,6 @@ public class Collect_AvailableCollections : MonoBehaviour {
 			collectData[4] = "";
 		}
 
-		curCollectButton.GetComponent<Collect_LoadCollectButtonInfo>().LoadInfo(collectData);
+		curCollectButton.GetComponent<Import_AddToCollectButtonInfo>().LoadInfo(collectData);
 	}
 }

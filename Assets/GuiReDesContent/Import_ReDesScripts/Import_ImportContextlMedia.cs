@@ -59,7 +59,7 @@ public class Import_ImportContextlMedia : MonoBehaviour {
 	}
 
 
-	private void DefaultNameSplit(string texLocation, out string mediaName) //TODO should be revised for performance reasons
+	private void DefaultNameSplit(string texLocation, out string mediaName)
 	{
 		int splitIndex = texLocation.LastIndexOf("/") + 1;
 		int endIndex = texLocation.LastIndexOf(".");

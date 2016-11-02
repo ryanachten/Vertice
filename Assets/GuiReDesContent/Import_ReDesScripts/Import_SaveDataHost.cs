@@ -2,6 +2,7 @@
 
 public struct ArtefactSaveData
 {
+	public static string ArtefactIdentifier;
 	public static string MeshLocation;
 	public static string TexLocation;
 

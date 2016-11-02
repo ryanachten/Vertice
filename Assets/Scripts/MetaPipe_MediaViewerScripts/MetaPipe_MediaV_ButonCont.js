@@ -27,14 +27,14 @@ function setMedia( mediaType : String)
 	#else
 	if (mediaType == "Video")
 	{	
-		curVid = mvActivateScript.vidTex;
-		audSrce = mvActivateScript.audSrce;
+//		curVid = mvActivateScript.vidTex;
+//		audSrce = mvActivateScript.audSrce;
 	}
 	#endif
 	if (mediaType == "Audio")
 	{
 		Debug.Log("Trying to access audSrce");
-		audSrce = mvActivateScript.audSrce;
+//		audSrce = mvActivateScript.audSrce;
 	}
 }
 

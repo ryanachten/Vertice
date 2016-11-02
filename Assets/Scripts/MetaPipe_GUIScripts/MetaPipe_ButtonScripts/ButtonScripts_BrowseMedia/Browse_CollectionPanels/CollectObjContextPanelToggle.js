@@ -24,7 +24,7 @@ function activeObjInfo()
 	
 	if (contextMediaPanel.activeSelf == true)
 	{
-		mediaViewerScript.deactivateMediaViewer(); //***NEW*** prevents mediaViewer remaining active between objs
+//		mediaViewerScript.deactivateMediaViewer(); //***NEW*** prevents mediaViewer remaining active between objs
 		contextMediaPanel.SetActive(false);
 	}
 }

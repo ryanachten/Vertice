@@ -180,6 +180,6 @@ function sendActive() //used to activate media viewer
 	//mediaActiveScript.activeMediaViewer(contextMediaType, texLocation);
 	var vidTitle = contVidTitle.GetComponent.<Text>().text;
 	Debug.Log("vidTitle: " + vidTitle);
-	mediaActiveScript.activeMediaViewer(vidTitle, contextMediaType, texLocation);
+//	mediaActiveScript.activeMediaViewer(vidTitle, contextMediaType, texLocation);
 }
 #endif
