@@ -43,7 +43,7 @@ GameObject:
   - 114: {fileID: 114000013895335578}
   - 114: {fileID: 114000011975674286}
   m_Layer: 5
-  m_Name: AddToCollectionButton
+  m_Name: Import_AddToCollectionButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -102,7 +102,8 @@ public class ContextPanel_InfoController : MonoBehaviour {
 	public void ArtefactInfoLoad(Dictionary<string, Dictionary<string, string[]>> data)
 	{
 		InstantFieldData (data, "descriptive", "title", titleGroup);
-		//identifierText.text = testIdentifier; //TODO need to find a way to access the identifier (could just pass it as an argument I guess)
+		identifierText.text = artefactId; //TODO need to find a way to access the identifier (could just pass it as an argument I guess)
+
 		InstantFieldData (data, "descriptive", "creator", creatorGroup);
 		InstantFieldData (data, "descriptive", "contributor", contributorGroup);
 		InstantFieldData (data, "descriptive", "date", dateGroup);
