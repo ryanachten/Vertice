@@ -131,66 +131,6 @@
           </scale>
         </transform>
       </artefact>
-      <artefact id="VERT-161102042204">
-        <transform>
-          <position>
-            <x>0</x>
-            <y>0</y>
-            <z>0</z>
-          </position>
-          <rotation>
-            <x>0</x>
-            <y>0</y>
-            <z>0</z>
-            <w>0</w>
-          </rotation>
-          <scale>
-            <x>0</x>
-            <y>0</y>
-            <z>0</z>
-          </scale>
-        </transform>
-      </artefact>
-      <artefact id="VERT-161102051029">
-        <transform>
-          <position>
-            <x>0</x>
-            <y>0</y>
-            <z>0</z>
-          </position>
-          <rotation>
-            <x>0</x>
-            <y>0</y>
-            <z>0</z>
-            <w>0</w>
-          </rotation>
-          <scale>
-            <x>0</x>
-            <y>0</y>
-            <z>0</z>
-          </scale>
-        </transform>
-      </artefact>
-      <artefact id="VERT-161102052037">
-        <transform>
-          <position>
-            <x>0</x>
-            <y>0</y>
-            <z>0</z>
-          </position>
-          <rotation>
-            <x>0</x>
-            <y>0</y>
-            <z>0</z>
-            <w>0</w>
-          </rotation>
-          <scale>
-            <x>0</x>
-            <y>0</y>
-            <z>0</z>
-          </scale>
-        </transform>
-      </artefact>
     </structural>
   </verticeCollection>
   <verticeCollection id="The Met-01">
@@ -435,6 +375,140 @@
             <y>-0.002134346</y>
             <z>3.243667E-06</z>
             <w>1.0</w>
+          </rotation>
+          <scale>
+            <x>1</x>
+            <y>1</y>
+            <z>1</z>
+          </scale>
+        </transform>
+      </artefact>
+    </structural>
+  </verticeCollection>
+  <verticeCollection id="#TESTID">
+    <descriptive>
+      <Title>ONE</Title>
+      <Identifier>TWO</Identifier>
+      <Creator>THREE</Creator>
+      <Contributor></Contributor>
+      <Date></Date>
+      <Coverage></Coverage>
+      <Subject></Subject>
+      <Description></Description>
+    </descriptive>
+    <structural>
+      <artefact id="LB2848">
+        <transform>
+          <position>
+            <x>40.8694</x>
+            <y>-4.355231</y>
+            <z>180.2482</z>
+          </position>
+          <rotation>
+            <x>-0.0665935</x>
+            <y>-0.04648782</y>
+            <z>-0.01680967</z>
+            <w>0.9965549</w>
+          </rotation>
+          <scale>
+            <x>1</x>
+            <y>1</y>
+            <z>1</z>
+          </scale>
+        </transform>
+      </artefact>
+      <artefact id="AMNZ81764">
+        <transform>
+          <position>
+            <x>-3.342335</x>
+            <y>-9.458676</y>
+            <z>155.354</z>
+          </position>
+          <rotation>
+            <x>0.01382112</x>
+            <y>-0.002089699</y>
+            <z>-0.01758044</z>
+            <w>0.9997478</w>
+          </rotation>
+          <scale>
+            <x>1</x>
+            <y>1</y>
+            <z>1</z>
+          </scale>
+        </transform>
+      </artefact>
+      <artefact id="LB13701">
+        <transform>
+          <position>
+            <x>-61.09258</x>
+            <y>-7.164603</y>
+            <z>39.6211</z>
+          </position>
+          <rotation>
+            <x>0.01476883</x>
+            <y>-0.009959722</y>
+            <z>-0.00974499</z>
+            <w>0.9997939</w>
+          </rotation>
+          <scale>
+            <x>1</x>
+            <y>1</y>
+            <z>1</z>
+          </scale>
+        </transform>
+      </artefact>
+      <artefact id="AMNZ21862">
+        <transform>
+          <position>
+            <x>61.21064</x>
+            <y>-11.52912</y>
+            <z>44.19233</z>
+          </position>
+          <rotation>
+            <x>0.03172891</x>
+            <y>0.0009946332</y>
+            <z>0.001927788</z>
+            <w>0.9994942</w>
+          </rotation>
+          <scale>
+            <x>1</x>
+            <y>1</y>
+            <z>1</z>
+          </scale>
+        </transform>
+      </artefact>
+      <artefact id="Tarantula">
+        <transform>
+          <position>
+            <x>-65.41383</x>
+            <y>-11.69312</y>
+            <z>126.5532</z>
+          </position>
+          <rotation>
+            <x>-2.468367E-06</x>
+            <y>-8.194245E-05</y>
+            <z>0.01466981</z>
+            <w>0.9998925</w>
+          </rotation>
+          <scale>
+            <x>1</x>
+            <y>1</y>
+            <z>1</z>
+          </scale>
+        </transform>
+      </artefact>
+      <artefact id="LionSkull">
+        <transform>
+          <position>
+            <x>66.81733</x>
+            <y>-7.099335</y>
+            <z>221.836</z>
+          </position>
+          <rotation>
+            <x>-0.009870294</x>
+            <y>0.01074677</y>
+            <z>-0.08173937</z>
+            <w>0.996547</w>
           </rotation>
           <scale>
             <x>1</x>

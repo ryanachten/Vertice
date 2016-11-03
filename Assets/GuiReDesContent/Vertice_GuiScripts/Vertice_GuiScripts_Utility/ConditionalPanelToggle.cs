@@ -32,11 +32,13 @@ public class ConditionalPanelToggle : MonoBehaviour {
 		{
 			panel1.SetActive(true);
 			panel2.SetActive(false);
+			toggle2.isOn = false;
 		}
 		else if (panelNum == 2)
 		{
 			panel1.SetActive(false);
 			panel2.SetActive(true);
+			toggle1.isOn = false;
 		}
 	}
 }

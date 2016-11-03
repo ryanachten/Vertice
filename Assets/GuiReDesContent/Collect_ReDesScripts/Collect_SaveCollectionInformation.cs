@@ -3,29 +3,33 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Import_AddDataToXml : MonoBehaviour {
+public class Collect_SaveCollectionInformation : MonoBehaviour {
 
-	public GameObject[] descriptiveFieldAttributes;
-	public GameObject[] structuralFieldAttributes;
-//	private string identifier = "";
+	public string identifierText = "#TESTID";
+	public GameObject[] collectionFields;
+	public Transform collectionArtefactsParent;
 	private Dictionary<string, object> data;
 
+	// WriteCollectionWithIdentifer(string collectionIdentifier, Dictionary<string, string[]> descriptiveMetadata, Dictionary<string, VerticeTransform> artefactTransforms) 
 
-	/// <summary>
-	/// Compiles artefact metadata returned from text input fields with those stored in the SaveData struct
-	/// </summary>
-	public void GetArtefactData()
+	public void GetCollectionData()
 	{
-		data = new Dictionary<string, object>();
-		GenerateInfoDictionaries("descriptive", descriptiveFieldAttributes);
-		GenerateInfoDictionaries("structural", structuralFieldAttributes);
+		Dictionary<string, string[]> collectionMetadata = new Dictionary<string, string[]>();
+		GenerateInfoDictionaries(collectionFields, out collectionMetadata);
 
-		string meshLocation = ArtefactSaveData.MeshLocation;
-		string texLocation = ArtefactSaveData.TexLocation;
-		string identifier = ArtefactSaveData.ArtefactIdentifier;
-		Dictionary<string, string>[] contextualMedia = ArtefactSaveData.ContextualMediaAssets.ToArray();
+		Dictionary<string, VerticeTransform> artefactTransforms = new Dictionary<string, VerticeTransform>();
+		if (collectionArtefactsParent.childCount > 0)
+		{
+			for (int i = 0; i < collectionArtefactsParent.childCount; i++) 
+			{
+				Transform curObjTrans = collectionArtefactsParent.GetChild(i);
+				VerticeTransform curArtefactVerticeTrans = new VerticeTransform(curObjTrans.position, curObjTrans.rotation, curObjTrans.localScale);
+				string curArtefactName = curObjTrans.name;
 
-		DublinCoreWriter.WriteDataForArtefactWithIdentifier(identifier,data,meshLocation, texLocation, contextualMedia);
+				artefactTransforms.Add(curArtefactName, curArtefactVerticeTrans);
+			}
+		}
+		CollectionWriter.WriteCollectionWithIdentifer(identifierText, collectionMetadata, artefactTransforms);
 	}
 
 	/// <summary>
@@ -33,16 +37,16 @@ public class Import_AddDataToXml : MonoBehaviour {
 	/// </summary>
 	/// <param name="dataType">Data type; either descritpive or structural</param>
 	/// <param name="fieldAttributes">Field attributes related to those data types</param>
-	private void GenerateInfoDictionaries(string dataType, GameObject[] fieldAttributes) //for all of descriptive or structural attributes
+	private void GenerateInfoDictionaries(GameObject[] fieldAttributes, out Dictionary<string, string[]> collectionMetadata) //for all of descriptive or structural attributes
 	{
-		Dictionary<string, object> attrDictionary = new Dictionary<string, object>();
+		Dictionary<string, string[]> attrDictionary = new Dictionary<string, string[]>();
 
 		for (int i = 0; i < fieldAttributes.Length; i++) 
 		{
 			string attrName = fieldAttributes[i].name;
 
 			List<string> attributeList = new List<string>();
-			GenerateFieldList(attrName, fieldAttributes[i], out attributeList); //TODO check this - think it should be fieldAttributes not descriptiveFieldAttributes
+			GenerateFieldList(attrName, fieldAttributes[i], out attributeList);
 
 			if(attributeList.Count > 0) //for ea. attribute that isn't empty: add a string w/ attribute name and attribute field list as string array
 			{
@@ -55,7 +59,7 @@ public class Import_AddDataToXml : MonoBehaviour {
 				attrDictionary.Add(attrName, fieldAttrArray);
 			}
 		}
-		data.Add(dataType, attrDictionary);
+		collectionMetadata = attrDictionary;
 	}
 
 	/// <summary>

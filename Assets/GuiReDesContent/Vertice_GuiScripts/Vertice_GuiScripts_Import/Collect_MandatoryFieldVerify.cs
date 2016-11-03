@@ -3,12 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
-public class MandatoryFieldVerify : MonoBehaviour {
+public class Collect_MandatoryFieldVerify : MonoBehaviour {
 
 	//checks whether mandatory data fields have input assigned to them
 	//doesn't check validity of data input (at this stage)
 
-	public Import_AddDataToXml AddDataToXml;
+	public Collect_SaveCollectionInformation SaveCollection;
 	public MandatoryFieldFeedback FieldFeedback;
 	public GameObject[] mandatoryAttributes;
 	private List<string> remainingMandatoryFields;
@@ -24,6 +24,7 @@ public class MandatoryFieldVerify : MonoBehaviour {
 		for (int i = 0; i < mandatoryAttributes.Length; i++) {
 
 			string attrName = mandatoryAttributes[i].name;
+
 			for (int j = 0; j < mandatoryAttributes[i].transform.childCount; j++) { //originally did this by referencing child index 
 																					//~ too unstable as requires specifically ordered editor hierarchy
 				GameObject attrChild = mandatoryAttributes[i].transform.GetChild(j).gameObject;
@@ -65,12 +66,12 @@ public class MandatoryFieldVerify : MonoBehaviour {
 		else if (remainingMandatoryFields.Count == 0)
 		{
 			Debug.Log("Fields complete! Add data");
-			AddDataToXml.GetArtefactData();
+			SaveCollection.GetCollectionData();
 		}
 		if (testXmlWriterMode)
 		{
 			Debug.Log("Debug test");
-			AddDataToXml.GetArtefactData();
+			SaveCollection.GetCollectionData();
 		}
 	}
 }
