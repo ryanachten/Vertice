@@ -17,7 +17,10 @@ public class Collect_AvailableCollections : MonoBehaviour {
 		#if UNITY_WEBGL
 		StartCoroutine (DownloadXml (Paths.Remote + "/Metadata/Vertice_CollectionInformation.xml"));
 		#elif UNITY_STANDALONE
-		StartCoroutine (DownloadXml ("file://" + Paths.Local + "/Metadata/Vertice_CollectionInformation.xml"));
+//		StartCoroutine (DownloadXml ("file://" + Paths.Local + "/Metadata/Vertice_CollectionInformation.xml"));
+		Debug.Log("Will load from " + Paths.CollectionMetadata);
+		CollectionReader.LoadXmlFromFile (Paths.CollectionMetadata);
+		GetCollections ();
 		#endif
 	}
 
@@ -59,27 +62,28 @@ public class Collect_AvailableCollections : MonoBehaviour {
 		string[] collectData = new string[5];
 
 		try {
-			collectData[0] = data["title"][0]; //grabs first title for collection button	
+			collectData[0] = data["Title"][0]; //grabs first title for collection button	
 		} catch (System.Exception ex) {
 			collectData[0] = "";
 		}
 		try {
-			collectData[1] = data["identifier"][0]; //grabs first title for collection button	
+			collectData[1] = collectID;
+//			collectData[1] = data["Identifier"][0]; //grabs first title for collection button	
 		} catch (System.Exception ex) {
 			collectData[1] = "";
 		}
 		try {
-			collectData[2] = data["creator"][0]; //grabs first title for collection button	
+			collectData[2] = data["Creator"][0]; //grabs first title for collection button	
 		} catch (System.Exception ex) {
 			collectData[2] = "";
 		}
 		try {
-			collectData[3] = data["date"][0]; //grabs first title for collection button	
+			collectData[3] = data["Date"][0]; //grabs first title for collection button	
 		} catch (System.Exception ex) {
 			collectData[3] = "";
 		}
 		try {
-			collectData[4] = data["description"][0]; //grabs first title for collection button	
+			collectData[4] = data["Description"][0]; //grabs first title for collection button	
 		} catch (System.Exception ex) {
 			collectData[4] = "";
 		}

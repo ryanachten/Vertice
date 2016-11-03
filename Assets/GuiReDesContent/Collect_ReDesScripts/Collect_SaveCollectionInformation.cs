@@ -5,10 +5,12 @@ using System.Collections.Generic;
 
 public class Collect_SaveCollectionInformation : MonoBehaviour {
 
-	public string identifierText = "#TESTID";
+	public string collectionId = "#TESTID";
 	public GameObject[] collectionFields;
 	public Transform collectionArtefactsParent;
 	private Dictionary<string, object> data;
+	public Collect_CollectGuiInfo CollectMenuGuiControl;
+
 
 	// WriteCollectionWithIdentifer(string collectionIdentifier, Dictionary<string, string[]> descriptiveMetadata, Dictionary<string, VerticeTransform> artefactTransforms) 
 
@@ -29,7 +31,8 @@ public class Collect_SaveCollectionInformation : MonoBehaviour {
 				artefactTransforms.Add(curArtefactName, curArtefactVerticeTrans);
 			}
 		}
-		CollectionWriter.WriteCollectionWithIdentifer(identifierText, collectionMetadata, artefactTransforms);
+		CollectionWriter.WriteCollectionWithIdentifer(collectionId, collectionMetadata, artefactTransforms);
+		CollectMenuGuiControl.LoadCollectInfo(collectionId);
 	}
 
 	/// <summary>

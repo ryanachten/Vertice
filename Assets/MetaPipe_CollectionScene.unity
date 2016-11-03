@@ -24619,7 +24619,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &794278282
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24633,10 +24633,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 707915284}
   m_RootOrder: 1
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 134.57388, y: -5.8522167}
-  m_SizeDelta: {x: 90.85222, y: 11.704433}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &794278283
 MonoBehaviour:
@@ -36037,7 +36037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24abf75703c5a40479b58265044dcd42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  identifierText: '#TESTID'
+  collectionId: '#TESTID'
   collectionFields:
   - {fileID: 1477864386}
   - {fileID: 2024188516}
@@ -36048,6 +36048,7 @@ MonoBehaviour:
   - {fileID: 454105544}
   - {fileID: 469540661}
   collectionArtefactsParent: {fileID: 2018292114}
+  CollectMenuGuiControl: {fileID: 1175186179}
 --- !u!114 &1076737487
 MonoBehaviour:
   m_ObjectHideFlags: 0

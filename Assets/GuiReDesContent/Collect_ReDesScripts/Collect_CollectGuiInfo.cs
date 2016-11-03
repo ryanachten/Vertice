@@ -32,19 +32,23 @@ public class Collect_CollectGuiInfo : MonoBehaviour {
 
 	public void LoadCollectInfo(string collectId)
 	{
+		Debug.Log("Should be loading");
+
 		guiInfoPanel.SetActive(true);
 
 		data = new Dictionary<string, string[]>();
 		data = CollectionReader.GetCollectionMetadataWithIdentifier(collectId);
 
-		InstantFieldData ( "title", titleGroup);
-		ImportTextData ( "identifier", identifierText);
-		InstantFieldData ( "creator", creatorGroup);
-		InstantFieldData ( "contributor", contributorGroup);
-		InstantFieldData ( "date", dateGroup);
-		InstantFieldData ( "coverage", coverageGroup);
-		InstantFieldData ( "subject", subjectGroup);
-		ImportTextData ( "description", descriptionText);
+		InstantFieldData ( "Title", titleGroup);
+
+		identifierText.text = collectId;	
+//		ImportTextData ( "identifier", identifierText);
+		InstantFieldData ( "Creator", creatorGroup);
+		InstantFieldData ( "Contributor", contributorGroup);
+		InstantFieldData ( "Date", dateGroup);
+		InstantFieldData ( "Coverage", coverageGroup);
+		InstantFieldData ( "Subject", subjectGroup);
+		ImportTextData ( "Description", descriptionText);
 
 	}
 
@@ -66,14 +70,14 @@ public class Collect_CollectGuiInfo : MonoBehaviour {
 				GameObject field = Object.Instantiate (fieldText, fieldGroup) as GameObject;
 				field.GetComponent<Text> ().text = curData [i];
 				field.GetComponent<RectTransform>().localScale = new Vector3(1,1,1);
-//				Debug.Log (field.name + " " + i + " : " + curData [i]);
+				Debug.Log (field.name + " " + i + " : " + curData [i]);
 			}
 		}
 		catch(System.Exception ex)
 		{
 			GameObject field = Object.Instantiate (fieldException) as GameObject;
 			field.transform.SetParent (fieldGroup, false);
-//			Debug.Log ("No data in field");
+			Debug.Log ("No data in field");
 		}
 		
 	}
