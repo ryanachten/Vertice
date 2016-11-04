@@ -22,7 +22,7 @@ public class Collect_LoadCollectButtonInfo : MonoBehaviour {
 
 	public void SendToLoad()
 	{
-		GameObject.Find("CollectionInfo").GetComponent<Collect_CollectGuiInfo>().LoadCollectInfo(identifier.text);
+		GameObject.Find("CollectionInfo").GetComponent<Collect_CollectMenuGuiControl>().LoadCollectInfo(identifier.text);
 		GameObject.Find("CollectionMenu_Panel").GetComponent<Collect_CollectControl>().ImportArtefacts(identifier.text);
 		GameObject.Find("ViewCollections_Toggle").GetComponent<Toggle>().isOn = false;
 	}

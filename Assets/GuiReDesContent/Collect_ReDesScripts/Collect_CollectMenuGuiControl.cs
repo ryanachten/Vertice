@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Collect_CollectGuiInfo : MonoBehaviour {
+public class Collect_CollectMenuGuiControl : MonoBehaviour {
 
 	private Dictionary<string, string[]> data;
 	public Object fieldText;
@@ -11,13 +11,12 @@ public class Collect_CollectGuiInfo : MonoBehaviour {
 	public GameObject guiInfoPanel; //panel containing info fields
 	public GameObject editCollectButton;
 
-	//Descriptive elements
+	//Main Menu Panel
 	public Transform titleGroup;
 	public Text identifierText;
 	public Transform creatorGroup;
 	public Transform contributorGroup;
 	public Transform dateGroup;
-
 	public Transform coverageGroup;
 	public Transform subjectGroup;
 	public Text descriptionText;
@@ -67,14 +66,14 @@ public class Collect_CollectGuiInfo : MonoBehaviour {
 				GameObject field = Object.Instantiate (fieldText, fieldGroup) as GameObject;
 				field.GetComponent<Text> ().text = elementList[i];
 				field.GetComponent<RectTransform>().localScale = new Vector3(1,1,1);
-				Debug.Log (field.name + " " + i + " : " + elementList[i]);
+//				Debug.Log (field.name + " " + i + " : " + elementList[i]);
 			}
 		}
 		catch(System.Exception ex)
 		{
 			GameObject field = Object.Instantiate (fieldException) as GameObject;
 			field.transform.SetParent (fieldGroup, false);
-			Debug.Log ("No data in field");
+//			Debug.Log ("No data in field");
 		}
 		
 	}
@@ -91,7 +90,6 @@ public class Collect_CollectGuiInfo : MonoBehaviour {
 				Destroy(fieldGroup.GetChild(i).transform.gameObject);
 			}
 		}
-//		identifierText.text = ""; //TODO test
 		descriptionText.text = ""; //TODO test
 	}
 }
