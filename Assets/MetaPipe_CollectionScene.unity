@@ -1067,7 +1067,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Done
+  m_Text: Save
 --- !u!222 &33845416
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -65805,7 +65805,7 @@ GameObject:
   - 114: {fileID: 2048720496}
   - 114: {fileID: 2048720495}
   m_Layer: 5
-  m_Name: DoneButton
+  m_Name: SaveButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

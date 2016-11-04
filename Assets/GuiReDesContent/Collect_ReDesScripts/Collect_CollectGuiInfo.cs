@@ -32,23 +32,21 @@ public class Collect_CollectGuiInfo : MonoBehaviour {
 
 	public void LoadCollectInfo(string collectId)
 	{
+		CollectDataHost.LoadXmlData(collectId); //FIXME not sure if this should be called from this script
+//		CollectDataHost.DebugCollectionStruct();
+
 		Debug.Log("Should be loading");
 
 		guiInfoPanel.SetActive(true);
 
-		data = new Dictionary<string, string[]>();
-		data = CollectionReader.GetCollectionMetadataWithIdentifier(collectId);
-
-		InstantFieldData ( "Title", titleGroup);
-
-		identifierText.text = collectId;	
-//		ImportTextData ( "identifier", identifierText);
-		InstantFieldData ( "Creator", creatorGroup);
-		InstantFieldData ( "Contributor", contributorGroup);
-		InstantFieldData ( "Date", dateGroup);
-		InstantFieldData ( "Coverage", coverageGroup);
-		InstantFieldData ( "Subject", subjectGroup);
-		ImportTextData ( "Description", descriptionText);
+		InstantFieldData (CollectDataHost.CollectionTitle, titleGroup);
+		identifierText.text = CollectDataHost.CollectionIdentifier;	
+		InstantFieldData ( CollectDataHost.CollectionCreator, creatorGroup);
+		InstantFieldData ( CollectDataHost.CollectionContributor, contributorGroup);
+		InstantFieldData ( CollectDataHost.CollectionDate, dateGroup);
+		InstantFieldData ( CollectDataHost.CollectionCoverage, coverageGroup);
+		InstantFieldData ( CollectDataHost.CollectionSubject, subjectGroup);
+		descriptionText.text = CollectDataHost.CollectionDescription;
 
 	}
 
@@ -59,18 +57,17 @@ public class Collect_CollectGuiInfo : MonoBehaviour {
 	/// <param name="elementType">Dublin Core type to be searched (i.e. Descriptive or Structural).</param>
 	/// <param name="elementName">Attribute to be found in artefact data (i.e. Title / Date etc)</param>
 	/// <param name="fieldGroup">Parent for the prefab to be instanted under</param>
-	public void InstantFieldData (string elementName, Transform fieldGroup) 
+	public void InstantFieldData (List<string> elementList, Transform fieldGroup) 
 	{
 		ResetField(fieldGroup);
 
 		try {
-			string[] curData = data[elementName];
-			for (int i = 0; i < curData.Length; i++) 
+			for (int i = 0; i < elementList.Count; i++) 
 			{
 				GameObject field = Object.Instantiate (fieldText, fieldGroup) as GameObject;
-				field.GetComponent<Text> ().text = curData [i];
+				field.GetComponent<Text> ().text = elementList[i];
 				field.GetComponent<RectTransform>().localScale = new Vector3(1,1,1);
-				Debug.Log (field.name + " " + i + " : " + curData [i]);
+				Debug.Log (field.name + " " + i + " : " + elementList[i]);
 			}
 		}
 		catch(System.Exception ex)
@@ -80,25 +77,6 @@ public class Collect_CollectGuiInfo : MonoBehaviour {
 			Debug.Log ("No data in field");
 		}
 		
-	}
-
-	/// <summary>
-	/// Assigns XML data to single field attributes
-	/// </summary>
-	/// <param name="data">Data.</param>
-	/// <param name="elementType">Dublin Core type to be searched (i.e. Descriptive or Structural).</param>
-	/// <param name="elementName">Attribute to be found in artefact data (i.e. Title / Date etc)</param>
-	/// <param name="elementText">Text element for data to be assigned to</param>
-	private void ImportTextData(string elementName, Text elementText)
-	{
-		try
-		{
-			elementText.text = data[elementName][0]; //TODO passing this via index reference prob not ideal
-		}
-		catch(System.Exception ex) {
-			elementText.text = "No data in field";
-		}
-
 	}
 
 
@@ -113,5 +91,7 @@ public class Collect_CollectGuiInfo : MonoBehaviour {
 				Destroy(fieldGroup.GetChild(i).transform.gameObject);
 			}
 		}
+//		identifierText.text = ""; //TODO test
+		descriptionText.text = ""; //TODO test
 	}
 }
