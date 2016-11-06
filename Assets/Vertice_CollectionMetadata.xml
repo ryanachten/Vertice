@@ -387,23 +387,4 @@
       </artefact>
     </structural>
   </verticeCollection>
-  <verticeCollection id="TESTID">
-    <descriptive>
-      <Title>ONE</Title>
-      <Title>TWO</Title>
-      <Identifier>TESTID</Identifier>
-      <Creator>THREE</Creator>
-      <Creator>FOUR</Creator>
-      <Contributor>FIVE</Contributor>
-      <Contributor>SIX</Contributor>
-      <Date>SEVEN</Date>
-      <Date>EIGHT</Date>
-      <Coverage>NINE</Coverage>
-      <Coverage>TEN</Coverage>
-      <Subject>ELEVEN</Subject>
-      <Subject>TWELVE</Subject>
-      <Description>THIRTEEN</Description>
-    </descriptive>
-    <structural />
-  </verticeCollection>
 </verticeCollections>
