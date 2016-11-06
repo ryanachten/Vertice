@@ -66,12 +66,12 @@ public class Collect_MandatoryFieldVerify : MonoBehaviour {
 		else if (remainingMandatoryFields.Count == 0)
 		{
 			Debug.Log("Fields complete! Add data");
-			SaveCollection.GetCollectionData();
+			SaveCollection.SaveCollectionData();
 		}
 		if (testXmlWriterMode)
 		{
 			Debug.Log("Debug test");
-			SaveCollection.GetCollectionData();
+			SaveCollection.SaveCollectionData();
 		}
 	}
 }

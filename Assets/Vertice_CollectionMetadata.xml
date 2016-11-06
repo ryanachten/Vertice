@@ -1,138 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <verticeCollections>
-  <verticeCollection id="AucklandMuseum-01">
-    <descriptive>
-      <Title>Auckland Museum</Title>
-      <Creator>Ryan Achten</Creator>
-      <Date>24/09/2016</Date>
-      <Description>Example collection using digital artefacts sourced from the Auckland Museum under Creative Commons (CC BY 4.0)</Description>
-      <Subject>Photogrammetry</Subject>
-      <Coverage>Evan's Bay</Coverage>
-      <Coverage>Basin Reserve</Coverage>
-    </descriptive>
-    <structural>
-      <artefact id="LB2848">
-        <transform>
-          <position>
-            <x>40.82</x>
-            <y>-1.82</y>
-            <z>182.05</z>
-          </position>
-          <rotation>
-            <x>1.0</x>
-            <y>1.0</y>
-            <z>1.0</z>
-            <w>1.0</w>
-          </rotation>
-          <scale>
-            <x>1</x>
-            <y>1</y>
-            <z>1</z>
-          </scale>
-        </transform>
-      </artefact>
-      <artefact id="LB13701">
-        <transform>
-          <position>
-            <x>-61.25</x>
-            <y>-5.48</y>
-            <z>39.51289</z>
-          </position>
-          <rotation>
-            <x>-0.001511671</x>
-            <y>0.04385883</y>
-            <z>0.01296486</z>
-            <w>1.0</w>
-          </rotation>
-          <scale>
-            <x>1</x>
-            <y>1</y>
-            <z>1</z>
-          </scale>
-        </transform>
-      </artefact>
-      <artefact id="Tarantula">
-        <transform>
-          <position>
-            <x>-65.38</x>
-            <y>-11.6</y>
-            <z>126.5548</z>
-          </position>
-          <rotation>
-            <x>-0.005366722</x>
-            <y>0.7899417</y>
-            <z>0.006911641</z>
-            <w>1.0</w>
-          </rotation>
-          <scale>
-            <x>1</x>
-            <y>1</y>
-            <z>1</z>
-          </scale>
-        </transform>
-      </artefact>
-      <artefact id="AMNZ21862">
-        <transform>
-          <position>
-            <x>61.19</x>
-            <y>-10.98</y>
-            <z>44.13</z>
-          </position>
-          <rotation>
-            <x>0.002390777</x>
-            <y>0.9999844</y>
-            <z>-0.003106454</z>
-            <w>1.0</w>
-          </rotation>
-          <scale>
-            <x>1</x>
-            <y>1</y>
-            <z>1</z>
-          </scale>
-        </transform>
-      </artefact>
-      <artefact id="LionSkull">
-        <transform>
-          <position>
-            <x>66.24</x>
-            <y>-4.89</y>
-            <z>221.88</z>
-          </position>
-          <rotation>
-            <x>0.02416938</x>
-            <y>-0.002134346</y>
-            <z>3.243667E-06</z>
-            <w>1.0</w>
-          </rotation>
-          <scale>
-            <x>1</x>
-            <y>1</y>
-            <z>1</z>
-          </scale>
-        </transform>
-      </artefact>
-      <artefact id="AMNZ81764">
-        <transform>
-          <position>
-            <x>-3.359191</x>
-            <y>3.318305</y>
-            <z>155.2465</z>
-          </position>
-          <rotation>
-            <x>0.02416938</x>
-            <y>-0.002134346</y>
-            <z>3.243667E-06</z>
-            <w>1.0</w>
-          </rotation>
-          <scale>
-            <x>1</x>
-            <y>1</y>
-            <z>1</z>
-          </scale>
-        </transform>
-      </artefact>
-    </structural>
-  </verticeCollection>
   <verticeCollection id="The Met-01">
     <descriptive>
       <Title>The Met</Title>
@@ -385,30 +252,31 @@
       </artefact>
     </structural>
   </verticeCollection>
-  <verticeCollection id="#TESTID">
+  <verticeCollection id="AucklandMuseum-01">
     <descriptive>
-      <Title>Doog</Title>
-      <Identifier></Identifier>
-      <Creator>One</Creator>
-      <Contributor>Five</Contributor>
-      <Date></Date>
-      <Coverage></Coverage>
-      <Subject></Subject>
-      <Description></Description>
+      <Title>Auckland Museum</Title>
+      <Identifier>AucklandMuseum-01</Identifier>
+      <Creator>Ryan Achten</Creator>
+      <Contributor>
+      </Contributor>
+      <Date>24/09/2016</Date>
+      <Coverage>New Zealand</Coverage>
+      <Subject>Photogrammetry</Subject>
+      <Description>Example collection using digital artefacts sourced from the Auckland</Description>
     </descriptive>
     <structural>
       <artefact id="AMNZ81764">
         <transform>
           <position>
-            <x>-3.416544</x>
-            <y>-9.458189</y>
-            <z>155.6324</z>
+            <x>-3.416166</x>
+            <y>-9.457002</y>
+            <z>155.5248</z>
           </position>
           <rotation>
-            <x>0.01371468</x>
-            <y>0.0003128055</y>
-            <z>-0.01761847</z>
-            <w>0.9997507</w>
+            <x>0.01378724</x>
+            <y>6.193386E-05</y>
+            <z>-0.01762297</z>
+            <w>0.9997497</w>
           </rotation>
           <scale>
             <x>1</x>
@@ -420,15 +288,15 @@
       <artefact id="LionSkull">
         <transform>
           <position>
-            <x>73.33282</x>
-            <y>-7.959087</y>
-            <z>219.7661</z>
+            <x>73.47274</x>
+            <y>-7.969946</y>
+            <z>219.622</z>
           </position>
           <rotation>
-            <x>-0.007749395</x>
-            <y>-0.08527432</y>
-            <z>-0.06996569</z>
-            <w>0.9938677</w>
+            <x>-0.007387662</x>
+            <y>-0.09109785</y>
+            <z>-0.070007</z>
+            <w>0.9933507</w>
           </rotation>
           <scale>
             <x>1</x>
@@ -440,15 +308,15 @@
       <artefact id="LB13701">
         <transform>
           <position>
-            <x>-60.41236</x>
-            <y>-7.220625</y>
-            <z>40.70703</z>
+            <x>-60.56241</x>
+            <y>-7.204471</y>
+            <z>40.35027</z>
           </position>
           <rotation>
-            <x>0.01498157</x>
-            <y>0.001032216</y>
-            <z>-0.003232195</z>
-            <w>0.999882</w>
+            <x>0.00457212</x>
+            <y>0.00331778</y>
+            <z>-0.01669152</z>
+            <w>0.9998448</w>
           </rotation>
           <scale>
             <x>1</x>
@@ -460,35 +328,15 @@
       <artefact id="LB2848">
         <transform>
           <position>
-            <x>41.29767</x>
-            <y>-4.805937</y>
-            <z>176.5262</z>
+            <x>41.28996</x>
+            <y>-4.677849</y>
+            <z>177.6398</z>
           </position>
           <rotation>
-            <x>-0.05582607</x>
-            <y>-0.0004635533</y>
-            <z>-0.0112406</z>
-            <w>0.9983771</w>
-          </rotation>
-          <scale>
-            <x>1</x>
-            <y>1</y>
-            <z>1</z>
-          </scale>
-        </transform>
-      </artefact>
-      <artefact id="AMNZ21862">
-        <transform>
-          <position>
-            <x>61.13626</x>
-            <y>-11.53797</y>
-            <z>44.34167</z>
-          </position>
-          <rotation>
-            <x>0.03071585</x>
-            <y>-0.0009486663</y>
-            <z>0.002751034</z>
-            <w>0.9995239</w>
+            <x>-0.06131269</x>
+            <y>0.0009192281</y>
+            <z>-0.01241213</z>
+            <w>0.998041</w>
           </rotation>
           <scale>
             <x>1</x>
@@ -500,15 +348,35 @@
       <artefact id="Tarantula">
         <transform>
           <position>
-            <x>-65.52798</x>
-            <y>-11.69233</y>
-            <z>126.5555</z>
+            <x>-65.48984</x>
+            <y>-11.69259</y>
+            <z>126.5547</z>
           </position>
           <rotation>
-            <x>-2.019351E-07</x>
-            <y>-4.262766E-05</y>
-            <z>0.01476836</z>
-            <w>0.999891</w>
+            <x>-1.87977E-07</x>
+            <y>-3.92436E-05</y>
+            <z>0.01473626</z>
+            <w>0.9998915</w>
+          </rotation>
+          <scale>
+            <x>1</x>
+            <y>1</y>
+            <z>1</z>
+          </scale>
+        </transform>
+      </artefact>
+      <artefact id="AMNZ21862">
+        <transform>
+          <position>
+            <x>79.59206</x>
+            <y>-12.20142</y>
+            <z>131.0406</z>
+          </position>
+          <rotation>
+            <x>0.0004593284</x>
+            <y>0.0008516057</y>
+            <z>0.0007459502</z>
+            <w>0.9999993</w>
           </rotation>
           <scale>
             <x>1</x>
@@ -518,5 +386,24 @@
         </transform>
       </artefact>
     </structural>
+  </verticeCollection>
+  <verticeCollection id="TESTID">
+    <descriptive>
+      <Title>ONE</Title>
+      <Title>TWO</Title>
+      <Identifier>TESTID</Identifier>
+      <Creator>THREE</Creator>
+      <Creator>FOUR</Creator>
+      <Contributor>FIVE</Contributor>
+      <Contributor>SIX</Contributor>
+      <Date>SEVEN</Date>
+      <Date>EIGHT</Date>
+      <Coverage>NINE</Coverage>
+      <Coverage>TEN</Coverage>
+      <Subject>ELEVEN</Subject>
+      <Subject>TWELVE</Subject>
+      <Description>THIRTEEN</Description>
+    </descriptive>
+    <structural />
   </verticeCollection>
 </verticeCollections>
