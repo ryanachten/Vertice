@@ -40,7 +40,12 @@ public struct CollectDataHost
 		CollectionDate = CreateStructList("Date", data);
 		CollectionCoverage = CreateStructList("Coverage", data);
 		CollectionSubject = CreateStructList("Subject", data);
-		CollectionDescription = data["Description"][0];
+
+		try {
+			CollectionDescription = data["Description"][0];
+		} catch (KeyNotFoundException e) {
+			CollectionDescription = "";
+		}
 	}
 
 
