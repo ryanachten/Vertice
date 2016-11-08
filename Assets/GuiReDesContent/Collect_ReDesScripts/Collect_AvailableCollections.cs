@@ -59,6 +59,14 @@ public class Collect_AvailableCollections : MonoBehaviour {
 		curCollectButton.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
 		Dictionary<string, string[]> data = CollectionReader.GetCollectionMetadataWithIdentifier(collectID);
 
+//		Debug.Log("****Debug Test****");
+//		foreach (KeyValuePair<string, string[]> kvp  in data) {
+//			Debug.Log("Data key: " + kvp.Key);
+//			for (int i = 0; i < kvp.Value.Length; i++) {
+//				Debug.Log(kvp.Key +": " + kvp.Value[i]);
+//			}
+//		}
+
 		string[] collectData = new string[5];
 
 		try {
@@ -91,3 +99,4 @@ public class Collect_AvailableCollections : MonoBehaviour {
 		curCollectButton.GetComponent<Collect_LoadCollectButtonInfo>().LoadInfo(collectData);
 	}
 }
+	
