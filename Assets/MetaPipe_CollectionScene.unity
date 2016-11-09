@@ -13290,7 +13290,6 @@ GameObject:
   - 224: {fileID: 514361580}
   - 114: {fileID: 514361583}
   - 114: {fileID: 514361582}
-  - 114: {fileID: 514361581}
   m_Layer: 5
   m_Name: CreateCollection_Toggle
   m_TagString: Untagged
@@ -13319,22 +13318,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &514361581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 514361579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8776e33c585d4071849f9ab38f4518f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panelDefault: 1
-  toggle1: {fileID: 1241070388}
-  toggle2: {fileID: 514361583}
-  panel1: {fileID: 555148379}
-  panel2: {fileID: 1076737478}
 --- !u!114 &514361582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13391,11 +13374,11 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2134261721}
   toggleTransition: 1
   graphic: {fileID: 1696700620}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 1241070389}
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 514361581}
+      - m_Target: {fileID: 1241070386}
         m_MethodName: TogglePanel
         m_Mode: 3
         m_Arguments:
@@ -35822,6 +35805,7 @@ GameObject:
   - 114: {fileID: 1241070388}
   - 114: {fileID: 1241070387}
   - 114: {fileID: 1241070386}
+  - 114: {fileID: 1241070389}
   m_Layer: 5
   m_Name: ViewCollections_Toggle
   m_TagString: Untagged
@@ -35858,12 +35842,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1241070384}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 452436be1d0774063af9c755197eb87e, type: 3}
+  m_Script: {fileID: 11500000, guid: 47f9f3c7dd8ce40f29ee6be161e188cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toggle: {fileID: 1241070388}
   panelDefault: 1
-  panel: {fileID: 555148379}
+  toggle1: {fileID: 1241070388}
+  toggle2: {fileID: 514361583}
+  panel1: {fileID: 555148379}
+  panel2: {fileID: 1076737478}
 --- !u!114 &1241070387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35920,17 +35906,17 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1821236199}
   toggleTransition: 1
   graphic: {fileID: 2056683452}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 1241070389}
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1241070386}
         m_MethodName: TogglePanel
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -35938,6 +35924,18 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 1
+--- !u!114 &1241070389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1241070384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1184210157, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AllowSwitchOff: 0
 --- !u!1 &1244531987
 GameObject:
   m_ObjectHideFlags: 0

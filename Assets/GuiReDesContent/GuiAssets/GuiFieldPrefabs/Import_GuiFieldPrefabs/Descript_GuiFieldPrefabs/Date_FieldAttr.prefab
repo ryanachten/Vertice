@@ -94,6 +94,7 @@ GameObject:
   - 114: {fileID: 114000012928494740}
   - 114: {fileID: 114000012130752222}
   - 114: {fileID: 114000014226275116}
+  - 114: {fileID: 114000011156299882}
   m_Layer: 5
   m_Name: Date_Field
   m_TagString: Untagged
@@ -128,6 +129,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114000011156299882
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014101633696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1a398602002c4b6399ad4ea29b68f88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000011264007292
 MonoBehaviour:
   m_ObjectHideFlags: 1

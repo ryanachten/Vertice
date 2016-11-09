@@ -94,6 +94,7 @@ GameObject:
   - 114: {fileID: 114000014054025000}
   - 114: {fileID: 114000014042462594}
   - 114: {fileID: 114000011886337368}
+  - 114: {fileID: 114000010182165140}
   m_Layer: 5
   m_Name: Extent_Field
   m_TagString: Untagged
@@ -101,6 +102,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114000010182165140
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013863250540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1a398602002c4b6399ad4ea29b68f88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000010194028060
 MonoBehaviour:
   m_ObjectHideFlags: 1
