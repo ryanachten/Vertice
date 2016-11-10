@@ -42,7 +42,6 @@ public class Browse_BrowseSelectAttributes : MonoBehaviour {
 		if (!DublinCoreReader.HasXml()) {
 			Debug.Log ("Populating DublinCoreReader");
 			UnityWebRequest www = UnityWebRequest.Get(Paths.Remote + "/Metadata/Vertice_ArtefactInformation.xml");
-
 			yield return www.Send ();
 
 			if (www.isError) {

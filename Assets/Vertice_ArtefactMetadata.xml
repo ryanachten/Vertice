@@ -535,4 +535,43 @@ Performance of the final malagan rites frees the living from their obligations t
     <relatedAssets>
     </relatedAssets>
   </artefact>
+  <artefact id="VERT-161110040338">
+    <descriptive>
+      <Title>Buddha</Title>
+      <Title>Phra Phrom</Title>
+      <Identifier>VERT-161110040338</Identifier>
+      <Creator>??</Creator>
+      <Contributor>??</Contributor>
+      <Date>??</Date>
+      <Rights>CC0</Rights>
+      <Coverage>China</Coverage>
+      <Subject>Buddha</Subject>
+      <Description>Buddha test descript</Description>
+      <Relation>??</Relation>
+      <Format>Ornament</Format>
+      <Format>Religious item</Format>
+      <Medium>Copper</Medium>
+      <Extent>5x7x5cm</Extent>
+    </descriptive>
+    <structural>
+      <Creator>Ryan Achten</Creator>
+      <Created>2016/06/05</Created>
+      <Description>Test descript 02</Description>
+      <IsVersion>??</IsVersion>
+      <Format>Wavefront Obj (model)</Format>
+      <Format>JPEG (texture)</Format>
+      <Extent>20K vertices</Extent>
+      <Identifier>??</Identifier>
+      <Rights>CC0</Rights>
+    </structural>
+    <relatedAssets>
+      <MeshLocation>file:///Users/ryanachten/Documents/UnityTests/VerticeArchive_old/Buddha/Buddha_Model/Buddha.obj</MeshLocation>
+      <TexLocation>file:///Users/ryanachten/Documents/UnityTests/VerticeArchive_old/Buddha/Buddha_Model/BuddhaTex.jpg</TexLocation>
+      <ContextMedia>
+        <MediaName>Brahma_PhraPhrom</MediaName>
+        <MediaType>image</MediaType>
+        <MediaLocation>file:///Users/ryanachten/Documents/UnityTests/VerticeArchive_old/Buddha/Buddha_Context/Brahma_PhraPhrom.jpg</MediaLocation>
+      </ContextMedia>
+    </relatedAssets>
+  </artefact>
 </verticeMetadata>

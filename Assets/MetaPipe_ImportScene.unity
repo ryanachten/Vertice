@@ -22944,8 +22944,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e406c43ba46f94983ad9bad606e8b975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  descriptiveFieldAttributes: []
-  structuralFieldAttributes: []
+  descriptiveFieldAttributes:
+  - {fileID: 2040604790}
+  - {fileID: 316771936}
+  - {fileID: 991084411}
+  - {fileID: 834897975}
+  - {fileID: 1677362880}
+  - {fileID: 1883157873}
+  - {fileID: 212071927}
+  - {fileID: 1552511871}
+  - {fileID: 1283874951}
+  - {fileID: 619987762}
+  - {fileID: 1819644777}
+  - {fileID: 1585189921}
+  - {fileID: 1434775813}
+  structuralFieldAttributes:
+  - {fileID: 1692939530}
+  - {fileID: 1410885546}
+  - {fileID: 1892834195}
+  - {fileID: 879728717}
+  - {fileID: 812987494}
+  - {fileID: 1368686512}
+  - {fileID: 1772140935}
+  - {fileID: 1676124126}
 --- !u!1 &965925685
 GameObject:
   m_ObjectHideFlags: 0

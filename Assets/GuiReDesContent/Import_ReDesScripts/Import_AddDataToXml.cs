@@ -44,6 +44,10 @@ public class Import_AddDataToXml : MonoBehaviour {
 			List<string> attributeList = new List<string>();
 			GenerateFieldList(attrName, fieldAttributes[i], out attributeList); //TODO check this - think it should be fieldAttributes not descriptiveFieldAttributes
 
+//			for (int j = 0; j < attributeList.Count; j++) {
+//				Debug.Log("attributeList:" + attributeList[j]);
+//			}
+				
 			if(attributeList.Count > 0) //for ea. attribute that isn't empty: add a string w/ attribute name and attribute field list as string array
 			{
 				string[] fieldAttrArray = attributeList.ToArray();

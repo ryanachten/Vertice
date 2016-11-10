@@ -385,6 +385,26 @@
           </scale>
         </transform>
       </artefact>
+      <artefact id="VERT-161110040338">
+        <transform>
+          <position>
+            <x>0</x>
+            <y>0</y>
+            <z>0</z>
+          </position>
+          <rotation>
+            <x>0</x>
+            <y>0</y>
+            <z>0</z>
+            <w>0</w>
+          </rotation>
+          <scale>
+            <x>0</x>
+            <y>0</y>
+            <z>0</z>
+          </scale>
+        </transform>
+      </artefact>
     </structural>
   </verticeCollection>
 </verticeCollections>
