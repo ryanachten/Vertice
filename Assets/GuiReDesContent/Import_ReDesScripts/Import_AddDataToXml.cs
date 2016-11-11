@@ -37,8 +37,6 @@ public class Import_AddDataToXml : MonoBehaviour {
 	/// <param name="fieldAttributes">Field attributes related to those data types</param>
 	private void GenerateInfoDictionaries(string dataType, GameObject[] fieldAttributes) //for all of descriptive or structural attributes
 	{
-		Debug.Log("Getting data");
-
 		Dictionary<string, object> attrDictionary = new Dictionary<string, object>();
 
 		for (int i = 0; i < fieldAttributes.Length; i++) 
@@ -46,7 +44,7 @@ public class Import_AddDataToXml : MonoBehaviour {
 			string attrName = fieldAttributes[i].name;
 
 			List<string> attributeList = new List<string>();
-			GenerateFieldList(attrName, fieldAttributes[i], out attributeList); //TODO check this - think it should be fieldAttributes not descriptiveFieldAttributes
+			GenerateFieldList(attrName, fieldAttributes[i], out attributeList);
 
 			for (int j = 0; j < attributeList.Count; j++) {
 				Debug.Log("attributeList:" + attributeList[j]);

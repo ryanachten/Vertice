@@ -7,6 +7,7 @@ public class Import_ImportContextlMedia : MonoBehaviour {
 
 	public Transform contentParent;
 	public Object contextImgPrefab;
+	public GameObject imageErrorFeedback;
 
 
 	public void OpenDialogue(string openMode)
@@ -24,7 +25,19 @@ public class Import_ImportContextlMedia : MonoBehaviour {
 	{
 		if (pathToImage.Length > 0)
 		{
-			StartCoroutine(ImportTexture("file://" + pathToImage));
+			try 
+			{
+				int verticeArchiveIndex = pathToImage.IndexOf("/VerticeArchive");
+				string verticeArchiveSubstring = pathToImage.Substring(verticeArchiveIndex);
+
+				StartCoroutine(ImportTexture(verticeArchiveSubstring));
+			} 
+			catch (System.Exception ex) 
+			{
+				Debug.Log("Image not in VerticeArchive folder");
+				StartCoroutine(ErrorFeedback());
+			}
+
 		}
 	}
 
@@ -38,7 +51,7 @@ public class Import_ImportContextlMedia : MonoBehaviour {
 		RawImage prefabRawImg = imgPrefab.GetComponentInChildren<RawImage>();
 
 		// Download texture
-		WWW www = new WWW(texLocation);
+		WWW www = new WWW(Paths.VerticeArchive + texLocation);
 
 		while (!www.isDone){
 			yield return null;
@@ -68,5 +81,14 @@ public class Import_ImportContextlMedia : MonoBehaviour {
 		string nameSubstring = texLocation.Substring(splitIndex, subStrLength);
 
 		mediaName = nameSubstring;
+	}
+
+	IEnumerator ErrorFeedback()
+	{
+		imageErrorFeedback.SetActive(true);
+
+		yield return new WaitForSeconds(3);
+
+		imageErrorFeedback.SetActive(false);
 	}
 }

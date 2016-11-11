@@ -260,7 +260,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &12453646
 RectTransform:
   m_ObjectHideFlags: 0
@@ -276,8 +276,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000104904175, y: -30}
-  m_SizeDelta: {x: 120, y: 20}
+  m_AnchoredPosition: {x: -0.0000015497208, y: -30}
+  m_SizeDelta: {x: 167.3, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &12453648
 MonoBehaviour:
@@ -311,7 +311,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Object Imported!
+  m_Text: Model not in your VerticeArchive folder
 --- !u!222 &12453649
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -479,12 +479,13 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 347291152}
+  - {fileID: 1308807103}
   m_Father: {fileID: 724710708}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 70, y: -1.5909091}
-  m_SizeDelta: {x: 70, y: 3.1818182}
+  m_AnchoredPosition: {x: 35, y: -35}
+  m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &30490273
 MonoBehaviour:
@@ -8226,7 +8227,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Add an image
+  m_Text: Add image
 --- !u!222 &347291154
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13578,7 +13579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b482ceec9d344077b9a299ce8e1be10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPoints: 30000
+  maxPoints: 65534
   combineMultipleGroups: 1
   useSubmeshesWhenCombining: 1
   useFileNameAsObjectName: 0
@@ -15754,7 +15755,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &628878035
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15770,8 +15771,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.45001197, y: -30}
-  m_SizeDelta: {x: 119.1, y: 20}
+  m_AnchoredPosition: {x: 0.0000042915344, y: -30}
+  m_SizeDelta: {x: 176.2, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &628878037
 MonoBehaviour:
@@ -15805,7 +15806,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Texture Imported!
+  m_Text: Texture not in your VerticeArchive folder
 --- !u!222 &628878038
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17726,8 +17727,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 70, y: -73.40909}
-  m_SizeDelta: {x: 140, y: 3.1818182}
+  m_AnchoredPosition: {x: 35, y: -40}
+  m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &724710709
 MonoBehaviour:
@@ -19186,6 +19187,7 @@ MonoBehaviour:
   contentParent: {fileID: 314658832}
   contextImgPrefab: {fileID: 1000013557508330, guid: ad748a8ce2cc64d758b45d1343ec5374,
     type: 2}
+  imageErrorFeedback: {fileID: 1308807102}
 --- !u!1 &826029407
 GameObject:
   m_ObjectHideFlags: 0
@@ -22933,6 +22935,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImportParent: {fileID: 1796561530}
   defaultMaterial: {fileID: 2100000, guid: a36b4291e3a384b508b82b9953134d08, type: 2}
+  modelErrorFeedback: {fileID: 12453645}
+  texErrorFeedback: {fileID: 628878034}
 --- !u!114 &965330337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29517,6 +29521,80 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a398602002c4b6399ad4ea29b68f88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1308807102
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1308807103}
+  - 222: {fileID: 1308807105}
+  - 114: {fileID: 1308807104}
+  m_Layer: 5
+  m_Name: ImpImgFeedback
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1308807103
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1308807102}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.2499995, y: 1.2499995, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 30490272}
+  m_RootOrder: 1
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: -38.699997, y: -124}
+  m_SizeDelta: {x: 163.75, y: 11.25}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1308807104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1308807102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.42745098, g: 0.43137255, b: 0.44313726, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 11
+    m_FontStyle: 2
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Image not in your VerticeArchive folder
+--- !u!222 &1308807105
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1308807102}
 --- !u!1 &1313144761
 GameObject:
   m_ObjectHideFlags: 0
@@ -38317,8 +38395,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1439747138}
   m_HandleRect: {fileID: 1439747137}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -38811,7 +38889,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 183412, guid: 1ab08e7cbf96f4400b1be5128635ca69, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ab08e7cbf96f4400b1be5128635ca69, type: 2}

@@ -5,14 +5,8 @@ public class Import_ImportArtefact : MonoBehaviour {
 
 	public Transform ImportParent;
 	public Material defaultMaterial;
-
-	void Start()
-	{
-//		ArtefactSaveData SaveHost = new ArtefactSaveData();
-//		ArtefactSaveData.MeshLocation = "Testing Save Host";
-//		Debug.Log("MeshLocation: " + ArtefactSaveData.MeshLocation);
-	}
-
+	public GameObject modelErrorFeedback;
+	public GameObject texErrorFeedback;
 
 
 	public void OpenDialogue(string openMode){
@@ -39,8 +33,21 @@ public class Import_ImportArtefact : MonoBehaviour {
 	{
 		if (pathToModel.Length > 0)
 		{
-			StartCoroutine(ImportModel("file://" + pathToModel));
-			ArtefactSaveData.ClearSaveData();
+			try 
+			{
+				int verticeArchiveIndex = pathToModel.IndexOf("/VerticeArchive");
+				string verticeArchiveSubstring = pathToModel.Substring(verticeArchiveIndex);
+
+				StartCoroutine(ImportModel(verticeArchiveSubstring)); //"file://" + pathToModel
+				ArtefactSaveData.ClearSaveData();	
+			} 
+			catch (System.Exception ex) 
+			{
+				StartCoroutine(ErrorFeedback("model"));
+				Debug.Log("Model not in VerticeArchive folder");
+
+
+			}
 		}
 	}
 
@@ -49,7 +56,19 @@ public class Import_ImportArtefact : MonoBehaviour {
 	{
 		if (pathToTex.Length > 0)
 		{
-			StartCoroutine(ImportTexture("file://" + pathToTex));
+			try 
+			{
+				int verticeArchiveIndex = pathToTex.IndexOf("/VerticeArchive");
+				string verticeArchiveSubstring = pathToTex.Substring(verticeArchiveIndex);
+
+				StartCoroutine(ImportTexture(verticeArchiveSubstring));
+			} 
+			catch (System.Exception ex) 
+			{
+				StartCoroutine(ErrorFeedback("texture"));
+				Debug.Log("Tex not in VerticeArchive folder");
+			}
+
 		}
 	}
 
@@ -61,7 +80,7 @@ public class Import_ImportArtefact : MonoBehaviour {
 	/// <param name="meshLocation">Location of mesh information</param>
 	IEnumerator ImportModel(string meshLocation)
 	{
-		ObjReader.ObjData objReader = ObjReader.use.ConvertFileAsync(meshLocation, false, defaultMaterial);
+		ObjReader.ObjData objReader = ObjReader.use.ConvertFileAsync(Paths.VerticeArchive + meshLocation, false, defaultMaterial);
 		while (!objReader.isDone) 
 		{
 			yield return null;
@@ -84,7 +103,7 @@ public class Import_ImportArtefact : MonoBehaviour {
 		curArtefact.GetComponent<MeshRenderer> ().material.mainTexture = objTexture;
 
 		// Download texture
-		WWW www = new WWW(texLocation);
+		WWW www = new WWW(Paths.VerticeArchive + texLocation);
 
 		while (!www.isDone){
 			yield return null;
@@ -93,5 +112,26 @@ public class Import_ImportArtefact : MonoBehaviour {
 
 		ArtefactSaveData.TexLocation = texLocation;
 //		Debug.Log("TexLocation: " + ArtefactSaveData.TexLocation);
+	}
+
+
+	IEnumerator ErrorFeedback(string errorType)
+	{
+		GameObject feedbackText;
+
+		if(errorType == "model")
+		{
+			feedbackText = modelErrorFeedback;
+		}
+		else
+		{
+			feedbackText = texErrorFeedback;
+		}
+
+		feedbackText.SetActive(true);
+
+		yield return new WaitForSeconds(3);
+
+		feedbackText.SetActive(false);
 	}
 }
