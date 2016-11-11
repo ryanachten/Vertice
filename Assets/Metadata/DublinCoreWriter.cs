@@ -188,9 +188,9 @@ public static class DublinCoreWriter {
 	/// <param name="elementValues">The array of values to be associated with this element</param>
 	/// <param name="parentElement">The parent element that the newly created element(s) will be added to</param>
 	static void UnpackList(string elementName, string[] elementValues, XmlElement parentElement){
-		Debug.Log ("Unpacking list: " + elementName);
+//		Debug.Log ("Unpacking list: " + elementName);
 		foreach (string value in elementValues) {
-			Debug.Log ("Adding " + elementName + " node to " + parentElement.LocalName + " with value " + value);
+//			Debug.Log ("Adding " + elementName + " node to " + parentElement.LocalName + " with value " + value);
 			XmlElement newElement = xmlDocument.CreateElement (elementName);
 			newElement.InnerText = value;
 			parentElement.AppendChild (newElement);

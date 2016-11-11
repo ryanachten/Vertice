@@ -574,35 +574,4 @@ Performance of the final malagan rites frees the living from their obligations t
       </ContextMedia>
     </relatedAssets>
   </artefact>
-  <artefact id="VERT-161111043519">
-    <descriptive>
-      <Title>tessssting</Title>
-      <Identifier>VERT-161111043519</Identifier>
-      <Creator></Creator>
-      <Contributor></Contributor>
-      <Date></Date>
-      <Rights></Rights>
-      <Coverage></Coverage>
-      <Subject></Subject>
-      <Description></Description>
-      <Relation></Relation>
-      <Format></Format>
-      <Medium></Medium>
-      <Extent></Extent>
-    </descriptive>
-    <structural>
-      <Creator></Creator>
-      <Created></Created>
-      <Description></Description>
-      <IsVersion></IsVersion>
-      <Format></Format>
-      <Extent></Extent>
-      <Identifier></Identifier>
-      <Rights></Rights>
-    </structural>
-    <relatedAssets>
-      <MeshLocation>file:///Users/ryanachten/Documents/UnityTests/MetaPipeline_TestModels/monkey.obj</MeshLocation>
-      <TexLocation></TexLocation>
-    </relatedAssets>
-  </artefact>
 </verticeMetadata>

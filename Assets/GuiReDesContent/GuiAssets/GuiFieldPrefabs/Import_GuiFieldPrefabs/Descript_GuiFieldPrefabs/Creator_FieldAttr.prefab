@@ -45,7 +45,7 @@ GameObject:
   - 114: {fileID: 114000010808380886}
   - 114: {fileID: 114000012711979356}
   m_Layer: 5
-  m_Name: Creator_Field
+  m_Name: creator_Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +62,7 @@ GameObject:
   - 222: {fileID: 222000011557423784}
   - 114: {fileID: 114000010546064098}
   m_Layer: 5
-  m_Name: Creator_FieldAttr
+  m_Name: creator_FieldAttr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -453,7 +453,7 @@ RectTransform:
   m_GameObject: {fileID: 1000013555794192}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 224000012883182806}

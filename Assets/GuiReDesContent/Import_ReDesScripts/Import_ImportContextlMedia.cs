@@ -52,7 +52,7 @@ public class Import_ImportContextlMedia : MonoBehaviour {
 
 		Dictionary<string, string> contextMediaDictionary = new Dictionary<string, string>();
 		contextMediaDictionary.Add("MediaName", mediaName);
-		contextMediaDictionary.Add("MediaType", "image");
+		contextMediaDictionary.Add("MediaType", "Image");
 		contextMediaDictionary.Add("MediaLocation", texLocation);
 
 		ArtefactSaveData.ContextualMediaAssets.Add(contextMediaDictionary);

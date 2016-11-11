@@ -39,7 +39,7 @@ GameObject:
   - 222: {fileID: 222000012776785666}
   - 114: {fileID: 114000011657728612}
   m_Layer: 5
-  m_Name: Date_FieldAttr
+  m_Name: date_FieldAttr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,7 +96,7 @@ GameObject:
   - 114: {fileID: 114000014226275116}
   - 114: {fileID: 114000011156299882}
   m_Layer: 5
-  m_Name: Date_Field
+  m_Name: date_Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -471,7 +471,7 @@ RectTransform:
   m_GameObject: {fileID: 1000011392423692}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 224000013898996076}

@@ -16,6 +16,8 @@ public class Import_AddDataToXml : MonoBehaviour {
 	/// </summary>
 	public void GetArtefactData()
 	{
+		
+
 		data = new Dictionary<string, object>();
 		GenerateInfoDictionaries("descriptive", descriptiveFieldAttributes);
 		GenerateInfoDictionaries("structural", structuralFieldAttributes);
@@ -35,6 +37,8 @@ public class Import_AddDataToXml : MonoBehaviour {
 	/// <param name="fieldAttributes">Field attributes related to those data types</param>
 	private void GenerateInfoDictionaries(string dataType, GameObject[] fieldAttributes) //for all of descriptive or structural attributes
 	{
+		Debug.Log("Getting data");
+
 		Dictionary<string, object> attrDictionary = new Dictionary<string, object>();
 
 		for (int i = 0; i < fieldAttributes.Length; i++) 
@@ -44,9 +48,9 @@ public class Import_AddDataToXml : MonoBehaviour {
 			List<string> attributeList = new List<string>();
 			GenerateFieldList(attrName, fieldAttributes[i], out attributeList); //TODO check this - think it should be fieldAttributes not descriptiveFieldAttributes
 
-//			for (int j = 0; j < attributeList.Count; j++) {
-//				Debug.Log("attributeList:" + attributeList[j]);
-//			}
+			for (int j = 0; j < attributeList.Count; j++) {
+				Debug.Log("attributeList:" + attributeList[j]);
+			}
 				
 			if(attributeList.Count > 0) //for ea. attribute that isn't empty: add a string w/ attribute name and attribute field list as string array
 			{
