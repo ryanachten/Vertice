@@ -28,7 +28,13 @@ public class ContextPanel_MediaController : MonoBehaviour {
 	/// </summary>
 	public void LoadMedia() //executed on pressing Media button
 	{
+		#if UNITY_WEBGL
 		StartCoroutine (LoadMediaAsync());
+		#elif UNITY_STANDALONE
+		DublinCoreReader.LoadXmlFromFile(Paths.ArtefactMetadata); 
+		CheckToggles();
+		#endif
+
 
 	}
 
@@ -40,7 +46,7 @@ public class ContextPanel_MediaController : MonoBehaviour {
 
 		// If the DublinCoreReader has not been 
 		if (!DublinCoreReader.HasXml ()) {
-			UnityWebRequest www = UnityWebRequest.Get (Paths.Remote + "/Metadata/Vertice_ArtefactInformation.xml");
+			UnityWebRequest www = UnityWebRequest.Get (Paths.ArtefactMetadata); //Paths.Remote + "/Metadata/Vertice_ArtefactInformation.xml"
 			yield return www.Send ();
 
 			if (www.isError) {
@@ -51,7 +57,11 @@ public class ContextPanel_MediaController : MonoBehaviour {
 				Debug.Log("Downloaded some XML");
 			}
 		}
+		CheckToggles();
+	}
 
+	private void CheckToggles()
+	{
 		string artefactId = ContextInfoCont.artefactId;
 
 		ResetPanel();
@@ -68,8 +78,8 @@ public class ContextPanel_MediaController : MonoBehaviour {
 		{
 			InstantMedia(artefactId, "Video");
 		}
-		
 	}
+
 
 	/// <summary>
 	/// Resets the media panel between artefacts

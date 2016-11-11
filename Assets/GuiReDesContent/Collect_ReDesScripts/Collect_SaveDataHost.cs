@@ -33,16 +33,16 @@ public struct CollectDataHost
 		data = new Dictionary<string, string[]>();
 		data = CollectionReader.GetCollectionMetadataWithIdentifier(collectionId);
 
-		CollectionTitle = CreateStructList("Title", data);
+		CollectionTitle = CreateStructList("title", data);
 		CollectionIdentifier = collectionId;
-		CollectionCreator = CreateStructList ("Creator", data);
-		CollectionContributor = CreateStructList("Contributor", data);
-		CollectionDate = CreateStructList("Date", data);
-		CollectionCoverage = CreateStructList("Coverage", data);
-		CollectionSubject = CreateStructList("Subject", data);
+		CollectionCreator = CreateStructList ("creator", data);
+		CollectionContributor = CreateStructList("contributor", data);
+		CollectionDate = CreateStructList("date", data);
+		CollectionCoverage = CreateStructList("coverage", data);
+		CollectionSubject = CreateStructList("subject", data);
 
 		try {
-			CollectionDescription = data["Description"][0];
+			CollectionDescription = data["description"][0];
 		} catch (KeyNotFoundException e) {
 			CollectionDescription = "";
 		}

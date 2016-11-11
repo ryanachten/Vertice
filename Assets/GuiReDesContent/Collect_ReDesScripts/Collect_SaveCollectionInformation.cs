@@ -103,28 +103,28 @@ public class Collect_SaveCollectionInformation : MonoBehaviour {
 		Dictionary<string, string[]> collectionMetadata = new Dictionary<string, string[]>();
 
 		string[] collectTitles = DataListToArray(CollectDataHost.CollectionTitle);
-		collectionMetadata.Add("Title", collectTitles);
+		collectionMetadata.Add("title", collectTitles);
 
-		string[] identArray = new string[1]{CollectDataHost.CollectionIdentifier};
-		collectionMetadata.Add("Identifier", identArray);
+//		string[] identArray = new string[1]{CollectDataHost.CollectionIdentifier}; //FIXME can't have two 'identifier' keys in the dictionary
+//		collectionMetadata.Add("identifier", identArray);
 
 		string[] collectCreators = DataListToArray(CollectDataHost.CollectionCreator);
-		collectionMetadata.Add("Creator", collectCreators);
+		collectionMetadata.Add("creator", collectCreators);
 
 		string[] collectContributors = DataListToArray(CollectDataHost.CollectionContributor);
-		collectionMetadata.Add("Contributor", collectContributors);
+		collectionMetadata.Add("contributor", collectContributors);
 
 		string[] collectDates = DataListToArray(CollectDataHost.CollectionDate);
-		collectionMetadata.Add("Date", collectDates);
+		collectionMetadata.Add("date", collectDates);
 
 		string[] collectCoverage = DataListToArray(CollectDataHost.CollectionCoverage);
-		collectionMetadata.Add("Coverage", collectCoverage);
+		collectionMetadata.Add("coverage", collectCoverage);
 
 		string[] collectSubject = DataListToArray(CollectDataHost.CollectionSubject);
-		collectionMetadata.Add("Subject", collectSubject);
+		collectionMetadata.Add("subject", collectSubject);
 
 		string[] descriptArray = new string[1]{CollectDataHost.CollectionDescription};
-			collectionMetadata.Add("Description", descriptArray);
+			collectionMetadata.Add("description", descriptArray);
 
 
 		//Create transforms

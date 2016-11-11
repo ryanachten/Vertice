@@ -16,7 +16,7 @@ public class Browse_AvailableCollections : MonoBehaviour {
 		// Upon creating this object, download the relevant XML data and use it to prepare the CollectionReader
 
 		#if UNITY_WEBGL
-		StartCoroutine (DownloadXml (Paths.Local + "/Vertice_CollectionInformation.xml"));
+		StartCoroutine (DownloadXml (Paths.CollectionMetadata));
 		#else
 		Debug.Log("Will load from " + Paths.CollectionMetadata);
 		CollectionReader.LoadXmlFromFile (Paths.CollectionMetadata);

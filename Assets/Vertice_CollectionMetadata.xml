@@ -1,13 +1,150 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <verticeCollections>
+  <verticeCollection id="AucklandMuseum-01">
+    <descriptive>
+      <title>Auckland Museum</title>
+      <creator>Ryan Achten</creator>
+      <date>24/09/2016</date>
+      <description>
+Example collection using digital artefacts sourced from the Auckland Museum under Creative Commons (CC BY 4.0)
+</description>
+      <subject>Photogrammetry</subject>
+      <coverage>Evan's Bay</coverage>
+      <coverage>Basin Reserve</coverage>
+    </descriptive>
+    <structural>
+      <artefact id="LB2848">
+        <transform>
+          <position>
+            <x>40.82</x>
+            <y>-1.82</y>
+            <z>182.05</z>
+          </position>
+          <rotation>
+            <x>1.0</x>
+            <y>1.0</y>
+            <z>1.0</z>
+            <w>1.0</w>
+          </rotation>
+          <scale>
+            <x>1</x>
+            <y>1</y>
+            <z>1</z>
+          </scale>
+        </transform>
+      </artefact>
+      <artefact id="LB13701">
+        <transform>
+          <position>
+            <x>-61.25</x>
+            <y>-5.48</y>
+            <z>39.51289</z>
+          </position>
+          <rotation>
+            <x>-0.001511671</x>
+            <y>0.04385883</y>
+            <z>0.01296486</z>
+            <w>1.0</w>
+          </rotation>
+          <scale>
+            <x>1</x>
+            <y>1</y>
+            <z>1</z>
+          </scale>
+        </transform>
+      </artefact>
+      <artefact id="Tarantula">
+        <transform>
+          <position>
+            <x>-65.38</x>
+            <y>-11.6</y>
+            <z>126.5548</z>
+          </position>
+          <rotation>
+            <x>-0.005366722</x>
+            <y>0.7899417</y>
+            <z>0.006911641</z>
+            <w>1.0</w>
+          </rotation>
+          <scale>
+            <x>1</x>
+            <y>1</y>
+            <z>1</z>
+          </scale>
+        </transform>
+      </artefact>
+      <artefact id="AMNZ21862">
+        <transform>
+          <position>
+            <x>61.19</x>
+            <y>-10.98</y>
+            <z>44.13</z>
+          </position>
+          <rotation>
+            <x>0.002390777</x>
+            <y>0.9999844</y>
+            <z>-0.003106454</z>
+            <w>1.0</w>
+          </rotation>
+          <scale>
+            <x>1</x>
+            <y>1</y>
+            <z>1</z>
+          </scale>
+        </transform>
+      </artefact>
+      <artefact id="LionSkull">
+        <transform>
+          <position>
+            <x>66.24</x>
+            <y>-4.89</y>
+            <z>221.88</z>
+          </position>
+          <rotation>
+            <x>0.02416938</x>
+            <y>-0.002134346</y>
+            <z>3.243667E-06</z>
+            <w>1.0</w>
+          </rotation>
+          <scale>
+            <x>1</x>
+            <y>1</y>
+            <z>1</z>
+          </scale>
+        </transform>
+      </artefact>
+      <artefact id="AMNZ81764">
+        <transform>
+          <position>
+            <x>-3.359191</x>
+            <y>3.318305</y>
+            <z>155.2465</z>
+          </position>
+          <rotation>
+            <x>0.02416938</x>
+            <y>-0.002134346</y>
+            <z>3.243667E-06</z>
+            <w>1.0</w>
+          </rotation>
+          <scale>
+            <x>1</x>
+            <y>1</y>
+            <z>1</z>
+          </scale>
+        </transform>
+      </artefact>
+    </structural>
+  </verticeCollection>
   <verticeCollection id="The Met-01">
     <descriptive>
-      <Title>The Met</Title>
-      <Creator>Ryan Achten</Creator>
-      <Date>26/09/2016</Date>
-      <Description>Example collection using digital artefacts sourced from the Metropolitan Museum of Art under Creative Commons (CC BY-SA 3.0)</Description>
-      <Subject>Metropolitan Museum of Art</Subject>
-      <Coverage>???</Coverage>
+      <title>The Met</title>
+      <creator>Ryan Achten</creator>
+      <date>26/09/2016</date>
+      <description>
+Example collection using digital artefacts sourced from the Metropolitan Museum of Art under Creative Commons (CC BY-SA 3.0)
+</description>
+      <subject>Metropolitan Museum of Art</subject>
+      <coverage>???</coverage>
     </descriptive>
     <structural>
       <artefact id="42.25.12">
@@ -252,159 +389,16 @@
       </artefact>
     </structural>
   </verticeCollection>
-  <verticeCollection id="AucklandMuseum-01">
+  <verticeCollection id="adasdsadasd">
     <descriptive>
-      <Title>Auckland Museum</Title>
-      <Identifier>AucklandMuseum-01</Identifier>
-      <Creator>Ryan Achten</Creator>
-      <Contributor>
-      </Contributor>
-      <Date>24/09/2016</Date>
-      <Coverage>New Zealand</Coverage>
-      <Subject>Photogrammetry</Subject>
-      <Description>Example collection using digital artefacts sourced from the Auckland</Description>
+      <title>sdasdsadas</title>
+      <creator>asdasdasd</creator>
+      <contributor>asdasdasdas</contributor>
+      <date>adasdasd</date>
+      <coverage>asdasdsad</coverage>
+      <subject>asdasdasd</subject>
+      <description>asdasdsad</description>
     </descriptive>
-    <structural>
-      <artefact id="AMNZ81764">
-        <transform>
-          <position>
-            <x>-3.416248</x>
-            <y>-9.457937</y>
-            <z>155.6106</z>
-          </position>
-          <rotation>
-            <x>0.01372974</x>
-            <y>0.0003470182</y>
-            <z>-0.01761459</z>
-            <w>0.9997505</w>
-          </rotation>
-          <scale>
-            <x>1</x>
-            <y>1</y>
-            <z>1</z>
-          </scale>
-        </transform>
-      </artefact>
-      <artefact id="LionSkull">
-        <transform>
-          <position>
-            <x>74.11575</x>
-            <y>-8.164483</y>
-            <z>219.3524</z>
-          </position>
-          <rotation>
-            <x>-0.008472198</x>
-            <y>0.02060284</y>
-            <z>-0.05882562</z>
-            <w>0.9980198</w>
-          </rotation>
-          <scale>
-            <x>1</x>
-            <y>1</y>
-            <z>1</z>
-          </scale>
-        </transform>
-      </artefact>
-      <artefact id="LB13701">
-        <transform>
-          <position>
-            <x>-60.41965</x>
-            <y>-7.219402</y>
-            <z>40.69578</z>
-          </position>
-          <rotation>
-            <x>0.01135193</x>
-            <y>0.001531642</y>
-            <z>-0.007346442</z>
-            <w>0.9999074</w>
-          </rotation>
-          <scale>
-            <x>1</x>
-            <y>1</y>
-            <z>1</z>
-          </scale>
-        </transform>
-      </artefact>
-      <artefact id="LB2848">
-        <transform>
-          <position>
-            <x>41.31025</x>
-            <y>-4.808953</y>
-            <z>176.5058</z>
-          </position>
-          <rotation>
-            <x>-0.05568864</x>
-            <y>-0.001210156</y>
-            <z>-0.01122231</z>
-            <w>0.9983844</w>
-          </rotation>
-          <scale>
-            <x>1</x>
-            <y>1</y>
-            <z>1</z>
-          </scale>
-        </transform>
-      </artefact>
-      <artefact id="Tarantula">
-        <transform>
-          <position>
-            <x>-65.52798</x>
-            <y>-11.69233</y>
-            <z>126.5555</z>
-          </position>
-          <rotation>
-            <x>-2.019404E-07</x>
-            <y>-4.262766E-05</y>
-            <z>0.01476836</z>
-            <w>0.999891</w>
-          </rotation>
-          <scale>
-            <x>1</x>
-            <y>1</y>
-            <z>1</z>
-          </scale>
-        </transform>
-      </artefact>
-      <artefact id="AMNZ21862">
-        <transform>
-          <position>
-            <x>79.59206</x>
-            <y>-12.20198</y>
-            <z>131.0406</z>
-          </position>
-          <rotation>
-            <x>2.222456E-07</x>
-            <y>-1.038363E-07</y>
-            <z>2.357878E-07</z>
-            <w>1</w>
-          </rotation>
-          <scale>
-            <x>1</x>
-            <y>1</y>
-            <z>1</z>
-          </scale>
-        </transform>
-      </artefact>
-      <artefact id="VERT-161110040338">
-        <transform>
-          <position>
-            <x>105.677</x>
-            <y>-13.20111</y>
-            <z>104.4614</z>
-          </position>
-          <rotation>
-            <x>-9.229427E-07</x>
-            <y>8.334407E-07</y>
-            <z>6.827948E-07</z>
-            <w>1</w>
-          </rotation>
-          <scale>
-            <x>1</x>
-            <y>1</y>
-            <z>1</z>
-          </scale>
-        </transform>
-      </artefact>
-    </structural>
+    <structural />
   </verticeCollection>
 </verticeCollections>

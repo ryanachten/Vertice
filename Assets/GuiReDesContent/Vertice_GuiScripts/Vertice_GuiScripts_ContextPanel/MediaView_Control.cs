@@ -42,10 +42,6 @@ public class MediaView_Control : MonoBehaviour {
 
 	IEnumerator loadContextImage(string texLocation)
 	{
-		#if UNITY_WEBGL
-//		string wwwDirectory = Paths.Remote + texLocation;	//handled in BrowseImpContextImg
-		#endif
-
 		string wwwDirectory = texLocation;
 		WWW www = new WWW(wwwDirectory);
 		while(!www.isDone){
