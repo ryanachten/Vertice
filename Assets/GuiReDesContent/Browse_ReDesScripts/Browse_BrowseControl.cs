@@ -49,8 +49,10 @@ public class Browse_BrowseControl : MonoBehaviour {
 
 
 		for (int i = 0; i < browseIdentifiers.Length; i++) {
-			string meshLocation = Paths.Remote + DublinCoreReader.GetMeshLocationForArtefactWithIdentifier(browseIdentifiers [i]);
-			string texLocation = Paths.Remote + DublinCoreReader.GetTextureLocationForArtefactWithIdentifier(browseIdentifiers [i]);
+
+			string meshLocation = Paths.VerticeArchive + DublinCoreReader.GetMeshLocationForArtefactWithIdentifier(browseIdentifiers [i]);
+			string texLocation = Paths.VerticeArchive + DublinCoreReader.GetTextureLocationForArtefactWithIdentifier(browseIdentifiers [i]);
+
 			StartCoroutine (ImportModel (i, browseIdentifiers[i], meshLocation, texLocation));
 		}
 	}

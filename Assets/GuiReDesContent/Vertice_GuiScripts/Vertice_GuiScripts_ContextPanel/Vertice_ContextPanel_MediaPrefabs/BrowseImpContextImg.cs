@@ -18,12 +18,7 @@ public class BrowseImpContextImg : MonoBehaviour {
 	/// <param name="texLocation">Texture directory URI.</param>
 	public IEnumerator ContextImgImp (string texLocation)
 	{
-
-		#if UNITY_WEBGL
-		var wwwDirectory = Paths.Remote + texLocation; 
-		#elif UNITY_STANDALONE
-		var wwwDirectory = Paths.Local + texLocation; //Doesn't work due to the VerticeArchive folder residing outside of Assets folder
-		#endif
+		var wwwDirectory = Paths.VerticeArchive + texLocation;
 
 		textureLocation = wwwDirectory;
 

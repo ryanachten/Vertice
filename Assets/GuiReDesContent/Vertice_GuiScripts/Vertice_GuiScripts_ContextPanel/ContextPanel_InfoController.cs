@@ -75,7 +75,7 @@ public class ContextPanel_InfoController : MonoBehaviour {
 		// If the DublinCoreReader has not been populated with data by some preceding operation, populate it now
 		if (!DublinCoreReader.HasXml()) {
 			Debug.Log ("Populateding DublinCoreReader");
-			UnityWebRequest www = UnityWebRequest.Get (Paths.Remote + "/Metadata/Vertice_ArtefactInformation.xml");
+			UnityWebRequest www = UnityWebRequest.Get (Paths.ArtefactMetadata);
 
 			yield return www.Send ();
 

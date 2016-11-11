@@ -13,8 +13,6 @@ public class Browse_BrowseSelectAttributes : MonoBehaviour {
 	public Object attributePrefab;
 	public Browse_BrowseControl BrowseCont;
 
-
-
 	private string browseMode; //user defined browse mode
 
 
@@ -26,10 +24,17 @@ public class Browse_BrowseSelectAttributes : MonoBehaviour {
 	public void GetAttributes(string browseType)
 	{
 //		Debug.Log("GetAttr: " + browseType);
+		#if UNITY_WEBGL
 		StartCoroutine (GetAttributesAsync (browseType));
 
+		#elif UNITY_STANDALONE
+		Debug.Log ("Populating DublinCoreReader");
+		DublinCoreReader.LoadXmlFromFile(Paths.ArtefactMetadata);
 
+		BrowseMode(browseType);
+		#endif
 	}
+
 
 	/// <summary>
 	/// Provides a backing for GetAttributes(string browseType) that can load data in to the DublinCoreReader asynchronously in the case 
@@ -40,8 +45,10 @@ public class Browse_BrowseSelectAttributes : MonoBehaviour {
 
 		// If the DublinCoreReader has not been populated with data by some preceding operation, populate it now
 		if (!DublinCoreReader.HasXml()) {
+			
 			Debug.Log ("Populating DublinCoreReader");
-			UnityWebRequest www = UnityWebRequest.Get(Paths.Remote + "/Metadata/Vertice_ArtefactInformation.xml");
+			UnityWebRequest www = UnityWebRequest.Get(Paths.ArtefactMetadata); //Paths.Remote + "/Metadata/Vertice_ArtefactInformation.xml"
+
 			yield return www.Send ();
 
 			if (www.isError) {
@@ -50,7 +57,12 @@ public class Browse_BrowseSelectAttributes : MonoBehaviour {
 				DublinCoreReader.LoadXmlFromText (www.downloadHandler.text);
 			}
 		}
+		BrowseMode(browseType);
+	}
+		
 
+	private void BrowseMode(string browseType)
+	{
 		string[] browseAttributes;
 
 		switch (browseType) {
@@ -76,10 +88,12 @@ public class Browse_BrowseSelectAttributes : MonoBehaviour {
 			break;
 		}
 
+		Debug.Log("browseAttributes: " + browseAttributes.Length);
+
 		browseMode = browseType;
 		InstantAttributes(browseAttributes);
 	}
-		
+
 
 	/// <summary>
 	/// Instantiates browse attribute prefabs for user to select

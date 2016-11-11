@@ -532,45 +532,45 @@ Performance of the final malagan rites frees the living from their obligations t
     </descriptive>
     <structural>
     </structural>
-    <relatedAssets>
+    <relatedAssets>x
     </relatedAssets>
   </artefact>
   <artefact id="VERT-161110040338">
     <descriptive>
-      <Title>Buddha</Title>
-      <Title>Phra Phrom</Title>
-      <Identifier>VERT-161110040338</Identifier>
-      <Creator>??</Creator>
-      <Contributor>??</Contributor>
-      <Date>??</Date>
-      <Rights>CC0</Rights>
-      <Coverage>China</Coverage>
-      <Subject>Buddha</Subject>
-      <Description>Buddha test descript</Description>
-      <Relation>??</Relation>
-      <Format>Ornament</Format>
-      <Format>Religious item</Format>
-      <Medium>Copper</Medium>
-      <Extent>5x7x5cm</Extent>
+      <title>Buddha</title>
+      <title>Phra Phrom</title>
+      <identifier>VERT-161110040338</identifier>
+      <creator>Unknown</creator>
+      <contributor>Unknown</contributor>
+      <date>??</date>
+      <rights>CC0</rights>
+      <coverage>China</coverage>
+      <subject>Buddha</subject>
+      <description>Buddha test descript</description>
+      <relation>??</relation>
+      <format>Ornament</format>
+      <format>Religious item</format>
+      <medium>Copper</medium>
+      <extent>5x7x5cm</extent>
     </descriptive>
     <structural>
-      <Creator>Ryan Achten</Creator>
-      <Created>2016/06/05</Created>
-      <Description>Test descript 02</Description>
-      <IsVersion>??</IsVersion>
-      <Format>Wavefront Obj (model)</Format>
-      <Format>JPEG (texture)</Format>
-      <Extent>20K vertices</Extent>
-      <Identifier>??</Identifier>
-      <Rights>CC0</Rights>
+      <creator>Ryan Achten</creator>
+      <created>2016/06/05</created>
+      <description>Test descript 02</description>
+      <isVersion>??</isVersion>
+      <format>Wavefront Obj (model)</format>
+      <format>JPEG (texture)</format>
+      <extent>20K vertices</extent>
+      <identifier>??</identifier>
+      <rights>CC0</rights>
     </structural>
     <relatedAssets>
-      <MeshLocation>file:///Users/ryanachten/Documents/UnityTests/VerticeArchive_old/Buddha/Buddha_Model/Buddha.obj</MeshLocation>
-      <TexLocation>file:///Users/ryanachten/Documents/UnityTests/VerticeArchive_old/Buddha/Buddha_Model/BuddhaTex.jpg</TexLocation>
+      <MeshLocation>/VerticeArchive_old/Buddha/Buddha_Model/Buddha.obj</MeshLocation>
+      <TexLocation>/VerticeArchive_old/Buddha/Buddha_Model/BuddhaTex.jpg</TexLocation>
       <ContextMedia>
         <MediaName>Brahma_PhraPhrom</MediaName>
-        <MediaType>image</MediaType>
-        <MediaLocation>file:///Users/ryanachten/Documents/UnityTests/VerticeArchive_old/Buddha/Buddha_Context/Brahma_PhraPhrom.jpg</MediaLocation>
+        <MediaType>Image</MediaType>
+        <MediaLocation>/VerticeArchive_old/Buddha/Buddha_Context/Brahma_PhraPhrom.jpg</MediaLocation>
       </ContextMedia>
     </relatedAssets>
   </artefact>
