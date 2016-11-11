@@ -17,6 +17,22 @@ public class Collect_CollectControl : MonoBehaviour {
 
 
 	/// <summary>
+	/// Imports collection artefact's mesh and texture, assigns object info
+	/// </summary>
+	/// <param name="collectionIdentifiers">array of identifiers belonging to collection</param>
+	public void ImportArtefacts(string collectId)
+	{
+		ResetInstances();
+		#if UNITY_WEBGL
+		StartCoroutine(DownloadArtefactXmlAndImportArtefacts(collectId));
+		#elif UNITY_STANDALONE
+		DublinCoreReader.LoadXmlFromFile(Paths.ArtefactMetadata);
+		GetIdentifiers(collectId);
+		#endif
+	}
+
+
+	/// <summary>
 	/// Asynchronous, private implementation for the public-facing ImportArtefacts(...) method. Allows the caller to 
 	/// ignore any implementation details (i.e. they do not need to call StartCoroutine, etc.
 	/// 
@@ -27,7 +43,7 @@ public class Collect_CollectControl : MonoBehaviour {
 	/// <param name="collectId">Collection identifier.</param>
 	IEnumerator DownloadArtefactXmlAndImportArtefacts(string collectId){
 		if (!DublinCoreReader.HasXml ()) {
-			UnityWebRequest www = UnityWebRequest.Get (Paths.Remote + "/Metadata/Vertice_ArtefactInformation.xml");
+			UnityWebRequest www = UnityWebRequest.Get (Paths.ArtefactMetadata); //Paths.Remote + "/Metadata/Vertice_ArtefactInformation.xml"
 			yield return www.Send ();
 
 			if (www.isError) {
@@ -38,7 +54,12 @@ public class Collect_CollectControl : MonoBehaviour {
 				Debug.Log("Downloaded some XML");
 			}
 		}
+		GetIdentifiers(collectId);
+	}
 
+
+	private void GetIdentifiers(string collectId)
+	{
 		collectionId = collectId;
 
 		string[] collectionIdentifiers = CollectionReader.GetIdentifiersForArtefactsInCollectionWithIdentifier(collectId);
@@ -49,23 +70,12 @@ public class Collect_CollectControl : MonoBehaviour {
 
 		for (int i = 0; i < collectionIdentifiers.Length; i++) {
 
-			string meshLocation = Paths.Remote + DublinCoreReader.GetMeshLocationForArtefactWithIdentifier(collectionIdentifiers [i]);
-			string texLocation = Paths.Remote + DublinCoreReader.GetTextureLocationForArtefactWithIdentifier(collectionIdentifiers [i]);
+			string meshLocation = Paths.VerticeArchive + DublinCoreReader.GetMeshLocationForArtefactWithIdentifier(collectionIdentifiers [i]); //Paths.Remote
+			string texLocation = Paths.VerticeArchive + DublinCoreReader.GetTextureLocationForArtefactWithIdentifier(collectionIdentifiers [i]); //Paths.Remote
 			StartCoroutine (ImportModel (i, collectionIdentifiers[i], meshLocation, texLocation));
 		}
-
 	}
 
-
-	/// <summary>
-	/// Imports collection artefact's mesh and texture, assigns object info
-	/// </summary>
-	/// <param name="collectionIdentifiers">array of identifiers belonging to collection</param>
-	public void ImportArtefacts(string collectId)
-	{
-		ResetInstances();
-		StartCoroutine(DownloadArtefactXmlAndImportArtefacts(collectId));
-	}
 
 
 	/// <summary>

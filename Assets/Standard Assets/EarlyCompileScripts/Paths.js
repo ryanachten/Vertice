@@ -11,7 +11,7 @@ public static var ArtefactMetadata = Remote + "/Metadata/Vertice_ArtefactInforma
 public static var VerticeArchive = Remote; //+ "/VerticeArchive";
 
 #elif UNITY_STANDALONE
-public static var CollectionMetadata = "file://" + Local + "/Vertice_CollectionMetadata.xml";
+public static var CollectionMetadata = Local + "/Vertice_CollectionMetadata.xml";
 public static var ArtefactMetadata = "file://" + Local + "/Vertice_ArtefactMetadata.xml";
 public static var VerticeArchive = "file:///Users/ryanachten/Documents/UnityTests"; //FIXME needs to be changed
 #endif
