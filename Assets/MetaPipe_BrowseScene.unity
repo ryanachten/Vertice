@@ -8266,10 +8266,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 243866720}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df51487491fd54c85a3a0ef36c3f5f19, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a4358b98ac7043beb9432c0d811d8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadScript: {fileID: 0}
+  portalDestination: import
+  LoadScene: {fileID: 2040889498}
 --- !u!65 &243866723
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20963,7 +20964,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 761713219}
-        m_MethodName: OpenPrefsPanel
+        m_MethodName: TogglePrefsPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22349,10 +22350,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 829255075}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a1bda8f8153c4f7b8a4b569f27dc627, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a4358b98ac7043beb9432c0d811d8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadScript: {fileID: 0}
+  portalDestination: collect
+  LoadScene: {fileID: 2040889498}
 --- !u!65 &829255078
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -55011,6 +55013,12 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2037678896}
+--- !u!114 &2040889498 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000013083512590, guid: 1ab08e7cbf96f4400b1be5128635ca69,
+    type: 2}
+  m_PrefabInternal: {fileID: 2052747228}
+  m_Script: {fileID: 11500000, guid: 8a487a25b30f448c8bbf92e602d5c5d9, type: 3}
 --- !u!1 &2043983775
 GameObject:
   m_ObjectHideFlags: 0

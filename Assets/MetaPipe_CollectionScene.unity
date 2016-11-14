@@ -29092,6 +29092,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ab08e7cbf96f4400b1be5128635ca69, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &994004283 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000013083512590, guid: 1ab08e7cbf96f4400b1be5128635ca69,
+    type: 2}
+  m_PrefabInternal: {fileID: 994004282}
+  m_Script: {fileID: 11500000, guid: 8a487a25b30f448c8bbf92e602d5c5d9, type: 3}
 --- !u!1 &996602285
 GameObject:
   m_ObjectHideFlags: 0
@@ -33039,10 +33045,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1122420502}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df51487491fd54c85a3a0ef36c3f5f19, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a4358b98ac7043beb9432c0d811d8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadScript: {fileID: 0}
+  portalDestination: import
+  LoadScene: {fileID: 994004283}
 --- !u!65 &1122420505
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -55483,10 +55490,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1953197188}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6103a3301105944d6a4451e1fdbb6651, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a4358b98ac7043beb9432c0d811d8ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadScript: {fileID: 0}
+  portalDestination: browse
+  LoadScene: {fileID: 994004283}
 --- !u!65 &1953197190
 BoxCollider:
   m_ObjectHideFlags: 0

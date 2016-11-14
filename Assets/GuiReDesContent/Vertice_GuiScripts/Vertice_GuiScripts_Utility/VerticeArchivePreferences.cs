@@ -38,9 +38,15 @@ public class VerticeArchivePreferences : MonoBehaviour {
 		}
 	}
 
-	public void OpenPrefsPanel()
+	public void TogglePrefsPanel()
 	{
-		preferencesPanel.SetActive(true);
+		if (!preferencesPanel.activeSelf)
+		{
+			preferencesPanel.SetActive(true);
+		}else
+		{
+			preferencesPanel.SetActive(false);
+		}
 	}
 
 	public void OpenDialogue()
