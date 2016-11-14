@@ -95,6 +95,7 @@ GameObject:
   - 114: {fileID: 114000012130752222}
   - 114: {fileID: 114000014226275116}
   - 114: {fileID: 114000011156299882}
+  - 114: {fileID: 114000013909166418}
   m_Layer: 5
   m_Name: date_Field
   m_TagString: Untagged
@@ -293,7 +294,18 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114000013909166418}
+        m_MethodName: VerifyDateInput
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.InputField+SubmitEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_OnValueChanged:
@@ -397,6 +409,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef23852da50c34570a35dd2814caec12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114000013909166418
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014101633696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88f97a6b7aa2f453cb3a58bb558352b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dateInputField: {fileID: 114000012130752222}
 --- !u!114 &114000014226275116
 MonoBehaviour:
   m_ObjectHideFlags: 1
