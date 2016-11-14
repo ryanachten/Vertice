@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Networking;
@@ -10,7 +11,7 @@ public class Browse_BrowseSelectAttributes : MonoBehaviour {
 	//browse query, then sends to browse control
 
 	public Transform attributeParent; //transform for prefabs to be instantiated under
-	public Object attributePrefab;
+	public UnityEngine.Object attributePrefab;
 	public Browse_BrowseControl BrowseCont;
 
 	private string browseMode; //user defined browse mode
@@ -28,7 +29,7 @@ public class Browse_BrowseSelectAttributes : MonoBehaviour {
 		StartCoroutine (GetAttributesAsync (browseType));
 
 		#elif UNITY_STANDALONE
-		Debug.Log ("Populating DublinCoreReader");
+//		Debug.Log ("Populating DublinCoreReader");
 		DublinCoreReader.LoadXmlFromFile(Paths.ArtefactMetadata);
 
 		BrowseMode(browseType);
@@ -88,7 +89,7 @@ public class Browse_BrowseSelectAttributes : MonoBehaviour {
 			break;
 		}
 
-		Debug.Log("browseAttributes: " + browseAttributes.Length);
+		Array.Sort(browseAttributes);
 
 		browseMode = browseType;
 		InstantAttributes(browseAttributes);
@@ -104,7 +105,7 @@ public class Browse_BrowseSelectAttributes : MonoBehaviour {
 		ResetAttributes ();
 		for (int i = 0; i < browseAttributes.Length; i++) {
 
-			GameObject curBrowseAtt = Object.Instantiate (attributePrefab, attributeParent) as GameObject;
+			GameObject curBrowseAtt = UnityEngine.Object.Instantiate (attributePrefab, attributeParent) as GameObject;
 			curBrowseAtt.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
 			curBrowseAtt.GetComponentInChildren<Text>().text = browseAttributes[i];
 		}

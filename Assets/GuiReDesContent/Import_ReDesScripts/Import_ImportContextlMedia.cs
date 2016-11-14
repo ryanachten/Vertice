@@ -12,12 +12,19 @@ public class Import_ImportContextlMedia : MonoBehaviour {
 
 	public void OpenDialogue(string openMode)
 	{
-		string[] fileExtensions = new string[1]; //Filter Files
-		if (openMode == "image")
+		if (ArtefactSaveData.MeshLocation != null)
 		{
-			fileExtensions[0] = "jpg";
-			UniFileBrowser.use.SetFileExtensions(fileExtensions);
-			UniFileBrowser.use.OpenFileWindow(OpenImage);
+			string[] fileExtensions = new string[1]; //Filter Files
+			if (openMode == "image")
+			{
+				fileExtensions[0] = "jpg";
+				UniFileBrowser.use.SetFileExtensions(fileExtensions);
+				UniFileBrowser.use.OpenFileWindow(OpenImage);
+			}
+		}
+		else 
+		{
+			StartCoroutine(ErrorFeedback("modelFirst"));
 		}
 	}
 
@@ -35,7 +42,7 @@ public class Import_ImportContextlMedia : MonoBehaviour {
 			catch (System.Exception ex) 
 			{
 				Debug.Log("Image not in VerticeArchive folder");
-				StartCoroutine(ErrorFeedback());
+				StartCoroutine(ErrorFeedback("imgLocation"));
 			}
 
 		}
@@ -83,8 +90,18 @@ public class Import_ImportContextlMedia : MonoBehaviour {
 		mediaName = nameSubstring;
 	}
 
-	IEnumerator ErrorFeedback()
+	IEnumerator ErrorFeedback(string errorType)
 	{
+		if (errorType == "imgLocation")
+		{
+			imageErrorFeedback.GetComponent<Text>().text = "Image not in your VerticeArchive folder";
+		}
+		else 
+		{
+			//Import mesh first
+			imageErrorFeedback.GetComponent<Text>().text = "Import Model First";
+		}
+
 		imageErrorFeedback.SetActive(true);
 
 		yield return new WaitForSeconds(3);

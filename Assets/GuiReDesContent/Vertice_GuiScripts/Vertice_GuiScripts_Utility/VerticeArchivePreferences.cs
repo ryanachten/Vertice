@@ -21,7 +21,7 @@ public class VerticeArchivePreferences : MonoBehaviour {
 	{
 		if(Paths.VerticeArchive == null)
 		{
-			Debug.Log("Getting Player Prefs");
+//			Debug.Log("Getting Player Prefs");
 			string verticeArchiveLocation = PlayerPrefs.GetString("VerticeArchive Location");
 
 			if(verticeArchiveLocation.Length == 0)

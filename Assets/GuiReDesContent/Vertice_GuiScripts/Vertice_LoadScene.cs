@@ -22,6 +22,7 @@ public class Vertice_LoadScene : MonoBehaviour {
 	public void loadImport()
 	{
 		Application.LoadLevel("MetaPipe_ImportScene");
+		ArtefactSaveData.ClearSaveData();
 	}
 		
 	public void loadBrowse()
@@ -34,6 +35,7 @@ public class Vertice_LoadScene : MonoBehaviour {
 	{	
 		Application.LoadLevel("MetaPipe_CollectionScene");
 		collectButton.interactable = false;
+		CollectDataHost.ResetSaveData();
 	}
 
 

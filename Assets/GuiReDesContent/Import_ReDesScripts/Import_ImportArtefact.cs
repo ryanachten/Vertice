@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Import_ImportArtefact : MonoBehaviour {
@@ -22,9 +23,17 @@ public class Import_ImportArtefact : MonoBehaviour {
 		}
 		else if (openMode == "texture")
 		{
-			fileExtensions[0] = "jpg";
-			UniFileBrowser.use.SetFileExtensions(fileExtensions);
-			UniFileBrowser.use.OpenFileWindow(OpenTexture);
+			if (ArtefactSaveData.MeshLocation != null)
+			{
+				fileExtensions[0] = "jpg";
+				UniFileBrowser.use.SetFileExtensions(fileExtensions);
+				UniFileBrowser.use.OpenFileWindow(OpenTexture);
+			}
+			else
+			{
+				Debug.Log("Import mesh first");
+				StartCoroutine(ErrorFeedback("meshFirst"));
+			}
 		}
 	}
 
@@ -123,9 +132,16 @@ public class Import_ImportArtefact : MonoBehaviour {
 		{
 			feedbackText = modelErrorFeedback;
 		}
-		else
+		else if (errorType == "texture")
 		{
 			feedbackText = texErrorFeedback;
+			feedbackText.GetComponent<Text>().text = "Texture not in your VerticeArchive folder";
+		}
+		else
+		{
+			//Mesh first error
+			feedbackText = texErrorFeedback;
+			feedbackText.GetComponent<Text>().text = "Import Model First";
 		}
 
 		feedbackText.SetActive(true);
