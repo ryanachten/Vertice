@@ -6,8 +6,8 @@ public static var Remote = "https://s3-ap-southeast-2.amazonaws.com/vertice-dev"
 public static var Local = Application.dataPath;
 
 #if UNITY_WEBGL
-public static var CollectionMetadata = Remote + "/Metadata/Vertice_CollectionInformation.xml";
-public static var ArtefactMetadata = Remote + "/Metadata/Vertice_ArtefactInformation.xml";
+public static var CollectionMetadata = Remote + "/Metadata/Vertice_CollectionMetadata.xml";
+public static var ArtefactMetadata = Remote + "/Metadata/Vertice_ArtefactMetadata.xml";
 public static var VerticeArchive = Remote; //+ "/VerticeArchive";
 
 #elif UNITY_STANDALONE
