@@ -22865,7 +22865,7 @@ MonoBehaviour:
   - {fileID: 1283874951}
   - {fileID: 1692939530}
   - {fileID: 1676124126}
-  testXmlWriterMode: 1
+  testXmlWriterMode: 0
 --- !u!114 &965330331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34794,7 +34794,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 232.5, y: -116.25}
+  m_AnchoredPosition: {x: 232.5, y: -413.75}
   m_SizeDelta: {x: 465, y: 232.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1477206058

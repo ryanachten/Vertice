@@ -389,16 +389,4 @@ Example collection using digital artefacts sourced from the Metropolitan Museum 
       </artefact>
     </structural>
   </verticeCollection>
-  <verticeCollection id="adasdsadasd">
-    <descriptive>
-      <title>sdasdsadas</title>
-      <creator>asdasdasd</creator>
-      <contributor>asdasdasdas</contributor>
-      <date>adasdasd</date>
-      <coverage>asdasdsad</coverage>
-      <subject>asdasdasd</subject>
-      <description>asdasdsad</description>
-    </descriptive>
-    <structural />
-  </verticeCollection>
 </verticeCollections>
