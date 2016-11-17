@@ -16,7 +16,7 @@ function instantXmlImg(imgName : String, sourceImgAd : String){ //instantiated v
 	var imgNameText : Text = instImg.GetComponentInChildren(Text);
 	imgNameText.text = imgName;
 	
-	impContScript.ContextImgImp(sourceImgAd);
+//	impContScript.ContextImgImp(sourceImgAd);
 }
 
 function clearChildren()

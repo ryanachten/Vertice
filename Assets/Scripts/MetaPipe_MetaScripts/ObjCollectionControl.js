@@ -21,7 +21,7 @@ function Start(){
 
 	#if UNITY_WEBGL
 	Debug.Log("Loading UserCollections XML data from AWS");
-	var url = Paths.Remote + "/Metadata/Metapipe_UserCollections.xml";
+	var url = null;
 	var xmlWWW = new WWW(url);
 
 	// Note that there is a race condition here, so it isn't a good idea to yield. If this code yields in the while 

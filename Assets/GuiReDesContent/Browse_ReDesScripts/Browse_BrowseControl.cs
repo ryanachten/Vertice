@@ -48,10 +48,10 @@ public class Browse_BrowseControl : MonoBehaviour {
 		ProgressBarCont.SetMaxVal(browseIdentifiers.Length *2);
 
 
-		for (int i = 0; i < browseIdentifiers.Length; i++) {
-
-			string meshLocation = Paths.VerticeArchive + DublinCoreReader.GetMeshLocationForArtefactWithIdentifier(browseIdentifiers [i]);
-			string texLocation = Paths.VerticeArchive + DublinCoreReader.GetTextureLocationForArtefactWithIdentifier(browseIdentifiers [i]);
+		for (int i = 0; i < browseIdentifiers.Length; i++) 
+		{
+			string meshLocation = Paths.PathToFile(DublinCoreReader.GetMeshLocationForArtefactWithIdentifier(browseIdentifiers [i]));
+			string texLocation = Paths.PathToFile(DublinCoreReader.GetTextureLocationForArtefactWithIdentifier(browseIdentifiers [i]));
 
 			StartCoroutine (ImportModel (i, browseIdentifiers[i], meshLocation, texLocation));
 		}

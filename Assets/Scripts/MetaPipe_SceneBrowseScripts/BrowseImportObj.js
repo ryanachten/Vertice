@@ -138,7 +138,7 @@ function importList(sortResults : List.<String>)
 			var curNode = xmlRoot.SelectSingleNode("MetaPipeObject[@name='"+ curObjName +"']");
 			Debug.Log("IMPORT curNode: " + curObjName);
 						
-			importObj(curNode);
+//			importObj(curNode);
 		}
 		if (!objImportComplete || !texImportComplete) 
 		{
@@ -161,86 +161,86 @@ function importList(sortResults : List.<String>)
 
 
 
-function importObj(curObjNode : XmlNode)
-{
-
-	objImportComplete = false;
-	texImportComplete = false;
-	
-	var meshLocation : String = curObjNode.SelectSingleNode("./MeshLocation").InnerText;
-	var objName : String = curObjNode.SelectSingleNode("@name").Value;
-	var modelScale : float = parseFloat(curObjNode.SelectSingleNode("./ModelInfo/ModelScale").InnerText); //***NEW***
-//	Debug.Log("Model Scale: " + modelScale);
-	
-	var importModels : GameObject[] = [];
-
-	#if UNITY_WEBGL
-	var fileLocation = Paths.Remote + meshLocation;
-	Debug.Log("fileLocation: " + fileLocation);
-	var importer : ObjReader.ObjData = ObjReader.use.ConvertFileAsync(fileLocation, false, standardMaterial);
-
-	#else
-	// TODO: This code expects an absolute path to a file, but paths will be relative. A BASE_URL should be declared for WebGL and 
-	// the "Archive Folder Location" should be used to alter a BASE_PATH for standalone builds
-	var importer : ObjReader.ObjData = ObjReader.use.ConvertFileAsync(Paths.Local + meshLocation, false, standardMaterial);
-	#endif
-
-	while (!importer.isDone){
-		yield;
-	}
-	importModels = importer.gameObjects;
-
-	for (var model : GameObject in importModels)
-	{
-		curObj = model;
-		
-		//Add Tag
-		curObj.tag = "Active Model"; 
-		curObj.name = objName;
-		
-		objTex = curObj.GetComponent(MeshRenderer);		
-	
-		importTex(curObjNode);
-		
-		while (!texImportComplete)
-		{
-			yield;
-		}
-		
-		model.transform.localScale = new Vector3(modelScale,modelScale,modelScale); //***NEW***
-		
-		curBrowseObjects.Add(model);
-		
-		objImportComplete = true;
-		//Debug.Log("Done Downloading Obj: " + objName);
-	}
-}
-
-function importTex(curObjNode : XmlNode)
-{
-
-	#if UNITY_WEBGL
-	var texLocation = curObjNode.SelectSingleNode("./TexLocation").InnerText;
-	var wwwDirectory = Paths.Remote + texLocation;
-	#else
-	var texLocation = curObjNode.SelectSingleNode("./TexLocation").InnerText;
-	var wwwDirectory = Paths.Local + texLocation; //this will probably need to change for other OS (PC = file:/ [I think?]) - **REVISE**
-	#endif
-	
-	objTex.material.mainTexture = new Texture2D(512, 512, TextureFormat.DXT1, false);
-	
-	while(true){
-	
-		var www : WWW = new WWW(wwwDirectory);
-		
-		yield www;
-	
-		www.LoadImageIntoTexture(curObj.GetComponent.<Renderer>().material.mainTexture);
-		
-		if (www.isDone){
-			texImportComplete = true;
-			//Debug.Log("Done Downloading Texture");
-			break; //if done downloading image break loop
-		}
-	}
-}
+//function importObj(curObjNode : XmlNode)
+//{
+//
+//	objImportComplete = false;
+//	texImportComplete = false;
+//	
+//	var meshLocation : String = curObjNode.SelectSingleNode("./MeshLocation").InnerText;
+//	var objName : String = curObjNode.SelectSingleNode("@name").Value;
+//	var modelScale : float = parseFloat(curObjNode.SelectSingleNode("./ModelInfo/ModelScale").InnerText); //***NEW***
+////	Debug.Log("Model Scale: " + modelScale);
+//	
+//	var importModels : GameObject[] = [];
+//
+//	#if UNITY_WEBGL
+//	var fileLocation = Paths.Remote + meshLocation;
+//	Debug.Log("fileLocation: " + fileLocation);
+//	var importer : ObjReader.ObjData = ObjReader.use.ConvertFileAsync(fileLocation, false, standardMaterial);
+//
+//	#else
+//	// TODO: This code expects an absolute path to a file, but paths will be relative. A BASE_URL should be declared for WebGL and 
+//	// the "Archive Folder Location" should be used to alter a BASE_PATH for standalone builds
+////	var importer : ObjReader.ObjData = ObjReader.use.ConvertFileAsync(Paths.Local + meshLocation, false, standardMaterial);
+//	#endif
+//
+//	while (!importer.isDone){
+//		yield;
+//	}
+//	importModels = importer.gameObjects;
+//
+//	for (var model : GameObject in importModels)
+//	{
+//		curObj = model;
+//		
+//		//Add Tag
+//		curObj.tag = "Active Model"; 
+//		curObj.name = objName;
+//		
+//		objTex = curObj.GetComponent(MeshRenderer);		
+//	
+//		importTex(curObjNode);
+//		
+//		while (!texImportComplete)
+//		{
+//			yield;
+//		}
+//		
+//		model.transform.localScale = new Vector3(modelScale,modelScale,modelScale); //***NEW***
+//		
+//		curBrowseObjects.Add(model);
+//		
+//		objImportComplete = true;
+//		//Debug.Log("Done Downloading Obj: " + objName);
+//	}
+//}
+//
+//function importTex(curObjNode : XmlNode)
+//{
+//
+//	#if UNITY_WEBGL
+//	var texLocation = curObjNode.SelectSingleNode("./TexLocation").InnerText;
+//	var wwwDirectory = Paths.Remote + texLocation;
+//	#else
+//	var texLocation = curObjNode.SelectSingleNode("./TexLocation").InnerText;
+//	var wwwDirectory = Paths.Local + texLocation; //this will probably need to change for other OS (PC = file:/ [I think?]) - **REVISE**
+//	#endif
+//	
+//	objTex.material.mainTexture = new Texture2D(512, 512, TextureFormat.DXT1, false);
+//	
+//	while(true){
+//	
+//		var www : WWW = new WWW(wwwDirectory);
+//		
+//		yield www;
+//	
+//		www.LoadImageIntoTexture(curObj.GetComponent.<Renderer>().material.mainTexture);
+//		
+//		if (www.isDone){
+//			texImportComplete = true;
+//			//Debug.Log("Done Downloading Texture");
+//			break; //if done downloading image break loop
+//		}
+//	}
+//}

@@ -18,7 +18,7 @@ public class BrowseImpContextImg : MonoBehaviour {
 	/// <param name="texLocation">Texture directory URI.</param>
 	public IEnumerator ContextImgImp (string texLocation)
 	{
-		var wwwDirectory = Paths.VerticeArchive + texLocation;
+		var wwwDirectory = Paths.PathToFile(texLocation);
 
 		textureLocation = wwwDirectory;
 

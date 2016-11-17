@@ -89,7 +89,7 @@ public class Import_ImportArtefact : MonoBehaviour {
 	/// <param name="meshLocation">Location of mesh information</param>
 	IEnumerator ImportModel(string meshLocation)
 	{
-		ObjReader.ObjData objReader = ObjReader.use.ConvertFileAsync(Paths.VerticeArchive + meshLocation, false, defaultMaterial);
+		ObjReader.ObjData objReader = ObjReader.use.ConvertFileAsync(Paths.PathToFile(meshLocation), false, defaultMaterial);
 		while (!objReader.isDone) 
 		{
 			yield return null;
@@ -101,7 +101,6 @@ public class Import_ImportArtefact : MonoBehaviour {
 //		curArtefact.name = browseIdentifier; //TODO assign default name to gameobject
 
 		ArtefactSaveData.MeshLocation = meshLocation;
-//		Debug.Log("MeshLocation: " + ArtefactSaveData.MeshLocation);
 	}
 
 
@@ -112,7 +111,7 @@ public class Import_ImportArtefact : MonoBehaviour {
 		curArtefact.GetComponent<MeshRenderer> ().material.mainTexture = objTexture;
 
 		// Download texture
-		WWW www = new WWW(Paths.VerticeArchive + texLocation);
+		WWW www = new WWW(Paths.PathToFile(texLocation));
 
 		while (!www.isDone){
 			yield return null;
@@ -120,7 +119,6 @@ public class Import_ImportArtefact : MonoBehaviour {
 		www.LoadImageIntoTexture(objTexture);
 
 		ArtefactSaveData.TexLocation = texLocation;
-//		Debug.Log("TexLocation: " + ArtefactSaveData.TexLocation);
 	}
 
 

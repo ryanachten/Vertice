@@ -93,7 +93,7 @@ function Start(){
 
 	#if UNITY_WEBGL
 	Debug.Log("Loading ObjArchive XML data from AWS");
-	var url = Paths.Remote + "/Metadata/Metapipe_ObjArchive.xml";
+	var url = null;
 	var xmlWWW = new WWW(url);
 	while(!xmlWWW.isDone){
 		yield;

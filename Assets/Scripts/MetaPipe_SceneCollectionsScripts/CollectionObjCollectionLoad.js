@@ -70,7 +70,7 @@ function loadCollectionObjects( listNode : XmlNode)
 
 		#if UNITY_WEBGL
 		var importModel : GameObject[] = [];
-		var importer : ObjReader.ObjData = ObjReader.use.ConvertFileAsync(Paths.Remote + curMeshLocation, false, standardMaterial);
+		var importer : ObjReader.ObjData = null;
 		while (!importer.isDone){
 			yield;
 		}
@@ -80,45 +80,45 @@ function loadCollectionObjects( listNode : XmlNode)
 		// TODO This code expects an absolute path to a file, but paths will be relative. A BASE_URL should be declared for WebGL and 
 		// the "Archive Folder Location" should be used to alter a BASE_PATH for standalone builds
 		var importModel : GameObject[] = [];
-		var importer : ObjReader.ObjData = ObjReader.use.ConvertFileAsync(Paths.Local + curMeshLocation, false, standardMaterial);
-		while (!importer.isDone){
-			yield;
-		}
-		importModel = importer.gameObjects;
+//		var importer : ObjReader.ObjData = ObjReader.use.ConvertFileAsync(Paths.Local + curMeshLocation, false, standardMaterial);
+//		while (!importer.isDone){
+//			yield;
+//		}
+//		importModel = importer.gameObjects;
 
 		#endif
 
-		for (var model : GameObject in importModel)
-		{
-			var curObj = model;
-			//Add Tag
-			curObj.tag = "Active Model";
-			curObj.layer = 8;
-			curObj.name = curObjName;
-			var objTex = curObj.GetComponent(MeshRenderer);		
-		
-		
-			//import texture
-			#if UNITY_WEBGL
-			var wwwDirectory = Paths.Remote + curTexLocation; //this will probably need to change for other OS (PC = file:/ [I think?]) - **REVISE**
-			#else
-			// TODO This code expects an absolute path to a file, but paths will be relative. A BASE_URL should be declared for WebGL and 
-			// the "Archive Folder Location" should be used to alter a BASE_PATH for standalone builds
-			var wwwDirectory = Paths.Local + curTexLocation; //this will probably need to change for other OS (PC = file:/ [I think?]) - **REVISE**
-			#endif
-
-			objTex.material.mainTexture = new Texture2D(512, 512, TextureFormat.DXT1, false);
-			while(true){
-				
-				var www : WWW = new WWW(wwwDirectory);
-				yield www;
-				www.LoadImageIntoTexture(curObj.GetComponent.<Renderer>().material.mainTexture);
-				if (www.isDone){
-					break; //if done downloading image break loop
-				}
-
-			}
-		}
+//		for (var model : GameObject in importModel)
+//		{
+//			var curObj = model;
+//			//Add Tag
+//			curObj.tag = "Active Model";
+//			curObj.layer = 8;
+//			curObj.name = curObjName;
+//			var objTex = curObj.GetComponent(MeshRenderer);		
+//		
+//		
+//			//import texture
+//			#if UNITY_WEBGL
+////			var wwwDirectory = Paths.Remote + curTexLocation; //this will probably need to change for other OS (PC = file:/ [I think?]) - **REVISE**
+//			#else
+//			// TODO This code expects an absolute path to a file, but paths will be relative. A BASE_URL should be declared for WebGL and 
+//			// the "Archive Folder Location" should be used to alter a BASE_PATH for standalone builds
+////			var wwwDirectory = Paths.Local + curTexLocation; //this will probably need to change for other OS (PC = file:/ [I think?]) - **REVISE**
+//			#endif
+//
+//			objTex.material.mainTexture = new Texture2D(512, 512, TextureFormat.DXT1, false);
+//			while(true){
+//				
+//				var www : WWW = new WWW(wwwDirectory);
+//				yield www;
+//				www.LoadImageIntoTexture(curObj.GetComponent.<Renderer>().material.mainTexture);
+//				if (www.isDone){
+//					break; //if done downloading image break loop
+//				}
+//
+//			}
+//		}
 
 		// TODO This can be replaced with the new CollectionReader and VerticeTransform classes. E.g.
 
@@ -149,6 +149,8 @@ function loadCollectionObjects( listNode : XmlNode)
 		// TODO This functionality can be replaced by instantiating the VerticeTransform.cs class
 		// e.g VerticeTransform randomPosition = new VerticeTransform(loadPlaneMin.x, loadPlaneMax.x, loadPlaneMin.z, loadPlaneMax.z);
 		// curObj.transform.position = randomPosition.postion;
+		var curObj : GameObject;
+
 		if (existPosX == "" && existPosY == "" && existPosY == "")
 		{
 		

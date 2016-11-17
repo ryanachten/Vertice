@@ -58,7 +58,7 @@ public class Import_ImportContextlMedia : MonoBehaviour {
 		RawImage prefabRawImg = imgPrefab.GetComponentInChildren<RawImage>();
 
 		// Download texture
-		WWW www = new WWW(Paths.VerticeArchive + texLocation);
+		WWW www = new WWW(Paths.PathToFile(texLocation));
 
 		while (!www.isDone){
 			yield return null;

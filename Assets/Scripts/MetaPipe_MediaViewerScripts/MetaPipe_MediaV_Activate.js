@@ -159,9 +159,9 @@ function loadContextAudio(audioLocation : String)
 {
 
 	#if UNITY_WEBGL
-	var wwwDirectory = Paths.Remote + audioLocation;
+	var wwwDirectory = null;
 	#else
-	var wwwDirectory = Paths.Local + audioLocation; //this will probably need to change for other OS (PC = file:/ [I think?]) - **REVISE**
+	var wwwDirectory = null; //this will probably need to change for other OS (PC = file:/ [I think?]) - **REVISE**
 	#endif
 	var www : WWW = new WWW(wwwDirectory);
 	
@@ -183,9 +183,9 @@ function loadContextImage(texLocation : String)
 {	
 
 	#if UNITY_WEBGL
-	var wwwDirectory = Paths.Remote + texLocation;	
+	var wwwDirectory = null;	
 	#else
-	var wwwDirectory = Paths.Local + texLocation; //this will probably need to change for other OS (PC = file:/ [I think?]) - **REVISE**	
+	var wwwDirectory = null; //this will probably need to change for other OS (PC = file:/ [I think?]) - **REVISE**	
 	#endif
 
 	while(true){

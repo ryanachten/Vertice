@@ -708,6 +708,7 @@ private function DrawFileWindow () {
 #endif
 	
 	if (doubleClicked && Input.GetMouseButtonUp(0) && frameDone) {	// EventType.MouseUp doesn't work here because the buttons eat it
+//		Debug.Log("710 Double clicked [doubleClicked && Input.GetMouseButtonUp(0) && frameDone]");
 		doubleClicked = false;
 		SelectFile();
 		WaitForFrame();
@@ -763,11 +764,13 @@ private function DrawFileWindow () {
 	
 	// Open/Save button
 	if (fileType == FileType.Open) {
+//		Debug.Log("767 File open [fileType == FileType.Open]");
 		if ( (!multi && selectedFileNumber == -1) || (multi && multiFileList.Count == 0) ) {
 			GUI.enabled = false;
 		}
 	}
 	else if (fileType == FileType.Folder) {
+//		Debug.Log("773 Folder open [fileType == FileType.Folder]");
 		if (selectedFileNumber == -1 || selectedFileNumber >= dirList.Count) {
 			GUI.enabled = false;
 		}
@@ -1369,6 +1372,7 @@ private function GetMultiFileNames () : List.<String> {
 }
 
 private function SelectFile () : IEnumerator {
+//	Debug.Log("1372 Entering folder [private function SelectFile () : IEnumerator {]");
 	if (showMessageWindow || selectFileInProgress) return;
 
 	// If user opened a folder, change directories

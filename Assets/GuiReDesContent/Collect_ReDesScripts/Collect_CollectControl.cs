@@ -70,8 +70,8 @@ public class Collect_CollectControl : MonoBehaviour {
 
 		for (int i = 0; i < collectionIdentifiers.Length; i++) {
 
-			string meshLocation = Paths.VerticeArchive + DublinCoreReader.GetMeshLocationForArtefactWithIdentifier(collectionIdentifiers [i]); //Paths.Remote
-			string texLocation = Paths.VerticeArchive + DublinCoreReader.GetTextureLocationForArtefactWithIdentifier(collectionIdentifiers [i]); //Paths.Remote
+			string meshLocation = Paths.PathToFile(DublinCoreReader.GetMeshLocationForArtefactWithIdentifier(collectionIdentifiers [i]));
+			string texLocation = Paths.PathToFile(DublinCoreReader.GetTextureLocationForArtefactWithIdentifier(collectionIdentifiers [i])); 
 			StartCoroutine (ImportModel (i, collectionIdentifiers[i], meshLocation, texLocation));
 		}
 	}
