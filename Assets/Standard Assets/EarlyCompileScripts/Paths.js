@@ -33,7 +33,7 @@ public static function PathToFile(fileLocation : String)
 	#endif
 
 	var verticeFileLocation = filePrefix + VerticeArchive + fileLocation;
-	Debug.Log("verticeFileLocation: " + verticeFileLocation);
+//	Debug.Log("verticeFileLocation: " + verticeFileLocation);
 	return verticeFileLocation;
 }
 #endif

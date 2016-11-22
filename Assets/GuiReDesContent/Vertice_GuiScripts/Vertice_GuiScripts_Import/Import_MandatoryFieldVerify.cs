@@ -11,15 +11,22 @@ public class Import_MandatoryFieldVerify : MonoBehaviour {
 	public Import_AddDataToXml AddDataToXml;
 	public MandatoryFieldFeedback FieldFeedback;
 	public GameObject[] mandatoryAttributes;
-	private List<string> remainingMandatoryFields;
+	private List<string> remainingFields;
 	public bool testXmlWriterMode;
+
+	public Color invalidTextColor;
+	public Color validTextColor;
+	public Text infoPanelText;
+	public Text contextPanelText;
+	public Text mediaPanelText;
+	public Text meshPanelText;
 
 
 	//TODO review this verification process - doesn't actually take into account expected data types
 
 	public void VerifyFields() //gauges whether fields have text input assigned to them and sends to feedback if not
 	{
-		remainingMandatoryFields = new List<string>();
+		remainingFields = new List<string>();
 
 		for (int i = 0; i < mandatoryAttributes.Length; i++) {
 
@@ -40,7 +47,7 @@ public class Import_MandatoryFieldVerify : MonoBehaviour {
 								{
 									if (fieldAttrChild.GetComponent<Text>().text.Length <= 0) //if user input hasn't been assigned to the input field text
 									{
-										remainingMandatoryFields.Add(attrName);
+										remainingFields.Add(i.ToString()); //attrName
 										FieldFeedback.InvalidFieldFeedback(mandatoryAttributes[i], attrChild); //execute invalid feedback
 									}
 									else //if user has assigned input 
@@ -54,15 +61,12 @@ public class Import_MandatoryFieldVerify : MonoBehaviour {
 				}
 			}
 		}
-		if (remainingMandatoryFields.Count > 0)
+		if (remainingFields.Count > 0)
 		{
 			Debug.Log("Mandatory Fields remaining");
-			for (int i = 0; i < remainingMandatoryFields.Count; i++) 
-			{
-//				Debug.Log("Field: " + remainingMandatoryFields[i]);
-			}
+			ProvidePanelFeedback(remainingFields);
 		}
-		else if (remainingMandatoryFields.Count == 0)
+		else if (remainingFields.Count == 0)
 		{
 			Debug.Log("Fields complete! Add data");
 			AddDataToXml.GetArtefactData();
@@ -72,5 +76,68 @@ public class Import_MandatoryFieldVerify : MonoBehaviour {
 			Debug.Log("Debug test");
 			AddDataToXml.GetArtefactData();
 		}
+			
 	}
+
+
+	void ProvidePanelFeedback(List<string> remainingFields)
+	{
+		bool infoPanel = false;
+		bool contextPanel = false;
+		bool mediaPanel = false;
+		bool meshPanel = false;
+
+
+		for (int i = 0; i < remainingFields.Count; i++) 
+		{
+			if (remainingFields[i] == "0" || remainingFields[i] == "1" || remainingFields[i] == "2" || remainingFields[i] == "3" || remainingFields[i] == "4")
+			{
+				infoPanel = true;
+			}
+			if (remainingFields[i] == "5" || remainingFields[i] == "6")
+			{
+				contextPanel = true;
+			}
+			if (remainingFields[i] == "7")
+			{
+				mediaPanel = true;
+			}
+			if (remainingFields[i] == "8")
+			{
+				meshPanel = true;
+			}
+		}
+		if (infoPanel){
+			Debug.Log("Execute infoPanel");
+			infoPanelText.color = invalidTextColor;
+		}
+		else{
+			infoPanelText.color = validTextColor;
+		}
+
+		if (contextPanel){
+			Debug.Log("Execute contextPanel");
+			contextPanelText.color = invalidTextColor;
+		}
+		else{
+			contextPanelText.color = validTextColor;
+		}
+
+		if (mediaPanel){
+			Debug.Log("Execute mediaPanel");	
+			mediaPanelText.color = invalidTextColor;
+		}
+		else{
+			mediaPanelText.color = validTextColor;
+		}
+
+		if (meshPanel){
+			Debug.Log("Execute meshPanel");
+			meshPanelText.color = invalidTextColor;
+		}
+		else{
+			meshPanelText.color = validTextColor;
+		}
+	}
+
 }

@@ -65,7 +65,6 @@ public class VerticeArchivePreferences : MonoBehaviour {
 			string directorySubstring = pathToVerticeArchiveFolder.Substring(0, directoryIndex);
 //			Debug.Log("directorySubstring: " + directorySubstring);
 
-//			string verticeArchiveLocation = "file://" + directorySubstring; //TODO this "file://" prob needs to change for Windows
 			string verticeArchiveLocation = directorySubstring;
 //			Debug.Log("verticeArchiveLocation: " + verticeArchiveLocation);
 

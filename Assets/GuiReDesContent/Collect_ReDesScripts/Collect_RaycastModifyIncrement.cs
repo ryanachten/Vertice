@@ -11,6 +11,7 @@ public class Collect_RaycastModifyIncrement : MonoBehaviour {
 	public Collect_ModifyHelp modHelpCont;
 
 	//modify controller variables
+	static public bool canModify; //disabled when GUI inputs fields are open to avoid conflicting input
 	public float modWaitTime = 1f;
 	public float hoverHeight = 1f; //height artefact hovers above the ground
 	public float modSensitivity = 5f;
@@ -34,6 +35,7 @@ public class Collect_RaycastModifyIncrement : MonoBehaviour {
 
 	void Start()
 	{
+		canModify = true;
 		canMove = true;
 		canRotate = true;
 		canScale = true;
@@ -42,64 +44,64 @@ public class Collect_RaycastModifyIncrement : MonoBehaviour {
 
 	void FixedUpdate () 
 	{
-
-		//Move TODO this might need to moved to a seperate script
-		if (Input.GetKey(KeyCode.E))
-		{	
-			if (Input.GetKeyDown(KeyCode.E))
-			{
-				SetupModArtefact("move");
-			}
-
-			if (canMove && modArtefact != null && Input.GetMouseButtonDown(0))
+		if(canModify){
+			//Move TODO this might need to moved to a seperate script
+			if (Input.GetKey(KeyCode.E))
 			{	
-				StartCoroutine(MoveObject(modArtefact));
-			}
-		}		
-		if (Input.GetKeyUp(KeyCode.E))
-		{
-			ResetModArtefact("move");
-		}
+				if (Input.GetKeyDown(KeyCode.E))
+				{
+					SetupModArtefact("move");
+				}
 
-
-		//Rotate
-		if (Input.GetKey(KeyCode.R))
-		{	
-			if (Input.GetKeyDown(KeyCode.R))
+				if (canMove && modArtefact != null && Input.GetMouseButtonDown(0))
+				{	
+					StartCoroutine(MoveObject(modArtefact));
+				}
+			}		
+			if (Input.GetKeyUp(KeyCode.E))
 			{
-				SetupModArtefact("rotate");
+				ResetModArtefact("move");
 			}
 
-			if (canRotate && modArtefact != null)
+
+			//Rotate
+			if (Input.GetKey(KeyCode.R))
 			{	
-				StartCoroutine(RotateObject(modArtefact));
+				if (Input.GetKeyDown(KeyCode.R))
+				{
+					SetupModArtefact("rotate");
+				}
+
+				if (canRotate && modArtefact != null)
+				{	
+					StartCoroutine(RotateObject(modArtefact));
+				}
 			}
-		}
-		if (Input.GetKeyUp(KeyCode.R))
-		{
-			ResetModArtefact("rotate");
-		}
-
-
-		//Scale
-		if (Input.GetKey(KeyCode.T))
-		{	
-			if (Input.GetKeyDown(KeyCode.T))
+			if (Input.GetKeyUp(KeyCode.R))
 			{
-				SetupModArtefact("scale");
+				ResetModArtefact("rotate");
 			}
 
-			if (canScale && modArtefact != null)
+
+			//Scale
+			if (Input.GetKey(KeyCode.T))
 			{	
-				StartCoroutine(ScaleObject(modArtefact));
+				if (Input.GetKeyDown(KeyCode.T))
+				{
+					SetupModArtefact("scale");
+				}
+
+				if (canScale && modArtefact != null)
+				{	
+					StartCoroutine(ScaleObject(modArtefact));
+				}
+			}
+			if (Input.GetKeyUp(KeyCode.T))
+			{
+				ResetModArtefact("scale");
 			}
 		}
-		if (Input.GetKeyUp(KeyCode.T))
-		{
-			ResetModArtefact("scale");
-		}
-	}
-		
+	}	
 
 
 	void SetupModArtefact(string modType)
