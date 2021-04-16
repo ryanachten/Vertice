@@ -8,6 +8,8 @@ Vertice is a platform that enables cultural institutions and their visitors to c
 
 Through considered interaction design and incorporation of gamification, Vertice anticipates how three-dimensional space can alter and enhance the way users interact with intangible cultural artefacts.
 
+Vertice is no longer actively maintained, however, forking or contributions to this repository are always welcome.
+
 ## Scenes
 Vertice is comprised of three different scenes; entitled _Import_, _Browse_, and _Collections_.
 
@@ -59,5 +61,6 @@ A key point of difference of the Collection scene is that it allows its users cu
 * Web & Backend Development: Tim Bathgate
 * Mentorship: Michael Elwood-Smith
 * Supervision: Walter Langelaar
+* Additional support from Professor Simon Fraser and [MADE, Victoria University of Wellington](https://made.ac.nz/about-made/)
 
 Funded by VicLink & KiwiNet, 2016
